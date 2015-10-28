@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  url: MyString
+  user_id: 
+  charity_id: 
+  cause_id: 
+
+two:
+  url: MyString
+  user_id: 
+  charity_id: 
+  cause_id: 

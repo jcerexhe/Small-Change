@@ -11,13 +11,103 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151028052524) do
+ActiveRecord::Schema.define(version: 20151028091821) do
+
+  create_table "causes", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "charities", force: :cascade do |t|
+    t.string   "name"
+    t.string   "logo"
+    t.string   "bsb"
+    t.string   "account_number"
+    t.string   "contact_name"
+    t.string   "contact_email"
+    t.string   "abn"
+    t.string   "address"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "charity_causes", force: :cascade do |t|
+    t.integer  "cause_id"
+    t.integer  "charity_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "charity_causes", ["cause_id"], name: "index_charity_causes_on_cause_id"
+  add_index "charity_causes", ["charity_id"], name: "index_charity_causes_on_charity_id"
+
+  create_table "donations", force: :cascade do |t|
+    t.decimal  "amount"
+    t.integer  "charity_id"
+    t.integer  "user_id"
+    t.integer  "submission_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "donations", ["charity_id"], name: "index_donations_on_charity_id"
+  add_index "donations", ["submission_id"], name: "index_donations_on_submission_id"
+  add_index "donations", ["user_id"], name: "index_donations_on_user_id"
+
+  create_table "enquiries", force: :cascade do |t|
+    t.string   "enquiry_type"
+    t.string   "name"
+    t.string   "email"
+    t.text     "message"
+    t.integer  "user_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "enquiries", ["user_id"], name: "index_enquiries_on_user_id"
+
+  create_table "profiles", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
+
+  create_table "submissions", force: :cascade do |t|
+    t.string   "url"
+    t.integer  "user_id"
+    t.integer  "charity_id"
+    t.integer  "cause_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "submissions", ["cause_id"], name: "index_submissions_on_cause_id"
+  add_index "submissions", ["charity_id"], name: "index_submissions_on_charity_id"
+  add_index "submissions", ["user_id"], name: "index_submissions_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
     t.string   "password"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end

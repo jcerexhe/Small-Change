@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
 
+  resources :donations
+  resources :submissions
+  resources :charities
+  resources :causes
+  resources :enquiries
+  resources :profiles
+  devise_for :users
   resources :users
 
  

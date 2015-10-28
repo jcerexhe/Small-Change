@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Charities</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Logo</th>
+      <th>Bsb</th>
+      <th>Account number</th>
+      <th>Contact name</th>
+      <th>Contact email</th>
+      <th>Abn</th>
+      <th>Address</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @charities.each do |charity| %>
+      <tr>
+        <td><%= charity.name %></td>
+        <td><%= charity.logo %></td>
+        <td><%= charity.bsb %></td>
+        <td><%= charity.account_number %></td>
+        <td><%= charity.contact_name %></td>
+        <td><%= charity.contact_email %></td>
+        <td><%= charity.abn %></td>
+        <td><%= charity.address %></td>
+        <td><%= link_to 'Show', charity %></td>
+        <td><%= link_to 'Edit', edit_charity_path(charity) %></td>
+        <td><%= link_to 'Destroy', charity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Charity', new_charity_path %>

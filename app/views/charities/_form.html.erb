@@ -1,0 +1,18 @@
+<%= simple_form_for(@charity) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :logo %>
+    <%= f.input :bsb %>
+    <%= f.input :account_number %>
+    <%= f.input :contact_name %>
+    <%= f.input :contact_email %>
+    <%= f.input :abn %>
+    <%= f.input :address %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
