@@ -1,2 +1,30 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home|Small Change</title>
+  </head>
+  <body>
+    <div class = "logo">
+  	<%= link_to image_tag("logo.png", :size => "160x145", :class => 'logo-img', alt: "Rails logo"), 'localhost:3000' %>
+    </div>
+    <br>
+    <h1>Small Change</h1>
+    <h2>
+      Eliminating Slacktivism
+    </h2>
+
+   
+
+    <div class="homepage-buttons">
+    <div class="btn-group" role="group">
+  <button type="button" class="btn btn-default">Trending Articles</button>
+  <button type="button" class="btn btn-default">Charity Tree</button>
+  <button type="button" class="btn btn-default">How It Works</button>
+    </div>
+    </div>
+
+
+  </body>
+</html>
