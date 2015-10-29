@@ -1,5 +1,22 @@
 Rails.application.routes.draw do
 
+  get  'FAQ' => 'static_pages#faq'
+
+  get 'founders' => 'static_pages#about_the_founders'
+
+  get 'terms&conditions' => 'static_pages#t_and_c'
+
+  get 'contact' => 'static_pages#contact_us'
+
+  get 'goal' => 'static_pages#our_goal'
+
+  get 'charitycontact' => 'static_pages#I_am_a_charity'
+
+  get 'newscontact' => 'static_pages#I_am_a_news_organisation'
+
+
+
+
   resources :donations
   resources :submissions
   resources :charities
