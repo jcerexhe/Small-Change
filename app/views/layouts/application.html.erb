@@ -9,9 +9,11 @@
 	<body>
 		<div class="container">
 			<%= render 'layouts/header' %>
+			<p class = "notice"><%=notice%></p>
+			<p class = "alert"><%=alert%> </p>
 			<%= yield %>
 				
-			<%=render 'layouts/footer' if current_page?(root_path) %>
+			<%=render 'layouts/footer' if current_page?(root_path) || current_page?(founders_path) %>
 				
 		</div>
 	</body>

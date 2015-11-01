@@ -6,7 +6,16 @@
         <li><%= link_to "Situation At A Glance",   '#' %></li>
         <li><%= link_to "Donate To Small Change",   '#' %></li>
         <li><%= link_to "Our Goal", 'goal' %></li>
+
+
+        <% if user_signed_in? %>
         <li><%= link_to "My Small Change", '#' %></li>
+        <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+        <%else%>
+        <li><%= link_to "Sign In", new_user_session_path %> </li>
+        <%end%>
+
+
       </ul>
     </nav>
   </div>
