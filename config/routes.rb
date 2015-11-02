@@ -9,10 +9,19 @@ Rails.application.routes.draw do
   get 'contact' => 'static_pages#contact_us'
 
   get 'goal' => 'static_pages#our_goal'
+  get 'users/goal' => 'static_pages#our_goal'
 
   get 'charitycontact' => 'static_pages#I_am_a_charity'
 
   get 'newscontact' => 'static_pages#I_am_a_news_organisation'
+
+  get 'users/registrations/home' => 'home#index'
+
+
+  devise_for :users, controllers: {sessions: 'users/sessions', registrations: 'users/registrations'}
+
+
+
 
 
 
@@ -23,7 +32,6 @@ Rails.application.routes.draw do
   resources :causes
   resources :enquiries
   resources :profiles
-  devise_for :users
 
  
   # The priority is based upon order of creation: first created -> highest priority.

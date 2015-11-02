@@ -2,11 +2,27 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :enquiry_type %>
-    <%= f.input :name %>
-    <%= f.input :email %>
-    <%= f.input :message %>
-    <%= f.association :user %>
+  <% if params[:enquiry_type] %>
+    <%= f.input :enquiry_type, as: :hidden, input_html: { value: params[:enquiry_type]} %>
+  <% else %>
+
+  <!-- if you just go enquiries/new -->
+    <%= f.input :enquiry_type, collection: ['General enquiry', 'You scammed me'] %>                
+  <% end %>
+
+  <% if user_signed_in? %>
+    <%= f.input :name, input_html: { value: current_user.name } %>
+    <%= f.input :email, input_html: { value: current_user.email } %>
+    <%else%>
+
+  <%= f.input :name %>
+  <%= f.input :email %>
+
+  
+
+  <%end%>
+<%= f.input :message %>
+
   </div>
 
   <div class="form-actions">

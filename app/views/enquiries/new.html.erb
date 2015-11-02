@@ -1,4 +1,8 @@
-<h1>New Enquiry</h1>
+
+<% @title = params[:enquiry_type] %>
+
+
+<h1> <%= @title %> Enquiry</h1>
 
 <%= render 'form' %>
 
