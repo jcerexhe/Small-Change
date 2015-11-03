@@ -8,8 +8,11 @@ Rails.application.routes.draw do
 
   get 'contact' => 'static_pages#contact_us'
 
+  get 'howitworks' => 'static_pages#how_it_works'
+
   get 'goal' => 'static_pages#our_goal'
   get 'users/goal' => 'static_pages#our_goal'
+  get 'enquiries/goal' => 'static_pages#our_goal'
 
   get 'charitycontact' => 'static_pages#I_am_a_charity'
 

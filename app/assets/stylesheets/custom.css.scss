@@ -49,7 +49,7 @@ textarea {
 }
 
 .homepage-buttons {
-    padding-top: 30px;
+    padding-top: 10px;
     width: 100%;
     text-align: center;
     display: inline-block;
@@ -103,6 +103,13 @@ p {
   }
 }
 
+.hiy-images {
+  text-align: center;
+  background: none;
+}
+
+
+
 /* footer */
 
 footer {
@@ -132,5 +139,18 @@ footer {
 }
 
 
-/* home page buttons */
+/* goal page */
+
+  .goal-video {
+      text-align: center;
+  }
+
+
+/* how it works page */
+
+  .hiy-video {
+      text-align: center;
+  }
+
+
 

@@ -5,6 +5,10 @@ class StaticPagesController < ApplicationController
   def about_the_founders
   end
 
+  def how_it_works
+  end
+
+
   def t_and_c
   end
 
