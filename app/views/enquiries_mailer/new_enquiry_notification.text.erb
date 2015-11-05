@@ -1,5 +1,19 @@
-Hi,
+Hi <%= @enquiry.name.split.first %>
 
-A new record has been added: <%= @enquiry.message %>
+We got your Small Change Enquiry, and one of our staff will be in touch shortly.
 
-Thanks
+Sincerely,
+
+The Small Change Team
+
+
+
+ Name: <%= @enquiry.name %>
+
+ Email: <%= @enquiry.email %>
+
+ Enquiry Type: <%= @enquiry.enquiry_type %>
+
+ Message: <%= @enquiry.message %>
+
+

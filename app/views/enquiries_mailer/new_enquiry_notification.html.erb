@@ -1,5 +1,25 @@
-<h1>EnquiriesMailer#new_enquiry_notification</h1>
 
 <p>
-  <%= @greeting %>, find me in app/views/enquiries_mailer/new_enquiry_notification.html.erb
+
+Hi <%= @enquiry.name.split.first %> <br><br>
+
+We got your Small Change Enquiry, and one of our staff will be in touch shortly. <br><br>
+
+Sincerely,<br><br>
+
+The Small Change Team<br><br><br><br>
+
+------------------------------------------------------------------------------------------
+
+<br><br><br>
+
+ Name: <%= @enquiry.name %><br><br>
+
+ Email: <%= @enquiry.email %><br><br>
+
+ Enquiry Type: <%= @enquiry.enquiry_type %><br><br>
+
+ Message: <br><br><%= @enquiry.message %>
+
+
 </p>
