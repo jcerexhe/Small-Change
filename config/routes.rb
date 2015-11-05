@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   get 'howitworks' => 'static_pages#how_it_works'
 
+  get 'situation' => 'static_pages#situation_at_a_glance'
+
   get 'goal' => 'static_pages#our_goal'
   get 'users/goal' => 'static_pages#our_goal'
   get 'enquiries/goal' => 'static_pages#our_goal'

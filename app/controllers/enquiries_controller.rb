@@ -28,6 +28,9 @@ class EnquiriesController < ApplicationController
 
     respond_to do |format|
       if @enquiry.save
+        EnquiriesMailer.new_enquiry_notification(@enquiry.id).deliver_now
+        EnquiriesMailer.admin_enquiry_notification(@enquiry.id).deliver_now
+
         format.html { redirect_to @enquiry, notice: 'Enquiry was successfully created.' }
         format.json { render :show, status: :created, location: @enquiry }
       else

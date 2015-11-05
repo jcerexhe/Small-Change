@@ -8,6 +8,14 @@ class StaticPagesController < ApplicationController
   def how_it_works
   end
 
+  def situation_at_a_glance
+    
+    # When we need to get information from the database e.g. donation total, 
+    # user total, number of small change donations, number of partnered charities,
+    # Ill need to specify that here.
+  end
+
+
 
   def t_and_c
   end

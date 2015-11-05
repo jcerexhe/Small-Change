@@ -145,6 +145,14 @@ footer {
       text-align: center;
   }
 
+  .bridge {
+  text-align:center;
+  }
+
+  .heading {
+font-family: sans-serif;
+  }
+
 
 /* how it works page */
 
@@ -153,4 +161,40 @@ footer {
   }
 
 
+/* situation at a glance page */
+
+
+.b1, .b2, .b3, .b4{
+display:inline-block;
+position: relative;
+margin: 1%;
+float:right;
+width:22%;
+height:150px;
+background-color: lightgrey;
+border-radius: 10px;
+text-align: center;
+font-size: 200%;
+}
+
+.fact {
+  padding-top: 20%;
+  font-size: 200%;
+  font-family: serif;
+}
+
+.Pie {
+  text-align:left;
+}
+
+/* FAQ page */
+
+.breakers {
+  font-size: 200%;
+  font-family: serif;
+}
+
+.FAQ_List {
+  text-align:center;
+}
 
