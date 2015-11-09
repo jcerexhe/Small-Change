@@ -5,16 +5,20 @@ class CharitiesController < ApplicationController
   # GET /charities.json
   def index
     @charities = Charity.all
+    @cause = Cause.new
   end
 
   # GET /charities/1
   # GET /charities/1.json
   def show
+    @charities = Charity.all
+    @cause = Cause.new
   end
 
   # GET /charities/new
   def new
     @charity = Charity.new
+    @causes = Cause.all
   end
 
   # GET /charities/1/edit
@@ -69,6 +73,6 @@ class CharitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def charity_params
-      params.require(:charity).permit(:name, :logo, :bsb, :account_number, :contact_name, :contact_email, :abn, :address)
+      params.require(:charity).permit(:name, :logo, :bsb, :account_number, :contact_name, :contact_email, :abn, :address, :cause_ids => [])
     end
 end

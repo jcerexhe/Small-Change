@@ -7,11 +7,23 @@
 
 <p>
   <strong>Logo:</strong>
-  <%= @charity.logo %>
+  <%= image_tag @charity.logo, width: '380px', class: 'img-responsive' %>
 </p>
 
+
+
 <p>
-  <strong>Bsb:</strong>
+  <strong>Category:</strong>
+   <% @charity.causes.each_with_index do |cause, index| %>
+    <%= cause.name %>
+    <%= "," unless index == @charity.causes.count - 1 %>
+
+    <%end%>
+</p>
+
+
+<p>
+  <strong>BSB:</strong>
   <%= @charity.bsb %>
 </p>
 
@@ -31,7 +43,7 @@
 </p>
 
 <p>
-  <strong>Abn:</strong>
+  <strong>ABN:</strong>
   <%= @charity.abn %>
 </p>
 
@@ -39,6 +51,10 @@
   <strong>Address:</strong>
   <%= @charity.address %>
 </p>
+
+<p>
+ <!--  <strong>Cause:</strong>
+</p> -->
 
 <%= link_to 'Edit', edit_charity_path(@charity) %> |
 <%= link_to 'Back', charities_path %>

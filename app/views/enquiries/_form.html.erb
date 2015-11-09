@@ -15,8 +15,8 @@
     <%= f.input :email, input_html: { value: current_user.email } %>
     <%else%>
 
-  <%= f.input :name %>
-  <%= f.input :email %>
+  <%= f.input :name, placeholder: 'e.g Olivia Smith' %>
+  <%= f.input :email, placeholder: "e.g olivia@hotmail.com     (hotmail. is this the 90's?)" %>
 
   
 

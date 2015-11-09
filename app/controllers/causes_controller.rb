@@ -5,6 +5,7 @@ class CausesController < ApplicationController
   # GET /causes.json
   def index
     @causes = Cause.all
+    @charities = Charity.all
   end
 
   # GET /causes/1
@@ -15,6 +16,7 @@ class CausesController < ApplicationController
   # GET /causes/new
   def new
     @cause = Cause.new
+    @charity = Charity.new
   end
 
   # GET /causes/1/edit
@@ -69,6 +71,6 @@ class CausesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cause_params
-      params.require(:cause).permit(:name, :description)
+      params.require(:cause).permit(:name, :description, :amount_raised)
     end
 end
