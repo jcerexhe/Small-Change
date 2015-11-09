@@ -15,6 +15,11 @@ class StaticPagesController < ApplicationController
     # Ill need to specify that here.
   end
 
+  def charity_tree
+   @causes = Cause.all
+   @charities = Charity.all
+  end
+
 
 
   def t_and_c

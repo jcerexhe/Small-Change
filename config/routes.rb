@@ -22,6 +22,8 @@ Rails.application.routes.draw do
 
   get 'users/registrations/home' => 'home#index'
 
+  get 'tree' => 'static_pages#charity_tree'
+
 
   devise_for :users, controllers: {sessions: 'users/sessions', registrations: 'users/registrations'}
 
