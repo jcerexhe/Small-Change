@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   get 'contact' => 'static_pages#contact_us'
 
+  get 'donatetosmallchange' => 'static_pages#sc_donation'
+
   get 'howitworks' => 'static_pages#how_it_works'
 
   get 'situation' => 'static_pages#situation_at_a_glance'

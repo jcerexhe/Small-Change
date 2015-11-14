@@ -13,6 +13,11 @@
 
     </div>
     <br>
+
+
+  </div>
+
+
     <h1>Small Change</h1>
     <h2>Give some, make one  </h2>
 
@@ -21,13 +26,25 @@
     <div class="homepage-buttons">
 
 
-        <%= link_to "Trending Articles", '#', class: 'btn btn-default' %>
-        <%= link_to "Charity Tree", tree_path , class: 'btn btn-default ' %>
+        <%= link_to "Trending Articles", submissions_path, class: 'btn btn-default' %>
+        <%= link_to "Charity List", causes_path , class: 'btn btn-default ' %>
         <%= link_to "How It Works", howitworks_path , class: 'btn btn-default ' %>
 
     </div>
+    <br><br><br>
 
-    
+  <div class = "container">
+  <div class = "padleft">
+  <div class="col-lg-6">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Enter URL of your article here">
+      <span class="input-group-btn">
+        <button class="btn btn-info" type="button">Submit Article</button>
+      </span>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+</div><!-- /.row -->
+</div>
 
   </body>
 </html>

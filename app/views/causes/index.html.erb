@@ -1,5 +1,154 @@
 <p id="notice"><%= notice %></p>
 
+
+
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h2>Causes</h2>
+          <div class="row">
+            <div class = "right">
+              <%= link_to "All causes", causes_path, class: 'btn btn-default' %>
+            </div>
+           </div>
+        <% @causes.each do |cause| %>
+          <br/><%= link_to cause.name, causes_path(cause: cause.id), class: 'btn btn-info btn-block' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h2>Charities</h2>
+          <div class="top-right"><%= link_to "Suggest A New Charity", new_enquiry_path(enquiry_type: 'Charity'), class: 'btn btn-default btn-sm'%>
+          </div> <br> <br><br>
+          <% @charities.each do |charity| %>
+           <%= link_to charity.name, causes_path(cause: params[:cause], charity: charity.id), class: 'btn btn-default btn-block' %><br>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <% if @charity %>
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          
+
+
+
+
+
+  <h2> What <%= @charity.name %> does: </h2>  <br>
+
+    <div class="row">
+
+      <div class="col-md-6">
+
+          <div class="centre">
+        <ul class="list-group">
+          <li class="list-group-item"><p class="small-txt"><%=@charity.activity_one%></p></li>
+          <li class="list-group-item"><p class="small-txt"><%=@charity.activity_two%></p></li>
+          <li class="list-group-item"><p class="small-txt"><%=@charity.activity_three%></p></li>
+        </ul>
+        </div>  
+    </div>
+
+    <div class="col-md-6">
+
+          <div class="centre">
+          <ul class="list-unstyled">
+            <%= image_tag @charity.logo, width: '155px', class: "pic" %>
+          </ul>
+        </div>  
+    </div>
+  
+  </div>
+
+    <div class="row">
+
+        <br/>
+        <div class ="centre">
+          <p> Small Change: </p>
+        </div>
+    </div>
+
+  <div class="row">
+
+    <br/>
+    <div class ="centre">
+      <div class="btn-group" role="group" aria-label="...">
+          <button type="button" class="btn btn-danger">$1</button>
+        <button type="button" class="btn btn-danger">$2</button>
+          <button type="button" class="btn btn-danger">$5</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class = "centre">
+      <br/><br/><%= link_to @charity.name+" Profile", charity_path(@charity.id), class: "btn btn-md btn-default" %>
+    </div>
+  </div><br/>
+
+
+
+
+
+
+
+
+  </div>
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <h1>Listing Causes</h1>
 
 <table class="table table-hover">

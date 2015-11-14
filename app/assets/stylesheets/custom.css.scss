@@ -27,7 +27,7 @@ textarea {
 }
 
 .logo {
-  padding-top: 30px;
+  
   text-align: center;
 }
 
@@ -45,7 +45,9 @@ textarea {
 }
 
 .founder-txt {
-    text-align:left
+    text-align:left;
+    font-size: 0.8em;
+    font-family: sans-serif
 }
 
 .homepage-buttons {
@@ -85,6 +87,16 @@ p {
   line-height: 1.7em;
 }
 
+.top-right {
+  font-size: 0.8em;
+  color: $gray-light;
+  float:right;
+}
+
+.white {
+  color: #FFF
+}
+
 
 /* header */
 
@@ -95,7 +107,7 @@ p {
   color: white;
   text-transform: uppercase;
   letter-spacing: -1px;
-  padding-top: 19px;
+  padding-top: 9px;
   font-weight: bold;
   &:hover {
     color: white;
@@ -130,6 +142,7 @@ footer {
   }
   ul {
     float: right;
+    padding-right: 20px;
     list-style: none;
     li {
       float: left;
@@ -160,27 +173,35 @@ font-family: sans-serif;
       text-align: center;
   }
 
+/* home */
+
+.padleft {
+  margin-left: 33%
+}
 
 /* situation at a glance page */
 
 
-.b1, .b2, .b3, .b4{
-display:inline-block;
-position: relative;
-margin: 1%;
-float:right;
-width:22%;
-height:150px;
-background-color: lightgrey;
-border-radius: 10px;
-text-align: center;
-font-size: 200%;
+.panel-body-sitch {
+background:#D3D3D3;
+border-radius:15px;
+border-style: solid;
+border-color: black;
+border-width: 2px;
 }
 
+
 .fact {
-  padding-top: 20%;
-  font-size: 200%;
+  font-size: 3.9em;
   font-family: serif;
+  text-align: center;
+}
+
+.descriptor {
+  font-family: sans-serif;
+  text-align: center;
+  color: black;
+  font-size: 1em;
 }
 
 .Pie {
@@ -198,8 +219,43 @@ font-size: 200%;
   text-align:center;
 }
 
+.centre {
+  text-align:center;
+}
 
-.tree {
-  padding-left: 100px;
+.right {
+  text-align:left;
+  padding-left: 20px;
+}
+
+.activities{
+  font-family: sans-serif;
   text-align: center;
+  font-size: 1.5em
+}
+
+.activities-txt{
+  font-family: sans-serif;
+  text-align: center;
+  font-size: 1.1em;
+}
+
+/* Charity show page */
+
+.panel-charity {
+background:#D3D3D3;
+border-style: solid;
+border-color: black;
+border-width: 2px;
+margin-left: 13px;
+text-align: center;
+}
+
+.panel-image-charity {
+border-style: solid;
+border-color: black;
+border-width: 2px;
+text-align: center;
+height: 220px;
+
 }

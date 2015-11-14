@@ -2,7 +2,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
+    <%= f.input :name, :required => true, input_html: { value: @user_password }%>
     <%= f.input :logo %>
     <%= f.association :causes, as: :check_boxes, collection: @causes %>
     <%= f.input :bsb %>
@@ -11,6 +11,12 @@
     <%= f.input :contact_email %>
     <%= f.input :abn %>
     <%= f.input :address %>
+    <%= f.input :youtube_link, label: "Embeded Youtube Link (not just the normal URL)", :required => true %>
+    <%= f.input :activity_one, :required => true %>
+    <%= f.input :activity_two, :required => true %>
+    <%= f.input :activity_three, :required => true %>
+
+
 
 
 

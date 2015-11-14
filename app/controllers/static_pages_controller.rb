@@ -23,6 +23,7 @@ class StaticPagesController < ApplicationController
 
 
   def t_and_c
+    
   end
 
   def contact_us
@@ -34,11 +35,14 @@ class StaticPagesController < ApplicationController
 
   def I_am_a_charity
    @enquiry = Enquiry.new
-
   end
 
   def I_am_a_news_organisation
     @enquiry = Enquiry.new
-
   end
+
+  def sc_donation
+  end
+
+
 end

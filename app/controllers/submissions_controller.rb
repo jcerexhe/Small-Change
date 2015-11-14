@@ -15,6 +15,7 @@ class SubmissionsController < ApplicationController
   # GET /submissions/new
   def new
     @submission = Submission.new
+    @user = current_user
   end
 
   # GET /submissions/1/edit
@@ -25,6 +26,7 @@ class SubmissionsController < ApplicationController
   # POST /submissions.json
   def create
     @submission = Submission.new(submission_params)
+    @user = current_user
 
     respond_to do |format|
       if @submission.save

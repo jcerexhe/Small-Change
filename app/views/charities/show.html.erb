@@ -1,15 +1,122 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @charity.name %>
-</p>
+
+
+<div class = "container">
+
+  <div class = "row">
+
+      <div class="panel panel-default">
+          <div class="panel-body">
+            <h1> <%= @charity.name %> </h1>
+          </div>
+      </div>
+  </div>
+
+  <div class = "row">
+
+
+      <div class = "col-md-2">
+          <div class="panel panel-default">
+            <div class="panel-image-charity">
+              <h1> <%= image_tag @charity.logo, width: '500px', class: 'img-responsive' %></h1>
+            </div>
+          </div>
+      </div>
+
+
+       <div class = "col-md-7">
+        <div class = "row">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <p><h4 class="activities">Charity Activities:</h4></p>
+            </div>
+          </div>
+        </div>
+        <div class = "row">
+
+          <div class = "col-md-4">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <p><h4 class="activities-txt"><br><br><%=@charity.activity_one%><br><br><br></h4></p>
+            </div>
+          </div> 
+         </div>
+
+           <div class = "col-md-4">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <p><h4 class="activities-txt"><br><br><%=@charity.activity_two%><br><br><br></h4></p>
+            </div>
+          </div> 
+         </div>
+
+           <div class = "col-md-4">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <p><h4 class="activities-txt"><br><br><%=@charity.activity_three%><br><br><br></h4></p>
+            </div>
+          </div> 
+         </div>
+
+        </div>
+        <br>
+      </div>
+
+
+      <div class = "col-md-3">
+        <div class = "row">
+          <div class="panel-charity">
+              <br><br><p class = "fact">$12,365</p>
+                <p class = "descriptor"> Raised for <%= @charity.name %> </p><br><br>
+          </div>
+        </div>
+      </div>
+
+  </div>
+
+  <div class = "row">
+    <div class = "col-md-4">
+      <iframe width="289" height="180" src=<%=@charity.youtube_link%> frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <div class = "col-md-5">
+      <br><h2> Bind an article or video to <%= @charity.name %> </h2>
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Enter URL of your article here">
+              <span class="input-group-btn">
+                <button class="btn btn-info" type="button">Bind</button>
+              </span>
+          </div><!-- /input-group -->
+    </div>
+    <div class = "col-md-3">
+        <div class = "centre">
+          <br><br>
+          <%= link_to "Donate" , '#', class: 'btn btn-lg btn-default  ' %> 
+            <div class ="centre">
+               <div class="btn-group" role="group" aria-label="..."><br>
+                  <button type="button" class="btn btn-danger">$1</button>
+                  <button type="button" class="btn btn-danger">$2</button>
+                  <button type="button" class="btn btn-danger">$5</button>
+               </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
 
 <p>
   <strong>Logo:</strong>
-  <%= image_tag @charity.logo, width: '380px', class: 'img-responsive' %>
+  <%= image_tag @charity.logo, width: '390px', class: 'img-responsive' %>
 </p>
-
 
 
 <p>
@@ -53,8 +160,8 @@
 </p>
 
 <p>
- <!--  <strong>Cause:</strong>
-</p> -->
+<p class = "activities-txt"> - Research <br> - Sun, Smoking and Physical Activity Awareness Programs <br> - Patient Support <br> - Sun Protection Products </p>
+
 
 <%= link_to 'Edit', edit_charity_path(@charity) %> |
 <%= link_to 'Back', charities_path %>

@@ -5,7 +5,14 @@ class CausesController < ApplicationController
   # GET /causes.json
   def index
     @causes = Cause.all
-    @charities = Charity.all
+    if params[:cause]
+      @charities = Cause.find(params[:cause]).charities
+    else
+      @charities = Charity.all
+    end
+    if params[:charity]
+      @charity = Charity.find(params[:charity])
+    end
   end
 
   # GET /causes/1
