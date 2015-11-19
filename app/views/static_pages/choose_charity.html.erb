@@ -1,0 +1,158 @@
+<!--- STEP 1,2,3 HEADINGS -->
+<div class = "centre">
+  <div class="row">
+      <div class = 'col-md-3'>
+          <%= image_tag 'step1green.png', size: "80x80",class: 'centre' %>
+      </div>
+      <div class = 'col-md-3'>
+        <h2> </h2>
+      </div>
+      <div class = 'col-md-3'>
+        <% if params[:charity] %>
+          <%= image_tag 'step2green.png', size: "80x80",class: 'centre' %>
+        <% else %>
+          <%= image_tag 'step2grey.png', size: "80x80",class: 'centre' %>
+        <%end%>
+      </div>
+      <div class = 'col-md-3'>
+         <%= image_tag 'step3grey.png', size: "80x80",class: 'centre' %>
+      </div>
+  </div>
+</div>
+    
+
+
+
+
+
+<!-- Article Column-->
+<div class="row">
+	<div class="col-md-3">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<div class ="row">
+					<%= image_tag @submission.image, class: 'img-responsive' %><br>
+				</div>
+          <div class = "centre">
+  					<div class = "row">
+  						<em><%= @submission.title %></em><br>
+  					</div>
+          </div>
+					<div class = "row">
+						<div class="centre">
+							<br><%= image_tag @submission.favicon, size: "80x80",  class: 'img-resposive' %>
+						</div>
+					</div>
+			</div>
+		</div>
+	</div>
+
+<!-- Causes and Charity Boxes-->
+
+<div class="col-md-9">
+<div class="row">
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h2>Causes</h2>
+          <div class="row">
+            <div class = "right">
+              <%= link_to "All causes", choose_charity_path(submission: params[:submission]), class: 'btn btn-default' %>
+            </div>
+           </div>
+        <% @causes.each do |cause| %>
+          <br/><%= link_to cause.name, choose_charity_path(submission: params[:submission], cause: cause.id), class: 'btn btn-info btn-block' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h2>Charities</h2>
+          <div class="top-right"><%= link_to "Suggest A New Charity", new_enquiry_path(enquiry_type: 'Charity'), class: 'btn btn-default btn-sm'%>
+          </div> <br> <br><br>
+          <% @charities.each do |charity| %>
+            <div class = "name-format">
+              <%= link_to  charity.name , choose_charity_path(cause: params[:cause], charity: charity.id, submission: params[:submission]), class: 'btn btn-default btn-block' %><br>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <% if @charity %>
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          
+
+
+
+
+
+  <h2> What <%= @charity.name %> does: </h2>  <br>
+
+    <div class="row">
+
+      <div class="col-md-7">
+        <div class = "name-format">
+          <div class="centre">
+            <ul class="list-group">
+              <li class="list-group-item"><p class="small-txt"><%=@charity.activity_one%></p></li>
+              <li class="list-group-item"><p class="small-txt"><%=@charity.activity_two%></p></li>
+              <li class="list-group-item"><p class="small-txt"><%=@charity.activity_three%></p></li>
+            </ul>
+          </div>
+        </div>  
+    </div>
+
+    <div class="col-md-5">
+
+          <div class="centre">
+          <ul class="list-unstyled">
+            <%= image_tag @charity.logo, width: '250px', class: "img-responsive" %>
+          </ul>
+        </div>  
+    </div>
+  
+  </div>
+
+
+
+  <div class="row">
+
+    <br/>
+       <div class = "name-format">
+          <div class ="centre">
+              <%= link_to 'Connect Article', new_donation_path(submission: @submission.id, charity: @charity.id), class: 'btn btn-success' %>
+          </div>
+       </div>
+  </div>
+
+  <div class="row">
+    <div class = "name-format">
+
+      <div class = "centre">
+        <br/><br/><%= link_to @charity.name+" Profile", charity_path(@charity.id), class: "btn btn-md btn-default" %>
+        <br>
+    </div>
+      
+    </div>
+  </div><br/>
+
+
+
+<% end %>
+
+
+
+
+
+  </div>
+
+</div>
+
+
+</div>
+</div></div></div>
+

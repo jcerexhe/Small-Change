@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151112074706) do
+ActiveRecord::Schema.define(version: 20151116073117) do
 
   create_table "causes", force: :cascade do |t|
     t.string   "name"
@@ -84,16 +84,23 @@ ActiveRecord::Schema.define(version: 20151112074706) do
 
   create_table "submissions", force: :cascade do |t|
     t.string   "url"
-    t.integer  "user_id"
-    t.integer  "charity_id"
-    t.integer  "cause_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "title"
+    t.string   "favicon"
+    t.text     "description"
+    t.string   "image"
   end
 
-  add_index "submissions", ["cause_id"], name: "index_submissions_on_cause_id"
-  add_index "submissions", ["charity_id"], name: "index_submissions_on_charity_id"
-  add_index "submissions", ["user_id"], name: "index_submissions_on_user_id"
+  create_table "user_submissions", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "submission_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "user_submissions", ["submission_id"], name: "index_user_submissions_on_submission_id"
+  add_index "user_submissions", ["user_id"], name: "index_user_submissions_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false

@@ -19,7 +19,7 @@
 
 
     <h1>Small Change</h1>
-    <h2>Give some, make one  </h2>
+    <h2> Connect an inspiring article to a charity, today! </h2>
 
    
 
@@ -34,14 +34,19 @@
     <br><br><br>
 
   <div class = "container">
+
   <div class = "padleft">
   <div class="col-lg-6">
+
+  <%= simple_form_for(@submission) do |f| %>
     <div class="input-group">
-      <input type="text" class="form-control" placeholder="Enter URL of your article here">
+      <%= f.input_field :url, class: 'form-control', placeholder: "Enter URL of your article here" %>
       <span class="input-group-btn">
-        <button class="btn btn-info" type="button">Submit Article</button>
+        <button class="btn btn-info" type="submit">Submit Article</button>
       </span>
-    </div><!-- /input-group -->
+    </div>
+    <% end %>
+    
   </div><!-- /.col-lg-6 -->
 </div><!-- /.row -->
 </div>

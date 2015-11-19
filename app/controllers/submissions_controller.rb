@@ -26,15 +26,28 @@ class SubmissionsController < ApplicationController
   # POST /submissions.json
   def create
     @submission = Submission.new(submission_params)
-    @user = current_user
+    @existing_submission = Submission.find_by(url: @submission.url)
+    # @user = current_user
+  
 
+    if @existing_submission         #if this is the first time
+       @existing_submission.users << current_user
+       redirect_to choose_charity_path(submission: @existing_submission.id)
+    else                                #if this is not the first time 
+      @submission.users << current_user
+      object = LinkThumbnailer.generate(@submission.url)
+      @submission.title = object.title
+      @submission.favicon = object.favicon
+      @submission.description = object.description
+      @submission.image = object.images.first.src.to_s
     respond_to do |format|
       if @submission.save
-        format.html { redirect_to @submission, notice: 'Submission was successfully created.' }
+        format.html { redirect_to choose_charity_path(submission: @submission.id), notice: 'Submission was successfully created.' }
         format.json { render :show, status: :created, location: @submission }
       else
         format.html { render :new }
         format.json { render json: @submission.errors, status: :unprocessable_entity }
+      end
       end
     end
   end

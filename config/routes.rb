@@ -26,6 +26,8 @@ Rails.application.routes.draw do
 
   get 'tree' => 'static_pages#charity_tree'
 
+  get 'choose-charity' => 'static_pages#choose_charity'
+
 
   devise_for :users, controllers: {sessions: 'users/sessions', registrations: 'users/registrations'}
 
