@@ -1,5 +1,142 @@
-<h1>New Donation</h1>
+<% @submission = Submission.find(params[:submission]) %>
+<% @charity = Charity.find(params[:charity]) %>
+
+
+
+ <div class="row">
+      <div class = 'col-lg-6'>
+      		<div class = 'col-md-5'>
+      		</div>
+      		<div class = 'col-md-4'>
+          		<%= image_tag 'step3green.png', size: "80x80",class: 'img-responsive' %>
+          	</div>
+          	<div class = 'col-md-3'>
+      		</div>
+      </div>
+            <div class = 'col-lg-6'>
+      		<div class = 'col-md-5'>
+      		</div>
+      		<div class = 'col-md-4'>
+          		<%= image_tag 'step4grey.png', size: "80x80",class: 'img-responsive' %>
+          	</div>
+          	<div class = 'col-md-3'>
+      		</div>
+      </div>
+ </div>
+
+<br>
+
+<div class = 'row'>
+	<div class = 'col-lg-6'>
+		<div class = 'panel panel-default'>
+			<div class="panel-heading">
+    			<h3 class="panel-title">Small Change Package</h3>
+  			</div>
+			<div class = 'panel-body'>
+				<div class = 'row'>
+					<div class = 'col-sm-7'>
+						<br><br><p class = "article-title"> <%= @submission.title %> </p>
+							
+					</div>
+					<div class = 'col-sm-5'>
+						<%= image_tag @submission.favicon , size: "160x145", :class => 'img-logo' %>
+	 				</div>
+	 			</div>
+	 			<div class = 'row'>
+	 				<div class = 'col-sm-7'>
+					<h1> <%= Charity.find(params[:charity]).name %> </h1>
+					</div>
+					<div class = 'col-sm-5'>
+						<%= image_tag Charity.find(params[:charity]).logo , size: "145x145", :class => 'img-responsive' %>
+	 				</div>
+	 			</div>
+			</div>
+		</div>
+	</div>
+
+	<div class = 'col-lg-6'>
+		<div class = 'panel panel-default'>
+			<div class = 'panel-heading'>
+				<h3 class = 'panel-title'>Small Change - <%= @charity.name %></h3>
+			</div>
+			<div class = 'panel-body'>
+				<div class = 'row'>
+					<div class = 'donate-buttons'>
+						<div class="col-md-4">
+					     	<div class = "centre"> 
+					     		<%= link_to image_tag("OneSC.png", size: "150x150", :class => 'img-responsive'), "#" %>
+					     	</div>
+						</div>
+					</div>
+
+					<div class = 'donate-buttons'>
+						<div class="col-md-4">
+					     	<div class = "centre"> 
+					     		<%= link_to image_tag("TwoSC.png", size: "150x150", :class => 'img-responsive'), "#" %>
+							</div>
+						</div>
+					</div>
+
+					<div class = 'donate-buttons'>
+						<div class="col-md-4">
+					     	<div class = "centre"> 
+					     		<%= link_to image_tag("ThreeSC.png", size: "150x150", :class => 'img-responsive'), "#" %>
+					     	</div>
+						</div>
+					</div>
+	 			</div>
+
+	 			<div class="row">
+					<br><br>
+	  			
+						<div class = 'col-lg-2'>
+						</div>
+
+				  		<div class="col-lg-8">
+				  		 
+				  			<div class="input-group">
+				     			<input type="text" class="form-control" placeholder="Enter Other Amount (AUD $)">
+				      			<span class="input-group-btn">
+				        			<div class="btn btn-info">Donate</div>
+				      			</span>
+				    		</div><!-- /input-group -->
+				    	
+				  		</div><!-- /.col-lg-6 -->
+
+				  		<div class = 'col-lg-2'>
+						</div>
+				 
+				</div>		  	
+			</div>
+		</div>	
+	</div>
+</div>
+
+
+
+
+
+
+
+
+<br><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+
+
 
 <%= render 'form' %>
 
 <%= link_to 'Back', donations_path %>
+
+</div>

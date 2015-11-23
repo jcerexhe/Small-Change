@@ -21,31 +21,32 @@
 </div>
     
 
+<br>
 
 
 
 
 <!-- Article Column-->
 <div class="row">
-	<div class="col-md-3">
-		<div class="panel panel-default">
-			<div class="panel-body">
-				<div class ="row">
-					<%= image_tag @submission.image, class: 'img-responsive' %><br>
-				</div>
+  <div class="col-md-3">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class ="row">
+          <%= image_tag @submission.image, class: 'img-responsive' %><br>
+        </div>
           <div class = "centre">
-  					<div class = "row">
-  						<em><%= @submission.title %></em><br>
-  					</div>
+            <div class = "row">
+              <em><%= @submission.title %></em><br>
+            </div>
           </div>
-					<div class = "row">
-						<div class="centre">
-							<br><%= image_tag @submission.favicon, size: "80x80",  class: 'img-resposive' %>
-						</div>
-					</div>
-			</div>
-		</div>
-	</div>
+          <div class = "row">
+            <div class="centre">
+              <br><%= image_tag @submission.favicon, size: "80x80",  class: 'img-resposive' %>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
 
 <!-- Causes and Charity Boxes-->
 
@@ -61,7 +62,9 @@
             </div>
            </div>
         <% @causes.each do |cause| %>
-          <br/><%= link_to cause.name, choose_charity_path(submission: params[:submission], cause: cause.id), class: 'btn btn-info btn-block' %>
+        <div class = "name-format">
+          <br/><%= link_to cause.name, choose_charity_path(submission: params[:submission], cause: cause.id), class: 'btn btn-default btn-block' %>
+        </div>
         <% end %>
       </div>
     </div>

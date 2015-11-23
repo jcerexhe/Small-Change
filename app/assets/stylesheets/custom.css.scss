@@ -8,7 +8,7 @@ $gray-medium-light: #eaeaea;
 /* universal */
 
 body {
-  padding-top: 70px;
+  padding-top: 5px;
 }
 
 section {
@@ -176,7 +176,7 @@ font-family: sans-serif;
 /* home */
 
 .padleft {
-  margin-left: 33%
+  float: middle;
 }
 
 /* situation at a glance page */
@@ -259,8 +259,35 @@ text-align: center;
 height: 220px;
 }
 
+/* Choose Charity page */
+
 .name-format {
   font-family: serif;
   text-align: center;
   font-size: 1em
 }
+
+/* New Donation page */
+
+
+.article-title {
+  font-family: sans-serif;
+  text-align: center;
+  font-size: 1.5em
+}
+
+.article-des {
+  font-family: sans-serif;
+  text-align: center;
+  font-size: 1em;
+  color: gray-light;
+  font-weight: 100;
+
+}
+
+.donate-buttons:hover {
+    
+}
+
+
+

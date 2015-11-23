@@ -1,55 +1,46 @@
 
-
 <!DOCTYPE html>
+
 <html>
   <head>
     <title>Home|Small Change</title>
   </head>
+
   <body>
-    <div class = "logo">
-  	
+    <div class = "container">
 
-    <%= image_tag "logo.png", size: "160x145", :class => 'logo-img' %>
+        <br><br> <br><br>
+      
+        <div class = "logo">
+           <%= image_tag "logo.png", size: "160x145", :class => 'logo-img' %>
+        </div><br>
 
+        <h1>Small Change</h1>
+        <h2> Connect an inspiring article to a charity, today! </h2>
+
+        <div class = 'col-lg-4'>
+        </div>
+
+        <div class="col-lg-4">
+          <%= simple_form_for(@submission) do |f| %>
+            <div class="input-group input-group-md">
+                <%= f.input_field :url, class: 'form-control', placeholder: "Enter URL of your article here" %>
+                  <span class="input-group-btn">
+                     <button class="btn btn-info" type="submit">Submit Article</button>
+                   </span>
+            </div>
+          <% end %>
+
+         <div class = 'col-lg-4'>
+        </div>
+
+
+            <div class='centre'>
+              <br><br><br><%= link_to "How It Works", howitworks_path , class: 'btn btn-warning ' %>
+            </div>
+        </div><!-- /.col-lg-6 -->
+      </div><!-- /.row -->
     </div>
-    <br>
-
-
-  </div>
-
-
-    <h1>Small Change</h1>
-    <h2> Connect an inspiring article to a charity, today! </h2>
-
-   
-
-    <div class="homepage-buttons">
-
-
-        <%= link_to "Trending Articles", submissions_path, class: 'btn btn-default' %>
-        <%= link_to "Charity List", causes_path , class: 'btn btn-default ' %>
-        <%= link_to "How It Works", howitworks_path , class: 'btn btn-default ' %>
-
-    </div>
-    <br><br><br>
-
-  <div class = "container">
-
-  <div class = "padleft">
-  <div class="col-lg-6">
-
-  <%= simple_form_for(@submission) do |f| %>
-    <div class="input-group">
-      <%= f.input_field :url, class: 'form-control', placeholder: "Enter URL of your article here" %>
-      <span class="input-group-btn">
-        <button class="btn btn-info" type="submit">Submit Article</button>
-      </span>
-    </div>
-    <% end %>
-    
-  </div><!-- /.col-lg-6 -->
-</div><!-- /.row -->
-</div>
 
   </body>
 </html>
