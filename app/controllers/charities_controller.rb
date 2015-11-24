@@ -13,6 +13,8 @@ class CharitiesController < ApplicationController
   def show
     @charities = Charity.all
     @cause = Cause.new
+    @submission = Submission.new
+
 
   end
 

@@ -47,7 +47,7 @@
 					<h1> <%= Charity.find(params[:charity]).name %> </h1>
 					</div>
 					<div class = 'col-sm-5'>
-						<%= image_tag Charity.find(params[:charity]).logo , size: "145x145", :class => 'img-responsive' %>
+						<br><%= image_tag Charity.find(params[:charity]).logo , size: "145x145", :class => 'img-responsive' %>
 	 				</div>
 	 			</div>
 			</div>
@@ -116,27 +116,13 @@
 
 
 
-
-
-
-<br><br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-
-
-
-
+<% if current_user.admin %>
+<br><br><br><br><br><br><br><br>
 
 
 <%= render 'form' %>
 
 <%= link_to 'Back', donations_path %>
+<% end %>
 
 </div>

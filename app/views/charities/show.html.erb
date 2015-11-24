@@ -1,7 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 
-
 <div class = "container">
 
   <div class = "row">
@@ -82,12 +81,14 @@
 
     <div class = "col-md-5">
       <br><h2> Bind an article or video to <%= @charity.name %> </h2>
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Enter URL of your article here">
-              <span class="input-group-btn">
-                <button class="btn btn-info" type="button">Bind</button>
-              </span>
-          </div><!-- /input-group -->
+           <%= simple_form_for(@submission) do |f| %>
+            <div class="input-group input-group-md">
+                <%= f.input_field :url, class: 'form-control', placeholder: "Enter URL of your article here" %>
+                  <span class="input-group-btn">
+                     <button class="btn btn-info" type="submit">Submit Article</button>
+                   </span>
+            </div>
+          <% end %>
     </div>
     <div class = "col-md-3">
         <div class = "centre">
@@ -107,10 +108,9 @@
 </div>
 
 
+<%if current_user.admin %>
 
-
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br>
 
 
 <p>
@@ -165,3 +165,7 @@
 
 <%= link_to 'Edit', edit_charity_path(@charity) %> |
 <%= link_to 'Back', charities_path %>
+
+<%end%>
+
+
