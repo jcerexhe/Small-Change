@@ -12,7 +12,9 @@
  *
  *= require_tree .
  *= require_self
+ *= require_hover
  */
+
 
 .apple_pagination {
   background: #D3D3D3;
