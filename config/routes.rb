@@ -28,6 +28,9 @@ Rails.application.routes.draw do
 
   get 'choose-charity' => 'static_pages#choose_charity'
 
+    get 'mysmallchange' => 'static_pages#my_small_change'
+
+
 
   devise_for :users, controllers: {sessions: 'users/sessions', registrations: 'users/registrations'}
 

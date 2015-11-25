@@ -57,5 +57,9 @@ class StaticPagesController < ApplicationController
   def sc_donation
   end
 
+  def my_small_change
+    @submissions = Submission.first(5)
+
+  end
 
 end
