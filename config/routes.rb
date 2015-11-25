@@ -28,7 +28,8 @@ Rails.application.routes.draw do
 
   get 'choose-charity' => 'static_pages#choose_charity'
 
-    get 'mysmallchange' => 'static_pages#my_small_change'
+  get 'mysmallchange' => 'static_pages#my_small_change'
+
 
 
 

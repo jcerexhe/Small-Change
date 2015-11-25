@@ -182,7 +182,7 @@ font-family: sans-serif;
 /* home */
 
 .padleft {
-  float: middle;
+  float: left;
 }
 
 /* situation at a glance page */
@@ -209,6 +209,14 @@ border-width: 2px;
   color: black;
   font-size: 1em;
 }
+
+.descriptor2 {
+  font-family: serif;
+  text-align: center;
+  color: black;
+  font-size: 1.3em;
+  letter-spacing: 1.5px
+  }
 
 .Pie {
   text-align:left;
@@ -295,5 +303,17 @@ height: 220px;
     
 }
 
+/* My Small Change */
 
+.panel-body-msc {
+background:#D3D3D3;
+border-radius:15px;
+border-style: solid;
+border-color: black;
+border-width: 1px;
+& :hover {
+   
+}
+
+}
 

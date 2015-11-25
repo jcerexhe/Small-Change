@@ -58,8 +58,7 @@ class StaticPagesController < ApplicationController
   end
 
   def my_small_change
-    @submissions = Submission.first(5)
-
+    @submissions = Submission.all.paginate(:page => params[:page], :per_page => 3)
   end
 
 end

@@ -16,6 +16,10 @@ gem 'carrierwave'
 
 gem 'link_thumbnailer'
 
+gem 'will_paginate'
+
+gem ''
+
 
 
 
