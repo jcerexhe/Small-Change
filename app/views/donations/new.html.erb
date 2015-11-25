@@ -44,7 +44,7 @@
 	 			</div>
 	 			<div class = 'row'>
 	 				<div class = 'col-sm-7'>
-					<h1> <%= Charity.find(params[:charity]).name %> </h1>
+					<br><h1> <%= Charity.find(params[:charity]).name %> </h1>
 					</div>
 					<div class = 'col-sm-5'>
 						<br><%= image_tag Charity.find(params[:charity]).logo , size: "145x145", :class => 'img-responsive' %>
@@ -111,8 +111,6 @@
 		</div>	
 	</div>
 </div>
-
-
 
 
 

@@ -27,11 +27,10 @@
 
         <div class="col-lg-4">
           <%= simple_form_for(@submission) do |f| %>
-            
             <div class="input-group input-group-md">
                 <%= f.input_field :url, class: 'form-control', placeholder: "Enter URL of your article here" %>
                   <span class="input-group-btn">
-                     <button class="btn btn-info" type="submit">Submit Article</button>
+                     <button class="btn btn-success" type="submit">Submit Article</button>
                    </span>
             </div>
           <% end %>
@@ -41,7 +40,7 @@
 
 
             <div class='centre'>
-              <br><br><br><%= link_to "How It Works", howitworks_path , class: 'btn btn-warning ' %>
+              <br><br><br><%= link_to "How It Works", howitworks_path , class: 'btn btn-primary ' %>
             </div>
         </div><!-- /.col-lg-6 -->
       </div><!-- /.row -->

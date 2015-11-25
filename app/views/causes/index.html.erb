@@ -2,6 +2,32 @@
 
 
 
+<div class = "row">
+  <div class = "col-md-4">
+  </div>
+  <div class = 'col-md-4'>
+    <div class = 'centre'>
+      <% if params[:charity] %>
+        <%= image_tag "step1green.png", size: "80x80"%>
+      <% else %>
+        <%= image_tag "step1grey.png", size: "80x80" %>
+      <% end %>
+    </div>
+  </div>
+   <div class = 'col-md-4'>
+    <div class = 'centre'>
+      <%= image_tag "step2grey.png", size: "80x80"%>
+    </div>
+      <br>
+  </div>
+
+
+
+
+
+
+
+
 
 <div class="row">
   <div class="col-md-4">
@@ -14,7 +40,7 @@
             </div>
            </div>
         <% @causes.each do |cause| %>
-          <br/><%= link_to cause.name, causes_path(cause: cause.id), class: 'btn btn-info btn-block' %>
+          <br/><%= link_to cause.name, causes_path(cause: cause.id), class: 'btn btn-default btn-block' %>
         <% end %>
       </div>
     </div>
@@ -91,7 +117,7 @@
     <div class = "centre">
       <br/><br/><%= link_to @charity.name+" Profile", charity_path(@charity.id), class: "btn btn-md btn-default" %>
     </div>
-  </div><br/>
+  </div>
 
 
 
@@ -143,7 +169,7 @@
 
 
 
-
+<% if current_user && current_user.admin %>
 
 
 
@@ -178,5 +204,7 @@
 <br>
 
 <%= link_to 'New Cause', new_cause_path, class: 'btn btn-success' %>
+
+<%end%>
 
 <%= render 'layouts/footer' %>
