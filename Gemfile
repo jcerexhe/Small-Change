@@ -16,6 +16,8 @@ gem 'carrierwave'
 
 gem 'link_thumbnailer'
 
+
+
 group :production do
 	gem 'pg'
 end
