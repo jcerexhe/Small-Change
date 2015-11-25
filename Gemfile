@@ -16,6 +16,10 @@ gem 'carrierwave'
 
 gem 'link_thumbnailer'
 
+group :production do
+	gem 'pg'
+end
+
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
