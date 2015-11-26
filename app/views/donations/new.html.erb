@@ -72,7 +72,7 @@
 					<div class = 'donate-buttons'>
 						<div class="col-md-4">
 					     	<div class = "centre"> 
-					     		<%= link_to image_tag("TwoSC.png", size: "150x150", :class => 'img-responsive'), "#" %>
+					     		<a href="#"  onclick="changeValue(2)" id="2"><%=  image_tag("TwoSC.png", size: "150x150", :class => 'img-responsive') %></a>
 							</div>
 						</div>
 					</div>
@@ -93,14 +93,14 @@
 						</div>
 
 				  		<div class="col-lg-8">
-				  		 
+				  		 <%= simple_form_for @donation, url: donations_path(charity: params[:charity], submission: params[:submission]) do |f| %>
 				  			<div class="input-group">
-				     			<input type="text" class="form-control" placeholder="Enter Other Amount (AUD $)">
+				     			<input type="text" name="donation[amount]" id="donation_amount" class="form-control" placeholder="Enter Other Amount (AUD $)" value="">
 				      			<span class="input-group-btn">
 				        			<div class="btn btn-info">Donate</div>
 				      			</span>
 				    		</div><!-- /input-group -->
-				    	
+				    	<% end %>
 				  		</div><!-- /.col-lg-6 -->
 
 				  		<div class = 'col-lg-2'>
@@ -112,6 +112,11 @@
 	</div>
 </div>
 
+<script>
+   function changeValue(o){
+     document.getElementById('donation_amount').value=o;
+    }
+</script>
 
 
 <% if current_user.admin %>

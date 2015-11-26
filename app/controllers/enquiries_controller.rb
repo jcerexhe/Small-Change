@@ -1,6 +1,6 @@
 class EnquiriesController < ApplicationController
   before_action :set_enquiry, only: [:show, :edit, :update, :destroy]
-
+  skip_before_action :authenticate_user!, only: [:new, :create]
   # GET /enquiries
   # GET /enquiries.json
   def index

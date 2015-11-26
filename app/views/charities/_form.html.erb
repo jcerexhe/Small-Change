@@ -4,7 +4,7 @@
   <div class="form-inputs">
     <%= f.input :name, :required => true, input_html: { value: @user_password }%>
     <%= f.input :logo %>
-    <%= f.association :causes, as: :check_boxes, collection: @causes %>
+    <%= f.association :causes, collection: @causes %>
     <%= f.input :bsb %>
     <%= f.input :account_number %>
     <%= f.input :contact_name %>

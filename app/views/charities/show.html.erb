@@ -81,7 +81,7 @@
 
     <div class = "col-md-5">
       <br><h2> Bind an article or video to <%= @charity.name %> </h2>
-         <%= simple_form_for(@submission) do |f| %>
+         <%= simple_form_for(@submission, url: submissions_path(charity: @charity.id)) do |f| %>
             <div class="input-group input-group-md">
                 <%= f.input_field :url, class: 'form-control', placeholder: "Enter URL of your article here" %>
                   <span class="input-group-btn">
@@ -124,11 +124,11 @@
 
 <p>
   <strong>Category:</strong>
-   <% @charity.causes.each_with_index do |cause, index| %>
-    <%= cause.name %>
-    <%= "," unless index == @charity.causes.count - 1 %>
+   <%# @charity.causes.each_with_index do |cause, index| %>
+    <%# cause.name %>
+    <%# "," unless index == @charity.causes.count - 1 %>
 
-    <%end%>
+    <%#end%>
 </p>
 
 

@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
 
 has_many :user_submissions
 has_many :submissions, through: :user_submissions
+has_many :charities, through: :user_submissions
+has_many :donations, through: :user_submissions
+has_many :causes, through: :user_submissions
 
          
 end

@@ -1,7 +1,7 @@
 class Submission < ActiveRecord::Base
-  belongs_to :charity
-  belongs_to :cause
-  has_many :donations
   has_many :user_submissions
   has_many :users, through: :user_submissions
+  has_many :charities, through: :user_submissions
+  has_many :donations, through: :user_submissions
+  has_many :causes, through: :user_submissions
 end

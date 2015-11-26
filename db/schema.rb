@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151124021903) do
+ActiveRecord::Schema.define(version: 20151126002126) do
 
   create_table "causes", force: :cascade do |t|
     t.string   "name"
@@ -36,7 +36,10 @@ ActiveRecord::Schema.define(version: 20151124021903) do
     t.string   "activity_one"
     t.string   "activity_two"
     t.string   "activity_three"
+    t.integer  "cause_id"
   end
+
+  add_index "charities", ["cause_id"], name: "index_charities_on_cause_id"
 
   create_table "charity_causes", force: :cascade do |t|
     t.integer  "cause_id"
@@ -98,8 +101,14 @@ ActiveRecord::Schema.define(version: 20151124021903) do
     t.integer  "submission_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.integer  "donation_id"
+    t.integer  "charity_id"
+    t.integer  "cause_id"
   end
 
+  add_index "user_submissions", ["cause_id"], name: "index_user_submissions_on_cause_id"
+  add_index "user_submissions", ["charity_id"], name: "index_user_submissions_on_charity_id"
+  add_index "user_submissions", ["donation_id"], name: "index_user_submissions_on_donation_id"
   add_index "user_submissions", ["submission_id"], name: "index_user_submissions_on_submission_id"
   add_index "user_submissions", ["user_id"], name: "index_user_submissions_on_user_id"
 

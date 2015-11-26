@@ -1,8 +1,9 @@
 class Charity < ActiveRecord::Base
-		has_many :charity_causes
-		has_many :causes, through: :charity_causes
-		has_many :submissions
-		has_many :donations
+		belongs_to :cause
+		has_many :user_submissions
+		has_many :submissions, through: :user_submissions
+		has_many :donations, through: :user_submissions
+		has_many :users, through: :user_submissions
 
 
         mount_uploader :logo, LogoUploader
