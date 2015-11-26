@@ -47,7 +47,7 @@ class SubmissionsController < ApplicationController
       @submission.favicon = object.favicon
       @submission.description = object.description
       @submission.image = object.images.first.src.to_s if object.images
-    respond_to do |format|
+    
       if @submission.save
         if params[:charity]
           @submission.charities << @charity
@@ -56,11 +56,10 @@ class SubmissionsController < ApplicationController
           redirect_to choose_charity_path(submission: @submission.id)
         end
         
-        format.json { render :show, status: :created, location: @submission }
+        # format.json { render :show, status: :created, location: @submission }
       else
-        format.html { render :new }
-        format.json { render json: @submission.errors, status: :unprocessable_entity }
-      end
+        render :new
+        # format.json { render json: @submission.errors, status: :unprocessable_entity }
       end
     end
   end
