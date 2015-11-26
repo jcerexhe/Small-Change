@@ -54,7 +54,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 
-gem 'sqlite3'
+# gem 'sqlite3'
 
 group :production do
 	gem 'pg'
