@@ -51,9 +51,9 @@ class SubmissionsController < ApplicationController
       if @submission.save
         if params[:charity]
           @submission.charities << @charity
-          redirect_to new_donation_path(charity: @charity.id, submission: @existing_submission.id)
+          redirect_to new_donation_path(charity: @charity.id, submission: @submission.id)
         else
-          redirect_to choose_charity_path(submission: @existing_submission.id)
+          redirect_to choose_charity_path(submission: @submission.id)
         end
         
         format.json { render :show, status: :created, location: @submission }
