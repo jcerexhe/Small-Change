@@ -5,22 +5,9 @@
 
  <div class="row">
       <div class = 'col-lg-6'>
-      		<div class = 'col-md-5'>
-      		</div>
-      		<div class = 'col-md-4'>
-          		<%= image_tag 'step3green.png', size: "80x80",class: 'img-responsive' %>
-          	</div>
-          	<div class = 'col-md-3'>
-      		</div>
       </div>
-            <div class = 'col-lg-6'>
-      		<div class = 'col-md-5'>
-      		</div>
-      		<div class = 'col-md-4'>
-          		<%= image_tag 'step4grey.png', size: "80x80",class: 'img-responsive' %>
-          	</div>
-          	<div class = 'col-md-3'>
-      		</div>
+       <div class = 'col-lg-6'>
+          <h3 class = 'centre'> Step 4: Select Amount</h3>	
       </div>
  </div>
 
@@ -35,19 +22,34 @@
 			<div class = 'panel-body'>
 				<div class = 'row'>
 					<div class = 'col-sm-7'>
-						<br><br><p class = "article-title"> <%= @submission.title %> </p>
-							
+						<br><b><p class = "article-title"> <%= @submission.title %> </p></b>	
 					</div>
-					<div class = 'col-sm-5'>
-						<%= image_tag @submission.favicon , size: "160x145", :class => 'img-logo' %>
+					<div class = 'col-sm-5 centre'>
+						<%= link_to image_tag(@submission.image, size: "210x160", :class => 'img-responsive'), @submission.url, :target => "_blank" %>
 	 				</div>
 	 			</div>
-	 			<div class = 'row'>
-	 				<div class = 'col-sm-7'>
+	 			<br>
+	 			<div class = 'row bdrtop'>
+	 				<div class = 'col-md-1'>
+	 				</div>
+	 				<div class = 'col-md-6'>
+	 					<br><p><em><%= @submission.description %></em></p>
+	 				</div>
+	 				<div class = 'col-md-1'>
+	 				</div>
+	 				<div class = 'col-md-3'>
+	 				<br><br><%= link_to image_tag(@submission.favicon, size: "160x150", :class => 'img-responsive'), @submission.url, :target => "_blank" %>
+	 				</div>
+	 			</div><br>
+
+	 			<div class = 'row bdrtop'>
+	 				<div class = 'col-sm-8'>
 					<br><h1> <%= Charity.find(params[:charity]).name %> </h1>
 					</div>
-					<div class = 'col-sm-5'>
-						<br><%= image_tag Charity.find(params[:charity]).logo , size: "145x145", :class => 'img-responsive' %>
+					<div class = 'col-sm-4'>
+						<br><%= link_to image_tag(Charity.find(params[:charity]).logo , size: "120x120", :class => 'img-responsive centre'), charity_path(@charity.id) %>
+
+						
 	 				</div>
 	 			</div>
 			</div>
@@ -57,14 +59,14 @@
 	<div class = 'col-lg-6'>
 		<div class = 'panel panel-default'>
 			<div class = 'panel-heading'>
-				<h3 class = 'panel-title'>Small Change - <%= @charity.name %></h3>
+				<h3 class = 'panel-title'> <%= image_tag(@charity.logo, size: '25x20') %>  <%= "    " %> <%=@charity.name %></h3>
 			</div>
 			<div class = 'panel-body'>
 				<div class = 'row'>
 					<div class = 'donate-buttons'>
 						<div class="col-md-4">
 					     	<div class = "centre"> 
-					     		<%= link_to image_tag("OneSC.png", size: "150x150", :class => 'img-responsive'), "#" %>
+					     		<a href="#"  onclick="changeValue(1)" id="1"><%=  image_tag("OneCharity.png", size: "250x250", :class => 'img-responsive hvr-grow') %></a>
 					     	</div>
 						</div>
 					</div>
@@ -72,7 +74,7 @@
 					<div class = 'donate-buttons'>
 						<div class="col-md-4">
 					     	<div class = "centre"> 
-					     		<a href="#"  onclick="changeValue(2)" id="2"><%=  image_tag("TwoSC.png", size: "150x150", :class => 'img-responsive') %></a>
+					     		<a href="#"  onclick="changeValue(2)" id="2"><%=  image_tag("TwoCharity.png", size: "250x250", :class => 'img-responsive hvr-grow') %></a>
 							</div>
 						</div>
 					</div>
@@ -80,7 +82,7 @@
 					<div class = 'donate-buttons'>
 						<div class="col-md-4">
 					     	<div class = "centre"> 
-					     		<%= link_to image_tag("ThreeSC.png", size: "150x150", :class => 'img-responsive'), "#" %>
+					     		<a href="#"  onclick="changeValue(5)" id="5"><%=  image_tag("ThreeCharity.png", size: "250x250", :class => 'img-responsive hvr-grow') %></a>
 					     	</div>
 						</div>
 					</div>

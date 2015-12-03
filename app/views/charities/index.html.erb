@@ -26,9 +26,9 @@
       <tr>
         <td><%= charity.name %></td>
         <td>
-          <% charity.causes.each do |cause| %>
-            <%= cause.name %><br>
-          <% end %>
+          
+            <%= charity.cause.name if charity.cause %><br>
+          
         </td>
         <td><%= charity.bsb %></td>
         <td><%= charity.account_number %></td>

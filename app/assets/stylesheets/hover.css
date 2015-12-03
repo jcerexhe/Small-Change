@@ -1,52 +1,4 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- *= require_hover
- */
-
-
-.apple_pagination {
-  background: #ffcc99;
-  border: 1px solid black;
-  border-radius: 10px;
-  text-align: center;
-  padding: 1em;
-  cursor: default; }
-  .apple_pagination a, .apple_pagination span {
-    padding: 0.2em 0.3em; }
-  .apple_pagination .disabled {
-    color: #aaaaaa; }
-  .apple_pagination .current {
-    font-style: normal;
-    font-weight: bold;
-    background-color: white;
-    display: inline-block;
-    width: 1.4em;
-    height: 1.4em;
-    line-height: 1.5;
-    -moz-border-radius: 1em;
-    -webkit-border-radius: 1em;
-    border-radius: 1em;
-    text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px; }
-  .apple_pagination a {
-    text-decoration: none;
-    color: black; }
-    .apple_pagination a:hover, .apple_pagination a:focus {
-      text-decoration: underline; }
-
-
-      /*!
+/*!
  * Hover.css (http://ianlunn.github.io/Hover/)
  * Version: 2.0.2
  * Author: Ian Lunn @IanLunn
@@ -4925,4 +4877,3 @@
   width: 25px;
   height: 25px;
 }
-

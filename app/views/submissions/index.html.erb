@@ -16,7 +16,6 @@
       <th>Thumbnail </th>
       <th>Source</th>
       <th>Description</th>
-      <th>Charity</th>
       <th>Amount Raised</th>
       <th colspan="3"></th>
     </tr>
@@ -24,13 +23,14 @@
 
   <tbody>
     <% @submissions.each do |submission| %>
-      <tr>
+      <tr class='clickable-row' data-href='url://www.google.com'>
         <td><b><%= submission.title %></b></td>
         <td><%= image_tag(submission.image, width: 150, height: 100) %></td>
         <td><%= image_tag(submission.favicon, width: 100) %></td>
         <td><%= submission.description %></td>
-        <td><%= submission.charity %></td>
         <td> $473 </td>
+        <td><%= link_to 'Show', submission, class: 'btn btn-info' %></td>
+
         
       </tr>
     <% end %>
@@ -39,3 +39,6 @@
 </table>
 
 <%= link_to 'New Submission', new_submission_path %>
+
+
+

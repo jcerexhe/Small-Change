@@ -27,6 +27,7 @@ class SubmissionsController < ApplicationController
   def create
     @submission = Submission.new(submission_params)
     @existing_submission = Submission.find_by(url: @submission.url)
+    object = LinkThumbnailer.generate(@submission.url)
     # @user = current_user
     if params[:charity]
       @charity = Charity.find(params[:charity])
@@ -42,11 +43,10 @@ class SubmissionsController < ApplicationController
       end
     else                                #if this is not the first time 
       @submission.users << current_user
-      object = LinkThumbnailer.generate(@submission.url)
       @submission.title = object.title
       @submission.favicon = object.favicon
       @submission.description = object.description
-      @submission.image = object.images.first.src.to_s if object.images
+      @submission.image = object.images.first.src.to_s if object.images.first
     
       if @submission.save
         if params[:charity]

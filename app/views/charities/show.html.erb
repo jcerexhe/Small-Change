@@ -1,3 +1,5 @@
+<% @user = current_user %>
+
 <p id="notice"><%= notice %></p>
 
 
@@ -7,6 +9,7 @@
 
       <div class="panel panel-default">
           <div class="panel-body">
+
             <h1> <%= @charity.name %> </h1>
           </div>
       </div>
@@ -80,8 +83,8 @@
     </div>
 
     <div class = "col-md-5">
-      <br><h2> Bind an article or video to <%= @charity.name %> </h2>
-         <%= simple_form_for(@submission, url: submissions_path(charity: @charity.id)) do |f| %>
+      <br><h2> Connect an article or video to <%= @charity.name %> </h2>
+         <%= simple_form_for(@submission, url: submissions_path(charity: @charity.id, user: @user.id)) do |f| %>
             <div class="input-group input-group-md">
                 <%= f.input_field :url, class: 'form-control', placeholder: "Enter URL of your article here" %>
                   <span class="input-group-btn">
