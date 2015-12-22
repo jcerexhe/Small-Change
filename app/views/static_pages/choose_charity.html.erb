@@ -121,7 +121,7 @@
     <br/>
        <div class = "name-format">
           <div class ="centre">
-              <%= link_to image_tag('CONNECT.png', size: "130x130",class: 'connect'), new_donation_path(submission: @submission.id, charity: @charity.id), class: 'connect' %>
+              <%= link_to image_tag('CONNECT.png', size: "130x130",class: 'connect'), submission_path(@submission, charity: @charity.id), class: 'connect' %>
           </div>
        </div>
   </div>

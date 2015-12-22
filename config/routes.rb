@@ -30,6 +30,8 @@ Rails.application.routes.draw do
 
   get 'mysmallchange' => 'static_pages#my_small_change'
 
+  get 'thanks' => 'static_pages#thanks'
+
 
 
 

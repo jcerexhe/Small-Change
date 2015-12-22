@@ -24,17 +24,31 @@ class DonationsController < ApplicationController
   # POST /donations
   # POST /donations.json
   def create
-    @donation = Donation.new(donation_params)
+    @amount = params[:amount]
+    @dollar_amount = @amount.to_i / 100
+    @submission = Submission.find(params[:submission])
+    @charity = Charity.find(params[:charity])
 
-    respond_to do |format|
-      if @donation.save
-        format.html { redirect_to @donation, notice: 'Donation was successfully created.' }
-        format.json { render :show, status: :created, location: @donation }
-      else
-        format.html { render :new }
-        format.json { render json: @donation.errors, status: :unprocessable_entity }
+      customer = Stripe::Customer.create(
+        :email => params[:stripeEmail],
+        :source  => params[:stripeToken]
+      )
+
+      charge = Stripe::Charge.create(
+        :customer    => customer.id,
+        :amount      => @amount,
+        :description => 'Donation',
+        :currency    => 'aud'
+      )
+
+      if charge['paid']
+        @donation = Donation.create(amount: @dollar_amount, submission_id: @submission.id, charity_id: @charity.id, user_id: current_user.id )
+        redirect_to thanks_path(donation: @donation.id)
       end
-    end
+
+    rescue Stripe::CardError => e
+      flash[:error] = e.message
+      redirect_to :back
   end
 
   # PATCH/PUT /donations/1

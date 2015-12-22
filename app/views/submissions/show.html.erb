@@ -1,15 +1,102 @@
-<p id="notice"><%= notice %></p>
 
-<p>
+
+<h1><%= @submission.title %></h1> <br>
+
+
+<div class = 'row'>
+	<div class = 'col-lg-8'>
+		<iframe width="760" height="515" src= "<%= @submission.url %>" frameborder="1" allowfullscreen>
+		    <p>Placeholder text; only shows up if the page DOESN'T render!</p>
+		</iframe>
+	</div>
+
+
+
+	<div class = 'col-lg-4'>
+		<div class = 'panel panel-default'>
+			<div class = 'panel-heading'>
+				<h3 class = 'panel-title'><%= @charity.name %>
+ 				</h3>
+			</div>
+			<div class = 'panel-body'>
+				<div class = 'row'><h1> Donate </h1> <br></div>
+				<div class = 'row'>
+					<div class = 'donate-buttons'>
+						<div class="col-md-4">
+					     	<div class = "centre"> 
+					     		<%= render 'payment_button_one' %>     		
+					     	</div>
+						</div>
+					</div>
+
+					<div class = 'donate-buttons'>
+						<div class="col-md-4">
+					     	<div class = "centre"> 
+					     		<%= render 'payment_button_two' %>     		
+					     	</div>
+						</div>
+					</div>
+
+					<div class = 'donate-buttons'>
+						<div class="col-md-4">
+					     	<div class = "centre"> 
+					     		<%= render 'payment_button_five' %>     		
+					     	</div>
+						</div>
+					</div>
+	 			</div>
+	 			<div class = 'row'>
+	 				<br><br>
+	 				<div class = 'centre'>
+	 					<%= image_tag @charity.logo, size: "100x75" %>
+	 				</div>
+	 			</div>	
+	 			<div class = 'row'> 
+		 			<div class = "name-format">
+				      <div class = "centre">
+				        <br/><br/><%= link_to @charity.name, charity_path(@charity, submission: @submission.id), class: "btn btn-md btn-default" %>
+				        <br>
+	    				</div> 	
+					</div>
+				</div>
+				<div class = 'row'>
+					<br>
+					 <div class = 'centre'>
+	 					<h3> Do something about this issue. </h3>
+	 				</div>
+	 			</div>
+		</div>	
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <p>
   <strong>Url:</strong>
   <%= @submission.url %>
+  <%= image_tag(@submission.image) %>
+  <%= @submission.description %>
+  <%= image_tag(@submission.favicon) %>
 </p>
 
 <p>
   <strong>User:</strong>
   <%= @submission.users %>
-</p>
+</p> -->
 
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br>
 
 
 <%= link_to 'Edit', edit_submission_path(@submission) %> |

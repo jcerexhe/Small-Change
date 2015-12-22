@@ -10,6 +10,8 @@ class SubmissionsController < ApplicationController
   # GET /submissions/1
   # GET /submissions/1.json
   def show
+    @charities = Charity.all
+    @charity = Charity.find(params[:charity])
   end
 
   # GET /submissions/new

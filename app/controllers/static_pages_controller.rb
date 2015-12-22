@@ -16,6 +16,10 @@ class StaticPagesController < ApplicationController
     # Ill need to specify that here.
   end
 
+  def thanks
+    @donation = Donation.find(params[:donation])
+  end
+
   def choose_charity
     @submission = Submission.find(params[:submission])
     @causes = Cause.all

@@ -20,7 +20,9 @@ gem 'will_paginate'
 
 gem 'hover-rails'
 
-  gem 'sqlite3'
+gem 'sqlite3'
+
+gem 'stripe'
 
 
 
