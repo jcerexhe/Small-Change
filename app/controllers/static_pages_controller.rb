@@ -31,7 +31,14 @@ class StaticPagesController < ApplicationController
     if params[:charity]
       @charity = Charity.find(params[:charity])
     end
+
   end
+
+  def update_charity
+    Submission.find(params[:submission]).update_attribute(:charity, id)
+  end
+
+
 
   def charity_tree
    @causes = Cause.all

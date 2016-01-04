@@ -37,8 +37,8 @@ class DonationsController < ApplicationController
       charge = Stripe::Charge.create(
         :customer    => customer.id,
         :amount      => @amount,
-        :description => 'Donation',
-        :currency    => 'aud'
+        :description => @charity.name,
+        :currency    => 'aud',
       )
 
       if charge['paid']

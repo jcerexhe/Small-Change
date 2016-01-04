@@ -11,7 +11,8 @@
 	</head>
 	<body>
 		<div class="container">
-			<%= render 'layouts/header' %>
+			<%= render 'layouts/header' if current_page?(root_path) || current_page?(founders_path) || current_page?(contact_path) || current_page?(charitycontact_path) || current_page?(newscontact_path) || current_page?(donatetosmallchange_path) || current_page?(submissions_path) || current_page?(causes_path) || current_page?(howitworks_path) || current_page?(situation_path) || current_page?(goal_path) || current_page?(mysmallchange_path) || current_page?(choose_charity_path) || current_page?(charity_path) %>
+
 			<p class = "notice"><%=notice%></p>
 			<p class = "alert"><%=alert%> </p>
 			<%= yield %>

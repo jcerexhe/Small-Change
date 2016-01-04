@@ -11,7 +11,8 @@ class SubmissionsController < ApplicationController
   # GET /submissions/1.json
   def show
     @charities = Charity.all
-    @charity = Charity.find(params[:charity])
+    @charity = Charity.find(params[:charity]) if params[:charity]
+
   end
 
   # GET /submissions/new
@@ -98,6 +99,6 @@ class SubmissionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def submission_params
-      params.require(:submission).permit(:url, :user_id, :charity_id, :cause_id, :origin)
+      params.require(:submission).permit(:url, :user_id, :charity_id, :cause_id, :origin, :charity)
     end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151203060603) do
+ActiveRecord::Schema.define(version: 20151230002044) do
 
   create_table "causes", force: :cascade do |t|
     t.string   "name"
@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 20151203060603) do
     t.string   "favicon"
     t.text     "description"
     t.string   "image"
+    t.integer  "charity"
   end
 
   create_table "user_submissions", force: :cascade do |t|

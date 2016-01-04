@@ -354,3 +354,35 @@ border-width: 1px;
 
 .round {
   border-radius: 50%;}
+
+  /* Submission Show Page */
+
+  .banner {
+  background:#ff9999;
+  border-color: black;
+  border-width: 1px;
+  z-index: 1;
+  position: fixed;
+  top: 620px;
+  left: -5px;
+  width: 1290px;
+  background:rgba(0,100,100,1);
+
+
+  }
+
+  .submission {
+    position:fixed;
+    left:-5px;
+    z-index: -1;
+    top:-30px;
+  }
+
+  .black {
+  color: white;
+  }
+
+  .payment {
+    position: relative;
+    top: 10px;
+  }

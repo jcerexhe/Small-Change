@@ -1,0 +1,31 @@
+ 
+
+
+  
+  <div class = 'banner', style="max-height: 70px">
+
+      <div class = 'col-sm-2'>
+        <%= link_to image_tag('logo.png', size: "90x70", class: "logo-img"), root_path %>
+      </div>
+
+      <div class = 'col-md-5'>
+      <h3 class = 'black'> Small Change </h3>
+      </div>
+
+      <div class = 'col-sm-1 payment'>
+          <%= render 'payment_button_one' %>        
+      </div>
+      <div class = 'col-sm-1 payment'>
+          <%= render 'payment_button_two' %>        
+      </div>
+      <div class = 'col-sm-2 payment'>
+          <%= render 'payment_button_five' %>        
+      </div>
+      
+       <div class = 'col-sm-1'>
+          <%= link_to image_tag('tin.png', size: "100x140"), charity_path(@charity, submission: @submission.id) %>
+      </div>
+
+    
+  </div>
+  
