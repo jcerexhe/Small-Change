@@ -1,17 +1,27 @@
 class SubmissionsController < ApplicationController
   before_action :set_submission, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!
 
   # GET /submissions
   # GET /submissions.json
   def index
-    @submissions = Submission.all
+  @submissions = Submission.all
+   @charities = Charity.all
+
   end
 
   # GET /submissions/1
   # GET /submissions/1.json
   def show
     @charities = Charity.all
-    @charity = Charity.find(params[:charity]) if params[:charity]
+    
+    @submission = Submission.find(params[:submission]) if params[:submission]
+    if params[:charity]
+      @charity = Charity.find(params[:charity]) 
+      @submission.update_attributes(charity: params[:charity])
+    else
+      @charity = Charity.find(@submission.charity)
+    end
 
   end
 
@@ -28,42 +38,63 @@ class SubmissionsController < ApplicationController
   # POST /submissions
   # POST /submissions.json
   def create
-    @submission = Submission.new(submission_params)
-    @existing_submission = Submission.find_by(url: @submission.url)
-    object = LinkThumbnailer.generate(@submission.url)
-    # @user = current_user
-    if params[:charity]
-      @charity = Charity.find(params[:charity])
-    end
+    if current_user
+      @submission = Submission.new(submission_params)
+      @existing_submission = Submission.find_by(url: @submission.url)
+      object = LinkThumbnailer.generate(@submission.url)
      
-    if @existing_submission         #if this is the first time
-      @existing_submission.users << current_user
-      if params[:charity]
-        @existing_submission.charities << @charity
-        redirect_to new_donation_path(charity: @charity.id, submission: @existing_submission.id)
-      else
-        redirect_to choose_charity_path(submission: @existing_submission.id)
-      end
-    else                                #if this is not the first time 
-      @submission.users << current_user
-      @submission.title = object.title
-      @submission.favicon = object.favicon
-      @submission.description = object.description
-      @submission.image = object.images.first.src.to_s if object.images.first
-    
-      if @submission.save
+      # @user = current_user
         if params[:charity]
-          @submission.charities << @charity
-          redirect_to new_donation_path(charity: @charity.id, submission: @submission.id)
-        else
-          redirect_to choose_charity_path(submission: @submission.id)
+          @charity = Charity.find(params[:charity])
         end
-        
-        # format.json { render :show, status: :created, location: @submission }
-      else
-        render :new
-        # format.json { render json: @submission.errors, status: :unprocessable_entity }
+       
+      if @existing_submission         #if this is the first time
+        @existing_submission.users << current_user
+        if params[:charity]
+          @existing_submission.charities << @charity
+          redirect_to new_donation_path(charity: @charity.id, submission: @existing_submission.id)
+        else
+          redirect_to choose_charity_path(submission: @existing_submission.id)
+        end
+      else                                #if this is not the first time 
+        @submission.users << current_user
+        @submission.title = object.title
+        @submission.favicon = object.favicon
+        @submission.description = object.description
+        @submission.image = object.images.first.src.to_s if object.images.first
+
+        if @submission.url.include? "skynews"
+          @submission.favicon = "https://lh3.googleusercontent.com/-uYnyeu0wFpQ/AAAAAAAAAAI/AAAAAAAAe8k/uwcJE42X16E/s0-c-k-no-ns/photo.jpg"
+        end
+
+        if @submission.url.include? "sbs"
+          @submission.favicon = "https://pbs.twimg.com/profile_images/434661068011339776/q5OHXv0Q.jpeg"
+        end
+
+        if @submission.url.include? "/wp-content/themes/wp-inspired-prem/images/favicon.ico"
+          @submission.favicon = "https://i.vimeocdn.com/portrait/432427_300x300.jpg"
+        end
+
+
+      
+        if @submission.save
+          if params[:charity]
+            @submission.charities << @charity
+            redirect_to new_donation_path(charity: @charity.id, submission: @submission.id)
+          else
+            redirect_to choose_charity_path(submission: @submission.id)
+          end
+          
+          # format.json { render :show, status: :created, location: @submission }
+        else
+          render :new
+          # format.json { render json: @submission.errors, status: :unprocessable_entity }
+        end
       end
+
+    else
+     redirect_to new_user_registration_path
+
     end
   end
 

@@ -9,5 +9,7 @@ class ChangeSubmissionTable < ActiveRecord::Migration
   	add_column :submissions, :description, :text
   	add_column :submissions, :image, :string
 
+
+
   end
 end

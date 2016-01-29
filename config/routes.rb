@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get 'founders' => 'static_pages#about_the_founders'
 
-  get 'terms&conditions' => 'static_pages#t_and_c'
+  get 'termsandconditions' => 'static_pages#t_and_c'
 
   get 'contact' => 'static_pages#contact_us'
 
@@ -30,7 +30,7 @@ Rails.application.routes.draw do
 
   get 'mysmallchange' => 'static_pages#my_small_change'
 
-  get 'thanks' => 'static_pages#thanks'
+  get 'beta' => 'static_pages#beta'
 
 
 

@@ -9,9 +9,9 @@
       <div class = 'col-md-3'>
         <h2> </h2>
       </div>
-      <div class = 'col-md-3'>
+      <div class = 'col-md-4'>
         <% if !params[:charity] %>
-           <h3> Step 2: Select Charity </h3>
+           <h3> Step 2: Select Related Charity </h3>
         <% end %>
       </div>
       <div class = 'col-md-3'>
@@ -121,7 +121,7 @@
     <br/>
        <div class = "name-format">
           <div class ="centre">
-              <%= link_to image_tag('CONNECT.png', size: "130x130",class: 'connect'), submission_path(@submission, charity: @charity.id), {:controller => "static_pages", :action => "update_charity", :id => @charity.id} %>
+              <%= link_to image_tag('CONNECT.png', size: "130x130",class: 'connect'), submission_path(@submission, charity: @charity.id) %>
           </div>
        </div>
   </div>

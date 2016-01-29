@@ -43,7 +43,11 @@ class DonationsController < ApplicationController
 
       if charge['paid']
         @donation = Donation.create(amount: @dollar_amount, submission_id: @submission.id, charity_id: @charity.id, user_id: current_user.id )
+        if current_user?
+        redirect_to new_user_registration_path
+         else
         redirect_to thanks_path(donation: @donation.id)
+      end
       end
 
     rescue Stripe::CardError => e

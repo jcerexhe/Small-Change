@@ -7,10 +7,10 @@
 
   <thead>
     <tr>
+      <th>Thumbnail</th>
+      <th>Source </th>
       <th>Title</th>
-      <th>Thumbnail </th>
-      <th>Source</th>
-      <th>Description</th>
+      <th>Charity</th>
       <th>Amount Raised</th>
       <th colspan="3"></th>
     </tr>
@@ -18,14 +18,14 @@
 
   <tbody>
     <% @submissions.each do |submission| %>
-      <tr class='clickable-row' data-href='url://www.google.com'>
-        <td><b><%= submission.title %></b></td>
+      <tr>
         <td><%= image_tag(submission.image, width: 150, height: 100) %></td>
         <td><%= image_tag(submission.favicon, width: 100) %></td>
-        <td><%= submission.description %></td>
+        <td><em><%= submission.title %></em></td>
+        <td><%= image_tag(@charities.find_by(id: submission.charity).logo, width: 100, height: 100)%></td>
         <td> $473 </td>
-        <td><%= link_to 'Show', submission, class: 'btn btn-info' %></td>
-        <td><%= link_to 'Destroy', submission, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-danger' %></td>
+
+          <td><br><%= link_to 'See Article', submission, class: 'btn btn-success' %></td>
 
         
       </tr>

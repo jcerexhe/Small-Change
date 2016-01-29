@@ -355,6 +355,9 @@ border-width: 1px;
 .round {
   border-radius: 50%;}
 
+  .round-two {
+  border-radius: 5%;}
+
   /* Submission Show Page */
 
   .banner {
@@ -363,10 +366,10 @@ border-width: 1px;
   border-width: 1px;
   z-index: 1;
   position: fixed;
-  top: 620px;
+  top: 645px;
   left: -5px;
   width: 1290px;
-  background:rgba(0,100,100,1);
+  background:rgba(100,100,100,0.95);
 
 
   }
@@ -384,5 +387,43 @@ border-width: 1px;
 
   .payment {
     position: relative;
-    top: 10px;
+    top: 5px;
   }
+
+  .charity-padding {
+    padding-top: 2%
+  }
+
+    /* Beta Page */
+
+    .other_heading {
+      padding-top:15px;
+      color: white;
+      font-family: sans-serif;
+      font-size: 2em;
+    }
+
+    .benefits {
+      padding-top:30px;
+      font-family: sans-serif;
+      font-size: 1.3em;
+      color:white;
+    }
+
+    .charitysign {
+      padding-left: 1100px;
+      padding-top:-50px;
+
+    }
+
+    .form_font {
+      font-family: sans-serif;
+      font-size: 1.1em;
+      color:white;
+      text-align:center;
+    }
+
+    .benefits_panel {
+    background:#D3D3D3;
+
+    }

@@ -35,7 +35,9 @@ class StaticPagesController < ApplicationController
   end
 
   def update_charity
-    Submission.find(params[:submission]).update_attribute(:charity, id)
+    @submission = Submission.find(params[:submission])
+    @submission.update_attributes(charity: params[:charity])
+    redirect_to @submission
   end
 
 

@@ -8,28 +8,21 @@
     <div class = "container">
 
 
-
-
-
-
-
-        <br><br> <br><br>
+    
                 <div class = "logo">
 
-           <%= image_tag "logo.png", size: "160x145", :class => 'logo-img' %>
+           <br><br><%= image_tag "greenlogo.png", size: "220x200", :class => 'logo-img' %>
         </div>
-<br>
-
-        <h2>Small Change</h2>
-        <h2> Make your facebook post meaningful. </h2><br>
-
+        <div class = 'other_heading'>
+        <h2 class = 'other_heading'> Make your facebook post meaningful. </h2><br>
+        </div>
         <div class = 'col-lg-4'>
         </div>
 
         <div class="col-lg-4">
           <%= simple_form_for(@submission) do |f| %>
             <div class="input-group input-group-md">
-                <%= f.input_field :url, class: 'form-control', placeholder: "Paste URL here" %>
+                <%= f.input_field :url, class: 'form-control', placeholder: "Paste URL of article here" %>
                   <span class="input-group-btn">
                      <button class="btn btn-success" type="submit">Submit Article</button>
                    </span>
@@ -43,7 +36,7 @@
             <div class='centre'>
               <br><br><br>
 
-              <%= link_to "How It Works", howitworks_path , class: 'btn btn-primary ' %>
+              <%= link_to "How It Works", howitworks_path , class: 'btn btn-default ' %>
 
             </div>
         </div><!-- /.col-lg-6 -->
