@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :beta_users
+
+
   get  'FAQ' => 'static_pages#faq'
 
   get 'founders' => 'static_pages#about_the_founders'
@@ -29,8 +32,6 @@ Rails.application.routes.draw do
   get 'choose-charity' => 'static_pages#choose_charity'
 
   get 'mysmallchange' => 'static_pages#my_small_change'
-
-  get 'beta' => 'static_pages#beta'
 
   get 'aboutsmallchange' => 'static_pages#about_small_change'
 

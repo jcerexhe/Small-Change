@@ -15,8 +15,6 @@ class CharitiesController < ApplicationController
     @cause = Cause.new
     @submission = Submission.new
     @submissions = Submission.all
-
-
   end
 
   # GET /charities/new

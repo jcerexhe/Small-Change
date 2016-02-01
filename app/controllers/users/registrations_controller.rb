@@ -9,12 +9,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # # POST /resource
-  # def create
-
-  #    @user.save!
-  #   redirect_to root_path, notice: "You successfully made an account"
-  #   super
-  #  end
+   # def create
+   #   @user.save!
+   #    redirect_to root_path, notice: "You successfully made an account"
+   #  super
+   #  end
 
 
 

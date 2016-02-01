@@ -93,7 +93,7 @@ class SubmissionsController < ApplicationController
       end
 
     else
-     redirect_to new_user_registration_path
+     redirect_to new_beta_user_path
 
     end
   end
