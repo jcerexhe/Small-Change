@@ -1,94 +1,56 @@
 <% provide(:title, "How It Works") %>
 
 
-<div class = "hiy-video">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/zpZHUjKnDpE" frameborder="0" allowfullscreen></iframe>
-</div>
 
-<br/><br/><br/>
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Carousel indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
 
-<h1>How Small Change Works</h1><br/><br/><br>
-
-
-
-
-
-<div class = "hiy-images">
-
-		<div class = "row">
-
-			<div class = "col-md-3">
-
-				<%= link_to image_tag("article.png", :size => "135x145", :class => 'founders-img', title: "Read Article") %> 
-			</div>
-
-			<div class = "col-md-3">
-
-				<%= link_to image_tag("chain-link.png", :size => "135x145", :class => 'founders-img', title: "Link Article To Charity") %> 
-			</div>
-
-			<div class = "col-md-3">
-
-				<%= link_to image_tag("currency_exchange.png", :size => "135x145", :class => 'founders-img', title: "Give Loose Change") %> 
-			</div>
-
-			<div class = "col-md-3">
-
-				<%= link_to image_tag("Social-Share.png", :size => "135x145", :class => 'founders-img', title: "Share Article with Small Change Link") %> 
-			</div>
-
-		</div>
-
-		<br/><br/><br/>
-
-		<div class = "row">
-
-			<div class = "col-md-3">
-
-				<p><b>View News Article or Video that motivates you to take action</b></p>
-
-			</div>
-
-			<div class = "col-md-3">
-
-				<p><b>"Bind" Article To A Related Charity on smallchangegiving.net</b></p>
-				
-			</div>
-
-			<div class = "col-md-3">
-
-				<p><b>Donate small change To The Related Charity You Chose</b></p>
-				
-			</div>
-
-			<div class = "col-md-3">
-
-				<p><b>Share Article on Social Media To Motivate Friends</b></p>
-				
-			</div>
-
-		</div>
-
-
-
-
-
-
-
-
+    </ol>   
+<!-- Wrapper for carousel items -->
+    <div class="carousel-inner">
+        <div class="item active centre">
+            <center><h1 class = 'other_heading_two'> Step 1: See something online that rustles your feathers. </h1><br><%= image_tag('HIWone.png', width: 850, height: 550) %></center>
+        </div>
+        <div class="item ">
+            <center><h1 class = 'other_heading_two'> Step 2: Paste the URL into Small Change. </h1><br><%= image_tag('HIWtwo.png', width: 920, height: 550) %></center>
+        </div>
+        <div class="item ">
+						<center><h1 class = 'other_heading_two'>Step 3: Pick a related charity. </h1><br><%= image_tag('HIWthree.png', width: 850, height: 550) %></center>	
+        </div>
+        <div class="item">
+						<center><h1 class = 'other_heading_two'>Step 4: Action Banner appears. Now it's ready to share. Slacktivism over.<br> </h1><%= image_tag('HIWfour.png', width: 750, height: 550) %><%= link_to "Ready To Start", root_path, class: "btn btn-lg btn-warning"%></center>	
+        </div>
+    </div>
+    <!-- Carousel controls --> 
+    <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="carousel-control right" href="#myCarousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
 </div>
 
 
 
+<script type="text/javascript">
+$(document).ready(function(){
+     $("#myCarousel").carousel();
+     interval: false
+});
+
+ $.fn.carousel.defaults = {
+    interval: false
+  , pause: 'hover'
+  }
+</script>
 
 
 
 
 
 
-
-
-
-
-
-<%= render 'layouts/footer' %>

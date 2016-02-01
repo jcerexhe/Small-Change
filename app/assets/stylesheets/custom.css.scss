@@ -51,9 +51,13 @@ textarea {
 }
 
 .founder-txt {
-    text-align:left;
+    text-align:center;
     font-size: 0.8em;
     font-family: sans-serif
+}
+
+.founder_photos {
+  border-radius:5%;
 }
 
 .homepage-buttons {
@@ -394,6 +398,10 @@ border-width: 1px;
     padding-top: 2%
   }
 
+  .share_button {
+  z-index: 0;
+  }
+
     /* Beta Page */
 
     .other_heading {
@@ -426,4 +434,14 @@ border-width: 1px;
     .benefits_panel {
     background:#D3D3D3;
 
+    }
+
+    /* HIW page*/
+
+    .shotone{
+      z-index:-1;
+    }
+
+    .ready {
+      position:relative;
     }

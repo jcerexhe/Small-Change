@@ -6,6 +6,9 @@ class StaticPagesController < ApplicationController
   def about_the_founders
   end
 
+  def about_small_change
+  end
+
   def how_it_works
   end
 

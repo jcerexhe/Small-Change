@@ -1,11 +1,22 @@
 
 <% @title = params[:enquiry_type] %>
 
+<% provide(:title,  @title + " Enquiry") %>
 
-<h1> <%= @title %> Enquiry</h1>
+<%= render 'layouts/header' %>
 
-<%= render 'form' %>
+<div class = 'other_heading'>
+<h1 class = 'other_heading'> <%= @title %> Enquiry</h1><br>
+</div>
 
-<%= link_to 'Back', enquiries_path %>
+<div class = 'col-md-3'></div>
+<div class = 'col-md-6'>
 
+  <%= render 'form' %>
+</div>
+<div class = 'col-md-3'></div>
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <%= render 'layouts/footer' %>

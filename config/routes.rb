@@ -32,6 +32,8 @@ Rails.application.routes.draw do
 
   get 'beta' => 'static_pages#beta'
 
+  get 'aboutsmallchange' => 'static_pages#about_small_change'
+
 
 
 

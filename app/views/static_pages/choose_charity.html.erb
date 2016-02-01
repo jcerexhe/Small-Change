@@ -1,3 +1,5 @@
+<% provide(:title, "Choose Charity") %>
+
 <!--- STEP 1,2,3 HEADINGS -->
 <div class = "centre">
   <div class="row">
@@ -121,7 +123,7 @@
     <br/>
        <div class = "name-format">
           <div class ="centre">
-              <%= link_to image_tag('CONNECT.png', size: "130x130",class: 'connect'), submission_path(@submission, charity: @charity.id) %>
+              <%= link_to image_tag('CONNECT.png', size: "130x130",class: 'connect'), submission_path(@submission, charity: @charity.id, setup: 'true') %>
           </div>
        </div>
   </div>

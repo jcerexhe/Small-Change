@@ -1,12 +1,13 @@
-
+<% provide(:title, @submission.title) %>
 
 
 
 <div class = 'submission'>
 		<iframe width="1280" height="730" src= "<%= @submission.url %>" frameborder="0" allowfullscreen>
-
 		</iframe>
-
+     <% if params[:setup] %>
+        <%= link_to 'Share Article','#', class: 'btn btn-lg btn-info share_button' %>
+    <%end%>
 </div>
 
   <%= render 'banner' %>

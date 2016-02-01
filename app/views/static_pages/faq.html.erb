@@ -1,14 +1,15 @@
 <% provide(:title, "FAQ") %>
-
-<h1>Frequently Asked Questions</h1> <br><br><br>
-
+<%= render 'layouts/header'%>
+<div class = 'other_heading'>
+<br><h1 class = 'other_heading'>Frequently Asked Questions</h1> <br><br>
+</div>
 <div class = "FAQ_List">
 
 
 		<div class = "row">
 			<div class = "col-md-12">
-				<p><b> 1. How much of my donation will actually go to charity? </b></p><br>
-				<p> 98%  -   We need to take 2% to give to the bloody payment serivce providers. </p>
+				<p class = 'white'><b> 1. How much of my donation will actually go to charity? </b></p><br>
+				<p> We don't take a clip. But the bloody payment providers take a fee per transaction (around 10c). </p>
 			</div>
 		</div>
 
@@ -17,52 +18,52 @@
 
 
 		<div class = "logo">
-  			<%= image_tag "logo.png", :size => "30x27", :class => 'logo-img', alt: "Rails logo" %>
+  			<br><%= image_tag "greenlogo.png", :size => "30x27", :class => 'logo-img', alt: "Rails logo" %>
     	</div><br><br>
 
 
 		<div class = "row">
 			<div class = "col-md-12">
-				<p><b> 2.	Is Small Change a non-profit organisation? </b></p><br>
-				<p> No. We're a social enteprise. I don't really know the answer yet but we'll need a response about this long </p>
+				<p class = 'white'><b> 2.	Is Small Change a non-profit organisation? </b></p><br>
+				<p> No. We're a social enteprise. Small Change was founded by a lawyer and a programmer. We're not doing this for the money. </p>
 			</div>
 		</div>
 
 
 		<div class = "logo">
-  			<%= image_tag "logo.png", :size => "30x27", :class => 'logo-img', alt: "Rails logo" %>
+  			<br><%= image_tag "greenlogo.png", :size => "30x27", :class => 'logo-img', alt: "Rails logo" %>
     	</div><br><br>
 
 
 		<div class = "row">
 			<div class = "col-md-12">
-				<p><b> 3. How does Small Change cover its costs?</b></p><br>
-				<p> We take donations for Small Change <em><%= link_to "here", "#"%></em>. Second sentence roughly about this length. </p>
+				<p class = 'white'><b> 3. How does Small Change cover its costs?</b></p><br>
+				<p> We are funded by impact investors. We also sell data to charities that helps them understand the behaviour of donors. </p>
 			</div>
 		</div>
 
 
 		<div class = "logo">
-  			<%= image_tag "logo.png", :size => "30x27", :class => 'logo-img', alt: "Rails logo" %>
+  			<br><%= image_tag "greenlogo.png", :size => "30x27", :class => 'logo-img', alt: "Rails logo" %>
     	</div><br><br>
 
 
 		<div class = "row">
 			<div class = "col-md-12">
-				<p><b> 4. What can I do to support Small Change?</b></p><br>
-				<p> What we need more than funding is a growing user base. Share our videos with anyone who you think will like Small Change and ask them to do the same. </p>
+				<p class = 'white'><b> 4. What can I do to support Small Change?</b></p><br>
+				<p> What we need more than funding is a growing user base. Sign up to join our platform <%= link_to 'here', ''%>. </p>
 			</div>
 		</div>
 
 
 		<div class = "logo">
-  			<%= image_tag "logo.png", :size => "30x27", :class => 'logo-img', alt: "Rails logo" %>
+  			<br><%= image_tag "greenlogo.png", :size => "30x27", :class => 'logo-img', alt: "Rails logo" %>
     	</div><br><br>
 
 
     	<div class = "row">
 			<div class = "col-md-12">
-				<p><b> 5. I'm a news organisation. How do I embed a Small Change button on my articles?</b></p><br>
+				<p class = 'white'><b> 5. I'm a news organisation. How do I embed a Small Change button on my articles?</b></p><br>
 				<p> This will give your articles a bigger viewership and humanitarian influence at no expense. Read how to do it <em><%= link_to "here", "#"%></em>.</p>
 			</div>
 		</div>
