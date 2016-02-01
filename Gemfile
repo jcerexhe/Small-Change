@@ -14,6 +14,8 @@ gem 'hirb'
 
 gem 'carrierwave'
 
+gem 'cloudinary'
+
 gem 'link_thumbnailer'
 
 gem 'will_paginate'

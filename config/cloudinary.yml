@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: small-change
+  api_key: '554852635758728'
+  api_secret: kkDUnrrjPgDVNPoctLD9Kxg9Blo
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: small-change
+  api_key: '554852635758728'
+  api_secret: kkDUnrrjPgDVNPoctLD9Kxg9Blo
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: small-change
+  api_key: '554852635758728'
+  api_secret: kkDUnrrjPgDVNPoctLD9Kxg9Blo
+  enhance_image_tag: true
+  static_image_support: false
