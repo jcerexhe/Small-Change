@@ -8,3 +8,6 @@
 
 
 user1 = User.create(email: 'hendersonsam456@gmail.com' , password: '12345678', name: 'Sam Henderson', admin: 'true')
+
+charity1 = Charity.create(id: 1, name: 'Greenpeace', logo:'https://animationbegins.files.wordpress.com/2012/12/greenpeace-logo.jpg', bsb: '1234563', account: 
+  '123456', contact_name: "Peter Smith", contact_email:"peter@gmail.com" )

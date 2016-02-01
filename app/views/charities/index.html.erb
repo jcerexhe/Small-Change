@@ -15,8 +15,7 @@
       <th>Account number</th>
       <th>Contact name</th>
       <th>Contact email</th>
-      <th>ABN</th>
-      <th>Address</th>
+
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -34,8 +33,7 @@
         <td><%= charity.account_number %></td>
         <td><%= charity.contact_name %></td>
         <td><%= charity.contact_email %></td>
-        <td><%= charity.abn %></td>
-        <td><%= charity.address %></td>
+    
         <td><%= link_to 'Show', charity %></td>
         <td><%= link_to 'Edit', edit_charity_path(charity) %></td>
         <td><%= link_to 'Destroy', charity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
