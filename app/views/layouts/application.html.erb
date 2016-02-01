@@ -21,6 +21,20 @@
 </script>
 	</head>
 	<body>
+
+	<script type="text/javascript">
+    window._pt_lt = new Date().getTime();
+    window._pt_sp_2 = [];
+    _pt_sp_2.push('setAccount,6013e825');
+    var _protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    (function() {
+        var atag = document.createElement('script'); atag.type = 'text/javascript'; atag.async = true;
+        atag.src = _protocol + 'cjs.ptengine.com/pta_en.js';
+        var s = document.getElementsByTagName('script')[0]; 
+        s.parentNode.insertBefore(atag, s);
+    })();
+</script>
+                        
 		<div class="container">
 			<%= render 'layouts/header' if current_page?(root_path) || current_page?(founders_path) || current_page?(contact_path) || current_page?(charitycontact_path) || current_page?(newscontact_path) || current_page?(donatetosmallchange_path) || current_page?(submissions_path) || current_page?(causes_path) || current_page?(howitworks_path) || current_page?(situation_path) || current_page?(goal_path) || current_page?(mysmallchange_path) || current_page?(choose_charity_path) || current_page?(termsandconditions_path)  %>
 
