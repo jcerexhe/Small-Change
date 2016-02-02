@@ -112,7 +112,7 @@
     <div class = 'col-md-2'></div>
       <div class="col-md-8">
             <div class="centre">
-             <%= link_to image_tag(@charity.logo, size: "150x150", :class => 'img-responsive'), charity_path(@charity.id) %> 
+             <%= link_to cl_image_tag(@charity.logo, size: "150x150", :class => 'img-responsive'), charity_path(@charity.id) %> 
             </div>  
     </div>
         <div class = 'col-md-2'></div>
