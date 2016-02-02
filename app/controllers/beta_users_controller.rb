@@ -16,6 +16,7 @@ class BetaUsersController < ApplicationController
   # GET /beta_users/new
   def new
     @beta_user = BetaUser.new
+
   end
 
   # GET /beta_users/1/edit
@@ -29,13 +30,16 @@ class BetaUsersController < ApplicationController
 
     respond_to do |format|
       if @beta_user.save
-        format.html { redirect_to @beta_user, notice: 'Beta user was successfully created.' }
+        format.html { redirect_to submissions_path, notice: "Thanks for joining. We'll be in touch. In the meaning time, check out our trending articles." }
         format.json { render :show, status: :created, location: @beta_user }
       else
         format.html { render :new }
         format.json { render json: @beta_user.errors, status: :unprocessable_entity }
       end
     end
+
+    
+
   end
 
   # PATCH/PUT /beta_users/1

@@ -1,6 +1,6 @@
 class EnquiriesController < ApplicationController
   before_action :set_enquiry, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: [:new, :create]
+  skip_before_action :authenticate_user!
   # GET /enquiries
   # GET /enquiries.json
   def index
@@ -31,7 +31,7 @@ class EnquiriesController < ApplicationController
         EnquiriesMailer.new_enquiry_notification(@enquiry.id).deliver_now
         EnquiriesMailer.admin_enquiry_notification(@enquiry.id).deliver_now
 
-        format.html { redirect_to @enquiry, notice: 'Enquiry was successfully created.' }
+        format.html { redirect_to @enquiry }
         format.json { render :show, status: :created, location: @enquiry }
       else
         format.html { render :new }
