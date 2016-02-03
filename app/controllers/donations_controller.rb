@@ -45,12 +45,9 @@ class DonationsController < ApplicationController
         @donation = Donation.create(amount: @dollar_amount, submission_id: @submission.id, charity_id: @charity.id, user_id: current_user.id )
          DonationsMailer.new_donation_notification(@donation.id, customer).deliver_now
 
-        if current_user
-        redirect_to new_user_registration_path
-         else
-        redirect_to thanks_path(donation: @donation.id)
+        redirect_to submissions_path, notice: "Thanks for your kind contribution. Feel free to poke around our trending articles"
       end
-      end
+      
 
     rescue Stripe::CardError => e
       flash[:error] = e.message

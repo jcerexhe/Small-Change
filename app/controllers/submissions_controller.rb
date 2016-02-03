@@ -81,6 +81,10 @@ class SubmissionsController < ApplicationController
           @submission.favicon = "https://i.vimeocdn.com/portrait/432427_300x300.jpg"
         end
 
+        if @submission.url.include? "aljazeera"
+          @submission.favicon = "http://www.freelogovectors.net/wp-content/uploads/2012/04/al-jazeera-logo.jpg"
+        end
+
 
       
         if @submission.save
