@@ -1,25 +1,32 @@
 <% provide(:title, "About Small Change") %>
+<%= render 'layouts/header' %>
 
   <div class = 'row'>
       <div class="page-header">
-          <h1>Introduction <small>Small Change</small></h1>
+          <h1>About <small>Small Change Ending Slacktivism</small></h1>
       </div>
-      <p class = 'centre'> Small Change allows any media content to be repurposed to raise money for charities and causes. Rather than simply liking, sharing or re-tweeting, individuals can link an article, image or video to a relevant charity and empower their friends and followers to make a <b><em>real</em></b> contribution when they are most emotionally invested in an issue. We are trying to fix slacktivism.</p><br>
-    
   </div>
 
-  <div class = 'row centre'>
-    <br><%= link_to 'See How Small Change Works', howitworks_path, class: 'btn btn-lg btn-success' %><br>
-  </div>
+      <center>
+       <%= cl_image_tag("http://res.cloudinary.com/small-change/image/upload/v1454478366/Screen_Shot_2016-02-03_at_4.55.27_pm_nue4pk.png", size: "770x457", class: "centre demo") %>
+    </center>
+<div class = 'row'>
+  <br><br><h3 class='centre'> Slacktivism is the self deluded idea that by liking, sharing or retweeting something you are helping out, <em> Urban Dictionary </em> </h3><br><br>
+</div>
 
-   <div class = 'row'>
-    <div class = 'col-md-12'>
-      <div class="page-header">
-          <h1>Slacktvism <small>The self deluded idea that by liking, sharing or retweeting something you are helping out <em> Urban Dictionary </em></small></h1>
-      </div>
-
-    </div>
+<div class = 'row'>
+  <div class = 'col-md-12 panel panel-default'>
+    <p class = 'centre'> <br>Your garden variety slacktivist usually has the best of intentions. Small Change provides the tools to convert moral outrage on social media into tangible benefit. Meet the <b>Action Bar</b>. By sharing a link through Small Change, the <b>Action Bar</b> gives your followers an easy way of taking action. People are most likely to take action when they are at the high point of their emotional engagement.</p><br>
   </div>
+</div>
+
+
+  
+
+  <div class = 'row centre '>
+  <br> <%= link_to 'See How Small Change Works', howitworks_path, class: 'btn btn-lg btn-success HIWbutton' %><br>
+  </div>
+  
 
 
 

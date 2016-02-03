@@ -8,7 +8,7 @@
            <h3> Step 1: Your Article </h3>
         <% end %>
       </div>
-      <div class = 'col-md-3'>
+      <div class = 'col-md-2'>
         <h2> </h2>
       </div>
       <div class = 'col-md-4'>
@@ -18,7 +18,7 @@
       </div>
       <div class = 'col-md-3'>
         <% if params[:charity] %>
-          <h3> Step 3: Donate </h3>
+          <h3> Step 3: Preview </h3>
         <% end %>
       </div>
   </div>
@@ -112,7 +112,7 @@
     <div class = 'col-md-2'></div>
       <div class="col-md-8">
             <div class="centre">
-             <%= link_to cl_image_tag(@charity.logo, size: "150x150", :class => 'img-responsive'), charity_path(@charity.id) %> 
+             <%= link_to cl_image_tag(@charity.logo, size: "150x150", :class => 'img-responsive'), @charity.url, :target => "_blank" %> 
             </div>  
     </div>
         <div class = 'col-md-2'></div>
@@ -123,7 +123,7 @@
     <br/>
        <div class = "name-format">
           <div class ="centre">
-              <%= link_to image_tag('CONNECT.png', size: "130x130",class: 'connect'), submission_path(@submission, charity: @charity.id, setup: 'true') %>
+              <%= link_to cl_image_tag('Preview_i0tvv0.png', size: "150x150",class: 'connect'), submission_path(@submission, charity: @charity.id, setup: 'true') %>
           </div>
        </div>
   </div>

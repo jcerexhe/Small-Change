@@ -6,7 +6,13 @@ class SubmissionsController < ApplicationController
   # GET /submissions.json
   def index
   @submissions = Submission.all
-   @charities = Charity.all
+  @charities = Charity.all
+
+  @submissions.each do |submission|
+    if submission.charity == nil
+      submission.delete
+    end
+  end
 
   end
 
