@@ -4,28 +4,28 @@
   
   <div class = 'banner', style="max-height: 90px">
 
-      <div class = 'col-sm-2'>
-        <%= link_to image_tag('greenpeace-logo.jpg', size: "150x55", class: "hvr-grow round-two charity-padding"), 'http://www.greenpeace.org/australia/en/about/', :target => "_blank"%>
+      <div class = 'col-sm-1'>
+        <%= link_to cl_image_tag(@charities.find(id=@submission.charity).logo, size: "150x55", class: "hvr-grow round-two charity-padding"), @charities.find(id=@submission.charity).url, :target => "_blank" %>
       </div>
 
       <div class = 'col-md-5'>
-      <h3 class = 'black'> Take Real Action </h3>
+      <h3 class = 'black centre'> <%= @charities.find(id=@submission.charity).name %> Action Bar</h3>
       </div>
 
-      <div class = 'col-sm-1 payment hvr-grow'>
+      <div class = 'col-sm-1 payment'>
           <%= render 'payment_button_one' %>        
       </div>
-      <div class = 'col-sm-1 payment hvr-grow'>
+      <div class = 'col-sm-1 payment'>
           <%= render 'payment_button_two' %>        
       </div>
-      <div class = 'col-sm-1 payment hvr-grow'>
+      <div class = 'col-sm-2 payment'>
           <%= render 'payment_button_five' %>        
       </div>
 
-      <div class = 'col-sm-1'></div>
+  
       
        <div class = 'col-sm-1'>
-<!--           <%= link_to image_tag('tin.png', size: "100x140"), charity_path(@charity, submission: @submission.id) %>
+        <%= link_to cl_image_tag('http://res.cloudinary.com/small-change/image/upload/c_crop,h_90,w_210,x_130,y_5/v1454458261/1_jvuqil.png', size: "145x60", class: "powered"), root_path %>
  -->      </div>
 
     

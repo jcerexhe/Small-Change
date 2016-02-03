@@ -373,7 +373,7 @@ border-width: 1px;
   top: 645px;
   left: -5px;
   width: 1290px;
-  background:rgba(100,100,100,0.95);
+  background:rgba(180,100,100,0.95);
 
 
   }
@@ -387,6 +387,7 @@ border-width: 1px;
 
   .black {
   color: white;
+  font-family: sans-serif;
   }
 
   .payment {
@@ -400,6 +401,11 @@ border-width: 1px;
 
   .share_button {
   z-index: 0;
+  }
+
+  .powered {
+    padding-left:20px;
+    padding-right:-40px;
   }
 
     /* Beta Page */

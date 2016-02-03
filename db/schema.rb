@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160201053531) do
+ActiveRecord::Schema.define(version: 20160202042659) do
 
   create_table "beta_users", force: :cascade do |t|
     t.string   "email"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20160201053531) do
     t.string   "activity_two"
     t.string   "activity_three"
     t.integer  "cause_id"
+    t.string   "url"
   end
 
   add_index "charities", ["cause_id"], name: "index_charities_on_cause_id"

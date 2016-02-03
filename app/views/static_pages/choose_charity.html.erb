@@ -154,7 +154,7 @@
   <div class="row">
     <div class = "name-format">
       <div class = "centre">
-        <br/><br/><%= link_to @title, charity_path(@charity.id, submission: @submission.id), class: "btn btn-md btn-default" %>
+        <br/><br/><%= link_to @title, @charity.url , class: "btn btn-md btn-default", :target => "_blank" if @charity.url %>
         <br>
     </div>
       
