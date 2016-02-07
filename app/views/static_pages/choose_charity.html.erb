@@ -123,7 +123,7 @@
     <br/>
        <div class = "name-format">
           <div class ="centre">
-              <%= link_to cl_image_tag('Preview_i0tvv0.png', size: "150x150",class: 'connect'), submission_path(@submission, charity: @charity.id, setup: 'true') %>
+              <%= link_to cl_image_tag('PREVIEW_yzrn3h.png', size: "150x150",class: 'connect'), submission_path(@submission, charity: @charity.id, setup: 'true') %>
           </div>
        </div>
   </div>
@@ -154,7 +154,7 @@
   <div class="row">
     <div class = "name-format">
       <div class = "centre">
-        <br/><br/><%= link_to @title, @charity.url , class: "btn btn-md btn-default", :target => "_blank" if @charity.url %>
+        <br/><br/><%= link_to "More Info About " + @title, @charity.url , class: "btn btn-md btn-default", :target => "_blank" if @charity.url %>
         <br>
     </div>
       

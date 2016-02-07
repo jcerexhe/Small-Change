@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160202042659) do
+ActiveRecord::Schema.define(version: 20160203101844) do
 
   create_table "beta_users", force: :cascade do |t|
     t.string   "email"
@@ -29,18 +29,19 @@ ActiveRecord::Schema.define(version: 20160202042659) do
 
   create_table "charities", force: :cascade do |t|
     t.string   "name"
-    t.string   "logo"
+    t.string   "choose_charity_logo"
     t.string   "bsb"
     t.string   "account_number"
     t.string   "contact_name"
     t.string   "contact_email"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.string   "activity_one"
     t.string   "activity_two"
     t.string   "activity_three"
     t.integer  "cause_id"
     t.string   "url"
+    t.string   "banner_logo"
   end
 
   add_index "charities", ["cause_id"], name: "index_charities_on_cause_id"
