@@ -18,18 +18,17 @@
 
   <tbody>
     <% @submissions.each do |submission| %>
-      <tr>
+      <tr data-link="<%= submission_path(submission) %>">
         <td><%= cl_image_tag(submission.image, width: 150, height: 100) %></td>
         <td><%= cl_image_tag(submission.favicon, width: 100) %></td>
         <td><em><%= submission.title %></em></td>
-        <td><%= cl_image_tag(@charities.find_by(id: submission.charity).logo, width: 100, height: 100) unless submission.charity==nil %> </td>
+        <td><%= cl_image_tag(@charities.find_by(id: submission.charity).choose_charity_logo, width: 100, height: 100) unless submission.charity==nil %> </td>
         <td> $473 </td>
-
-          <td><br><%= link_to 'See Article', submission, class: 'btn btn-success' %></td>
-
         
       </tr>
     <% end %>
   </tbody>
 
 </table>
+
+

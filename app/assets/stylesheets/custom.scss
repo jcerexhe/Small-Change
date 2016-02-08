@@ -305,20 +305,11 @@ height: 220px;
   
 }
 
-.connect:hover {
- display: inline-block;
-    vertical-align: middle;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-    -webkit-transition-property: transform;
-    transition-property: transform;
+.connect:hover{
+  opacity: 0.8;
 }
+
+
 
 
 
@@ -332,12 +323,13 @@ height: 220px;
   font-size: 1.5em
 }
 
-.article-des {
-  font-family: sans-serif;
+.article_des {
+  font-family: 'Courier New';
   text-align: center;
-  font-size: 1em;
+  font-size: 1.3em;
   color: gray-light;
   font-weight: 100;
+  padding-top: 5px;
 
 }
 
@@ -376,10 +368,10 @@ border-width: 1px;
   border-width: 1px;
   z-index: 1;
   position: fixed;
-  top: 645px;
+  top: 0px;
   left: -5px;
-  width: 1290px;
-  background:rgba(180,100,100,0.95);
+  width: 100%;
+  background:rgba(230,230,230,0.95);
 
 
   }
@@ -389,7 +381,16 @@ border-width: 1px;
     left:-5px;
     z-index: -1;
     top:-30px;
+    width: 100%;
+
   }
+
+  .banner_text {
+    color:black;
+      font-family: sans-serif;
+
+  }
+
 
   .black {
   color: white;
@@ -420,6 +421,7 @@ border-width: 1px;
     font-family: Courier New;
     font-size: 1.2em;
     font-weight: bold;
+    color: black;
 
   }
 

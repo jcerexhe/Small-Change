@@ -70,12 +70,13 @@
         <% @causes.each do |cause| %>
         <div class = "name-format">
           <br/>
-          <% if params[:charity] %>
+          <% if params[:charity]%>
             <a href="<%= choose_charity_path(submission: params[:submission], cause: cause.id) %>" class="btn btn-block btn-<%= cause.id == Charity.find(params[:charity]).cause.id ? 'success' : 'default' %>"><%= cause.name %></a>
-          <% else %>
+          <% elsif params[:cause] %>
+            <a href="<%= choose_charity_path(submission: params[:submission], cause: cause.id) %>" class="btn btn-block btn-<%= cause.id == params[:cause].to_i ? 'success' : 'default' %>"><%= cause.name %></a>
+          <%else%>
             <a href="<%= choose_charity_path(submission: params[:submission], cause: cause.id) %>" class="btn btn-block btn-default"><%= cause.name %></a>
-          <% end %>
-          
+          <% end %>      
         </div>
         <% end %>
       </div>
