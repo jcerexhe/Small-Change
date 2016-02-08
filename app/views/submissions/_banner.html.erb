@@ -4,9 +4,11 @@
   
   <div class = 'banner', style="max-height: 90px">
 
+     <div class = 'col-sm-1 bar_logo'>
+          <%= image_tag('bar_logo.png', class: "bar_logo", size:"63x40") %>        
+      </div>
 
-
-      <div class = 'col-md-7 article_des'>
+      <div class = 'col-md-6 article_des'>
       <p class = 'banner_text  article_des'> Feel strongly about this article? Give to <%= @charities.find(id=@submission.charity).name %> </p>
       </div>
 
