@@ -20,6 +20,8 @@ class SubmissionsController < ApplicationController
   # GET /submissions/1.json
   def show
     @charities = Charity.all
+    @submissions = Submission.all
+
     
     @submission = Submission.find(params[:submission]) if params[:submission]
     if params[:charity]
@@ -47,33 +49,35 @@ class SubmissionsController < ApplicationController
     if current_user
       @submission = Submission.new(submission_params)
       @existing_submission = Submission.find_by(url: @submission.url)
-      object = LinkThumbnailer.generate(@submission.url)
      
       # @user = current_user
-        if params[:charity]
-          @charity = Charity.find(params[:charity])
-        end
-       
+
       if @existing_submission         #if this is the first time
         @existing_submission.users << current_user
-        if params[:charity]
-          @existing_submission.charities << @charity
-          redirect_to new_donation_path(charity: @charity.id, submission: @existing_submission.id)
-        else
-          redirect_to choose_charity_path(submission: @existing_submission.id)
-        end
-      else                                #if this is not the first time 
-        @submission.users << current_user
-        @submission.title = object.title
-        @submission.favicon = object.favicon
-        @submission.description = object.description
-        @submission.image = object.images.first.src.to_s if object.images.first
+        redirect_to choose_charity_path(submission: @existing_submission.id) 
+      else
+          if @submission.url.include? "youtube.com"
+              object = VideoInfo.new(@submission.url)
+              @submission.users << current_user
+              @submission.title = object.title
+              @submission.favicon = 'https://www.youtube.com/yt/brand/media/image/YouTube-logo-full_color.png'
+              @submission.description = object.description
+              @submission.image = object.thumbnail_medium
 
-        if @submission.url.include? "skynews"
+          else
+              object = LinkThumbnailer.generate(@submission.url)                             #if this is not the first time 
+              @submission.users << current_user
+              @submission.title = object.title
+              @submission.favicon = object.favicon
+              @submission.description = object.description
+              @submission.image = object.images.first.src.to_s if object.images.first
+          end
+
+        if @submission.url.include? "skynews.com"
           @submission.favicon = "https://lh3.googleusercontent.com/-uYnyeu0wFpQ/AAAAAAAAAAI/AAAAAAAAe8k/uwcJE42X16E/s0-c-k-no-ns/photo.jpg"
         end
 
-        if @submission.url.include? "sbs"
+        if @submission.url.include? "sbs.com"
           @submission.favicon = "https://pbs.twimg.com/profile_images/434661068011339776/q5OHXv0Q.jpeg"
         end
 
@@ -81,20 +85,14 @@ class SubmissionsController < ApplicationController
           @submission.favicon = "https://i.vimeocdn.com/portrait/432427_300x300.jpg"
         end
 
-        if @submission.url.include? "aljazeera"
+        if @submission.url.include? "aljazeera.com"
           @submission.favicon = "http://www.freelogovectors.net/wp-content/uploads/2012/04/al-jazeera-logo.jpg"
         end
 
 
       
         if @submission.save
-          if params[:charity]
-            @submission.charities << @charity
-            redirect_to new_donation_path(charity: @charity.id, submission: @submission.id)
-          else
             redirect_to choose_charity_path(submission: @submission.id)
-          end
-          
           # format.json { render :show, status: :created, location: @submission }
         else
           render :new

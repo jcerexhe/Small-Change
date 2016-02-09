@@ -9,15 +9,15 @@
 
       <div class = "logo">
 
-           <br><br><%= image_tag "logosix.png", size: "250x250", alt: "Small Change Logo" %>
+           <br><br><%= image_tag "logosix.png", width: "25%", height: '25%', alt: "Small Change Logo" %>
         </div>
         <div class = 'other_heading'>
         <h2 class = 'other_heading'> Make your facebook post meaningful. </h2><br>
         </div>
-        <div class = 'col-lg-4'>
+        <div class = 'col-sm-4'>
         </div>
 
-        <div class="col-lg-4">
+        <div class="col-sm-4">
           <%= simple_form_for(@submission) do |f| %>
             <div class="input-group input-group-md">
                 <%= f.input_field :url, class: 'form-control', placeholder: "Paste URL of article here" %>
@@ -27,7 +27,7 @@
             </div>
           <% end %>
 
-         <div class = 'col-lg-4'>
+         <div class = 'col-sm-4'>
         </div>
 
 
@@ -37,7 +37,7 @@
               <%= link_to "How Small Change Works", howitworks_path , class: 'btn btn-default ' %>
 
             </div>
-        </div><!-- /.col-lg-6 -->
+        </div><!-- /.col-sm-6 -->
 
      
 

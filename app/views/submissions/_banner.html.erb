@@ -4,8 +4,8 @@
   
   <div class = 'banner', style="max-height: 90px">
 
-     <div class = 'col-sm-1 bar_logo'>
-          <%= image_tag('bar_logo.png', class: "bar_logo", size:"63x40") %>        
+     <div class = 'col-sm-1 bar_logo hvr-grow'>
+          <%= link_to image_tag('bar_logo.png', class: "bar_logo", size:"70x50"), root_path  %>        
       </div>
 
       <div class = 'col-md-6 article_des'>
@@ -23,7 +23,7 @@
       </div>
 
        <div class = 'col-sm-1 payment'>
-          <%= render 'petition' %>        
+          <%= render 'petition' %> 
       </div>
 
   
