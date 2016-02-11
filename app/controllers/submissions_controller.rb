@@ -58,10 +58,11 @@ class SubmissionsController < ApplicationController
       else
           if @submission.url.include? "youtube.com"
               object = VideoInfo.new(@submission.url)
+              video = LinkThumbnailer.generate(@submission.url)                             #if this is not the first time 
               @submission.users << current_user
-              @submission.title = object.title
-              @submission.favicon = 'https://www.youtube.com/yt/brand/media/image/YouTube-logo-full_color.png'
-              @submission.description = object.description
+              @submission.title = video.title
+              @submission.favicon = 'https://upload.wikimedia.org/wikipedia/commons/0/06/YouTube_logo_2013.svg'
+              @submission.description = video.description
               @submission.image = object.thumbnail_medium
               @submission.url = object.embed_url
               @submission.youtube = true
@@ -73,7 +74,6 @@ class SubmissionsController < ApplicationController
               @submission.favicon = object.favicon
               @submission.description = object.description
               @submission.image = object.images.first.src.to_s if object.images.first
-              @submission.youtube = false
           end
 
         if @submission.url.include? "skynews.com"
