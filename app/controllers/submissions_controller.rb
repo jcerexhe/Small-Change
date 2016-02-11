@@ -63,6 +63,8 @@ class SubmissionsController < ApplicationController
               @submission.favicon = 'https://www.youtube.com/yt/brand/media/image/YouTube-logo-full_color.png'
               @submission.description = object.description
               @submission.image = object.thumbnail_medium
+              @submission.url = object.embed_url
+              @submission.youtube = true
 
           else
               object = LinkThumbnailer.generate(@submission.url)                             #if this is not the first time 
@@ -71,6 +73,7 @@ class SubmissionsController < ApplicationController
               @submission.favicon = object.favicon
               @submission.description = object.description
               @submission.image = object.images.first.src.to_s if object.images.first
+              @submission.youtube = false
           end
 
         if @submission.url.include? "skynews.com"
@@ -138,6 +141,6 @@ class SubmissionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def submission_params
-      params.require(:submission).permit(:url, :user_id, :charity_id, :cause_id, :origin, :charity)
+      params.require(:submission).permit(:url, :user_id, :charity_id, :cause_id, :origin, :charity, :youtube)
     end
 end

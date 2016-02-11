@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160203101844) do
+ActiveRecord::Schema.define(version: 20160211002309) do
 
   create_table "beta_users", force: :cascade do |t|
     t.string   "email"
@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(version: 20160203101844) do
     t.text     "description"
     t.string   "image"
     t.integer  "charity"
+    t.boolean  "youtube"
   end
 
   create_table "user_submissions", force: :cascade do |t|

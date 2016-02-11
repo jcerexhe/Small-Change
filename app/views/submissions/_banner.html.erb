@@ -1,4 +1,8 @@
- 
+<% if @submission.youtube == true %>
+<% type = "video" %>
+<% else %>
+<% type = "article" %>
+<% end %>
 
 
   
@@ -9,7 +13,7 @@
       </div>
 
       <div class = 'col-md-6 article_des'>
-      <p class = 'banner_text  article_des'> Feel strongly about this article? Give to <%= @charities.find(id=@submission.charity).name %> </p>
+      <p class = 'banner_text  article_des'> Feel strongly about this <%=type%>? Give to <%= @charities.find(id=@submission.charity).name %> </p>
       </div>
 
       <div class = 'col-sm-1 payment'>
