@@ -6,7 +6,7 @@ class Charity < ActiveRecord::Base
 		has_many :users, through: :user_submissions
 
 
-        mount_uploader :logo, LogoUploader
+        mount_uploader :choose_charity_logo, ChooseCharityLogoUploader
 
 
 end
