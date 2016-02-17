@@ -4,7 +4,6 @@
 <meta property="og:site_name" content="Small Change Giving" />
 <meta property="og:title" content= "<%=@submission.title%>" />
 <meta property="og:description" content="<%=@submission.description%> | Small Change" />
-<meta content="<%=@submission.image%>" property="og:image" />
 <meta property="og:url" content= "<%=@submission.url%>" />
 <meta property="og:type" content="blog" />
 <% end %>
@@ -15,6 +14,7 @@
   <%= render 'banner' %>
 
   <% if @submission.youtube %>
+    <meta content="<%=@submission.image%>" property="og:image" />
       <br><br><br>
       <center>
         <iframe width="90%" height="550" src= "<%= @submission.url %>" frameborder="3" allowfullscreen></iframe>

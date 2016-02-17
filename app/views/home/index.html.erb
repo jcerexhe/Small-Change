@@ -1,42 +1,28 @@
 
     <div class = "container">
       
-    
-    
 
-
-
-
-      <div class = "logo">
-
-           <br><br><%= image_tag "logosix.png", width: "25%", height: '25%', alt: "Small Change Logo" %>
-        </div>
         <div class = 'other_heading'>
-        <h2 class = 'other_heading'> Make your facebook post meaningful. </h2><br>
+        <br><br><br><h1 class ='other_heading'> Make your facebook post meaningful. </h1><br>
         </div>
-        <div class = 'col-sm-4'>
+        <div class = 'col-sm-3'>
         </div>
 
-        <div class="col-sm-4">
-          <%= simple_form_for(@submission) do |f| %>
-            <div class="input-group input-group-md">
+        <div class="col-sm-6">
+          <br><br><%= simple_form_for(@submission) do |f| %>
+            <div class="input-group input-group-lg">
                 <%= f.input_field :url, class: 'form-control', placeholder: "Paste URL of article here" %>
                   <span class="input-group-btn">
                      <button class="btn btn-success" type="submit">Submit Article</button>
                    </span>
             </div>
-          <% end %>
+          <% end %><br><br><br><br><br><br>
 
-         <div class = 'col-sm-4'>
+         <div class = 'col-sm-3'>
         </div>
 
 
-            <div class='centre'>
-              <br><br><br>
-
-              <%= link_to "How Small Change Works", howitworks_path , class: 'btn btn-default ' %>
-
-            </div>
+     
         </div><!-- /.col-sm-6 -->
 
      

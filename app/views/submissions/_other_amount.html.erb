@@ -1,10 +1,9 @@
-
 <%= form_tag('/donations?amount=100&submission=' + @submission.id.to_s + '&charity=' + @charity.id.to_s) %>
         <noscript>You must <a href="http://www.enable-javascript.com" target="_blank">enable JavaScript</a> in your web browser in order to pay via Stripe.</noscript>
         <input 
             type="submit"
-            name="one" 
-            value="$2"
+            name="other" 
+            value="$ Other"
             data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
             data-amount="200"
             data-currency="aud"
@@ -37,5 +36,3 @@
         // });
         // </script>
 </form>
-
-

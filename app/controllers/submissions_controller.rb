@@ -28,7 +28,7 @@ class SubmissionsController < ApplicationController
       @charity = Charity.find(params[:charity]) 
       @submission.update_attributes(charity: params[:charity])
     else
-      @charity = Charity.find(@submission.charity)
+      # @charity = Charity.find(@submission.charity)
     end
 
   end
@@ -41,6 +41,7 @@ class SubmissionsController < ApplicationController
 
   # GET /submissions/1/edit
   def edit
+    redirect_to submission_path(id: params[:id],type: params[:type])
   end
 
   # POST /submissions
@@ -95,7 +96,7 @@ class SubmissionsController < ApplicationController
 
       
         if @submission.save
-            redirect_to choose_charity_path(submission: @submission.id)
+            redirect_to submissiontype_path(submission: @submission.id)
           # format.json { render :show, status: :created, location: @submission }
         else
           render :new
@@ -141,6 +142,6 @@ class SubmissionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def submission_params
-      params.require(:submission).permit(:url, :user_id, :charity_id, :cause_id, :origin, :charity, :youtube)
+      params.require(:submission).permit(:url, :user_id, :charity_id, :cause_id, :origin, :charity, :youtube, :type, :charity_link, :petition_link)
     end
 end

@@ -1,14 +1,64 @@
-<%= simple_form_for(@submission) do |f| %>
-  <%= f.error_notification %>
+<% if params[:type] == "petition" %>
 
-  <div class="form-inputs">
-    <%= f.input :url, label: "URL of Article or Video" %>
-    <%= f.input :user, as: :hidden, input_html: { value: current_user.email }%>
-    <%= f.association :charity, as: :check_boxes, unique: true %>
-    <%= f.association :cause %>
-  </div>
+                <br><br><br><div class = 'other_heading'><h1> Paste the URL of the Petition. </h1><br><br><br>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+                    <div class = 'col-md-3'></div>
+
+                      <div class = 'col-md-6'>
+
+                        <%= simple_form_for(@submission) do |f| %>
+                          <%= f.error_notification %>
+                          <div class="form-group form-group-lg">
+                              <%= f.input_field :petition_link, class: 'form-control', placeholder: "Paste URL here..." %>
+                          </div><br>
+                                <span>
+                                   <button class="btn btn-success btn-lg btn-block" type="submit">Submit</button>
+                                 </span>
+                        <% end %>
+
+                      </div>
+
+                  <div class = 'col-md-3'></div>
+
+        
+
+  <% elsif params[:type] == "donation" %>
+
+                <br><br><br><div class = 'other_heading'><h1> Paste the URL of the Donation Page. </h1><br><br><br>
+
+                   <div class = 'col-md-3'></div>
+
+                    <div class = 'col-md-6'>
+
+                      <%= simple_form_for(@submission) do |f| %>
+                      <%= f.error_notification %>
+                      <div class="form-group form-group-lg">
+                          <%= f.input_field :charity_link, class: 'form-control', placeholder: "Paste URL here..." %>
+                      </div><br>
+                            <span>
+                               <button class="btn btn-warning btn-lg btn-block" type="submit">Submit</button>
+                             </span>
+                    <% end %>
+
+                  </div>
+
+                   <div class = 'col-md-3'>
+
+
+    <% else %>
+
+            <%= simple_form_for(@submission) do |f| %>
+              <%= f.error_notification %>
+
+                  <div class="form-inputs">
+                    <%= f.input :url, label: "URL of Article or Video" %>
+                    <%= f.input :user, as: :hidden, input_html: { value: current_user.email }%>
+                    <%= f.association :charity, as: :check_boxes, unique: true %>
+                    <%= f.association :cause %>
+                  </div>
+
+                  <div class="form-actions">
+                    <%= f.button :submit %>
+                  </div>
+              <% end %>
 <% end %>

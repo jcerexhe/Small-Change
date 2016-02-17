@@ -51,6 +51,31 @@ class StaticPagesController < ApplicationController
    @charities = Charity.all
   end
 
+  def choose_submission_type
+    @submission = Submission.find(params[:submission])
+
+  def charity
+    submission = Submission.find(params[:id])
+    submission.type ="charity"
+  end
+
+  def petition
+    submission = Submission.find(params[:id])
+    submission.type = "petition"
+  end
+  
+  def petition_link
+  @submission = Submission.new
+  @submissions = Submission.all
+  end 
+
+    def charity_link
+  @submission = Submission.new
+  @submissions = Submission.all
+  end 
+
+end
+
 
 
   def t_and_c

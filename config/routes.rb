@@ -5,6 +5,12 @@ Rails.application.routes.draw do
 
   get  'FAQ' => 'static_pages#faq'
 
+  get 'submissiontype' => 'static_pages#choose_submission_type'
+
+  get 'petition_link' => 'static_pages#petition_link'
+
+  get 'charity_link' => 'static_pages#charity_link'
+
   get 'founders' => 'static_pages#about_the_founders'
 
   get 'termsandconditions' => 'static_pages#t_and_c'

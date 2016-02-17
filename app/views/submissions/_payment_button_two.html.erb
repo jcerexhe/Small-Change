@@ -12,7 +12,8 @@
             data-description="Donate $3 to <%= @charity.name%> "
             data-image="<%=@charity.choose_charity_logo%>"
             data-email="<%= current_user.email if user_signed_in? %>"
-            class=""
+            class="payment_buttons"
+
         />
         
 

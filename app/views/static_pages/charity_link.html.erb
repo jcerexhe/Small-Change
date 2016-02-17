@@ -1,0 +1,33 @@
+<% Submission.all.find(params[:submission]).type = 'charity' %>
+
+
+
+<br><br><br><div class = 'other_heading'><h1> Paste the URL of the Donation Page. </h1><br><br><br>
+
+
+<div class = 'col-md-3'></div>
+
+<div class = 'col-md-6'>
+  <form>
+
+
+
+          <%= simple_form_for(@submission) do |f| %>
+            <div class="form-group form-group-lg">
+                <%= f.input_field :charity_link, class: 'form-control', placeholder: "Paste URL here..." %>
+            </div><br>
+                  <span>
+                     <button class="btn btn-warning btn-lg btn-block" type="submit">Submit</button>
+                   </span>
+            
+          <% end %>
+
+  </form>
+
+
+
+
+</div>
+
+
+<div class = 'col-md-3'></div>

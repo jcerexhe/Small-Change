@@ -9,30 +9,16 @@
   <div class = 'banner', style="max-height: 90px">
 
      <div class = 'col-sm-1 bar_logo hvr-grow'>
-          <%= link_to image_tag('bar_logo.png', class: "bar_logo", size:"70x50"), root_path  %>        
+          <%= link_to image_tag('bar_logo_two.png', class: "bar_logo", size:"90x55"), root_path  %>        
       </div>
 
-      <div class = 'col-md-6 article_des'>
-      <p class = 'banner_text  article_des'> Feel strongly about this <%=type%>? Give to <%= @charities.find(id=@submission.charity).name %> </p>
+      <div class = 'col-md-5 article_des'>
+      <p class = 'banner_text  article_des'> Feel strongly about this? Take action here. </p>
       </div>
 
-      <div class = 'col-sm-1 payment'>
-          <%= render 'payment_button_one' %>        
-      </div>
-      <div class = 'col-sm-1 payment'>
-          <%= render 'payment_button_two' %>        
-      </div>
-      <div class = 'col-sm-1 payment'>
-          <%= render 'payment_button_five' %>        
-      </div>
-
-       <div class = 'col-sm-1 payment'>
-          <%= render 'petition' %> 
-      </div>
-
-  
+  </div>
 
 
     
-  </div>
+  
   
