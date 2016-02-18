@@ -326,10 +326,10 @@ height: 220px;
 .article_des {
   font-family: 'Helvetica', sans-serif;
   text-align: center;
-  font-size: 1.2em;
+  font-size: 22px;
   color: white;
   font-weight: 100pa;
-  padding-top: 6px;
+  padding-top: 0.5%;
 
 }
 
@@ -382,6 +382,77 @@ background: linear-gradient(to right, rgba(139,112,205,1) 0%, rgba(149,154,231,1
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8b70cd', endColorstr='#95dbd4', GradientType=1 );
 
   }
+
+  .donate_button {
+
+
+  -webkit-border-radius: 1;
+  -moz-border-radius: 1;
+  border-radius: 1px;
+  font-family: Helvetica;
+  font-weight: 200;
+  color: rgba(149,219,212,1);
+  font-size: 20px;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  margin-left:28%;
+  padding: 7px 20px 4px 18px;
+  border-radius: 5px;
+  text-decoration: none;
+  background: white;
+  display: inline-block;
+
+  }
+
+    .donate_button:hover {
+   font-family: Helvetica;
+  font-weight: 100;
+  color: rgba(149,219,212,1);
+  background: #f2f4f5;
+  background-image: -webkit-linear-gradient(top, #f2f4f5, #fcfcfc);
+  background-image: -moz-linear-gradient(top, #f2f4f5, #fcfcfc);
+  background-image: -ms-linear-gradient(top, #f2f4f5, #fcfcfc);
+  background-image: -o-linear-gradient(top, #f2f4f5, #fcfcfc);
+  background-image: linear-gradient(to bottom, #f2f4f5, #fcfcfc);
+  text-decoration: none;
+
+  }
+
+  .petition_button {
+      -webkit-border-radius: 1;
+    -moz-border-radius: 1;
+    border-radius: 1px;
+    font-family: Helvetica;
+    font-weight: 200;
+    color: rgba(149,219,212,1);
+    font-size: 20px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left:25%;
+    padding: 7px 20px 4px 18px;
+    border-radius: 5px;
+    text-decoration: none;
+    background: white;
+    display: inline-block;
+  }
+
+  .petition_button:hover {
+ font-family: Helvetica;
+  font-weight: 100;
+  color: rgba(149,219,212,1);
+  background: #f2f4f5;
+  background-image: -webkit-linear-gradient(top, #f2f4f5, #fcfcfc);
+  background-image: -moz-linear-gradient(top, #f2f4f5, #fcfcfc);
+  background-image: -ms-linear-gradient(top, #f2f4f5, #fcfcfc);
+  background-image: -o-linear-gradient(top, #f2f4f5, #fcfcfc);
+  background-image: linear-gradient(to bottom, #f2f4f5, #fcfcfc);
+  text-decoration: none;
+  }
+
+  .whatis {
+    margin-top:1%;
+  }
+
 
   .bar_logo {
     padding-top:0.1%;

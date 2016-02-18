@@ -15,9 +15,9 @@
 
   <% if @submission.youtube %>
     <meta content="<%=@submission.image%>" property="og:image" />
-      <br><br><br>
+      <br><br>
       <center>
-        <iframe width="90%" height="550" src= "<%= @submission.url %>" frameborder="3" allowfullscreen></iframe>
+        <iframe width="90%" height="550" src= "<%= @submission.url %>" frameborder="0" allowfullscreen></iframe>
       </center>
   <% else %>
       <div class = 'submission'>

@@ -41,7 +41,6 @@ class SubmissionsController < ApplicationController
 
   # GET /submissions/1/edit
   def edit
-    redirect_to submission_path(id: params[:id],type: params[:type])
   end
 
   # POST /submissions
@@ -142,6 +141,6 @@ class SubmissionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def submission_params
-      params.require(:submission).permit(:url, :user_id, :charity_id, :cause_id, :origin, :charity, :youtube, :type, :charity_link, :petition_link)
+      params.require(:submission).permit(:url, :user_id, :charity_id, :cause_id, :origin, :charity, :youtube, :submission_type, :charity_link, :petition_link)
     end
 end

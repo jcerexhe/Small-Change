@@ -1,19 +1,20 @@
-<% if @submission.youtube == true %>
-<% type = "video" %>
-<% else %>
-<% type = "article" %>
-<% end %>
+
 
 
   
-  <div class = 'banner', style="max-height: 90px">
+  <div class = 'banner'>
 
-     <div class = 'col-sm-1 bar_logo hvr-grow'>
-          <%= link_to image_tag('bar_logo_two.png', class: "bar_logo", size:"90x55"), root_path  %>        
+      <div class = 'col-md-2'>
+      <%= link_to image_tag('whatis.png', size:'140x55', class: 'whatis') %>
       </div>
 
-      <div class = 'col-md-5 article_des'>
-      <p class = 'banner_text  article_des'> Feel strongly about this? Take action here. </p>
+      <div class = 'col-md-10'>
+      <% if @submission.submission_type == "donation" %>
+        <%= link_to "Take Action On This Issue, Donate Here.", @submission.charity_link, class: 'donate_button', :target => "_blank" %>
+      <% else %>
+        <%= link_to "Take Action On This Issue, Sign This Petition.", @submission.petition_link, class: 'petition_button', :target => "_blank" %>
+      <% end %>
+
       </div>
 
   </div>

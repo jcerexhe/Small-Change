@@ -1,6 +1,6 @@
 <% if params[:type] == "petition" %>
 
-                <br><br><br><div class = 'other_heading'><h1> Paste the URL of the Petition. </h1><br><br><br>
+                <br><br><br><div class = 'other_heading'><h1> Paste the URL of the Petition. </h1></div><br><br><br>
 
                     <div class = 'col-md-3'></div>
 
@@ -10,11 +10,15 @@
                           <%= f.error_notification %>
                           <div class="form-group form-group-lg">
                               <%= f.input_field :petition_link, class: 'form-control', placeholder: "Paste URL here..." %>
+                              <%= f.hidden_field :submission_type, :value => "petition" %>
+
                           </div><br>
                                 <span>
                                    <button class="btn btn-success btn-lg btn-block" type="submit">Submit</button>
                                  </span>
                         <% end %>
+  
+                        <br><br><center><p>This is where the Action Bar will take anyone who reads your post.</p></center>
 
                       </div>
 
@@ -24,7 +28,7 @@
 
   <% elsif params[:type] == "donation" %>
 
-                <br><br><br><div class = 'other_heading'><h1> Paste the URL of the Donation Page. </h1><br><br><br>
+                <br><br><br><div class = 'other_heading'><h1> Paste the URL of the Donation Page. </h1></div><br><br><br>
 
                    <div class = 'col-md-3'></div>
 
@@ -34,11 +38,14 @@
                       <%= f.error_notification %>
                       <div class="form-group form-group-lg">
                           <%= f.input_field :charity_link, class: 'form-control', placeholder: "Paste URL here..." %>
+                          <%= f.hidden_field :submission_type, :value => "donation" %>
+
                       </div><br>
                             <span>
                                <button class="btn btn-warning btn-lg btn-block" type="submit">Submit</button>
                              </span>
                     <% end %>
+                        <br><br><center><p>This is where the Action Bar will take anyone who reads your post.</p></center>
 
                   </div>
 

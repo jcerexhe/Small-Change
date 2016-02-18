@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160217014007) do
+ActiveRecord::Schema.define(version: 20160217043036) do
 
   create_table "beta_users", force: :cascade do |t|
     t.string   "email"
@@ -92,17 +92,17 @@ ActiveRecord::Schema.define(version: 20160217014007) do
 
   create_table "submissions", force: :cascade do |t|
     t.string   "url"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "title"
     t.string   "favicon"
     t.text     "description"
     t.string   "image"
     t.integer  "charity"
     t.boolean  "youtube"
-    t.string   "type"
     t.string   "charity_link"
     t.string   "petition_link"
+    t.string   "submission_type"
   end
 
   create_table "user_submissions", force: :cascade do |t|
