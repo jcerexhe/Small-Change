@@ -1,22 +1,42 @@
+<% provide(:title, "About Small Change") %>
+
+
 <%= render 'layouts/header' %>
 
-<div class = 'col-md-5 panel panel-default'>
-  <div class = 'row'>
-    <div class = 'other_heading'>
-      <h1 class = 'other_heading'>Join.</h1> <br/> 
+
+
+    
+    <div class = 'row'>
+        <div>
+            <center><h1>About <small>Small Change Ending Slacktivism</small></h1></center>
+        </div>
     </div>
-  </div>
+
 
   <div class = 'row'>
-    <div class = 'col-md-1'></div>
-      <div class = 'col-md-10'>
+    <br><br><h3 class='centre'> Our <b><em>Action Bar </em></b> gives your social media followers an easy way of taking action.</h3><br>
+    <center><p><em> We are currently running some tests. We are launching our Beta Version soon. Join us below </em></p></center>
+  </div>
+  <br><br>
+  <div class = 'row'>
+  <center>
+  <%= image_tag('aboutustwo.png', width: 1000, height: 600,) %>
+  </center>
+  </div>
+</div>
+
+  <br><br><div class = 'col-md-12'>
+
+  <div class = 'row'>
+    <div class = 'col-md-3'></div>
+      <div class = 'col-md-6'>
         <br><br>
           <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <%= f.error_notification %>
+            <center><h2> Sign Up <small>for Small Change</small> </h2></center><br><br>
               <div class="form-inputs">
-                <%= f.input :name, required: true, autofocus: true, placeholder: 'e.g. Aisha Jones' %><br/>
                 <%= f.input :email, required: true, autofocus: true, placeholder: 'e.g. aishajones@gmail.com' %><br/>
-                <%= f.input :password, required: false%>
+                <%= f.input :password, required: true%>
                 <%= f.input :admin,  as: :hidden %> 
               </div>
               <div class="form-actions centre">
@@ -25,59 +45,16 @@
           <% end %>
         <br/><br>
       </div>
-     <div class = 'col-md-1'></div>
+     <div class = 'col-md-3'></div>
   </div>
 </div>
 
-<div class='col-md-1'></div>
 
-<div class = 'col-md-6 panel benefits_panel'>
+<br><br><br><br>
 
-  <div class = 'row'>
-    <div class = 'other_heading'>
-      <h2 class = 'other_heading'>Reasons to Join</h2> <br/> 
-    </div>
-  </div>
-
-   <div class = 'row'><br>
-        <div class = 'col-md-2'>
-          <%= image_tag "3.png", size: "150x150", :class => 'logo-img' %>
-        </div>
-        <div class = 'col-md-2'></div>
-        <div class = 'col-md-8 centre'>
-          <p class = 'benefits'> Put an action bar on the links you share on Facebook. End your slacktivism. </p>
-        </div>
-    </div>
-
-      <div class = 'row'><br>
-        <div class = 'col-md-2'>
-          <%= image_tag "1.png", size: "150x150", :class => 'logo-img' %>
-        </div>
-        <div class = 'col-md-2'></div>
-        <div class = 'col-md-8 centre'>
-          <p class = 'benefits'> Have all your Small Change donation receipts in the one place. Super useful at tax time. </p>
-        </div>
-      </div>
-
-      <div class = 'row'><br>
-        <div class = 'col-md-2'>
-          <%= image_tag "2.png", size: "150x150", :class => 'logo-img' %>
-        </div>
-        <div class = 'col-md-2'></div>
-        <div class = 'col-md-8 centre'>
-          <p class = 'benefits'> Track your impact through our donation dashboard. Scientific altruism. </p>
-        </div>
-      </div>
-
-       <div class = 'row'><br>
-        <div class = 'col-md-2'>
-          <%= image_tag "4.png", size: "150x150", :class => 'logo-img' %>
-        </div>
-        <div class = 'col-md-2'></div>
-        <div class = 'col-md-8 centre'>
-          <p class = 'benefits'> Remember your details from last time. Low friction philanthropy. </p>
-        </div>
-      </div><br>
+      
 
 
-</div>
+
+
+

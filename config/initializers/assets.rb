@@ -7,6 +7,7 @@ Rails.application.config.assets.precompile += %w( bar_logo_two.png )
 
 Rails.application.config.assets.precompile += %w( whatis.png )
 
+Rails.application.config.assets.precompile += %w( aboutustwo.png )
 
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path

@@ -7,14 +7,9 @@ class SubmissionsController < ApplicationController
   def index
   @submissions = Submission.all
   @charities = Charity.all
-
-  @submissions.each do |submission|
-    if submission.charity == nil
-      submission.delete
-    end
   end
 
-  end
+  
 
   # GET /submissions/1
   # GET /submissions/1.json
@@ -104,7 +99,7 @@ class SubmissionsController < ApplicationController
       end
 
     else
-     redirect_to new_beta_user_path
+     redirect_to new_user_registration_path
 
     end
   end

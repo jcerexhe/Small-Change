@@ -393,9 +393,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8b70cd', end
   font-weight: 200;
   color: rgba(149,219,212,1);
   font-size: 20px;
-  margin-top: 1%;
-  margin-bottom: 1%;
-  margin-left:28%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-left:20%;
   padding: 7px 20px 4px 18px;
   border-radius: 5px;
   text-decoration: none;
@@ -426,14 +426,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8b70cd', end
     font-weight: 200;
     color: rgba(149,219,212,1);
     font-size: 20px;
-    margin-top: 1%;
-    margin-bottom: 1%;
-    margin-left:25%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left:20%;
     padding: 7px 20px 4px 18px;
     border-radius: 5px;
     text-decoration: none;
     background: white;
     display: inline-block;
+      text-decoration: none;
+
   }
 
   .petition_button:hover {
@@ -450,7 +452,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8b70cd', end
   }
 
   .whatis {
-    margin-top:1%;
+    margin-top:8%;
   }
 
 
