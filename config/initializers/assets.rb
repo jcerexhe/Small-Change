@@ -9,6 +9,10 @@ Rails.application.config.assets.precompile += %w( whatis.png )
 
 Rails.application.config.assets.precompile += %w( aboutustwo.png )
 
+Rails.application.config.assets.precompile += %w( hiwimage.png )
+
+Rails.application.config.assets.precompile += %w( trendingartimage.png )
+
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
 

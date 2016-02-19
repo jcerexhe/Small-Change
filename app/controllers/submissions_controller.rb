@@ -41,14 +41,14 @@ class SubmissionsController < ApplicationController
   # POST /submissions
   # POST /submissions.json
   def create
-    if current_user
+    
       @submission = Submission.new(submission_params)
       @existing_submission = Submission.find_by(url: @submission.url)
      
       # @user = current_user
 
       if @existing_submission         #if this is the first time
-        @existing_submission.users << current_user
+        @existing_submission.users << current_user if current_user
         redirect_to choose_charity_path(submission: @existing_submission.id) 
       else
           if @submission.url.include? "youtube.com"
@@ -64,7 +64,7 @@ class SubmissionsController < ApplicationController
 
           else
               object = LinkThumbnailer.generate(@submission.url)                             #if this is not the first time 
-              @submission.users << current_user
+              @submission.users << current_user if current_user
               @submission.title = object.title
               @submission.favicon = object.favicon
               @submission.description = object.description
@@ -98,10 +98,6 @@ class SubmissionsController < ApplicationController
         end
       end
 
-    else
-     redirect_to new_user_registration_path
-
-    end
   end
 
   # PATCH/PUT /submissions/1

@@ -5,24 +5,62 @@
 
 
 
-    
-    <div class = 'row'>
-        <div>
-            <center><h1>About <small>Small Change Ending Slacktivism</small></h1></center>
-        </div>
+
+
+  
+
+  <div class = 'row'>
+    <div class = 'col-md-3'></div>
+      <div class = 'col-md-6 panel'>
+        <br>
+          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= f.error_notification %>
+            <center><h2> Small Change<small> we'll be in touch when we launch</small> </h2></center><br><br>
+              <div class="form-inputs">
+                <%= f.input :email, autofocus: true, placeholder: 'Enter your email...', label: false %><br/>
+                <%= f.input :admin,  as: :hidden %> 
+              </div>
+              <div class="form-actions centre">
+                  <br><%= f.button :submit, "Sign Up", class:'btn-success btn-lg' %> <br/>
+              </div>
+          <% end %>
+        <br/><br>
+      </div>
+     <div class = 'col-md-3'></div>
+  </div>
+  <br><br><br><br>
+</div>
+    <h1> About Small Change </h1><br>
+
+    <div class='col-md-3'></div>
+    <div class = 'col-md-6'>
+
+    <p><center><em> Small Change is an online platform that allows any media content to be repurposed to raise money for charities and causes.  Rather than simply liking, sharing or re-tweeting, our ActionBar enables your friends and followers to take real action after viewing the content you share. By making the media content the means of helping, when the content goes viral, so to does the means of taking action. </center></em></p><br>
     </div>
 
+    <div class='col-md-3'></div>
+
+    
+  </div>
+  <br><br><br><br><br><br><br><br><br>
+  <h2> How It Works </h2><br><br><br><br>
 
   <div class = 'row'>
-    <br><br><h3 class='centre'> Our <b><em>Action Bar </em></b> gives your social media followers an easy way of taking action.</h3><br>
-    <center><p><em> We are currently running some tests. We are launching our Beta Version soon. Join us below </em></p></center>
-  </div>
-  <br><br>
-  <div class = 'row'>
   <center>
-  <%= image_tag('aboutustwo.png', width: 1000, height: 600,) %>
+  <%= image_tag('hiwimage.png', width: 1000, height: 1200,) %>
   </center>
   </div>
+
+  <br><br><br><h2> Track your impact & see what's trending! </h2><br><br><br>
+
+
+
+   <div class = 'row'>
+  <center>
+  <%= image_tag('trendingartimage.png', width: 900, height: 600,) %>
+  </center>
+  </div>
+
 </div>
 
   <br><br><div class = 'col-md-12'>
@@ -33,11 +71,10 @@
         <br><br>
           <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <%= f.error_notification %>
-            <center><h2> Sign Up <small>for Small Change</small> </h2></center><br><br>
+            <center><h2> I'm In!<small> Let me know when you launch</small> </h2></center><br><br>
               <div class="form-inputs">
-                <%= f.input :email, required: true, autofocus: true, placeholder: 'e.g. aishajones@gmail.com' %><br/>
-                <%= f.input :password, required: true%>
-                <%= f.input :admin,  as: :hidden %> 
+                <%= f.input :email, autofocus: true, placeholder: 'Enter your email...', label: false %><br/>
+                <%= f.input :admin,  as: :hidden %>         
               </div>
               <div class="form-actions centre">
                   <br><%= f.button :submit, "Sign Up", class:'btn-success btn-lg' %> <br/>
