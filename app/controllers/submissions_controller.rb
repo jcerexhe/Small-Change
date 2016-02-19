@@ -54,7 +54,7 @@ class SubmissionsController < ApplicationController
           if @submission.url.include? "youtube.com"
               object = VideoInfo.new(@submission.url)
               video = LinkThumbnailer.generate(@submission.url)                             #if this is not the first time 
-              @submission.users << current_user
+              @submission.users << current_user if current_user
               @submission.title = video.title
               @submission.favicon = 'https://upload.wikimedia.org/wikipedia/commons/0/06/YouTube_logo_2013.svg'
               @submission.description = video.description
