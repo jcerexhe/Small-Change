@@ -1,69 +1,7 @@
-rails g simple_form:install
-
-rails g devise:install
-
-
-rails g devise User
-
-
-rails g scaffold Profile name user:references
-
-rails g scaffold Enquiry enquiry_type name email message:text user:references
-
-rails g scaffold Cause name description:text
-
-rails g scaffold Charity name logo bsb account_number contact_name contact_email abn address
-
-rails g model CharityCause cause:references charity:references
-
-rails g scaffold Submission url user:references charity:references cause:references
-
-rails g scaffold Donation amount:decimal charity:references user:references submission:references
-
-
-
-Gems
-
-devise
-simple_form
-
-
-
-
-
-
-
-
-
-
-
-
-
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby 2.3.0
+Rails 4.2.5.1
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+DEV=sqlite
+PROD=postgresql
