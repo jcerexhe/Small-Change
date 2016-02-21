@@ -16,17 +16,20 @@ class SubmissionsController < ApplicationController
   def show
     @charities = Charity.all
     @submissions = Submission.all
-
-    
     @submission = Submission.find(params[:submission]) if params[:submission]
-    if params[:charity]
-      @charity = Charity.find(params[:charity]) 
-      @submission.update_attributes(charity: params[:charity])
-    else
-      # @charity = Charity.find(@submission.charity)
+  end
+
+    def counter
+      if params[:submission]
+        @submission = Submission.find(params[:submission])
+        if @submission.link_clicks == nil
+          @submission.link_clicks = 1
+        end
+        @submission.link_clicks = @submission.link_clicks + 1
+      end
     end
 
-  end
+  
 
   # GET /submissions/new
   def new
@@ -132,6 +135,6 @@ class SubmissionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def submission_params
-      params.require(:submission).permit(:url, :user_id, :charity_id, :cause_id, :origin, :charity, :youtube, :submission_type, :charity_link, :petition_link)
+      params.require(:submission).permit(:url, :user_id, :charity_id, :cause_id, :origin, :charity, :youtube, :submission_type, :charity_link, :petition_link, :link_clicks)
     end
 end

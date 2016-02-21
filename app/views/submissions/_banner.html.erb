@@ -1,25 +1,24 @@
-
-
-
-  
-  <div class = 'banner'>
-
-      <div class = 'col-md-2'>
-      <%= link_to image_tag('whatis.png', size:'120x45', class: 'whatis'), new_user_registration_path, :target => "_blank"  %>
-      </div>
-
-      <div class = 'col-md-10'>
-      <% if @submission.submission_type == "donation" %>
-        <%= link_to "Take Action On This Issue, Donate Here.", @submission.charity_link, class: 'donate_button', :target => "_blank" %>
-      <% else %>
-        <%= link_to "Take Action On This Issue, Sign This Petition.", @submission.petition_link, class: 'petition_button', :target => "_blank" %>
-      <% end %>
-
-      </div>
-
+<div class='banner'>
+  <div class='col-xs-12 col-sm-12 col-md-2'>
+    <%= link_to image_tag('whatis.png', size:'120x45', class: 'whatis'), new_user_registration_path, :target => "_blank"  %>
   </div>
+
+  <div class='col-md-10'>
+    <% if @submission.submission_type == "donation" %>
+      <%= link_to "Take Action On This Issue, Donate Here.", @submission.charity_link, class: 'donate_button', :target => "_blank", :controller => "submission", :method => "counter" %>
+    <% else %>
+      <%= link_to "Take Action On This Issue, Sign This Petition.", @submission.petition_link, class: 'petition_button', :target => "_blank"%>
+    <% end %>
+  </div>
+</div>
 
 
     
   
-  
+.hidden-xs sm md lg
+<div class="hidden-xs">
+
+
+<div class="visible-xs">
+
+
