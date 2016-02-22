@@ -5,10 +5,18 @@
 
   <div class='col-md-10'>
     <% if @submission.submission_type == "donation" %>
-      <%= link_to "Take Action On This Issue, Donate Here.", @submission.charity_link, class: 'donate_button', :target => "_blank", :controller => "submission", :method => "counter" %>
+      <%= link_to "Take Action On This Issue, Donate Here.", counter_submission_path, class: 'donate_button', onclick: 'openCharity()' %>
     <% else %>
-      <%= link_to "Take Action On This Issue, Sign This Petition.", @submission.petition_link, class: 'petition_button', :target => "_blank"%>
+      <%= link_to "Take Action On This Issue, Sign This Petition.", counter_submission_path, class: 'petition_button', onclick: 'openPetition()' %>
     <% end %>
   </div>
 </div>
 
+<script>
+  function openCharity() {
+    window.open("<%= @submission.charity_link %>");
+  }
+  function openPetition() {
+    window.open("<%= @submission.petition_link %>");
+  }
+</script>
