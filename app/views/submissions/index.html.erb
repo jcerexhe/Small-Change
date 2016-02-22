@@ -3,7 +3,7 @@
 <p id="notice"><%= notice %></p>
 <br>
 
-<h1>Trending Articles</h1>
+<h1>Trending Articles</h1><br>
 
 <table class="table table-hover">
 
@@ -12,9 +12,7 @@
       <th>Thumbnail</th>
       <th>Source </th>
       <th>Title</th>
-      <th>Charity</th>
-      <th>Amount Raised</th>
-      <th colspan="3"></th>
+      <th> Actions Taken </th>
     </tr>
   </thead>
 
@@ -24,8 +22,7 @@
         <td><%= cl_image_tag(submission.image, width: 150, height: 100) %></td>
         <td><%= cl_image_tag(submission.favicon, width: 100) %></td>
         <td><h4><em><%= submission.title %></em></h4></td>
-        <td><%= cl_image_tag(@charities.find_by(id: submission.charity).choose_charity_logo, width: 100, height: 100) unless submission.charity==nil %> </td>
-        <td> $473 </td>
+        <td><%= submission.link_clicks %></td>
       </tr>
     <% end %>
   </tbody>
