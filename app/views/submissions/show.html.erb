@@ -6,7 +6,7 @@
 <meta property="og:description" content="<%=@submission.description%> | Small Change" />
 <meta property="og:url" content= "<%=@submission.url%>" />
 <meta property="og:type" content="blog" />
-<meta property="og:image" content='<%=@submission.image%>'>
+<meta property="og:image" content='<%=@submission.image%>' />
 <% end %>
 
 
@@ -15,7 +15,7 @@
   <%= render 'banner' %>
 
   <% if @submission.youtube %>
-    <meta content="<%=@submission.image%>" property="og:image" />
+    <meta content="<%=@submission.image%>" />
       <br><br>
       <center>
         <iframe width="90%" height="550" src= "<%= @submission.url %>" frameborder="0" allowfullscreen></iframe>
@@ -31,7 +31,7 @@
   
 
 
-
+<!-- 
       <script>
         $(document).ready(function() {
             $(':submit').on('click', function(event) {
@@ -49,7 +49,7 @@
                 StripeCheckout.open(opts);
             });
         });
-        </script>
+        </script> -->
 
 
 
