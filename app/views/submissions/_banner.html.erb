@@ -7,7 +7,7 @@
     <% if @submission.submission_type == "donation" %>
       <%= link_to "Take Action On This Issue, Donate Here.", counter_submission_path, class: 'banner_button', onclick: 'openCharity()' %>
     <% else %>
-      <%= link_to "Take Action On This Issue, Sign This Petition.", counter_submission_path, class: 'banner-button', onclick: 'openPetition()' %>
+      <%= link_to "Take Action On This Issue, Sign This Petition.", counter_submission_path, class: 'banner_button', onclick: 'openPetition()' %>
     <% end %>
   </div>
 </div>
