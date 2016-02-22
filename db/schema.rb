@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160217043036) do
+ActiveRecord::Schema.define(version: 20160221035104) do
 
   create_table "beta_users", force: :cascade do |t|
     t.string   "email"
@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(version: 20160217043036) do
     t.string   "charity_link"
     t.string   "petition_link"
     t.string   "submission_type"
+    t.integer  "link_clicks"
   end
 
   create_table "user_submissions", force: :cascade do |t|

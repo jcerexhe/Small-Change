@@ -43,6 +43,12 @@ Rails.application.routes.draw do
 
   get 'thanks' => 'static_pages#thanks'
 
+  resources :submissions do
+  member do
+    get 'counter'
+  end
+  end
+
 
 
 
