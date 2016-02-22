@@ -1,13 +1,28 @@
 <div class='banner'>
   <div class='col-xs-3 col-md-2 col-md-offset-1'>
-    <%= link_to image_tag('whatis.png', class: 'whatis'), new_user_registration_path, :target => "_blank"  %>
+    <div class="hidden-xs">  
+      <%= link_to image_tag('whatis.png', class: 'whatis'), new_user_registration_path, :target => "_blank"  %>
+    </div>
+    <div class="visible-xs">
+      <%= link_to image_tag('SmallChange.png', class: 'whatis'), new_user_registration_path, :target => "_blank"  %>
+    </div>
   </div>
 
   <div class='col-xs-9 col-md-9'>
     <% if @submission.submission_type == "donation" %>
-      <%= link_to "Take Action On This Issue, Donate Here.", counter_submission_path, class: 'banner_button', onclick: 'openCharity()' %>
+      <div class="hidden-xs">  
+        <%= link_to "Take Action On This Issue, Donate Here.", counter_submission_path, class: 'banner_button', onclick: 'openCharity()' %>
+      </div>
+      <div class="visible-xs">
+        <%= link_to "Give Now.", counter_submission_path, class: 'banner_button', onclick: 'openCharity()' %>
+      </div>
     <% else %>
-      <%= link_to "Take Action On This Issue, Sign This Petition.", counter_submission_path, class: 'banner-button', onclick: 'openPetition()' %>
+      <div class="hidden-xs">  
+        <%= link_to "Take Action On This Issue, Sign This Petition.", counter_submission_path, class: 'banner_button', onclick: 'openPetition()' %>
+      </div>
+      <div class="visible-xs">
+        <%= link_to "Sign Petition.", counter_submission_path, class: 'banner_button', onclick: 'openPetition()' %>
+      </div>
     <% end %>
   </div>
 </div>
