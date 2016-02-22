@@ -12,7 +12,7 @@
       <th>Thumbnail</th>
       <th>Source </th>
       <th>Title</th>
-      <th> Actions Taken </th>
+      <th><center> Actions Taken</center> </th>
     </tr>
   </thead>
 
@@ -22,7 +22,7 @@
         <td><%= cl_image_tag(submission.image, width: 150, height: 100) %></td>
         <td><%= cl_image_tag(submission.favicon, width: 100) %></td>
         <td><h4><em><%= submission.title %></em></h4></td>
-        <td><%= submission.link_clicks %></td>
+        <td><p class = "count_number"><%= submission.link_clicks %></p></td>
       </tr>
     <% end %>
   </tbody>
