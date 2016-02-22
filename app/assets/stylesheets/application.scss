@@ -1,0 +1,128 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "custom";
+@import "cyborg";
+@import "variables";
+
+input[name=one]{
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+  font-family: Courier New;
+  color: #ffffff;
+  font-size: 20px;
+  margin-top: 9px;
+  padding: 4px 10px 4px 10px;
+  border: solid #fcfeff 1px;
+  text-decoration: none;
+  background: none;
+}
+
+input[name=two]{
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+  font-family: Courier New;
+  color: #ffffff;
+  font-size: 20px;
+  margin-top: 5px;
+  padding: 4px 10px 4px 10px;
+  border: solid #fcfeff 1px;
+  text-decoration: none;
+  background: none;
+}
+
+input[name=five]{
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+  font-family: Courier New;
+  font-weight: lighter;
+  color: #ffffff;
+  font-size: 20px;
+  margin-top: 5px;
+  padding: 4px 10px 4px 10px;
+  border: solid #fcfeff 1px;
+  text-decoration: none;
+  background: none;
+}
+
+input[name=other]{
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+  font-family: Helvetica;
+  font-weight: 50;
+  color: #ffffff;
+  font-size: 17px;
+  margin-top: 5px;
+  padding: 4px 10px 4px 10px;
+  border: solid #fcfeff 1px;
+  text-decoration: none;
+  background: none;
+
+}
+
+.round-button {
+  width:25%;
+}
+.round-button-circle {
+  width: 100px;
+  height:100px;
+  padding-bottom: 100%;
+    border-radius: 50%;
+  border:10px solid #cfdcec;
+    overflow:hidden;
+    
+    background: green; 
+    box-shadow: 0 0 3px gray;
+    color: white;
+}
+.round-button-circle:hover {
+  background:#30588e;
+}
+.round-button a {
+  display:block;
+  float:left;
+  width:100%;
+  padding-top:50%;
+    padding-bottom:50%;
+  line-height:1em;
+  margin-top:-0.5em;
+    
+  text-align:center;
+  color:#e2eaf3;
+    /*font-family:Verdana;*/
+    font-size:1.2em;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+.apple_pagination {
+  background: #ffcc99;
+  border: 1px solid black;
+  border-radius: 10px;
+  text-align: center;
+  padding: 1em;
+  cursor: default; }
+  .apple_pagination a, .apple_pagination span {
+    padding: 0.2em 0.3em; }
+  .apple_pagination .disabled {
+    color: #aaaaaa; }
+  .apple_pagination .current {
+    font-style: normal;
+    font-weight: bold;
+    background-color: white;
+    display: inline-block;
+    width: 1.4em;
+    height: 1.4em;
+    line-height: 1.5;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    border-radius: 1em;
+    text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px; }
+  .apple_pagination a {
+    text-decoration: none;
+    color: black; }
+    .apple_pagination a:hover, .apple_pagination a:focus {
+      text-decoration: underline; }
