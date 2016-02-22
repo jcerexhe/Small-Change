@@ -1,16 +1,15 @@
 <% provide(:title, @submission.title) %>
 
 <% content_for :head do %>
-<meta property="og:site_name" content="Small Change Giving" />
-<meta property="og:title" content= "<%=@submission.title%>" />
-<meta property="og:description" content="<%=@submission.description%> | Small Change" />
-<meta property="og:url" content= "<%=@submission.url%>" />
-<meta property="og:type" content="blog" />
-<meta property="og:image" content='<%=@submission.image%>' />
+  <meta property="og:site_name" content="Small Change Giving" />
+  <meta property="og:title" content= "<%=@submission.title%>" />
+  <meta property="og:description" content="<%=@submission.description%> | Small Change" />
+  <meta property="og:url" content= "<%=@submission.url%>" />
+  <meta property="og:type" content="blog" />
+  <meta property="og:image" content='<%=@submission.image%>' />
 <% end %>
 
-
-<div class = 'container'>
+<div class='container'>
 
   <%= render 'banner' %>
 
@@ -26,10 +25,7 @@
       </div>
   <% end %>
 </div>
-
   
-
-
 <!-- 
       <script>
         $(document).ready(function() {
@@ -49,26 +45,3 @@
             });
         });
         </script> -->
-
-
-
-
-
-
-
-
-
-<!-- <p>
-  <strong>Url:</strong>
-  <%= @submission.url %>
-  <%= image_tag(@submission.image) %>
-  <%= @submission.description %>
-  <%= image_tag(@submission.favicon) %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @submission.users %>
-</p> -->
-
-

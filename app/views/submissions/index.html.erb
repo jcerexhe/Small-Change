@@ -1,6 +1,5 @@
 <% provide(:title, "Trending Articles") %>
 
-
 <p id="notice"><%= notice %></p>
 <br>
 
@@ -27,7 +26,6 @@
         <td><h4><em><%= submission.title %></em></h4></td>
         <td><%= cl_image_tag(@charities.find_by(id: submission.charity).choose_charity_logo, width: 100, height: 100) unless submission.charity==nil %> </td>
         <td> $473 </td>
-        
       </tr>
     <% end %>
   </tbody>
