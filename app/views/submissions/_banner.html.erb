@@ -51,9 +51,9 @@
 
     <div class='col-xs-9 col-md-9'>
       <% if @submission.submission_type == "donation" %>
-          <%= link_to "Give Now.", counter_submission_path, class: 'banner_button_mobile', onclick: 'openCharity()' %>
+          <%= link_to "Give Now", counter_submission_path, class: 'banner_button_mobile', onclick: 'openCharity()' %>
       <% else %>
-          <%= link_to "Sign Petition.", counter_submission_path, class: 'banner_button_mobile', onclick: 'openPetition()' %>
+          <%= link_to "Petition", counter_submission_path, class: 'banner_button_mobile', onclick: 'openPetition()' %>
       <% end %>
     </div>
   </div>
