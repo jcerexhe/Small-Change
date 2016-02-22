@@ -31,7 +31,6 @@ textarea {
 }
 
 
-
 .logo {
   
   text-align: center;
@@ -360,6 +359,16 @@ border-width: 1px;
   .round-two {
   border-radius: 5%;}
 
+  /* Submission Index Page */
+
+  .count_number {
+  font-size: 1.5em;
+  padding-top: 20%;
+  text-align: center;
+
+  }
+
+
   /* Submission Show Page */
 
   .banner {
@@ -577,3 +586,5 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8b70cd', end
         .HIWbutton {
           padding-top:15px;
         }
+
+

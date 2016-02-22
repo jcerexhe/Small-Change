@@ -3,7 +3,7 @@ class SubmissionsController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
-    @submissions = Submission.all
+    @submissions = Submission.link_clicks_desc
     @charities = Charity.all
   end
 
