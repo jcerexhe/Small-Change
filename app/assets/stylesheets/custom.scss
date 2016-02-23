@@ -575,7 +575,7 @@ font-family: sans-serif;
 
 .scroll-wrapper {
   -webkit-overflow-scrolling: touch;
-  overflow-y: scroll;
+  overflow: auto;
 }
 
 /* HIW page*/
