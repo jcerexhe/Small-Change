@@ -1,13 +1,15 @@
 <div class='container'>
-  <div class='col-md-6 col-md-offset-3'>
-    <div>
-      <h1> What is the aim of your post? </h1>
+  <div class="row">  
+    <div class='col-xs-12 col-md-6 col-md-offset-3'>
+      <div>
+        <h2 class="sc-header">What is the aim of your post?</h2>
+      </div>
+      <div class='col-xs-12 col-sm-10 col-sm-offset-1 '>
+        <%= link_to "I want people to sign a petition", edit_submission_path(id: params[:submission], type: "petition"), class: "btn btn-block btn-black btn-lg" %>
+      </div>
+      <div class='col-xs-12 col-sm-10 col-sm-offset-1 '>
+        <br><%= link_to "I want to raise money for charity", edit_submission_path(id: params[:submission], type: "donation"), class: "btn btn-block btn-black btn-lg"%>
+      </div>
     </div>
-      <div class=''>
-        <%= link_to "I WANT PEOPLE TO SIGN A PETITION", edit_submission_path(id: params[:submission], type: "petition"), class: "btn btn-block btn-black btn-lg" %>
-      </div>
-      <div class =''>
-        <br><%= link_to "I WANT TO RAISE MONEY FOR CHARITY", edit_submission_path(id: params[:submission], type: "donation"), class: "btn btn-block btn-black btn-lg"%>
-      </div>
   </div>
 </div>

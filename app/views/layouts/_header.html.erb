@@ -1,19 +1,25 @@
-<header class="navbar navbar-inverse">
+<header class="navbar navbar-static-top">
   <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a href="<%= root_path %>" class="navbar-brand" id="logo">SMALL CHANGE</a>
-    </div>
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Trending Articles", submissions_path %></li>
-        <li><%=link_to "About Small Change", new_user_registration_path%> </li>
-      </ul>
+    <div class="">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="<%= root_path %>" class="navbar-brand navbar-text">SMALL CHANGE</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#howitworks" class="navbar-text">How it works</a></li>
+          <li><a href="#"><i class="fa fa-facebook fa-nav"></i></a></li>
+          <li><a href="#"><i class="fa fa-twitter fa-nav"></i></a></li>
+          <li><a href="#"><i class="fa fa-instagram fa-nav"></i></a></li>
+          <!-- <li><%#= link_to "Trending Articles", submissions_path, class: 'navbar-text' %></li>
+          <li><%#=link_to "About Small Change", new_user_registration_path, class: 'navbar-text' %></li> -->
+        </ul>
+      </div>
     </div>
   </div>
 </header>
