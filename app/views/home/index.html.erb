@@ -1,38 +1,15 @@
-
-    <div class = "container">
-      
-
-        <div class = 'other_heading'>
-        <br><br><br><br><h1> Make your facebook post meaningful. </h1><br>
+<div id="welcome" class="">  
+  <div class='container'>
+    <div class=''>
+      <h1>Improve the effectiveness of your social media activism</h1>
+      <%= simple_form_for(@submission) do |f| %>
+        <div class="input-group input-group-md">
+          <%= f.input_field :url, class: 'form-control', placeholder: "Paste URL of article here" %>
+            <span class="input-group-btn">
+              <button class="btn btn-primary" type="submit">Submit Article</button>
+            </span>
         </div>
-        <div class = 'col-sm-4'>
-        </div>
-
-        <div class="col-sm-4">
-          <br><br><%= simple_form_for(@submission) do |f| %>
-            <div class="input-group input-group-md">
-                <%= f.input_field :url, class: 'form-control', placeholder: "Paste URL of article here" %>
-                  <span class="input-group-btn">
-                     <button class="btn btn-primary" type="submit">Submit Article</button>
-                   </span>
-            </div>
-          <% end %><br><br><br><br><br><br>
-
-         <div class = 'col-sm-4'>
-        </div>
-
-
-     
-        </div><!-- /.col-sm-6 -->
-
-     
-
-
-
-
-
-
-
-        
-      </div><!-- /.row -->
-
+      <% end %>
+    </div>
+  </div>
+</div><!-- /.row -->

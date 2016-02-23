@@ -1,8 +1,14 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "custom";
-@import "cyborg";
 @import "variables";
+
+body {
+  font-family: Helvetica, sans-serif;
+}
+
+
+/* Legacy code */
 
 input[name=one]{
   -webkit-border-radius: 5;
