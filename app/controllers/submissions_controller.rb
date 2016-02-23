@@ -43,7 +43,7 @@ class SubmissionsController < ApplicationController
           @submission.title = video.title
           @submission.favicon = 'https://upload.wikimedia.org/wikipedia/commons/0/06/YouTube_logo_2013.svg'
           @submission.description = video.description
-          @submission.image = object.thumbnail_medium
+          @submission.image = object.thumbnail_large
           @submission.url = object.embed_url
           @submission.youtube = true
 
