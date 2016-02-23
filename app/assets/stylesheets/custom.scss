@@ -573,6 +573,11 @@ font-family: sans-serif;
   border-radius: 10px;
 }
 
+.scroll-wrapper {
+  -webkit-overflow-scrolling: touch;
+  overflow: auto;
+}
+
 /* HIW page*/
 
 .shotone{

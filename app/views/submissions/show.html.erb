@@ -1,30 +1,25 @@
 <% provide(:title, @submission.title) %>
 
-<% content_for :head do %>
-  <meta property="og:site_name" content="Small Change Giving" />
-  <meta property="og:title" content= "<%= @submission.title %>" />
-  <meta property="og:description" content="<%= @submission.description %> | Small Change" />
-  <meta property="og:url" content= "<%= @submission.url %>" />
-  <meta property="og:type" content="blog" />
-  <meta property="og:image" content='<%= @submission.image %>' />
-<% end %>
+
 
 <div class='container'>
 
   <%= render 'banner' %>
 
-  <a href="<%= @submission.image %>" style="display:none;"></a>
-
   <% if @submission.youtube %>
-      <br><br>
+    <br><br>
+    <div class="scroll-wrapper">
       <center>
         <iframe width="90%" height="550" src= "<%= @submission.url %>" frameborder="0" allowfullscreen scrolling="yes"></iframe>
       </center>
+    </div>
   <% else %>
+    <div class="scroll-wrapper">
       <div class='submission'>
     		<br><br><br>
         <iframe width="100%" height="2000" src="<%= @submission.url %>" frameborder="0" allowfullscreen scrolling="yes"></iframe>
       </div>
+    </div>
   <% end %>
 </div>
   
