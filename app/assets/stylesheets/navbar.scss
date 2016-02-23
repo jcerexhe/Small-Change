@@ -1,18 +1,24 @@
-.navbar-header {
+.navbar {
   background:transparent;
+  margin-top: 70px;
 }
 
 #logo {
   float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
+  /*margin-right: 10px;*/
+  /*font-size: 1.7em;*/
   color: white;
   text-transform: uppercase;
   letter-spacing: -1px;
-  padding-top: 9px;
+  /*padding-top: 9px;*/
   font-weight: 400;
   &:hover {
     color: white;
     text-decoration: none;
   }
+}
+
+header.navbar.navbar-static-top.navbar-inverse {
+  margin-bottom: 0;
+  padding-bottom: 0;
 }

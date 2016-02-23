@@ -1,9 +1,5 @@
 /* universal */
 
-body {
-  padding-top: 5px;
-}
-
 section {
   overflow: auto;
 }
@@ -24,7 +20,6 @@ textarea {
 }
 
 .logo {
-  
   text-align: center;
 }
 
@@ -58,15 +53,8 @@ textarea {
     display: inline-block;
 }
 
-
-
-
 /* typography */
-
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1;
-}
-
+/*
 h1 {
   font-size: 3em;
   letter-spacing: -2px;
@@ -92,7 +80,7 @@ p {
   font-size: 0.8em;
   color: $gray-light;
   float:right;
-}
+}*/
 
 .white {
   color: #FFF
@@ -131,22 +119,22 @@ footer {
 /* goal page */
 
   .goal-video {
-      text-align: center;
+    text-align: center;
   }
 
   .bridge {
-  text-align:center;
+    text-align:center;
   }
 
   .heading {
-font-family: sans-serif;
+    font-family: sans-serif;
   }
 
 
 /* how it works page */
 
   .hiy-video {
-      text-align: center;
+    text-align: center;
   }
 
 /* home */
@@ -159,11 +147,11 @@ font-family: sans-serif;
 
 
 .panel-body-sitch {
-background:#D3D3D3;
-border-radius:15px;
-border-style: solid;
-border-color: black;
-border-width: 2px;
+  background:#D3D3D3;
+  border-radius:15px;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
 }
 
 
@@ -487,8 +475,8 @@ border-width: 2px;
 }
 
 .black {
-color: white;
-font-family: sans-serif;
+  color: white;
+  font-family: sans-serif;
 }
 
 .payment_buttons {

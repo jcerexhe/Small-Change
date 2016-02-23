@@ -1,15 +1,15 @@
-<div id="welcome" class="">  
-  <div class='container'>
-    <div class=''>
-      <h1>Improve the effectiveness of your social media activism</h1>
-      <%= simple_form_for(@submission) do |f| %>
-        <div class="input-group input-group-md">
-          <%= f.input_field :url, class: 'form-control', placeholder: "Paste URL of article here" %>
-            <span class="input-group-btn">
-              <button class="btn btn-primary" type="submit">Submit Article</button>
-            </span>
-        </div>
-      <% end %>
+<div id="welcome" class="people-bg">  
+  <div class='gradient-overlay'>
+    <div class="container">  
+      <div class='welcome-content col-xs-12 col-sm-6 col-sm-offset-3 text-center'>
+        <h2 class="welcome-tagline">Improve the effectiveness of your social media activism</h2>
+        <%= simple_form_for(@submission) do |f| %>
+          <div class="form-inline">
+            <%= f.input_field :url, class: 'form-control', placeholder: "Enter a link to an article", class: 'form-control input-lg' %>
+            <button class="btn btn-primary btn-lg" type="submit">GET STARTED</button>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div><!-- /.row -->
