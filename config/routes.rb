@@ -10,8 +10,9 @@ Rails.application.routes.draw do
   get 'terms' => 'static_pages#terms'
   get 'contact' => 'static_pages#contact'
   get 'choose-charity' => 'static_pages#choose_charity'
-  get 'dashboard' => 'static_pages#dashboard'
   get 'aboutsmallchange' => 'static_pages#about_small_change'
+
+  get 'dashboard' => 'dashboard#show'
 
   resources :submissions do
     member do
@@ -19,7 +20,8 @@ Rails.application.routes.draw do
     end
   end
 
-  devise_for :users, controllers: {sessions: 'users/sessions', registrations: 'users/registrations'}
+  devise_for :users
+  # devise_for :users, controllers: {sessions: 'users/sessions', registrations: 'users/registrations'}
 
   resources :donations
   resources :submissions
@@ -27,7 +29,6 @@ Rails.application.routes.draw do
   resources :causes
   resources :enquiries
   resources :profiles
-
  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

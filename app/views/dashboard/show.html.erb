@@ -1,0 +1,81 @@
+<div id="your-dashboard">
+  <div class="container">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+      <div class="row">  
+        <div class="col-sm-4">
+          <h2 class="dashboard-header">Your Dashboard</h2>
+        </div>
+        <div class="col-sm-8">
+          <div class="dashboard-form">  
+            <%= simple_form_for(@submission) do |f| %>
+              <%= f.error_notification %>
+              <div class="form-inline pull-right">
+                <%= f.input_field :url, placeholder: "Enter a link to an article", class: 'form-control input-lg main-input', size: '40' %>
+                <button class="btn btn-black btn-lg" type="submit">CREATE NEW CAMPAIGN</button>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="donations">
+  <div class="container">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 panel-donation">
+      <div class="col-xs-12 col-sm-6"> 
+        <h4 class="dash-subheading" style="padding-bottom: 40px;">Donation History</h4>
+        <div class="row">  
+          <div class="col-xs-6">
+            <h6 class="white-text">Your campaigns have raised</h6>
+            <p class="donation-amounts">$6843.00</p>
+          </div>
+          <div class="col-xs-6">
+            <h6 class="white-text">You have personally donated</h6>
+            <p class="donation-amounts">$323.00</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <h4 class="dash-subheading">Quick Donate</h4>
+        <div class="row">  
+          <div class="col-sm-6">
+            <p><input class="form-control input-lg main-input" placeholder="Greenpeace"></input></p>
+            <p><input class="form-control input-lg main-input" placeholder="$20.00"></input></p>
+          </div>
+          <div class="col-sm-6">
+            <button class="btn btn-black btn-lg btn-donate-now">DONATE NOW</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="col-sm-10 col-sm-offset-1">
+    <hr>
+  </div>
+</div>
+
+<div id="campaigns">
+  <div class="container">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+      <div class="row">  
+        <% @submissions.each do |campaign| %>  
+          <div class="col-sm-6">
+            <div class="card">
+              <img class="card-img-top" src="<%= campaign.image %>" width="100%" alt="<%= campaign.title %>">
+              <div class="card-block">
+                <h4 class="card-title"><%= campaign.title %></h4>
+                <p class="card-text"><%= strip_url(campaign.url) %></p>
+                <h5><%= campaign.link_clicks %> Actions Taken</h5>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

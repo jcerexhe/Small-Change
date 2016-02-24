@@ -9,7 +9,7 @@
 }
 
 .welcome-content {
-  padding: 150px 0 140px;
+  padding: 120px 0 190px;
 }
 
 .gradient-overlay {
@@ -17,9 +17,6 @@
       -moz-background-size: cover;
       -o-background-size: cover;
   background-size: cover;
-  /*background-color: rgba(0,176,93,1);
-  background: @include filter-gradient(#00b05d, #00d8d6, horizontal);
-  background: @include background-image(linear-gradient(left bottom, rgba(0,176,93,1) 0%, rgba(0,216,214,1) 100%));*/
   background: rgba(0,176,93,0.2);
   background: -moz-linear-gradient(45deg, rgba(0,176,93,0.9) 0%, rgba(56,189,125,0.9) 22%, rgba(0,216,214,0.9) 100%);
   background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(0,176,93,0.9)), color-stop(22%, rgba(56,189,125,0.9)), color-stop(100%, rgba(0,216,214,0.9)));
