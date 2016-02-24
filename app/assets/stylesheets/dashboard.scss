@@ -15,6 +15,7 @@
   background: rgba(255,255,255, 0.28);
   border-radius: 6px;
   padding: 20px;
+  margin-bottom: 30px;
 }
 
 .dash-subheading {
@@ -27,11 +28,11 @@
   letter-spacing: 1px;
 }
 
-.dash-donation {
-  padding-bottom: 40px;
-  border-bottom: 0.5px solid white;
+#campaigns {
+  margin-top: 30px;
 }
 
-#campaigns {
-  margin-top: 65px;
+.btn-donate-now {
+  height: 100%;
+  width: 100%;
 }
