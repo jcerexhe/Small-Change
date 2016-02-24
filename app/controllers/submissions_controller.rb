@@ -83,6 +83,7 @@ class SubmissionsController < ApplicationController
   end
 
   def update
+     @charities = Charity.all
     respond_to do |format|
       if @submission.update(submission_params)
         format.html { redirect_to @submission, notice: 'Submission was successfully updated.' }
