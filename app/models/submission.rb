@@ -6,4 +6,5 @@ class Submission < ActiveRecord::Base
   has_many :causes, through: :user_submissions
 
   scope :link_clicks_desc, -> { order(:link_clicks => :desc) }
+
 end

@@ -3,12 +3,7 @@
     <div class="container">  
       <div class='welcome-content col-xs-12 col-sm-6 col-sm-offset-3 text-center'>
         <h2 class="welcome-tagline">Improve the effectiveness of your social media activism</h2>
-        <%= simple_form_for(@submission) do |f| %>
-          <div class="form-inline">
-            <%= f.input_field :url, class: 'form-control', placeholder: "Enter a link to an article", class: 'form-control input-lg main-input', size: '40' %>
-            <button class="btn btn-black btn-lg" type="submit">GET STARTED</button>
-          </div>
-        <% end %>
+        <%= render 'shared/get_started_form' %>
       </div>
     </div>
   </div>
@@ -18,6 +13,30 @@
     <div class="col-xs-12 col-sm-10 col-sm-offset-1">
       <h2 class="sc-header black-header">How it Works</h2>
       <%= render 'home/timeline' %>
+    </div>
+  </div>
+</div>
+<div id="trending">
+  <div class="container">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 text-center">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3"> 
+          <h2 class="sc-header black-header">Trending Articles</h2> 
+          <p class="sc-header-tagline">Some of the top performing articles that are raising funds and promoting petitions right now.</p>
+        </div>
+      </div>
+      <%= render 'shared/featured' %>
+      <div class="row">
+        <%= link_to 'View all', submissions_path, class: 'btn btn-black btn-lg' %>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="letsgo">
+  <div class="container">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3 text-center">
+      <h2 class="sc-header">Let's go!</h2>
+      <%= render 'shared/get_started_form' %>
     </div>
   </div>
 </div>

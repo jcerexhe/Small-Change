@@ -1,0 +1,16 @@
+<div class="row featured-cards">
+  <% @featured_submissions.each do |submission| %>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <a href="<%= submission_path(submission) %>">  
+        <div class="card">
+          <img class="card-img-top" src="<%= submission.image %>" width="100%" alt="<%= submission.title %>">
+          <div class="card-block">
+            <h4 class="card-title"><%= submission.title %></h4>
+            <p class="card-text"><%= strip_url(submission.url) %></p>
+            <h5><%= submission.link_clicks %> Actions Taken</h5>
+          </div>
+        </div>
+      </a>
+    </div>
+  <% end %>
+</div>
