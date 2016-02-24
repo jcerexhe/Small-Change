@@ -13,7 +13,7 @@ module ApplicationHelper
   def strip_url(uri)
     url = URI(uri).host
     url.sub!(/www./, '') if url.include? "www."
-
     return url
   end
+
 end

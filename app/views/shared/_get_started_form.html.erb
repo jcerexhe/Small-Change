@@ -1,7 +1,8 @@
 <%= simple_form_for(@submission) do |f| %>
   <%= f.error_notification %>
   <div class="form-inline">
-    <%= f.input_field :url, class: 'form-control', placeholder: "Enter a link to an article", class: 'form-control input-lg main-input', size: '40' %>
+    <%= f.error_notification %>
+    <%= f.input_field :url, class: 'form-control', placeholder: "Enter a link to an article", class: 'form-control input-lg main-input', size: 40, error: 'Please Enter A URL' %>
     <button class="btn btn-black btn-lg" type="submit">GET STARTED</button>
   </div>
 <% end %>
