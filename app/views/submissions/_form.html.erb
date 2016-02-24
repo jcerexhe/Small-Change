@@ -25,13 +25,13 @@
                   <li class="media">
                     <div class="col-sm-4">
                       <div class="media-left">
-                        <img src="http://res.cloudinary.com/small-change/image/upload/v1456287080/greenpeace_logo-compressor_jm3ehh.png" alt="<%= charity.name %>" width="100%">
+                        <img src= <%=charity.logo%> alt=<%= charity.name %> width="100%">
                       </div>
                     </div>
                     <div class="col-sm-8">
                       <div class="media-body">
                         <h3><%= charity.name %></h3>
-                        <p>Greenpeace states its goal is to "ensure the ability of the Earth to nurture life in all its diversity and focuses its campaigning on worldwide issues such as climate change, deforestation, overfishing, commercial whaling, genetic engineering, and anti-nuclear issues. It uses direct action, lobbying, and research to achieve its goals.</p>
+                        <p class='text-left'><%=charity.blurb%></p>
                       </div>
                     </div>
                   </li>

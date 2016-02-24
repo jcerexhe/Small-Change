@@ -24,65 +24,60 @@ class SubmissionsController < ApplicationController
   end
 
   def edit
-    @charities = Charity.all
+   @charities = Charity.all
   end
 
   def create
     @submission = Submission.new(submission_params)
     @existing_submission = Submission.find_by(url: @submission.url)
-    if @submission.valid?(@submission.url) == true
-      redirect_to root_path(error: "true")
-      @submission.errors.add(:url)
+    @charities = Charity.all
 
+    if @existing_submission         #if this is the first time
+      @existing_submission.users << current_user if current_user
+      redirect_to choose_charity_path(submission: @existing_submission.id) 
     else
-   
-      if @existing_submission         #if this is the first time
-        @existing_submission.users << current_user if current_user
-        redirect_to submission_path(@existing_submission) 
+      if @submission.url.include? "youtube.com"
+          object = VideoInfo.new(@submission.url)
+          video = LinkThumbnailer.generate(@submission.url)                             #if this is not the first time 
+          @submission.users << current_user if current_user
+          @submission.title = video.title
+          @submission.favicon = 'https://upload.wikimedia.org/wikipedia/commons/0/06/YouTube_logo_2013.svg'
+          @submission.description = video.description
+          @submission.image = object.thumbnail_large
+          @submission.url = object.embed_url
+          @submission.youtube = true
+
       else
-        if @submission.url.include? "youtube.com"
-            object = VideoInfo.new(@submission.url)
-            video = LinkThumbnailer.generate(@submission.url)                             
-            @submission.users << current_user if current_user
-            @submission.title = video.title
-            @submission.favicon = 'https://upload.wikimedia.org/wikipedia/commons/0/06/YouTube_logo_2013.svg'
-            @submission.description = video.description
-            @submission.image = object.thumbnail_large
-            @submission.url = object.embed_url
-            @submission.youtube = true
+          object = LinkThumbnailer.generate(@submission.url)                             #if this is not the first time 
+          @submission.users << current_user if current_user
+          @submission.title = object.title
+          @submission.favicon = object.favicon
+          @submission.description = object.description
+          @submission.image = object.images.first.src.to_s if object.images.first
+      end
 
-        else
-            object = LinkThumbnailer.generate(@submission.url)                              
-            @submission.users << current_user if current_user
-            @submission.title = object.title
-            @submission.favicon = object.favicon
-            @submission.description = object.description
-            @submission.image = object.images.first.src.to_s if object.images.first
-        end
+      if @submission.url.include? "skynews.com"
+        @submission.favicon = "https://lh3.googleusercontent.com/-uYnyeu0wFpQ/AAAAAAAAAAI/AAAAAAAAe8k/uwcJE42X16E/s0-c-k-no-ns/photo.jpg"
+      end
 
-        if @submission.url.include? "skynews.com"
-          @submission.favicon = "https://lh3.googleusercontent.com/-uYnyeu0wFpQ/AAAAAAAAAAI/AAAAAAAAe8k/uwcJE42X16E/s0-c-k-no-ns/photo.jpg"
-        end
+      if @submission.url.include? "sbs.com"
+        @submission.favicon = "https://pbs.twimg.com/profile_images/434661068011339776/q5OHXv0Q.jpeg"
+      end
 
-        if @submission.url.include? "sbs.com"
-          @submission.favicon = "https://pbs.twimg.com/profile_images/434661068011339776/q5OHXv0Q.jpeg"
-        end
+      if @submission.url.include? "/wp-content/themes/wp-inspired-prem/images/favicon.ico"
+        @submission.favicon = "https://i.vimeocdn.com/portrait/432427_300x300.jpg"
+      end
 
-        if @submission.url.include? "/wp-content/themes/wp-inspired-prem/images/favicon.ico"
-          @submission.favicon = "https://i.vimeocdn.com/portrait/432427_300x300.jpg"
-        end
-
-        if @submission.url.include? "aljazeera.com"
-          @submission.favicon = "http://www.freelogovectors.net/wp-content/uploads/2012/04/al-jazeera-logo.jpg"
-        end
-      
-        if @submission.save
-            redirect_to submissiontype_path(submission: @submission.id)
-          # format.json { render :show, status: :created, location: @submission }
-        else
-          render :new
-          # format.json { render json: @submission.errors, status: :unprocessable_entity }
-        end
+      if @submission.url.include? "aljazeera.com"
+        @submission.favicon = "http://www.freelogovectors.net/wp-content/uploads/2012/04/al-jazeera-logo.jpg"
+      end
+    
+      if @submission.save
+          redirect_to submissiontype_path(submission: @submission.id)
+        # format.json { render :show, status: :created, location: @submission }
+      else
+        render :new
+        # format.json { render json: @submission.errors, status: :unprocessable_entity }
       end
     end
   end

@@ -13,6 +13,5 @@ class Submission < ActiveRecord::Base
 
   scope :link_clicks_desc, -> { order(:link_clicks => :desc) }
 
-  validates :url
 
 end
