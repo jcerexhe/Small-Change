@@ -24,6 +24,7 @@ class SubmissionsController < ApplicationController
   end
 
   def edit
+    @charities = Charity.all
   end
 
   def create
@@ -34,7 +35,7 @@ class SubmissionsController < ApplicationController
 
     if @existing_submission         #if this is the first time
       @existing_submission.users << current_user if current_user
-      redirect_to choose_charity_path(submission: @existing_submission.id) 
+      redirect_to submission_path(@existing_submission) 
     else
       if @submission.url.include? "youtube.com"
           object = VideoInfo.new(@submission.url)

@@ -1,32 +1,35 @@
 <% provide(:title, "Trending Articles") %>
 
-<p id="notice"><%= notice %></p>
-<br>
+<div id="trending-articles">
+  <div class="container">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+      <h2 class="sc-header">Trending Articles</h2>
+      <div class="panel">  
+        <div class="panel-body">
+          <table class="table table-hover">
 
-<h1>Trending Articles</h1><br>
+            <thead>
+              <tr>
+                <th>Thumbnail</th>
+                <th>Source </th>
+                <th>Title</th>
+                <th><center> Actions Taken</center> </th>
+              </tr>
+            </thead>
 
-<table class="table table-hover">
-
-  <thead>
-    <tr>
-      <th>Thumbnail</th>
-      <th>Source </th>
-      <th>Title</th>
-      <th><center> Actions Taken</center> </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @submissions.each do |submission| %>
-      <tr data-link="<%= submission_path(submission) %>">
-        <td><%= cl_image_tag(submission.image, width: 150, height: 100) %></td>
-        <td><%= cl_image_tag(submission.favicon, width: 100) %></td>
-        <td><h4><em><%= submission.title %></em></h4></td>
-        <td><p class = "count_number"><%= submission.link_clicks %></p></td>
-      </tr>
-    <% end %>
-  </tbody>
-
-</table>
-
-
+            <tbody>
+              <% @submissions.each do |submission| %>
+                <tr data-link="<%= submission_path(submission) %>">
+                  <td><%= cl_image_tag(submission.image, width: 150, height: 100) %></td>
+                  <td><%= cl_image_tag(submission.favicon, width: 100) %></td>
+                  <td><h4><em><%= submission.title %></em></h4></td>
+                  <td><p class = "count_number"><%= submission.link_clicks %></p></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

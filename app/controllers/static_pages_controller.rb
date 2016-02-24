@@ -1,11 +1,5 @@
 class StaticPagesController < ApplicationController
-  skip_before_action :authenticate_user!
-
-    def thanks
-    end
-
-  def faq
-  end
+  skip_before_action :authenticate_user!, only: [:about_the_founders, :faq, :about_small_change, :choose_charity, :update_charity, :choose_submission_type, :charity, :petition, :petition_link, :charity_link, :terms, :contact]
 
   def about_the_founders
   end
@@ -13,16 +7,15 @@ class StaticPagesController < ApplicationController
   def about_small_change
   end
 
-  def how_it_works
+  def charity
+    submission = Submission.find(params[:id])
+    submission.type="charity"
   end
 
-  def situation_at_a_glance
-    
-    # When we need to get information from the database e.g. donation total, 
-    # user total, number of small change donations, number of partnered charities,
-    # Ill need to specify that here.
-  end
-
+  def charity_link
+    @submission = Submission.new
+    @submissions = Submission.all
+  end 
 
   def choose_charity
     @submission = Submission.find(params[:submission])
@@ -35,33 +28,26 @@ class StaticPagesController < ApplicationController
     if params[:charity]
       @charity = Charity.find(params[:charity])
     end
-
-  end
-
-  def update_charity
-    @submission = Submission.find(params[:submission])
-    @submission.update_attributes(charity: params[:charity])
-    redirect_to @submission
-  end
-
-
-
-  def charity_tree
-   @causes = Cause.all
-   @charities = Charity.all
   end
 
   def choose_submission_type
     @submission = Submission.find(params[:submission])
+  end
 
-  def charity
-    submission = Submission.find(params[:id])
-    submission.type ="charity"
+  def contact
+    @enquiry = Enquiry.new
+  end
+
+  def dashboard
+    @submissions = current_user.submissions.paginate(:page => params[:page], :per_page => 3)
+  end
+
+  def faq
   end
 
   def petition
     submission = Submission.find(params[:id])
-    submission.type = "petition"
+    submission.type="petition"
   end
   
   def petition_link
@@ -69,39 +55,12 @@ class StaticPagesController < ApplicationController
   @submissions = Submission.all
   end 
 
-    def charity_link
-  @submission = Submission.new
-  @submissions = Submission.all
-  end 
-
-end
-
-
-
-  def t_and_c
-    
+  def terms
   end
 
-  def contact_us
-    @enquiry = Enquiry.new
+  def update_charity
+    @submission = Submission.find(params[:submission])
+    @submission.update_attributes(charity: params[:charity])
+    redirect_to @submission
   end
-
-  def our_goal
-  end
-
-  def I_am_a_charity
-   @enquiry = Enquiry.new
-  end
-
-  def I_am_a_news_organisation
-    @enquiry = Enquiry.new
-  end
-
-  def sc_donation
-  end
-
-  def my_small_change
-    @submissions = Submission.all.paginate(:page => params[:page], :per_page => 3)
-  end
-
 end
