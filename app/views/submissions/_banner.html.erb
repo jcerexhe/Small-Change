@@ -1,71 +1,68 @@
-<!-- <div class='banner'>
-  <div class='col-xs-3 col-md-2 col-md-offset-1'>
-    <div class="hidden-xs hidden-sm">  
-<<<<<<< HEAD
-      <%#= link_to image_tag('whatis.png', class: 'whatis'), new_user_registration_path, :target => "_blank"  %>
-    </div>
-    <div class="hidden-md hidden-lg">
-      <%#= link_to image_tag('SmallChange.png', class: 'whatis'), new_user_registration_path, :target => "_blank"  %>
-=======
-      <%#= link_to image_tag('whatis.png', class: 'whatis'), new_user_registration_path, :target => "_blank"  %#>
-    </div>
-    <div class="hidden-md hidden-lg">
-      <%#= link_to image_tag('SmallChange.png', class: 'whatis'), new_user_registration_path, :target => "_blank"  %>
->>>>>>> youtube fixing test
-    </div>
-  </div>
-
-  <div class='col-xs-9 col-md-9'>
-<<<<<<< HEAD
-    <%# if @submission.submission_type == "donation" %>
-      <div class="hidden-xs hidden-sm">  
-        <%#= link_to "Take Action On This Issue, Donate Here.", counter_submission_path, class: 'banner_button', onclick: 'openCharity()' %>
-      </div>
-      <div class="hidden-md hidden-lg">
-        <%#= link_to "Give Now.", counter_submission_path, class: 'banner_button', onclick: 'openCharity()' %>
-      </div>
-    <%# else %>
-      <div class="hidden-xs hidden-sm">  
-        <%#= link_to "Take Action On This Issue, Sign This Petition.", counter_submission_path, class: 'banner_button', onclick: 'openPetition()' %>
-      </div>
-      <div class="hidden-md hidden-lg">
-        <%#= link_to "Sign Petition.", counter_submission_path, class: 'banner_button', onclick: 'openPetition()' %>
-      </div>
-    <%# end %>
-  </div>
-</div> -->
-
 <div class="hidden-xs hidden-sm">  
-  <div class='banner'>
-    <div class='col-xs-3 col-md-2 col-md-offset-1'>
-        <%= link_to image_tag('whatis.png', class: 'whatis'), new_user_registration_path, :target => "_blank"  %>
-    </div>
-
-    <div class='col-xs-9 col-md-9'>
-      <% if @submission.submission_type == "donation" %>
-          <%= link_to "Take Action On This Issue, Donate Here.", counter_submission_path, class: 'banner_button', onclick: 'openCharity()' %>
-      <% else %>
-          <%= link_to "Take Action On This Issue, Sign This Petition.", counter_submission_path, class: 'banner_button', onclick: 'openPetition()' %>
-      <% end %>
+  <div class="navbar navbar-static-top">
+    <div class='banner banner-bg'>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-2 banner-headers">
+            <a href="<%= new_user_registration_path %>" target="_blank" class="">
+              <p class="banner-header-word">SMALL</p>
+              <p class="banner-header-word">CHANGE</p>
+            </a>
+          </div>
+          <div class="col-md-5">
+            <% if @submission.submission_type == "donation" %> 
+              <p class="banner-tagline">Feel strongly about this article? Give to Greenpeace.</p>
+            <% else %>
+              <p class="banner-tagline">Feel strongly about this article?</p>
+            <% end %>
+          </div>
+          <div class="col-md-3">
+            <% if @submission.submission_type == "donation" %>  
+              <span><%= link_to '$2', root_path, class: 'btn btn-banner btn-lg' %></span>
+              <span><%= link_to '$3', root_path, class: 'btn btn-banner btn-lg' %></span>
+              <span><%= link_to '$5', root_path, class: 'btn btn-banner btn-lg' %></span>
+            <% else %>
+              <span><%= link_to 'Sign Petition', root_path, class: 'btn btn-banner btn-lg btn-block' %></span>
+            <% end %>
+          </div>
+          <div class="col-md-2 banner-headers">
+            <a href="<%= aboutsmallchange_path %>" target="_blank" class="">
+              <p class="banner-header-word">WHAT</p>
+              <p class="banner-header-word">IS THIS?</p>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-<div class="hidden-md hidden-lg">  
-  <div class='banner-mobile'>
-    <div class='col-xs-3 col-md-2 col-md-offset-1'>
-        <%= link_to image_tag('SmallChange.png', class: 'whatis-mobile'), new_user_registration_path, :target => "_blank"  %>
-    </div>
-
-    <div class='col-xs-9 col-md-9'>
-      <% if @submission.submission_type == "donation" %>
-          <%= link_to "Give Now", counter_submission_path, class: 'banner_button_mobile', onclick: 'openCharity()' %>
-      <% else %>
-          <%= link_to "Petition", counter_submission_path, class: 'banner_button_mobile', onclick: 'openPetition()' %>
-      <% end %>
+<div class="hidden-md hidden-lg">
+  <div class="navbar navbar-static-top">
+    <div class='banner-mobile banner-bg'>
+      <div class="">
+        <div class="">
+          <div class="col-xs-4 banner-headers-mobile">
+            <a href="<%= new_user_registration_path %>" target="_blank" class="">
+              <p class="banner-header-word">SMALL</p>
+              <p class="banner-header-word">CHANGE</p>
+            </a>
+          </div>
+          <div class="col-xs-8">
+            <% if @submission.submission_type == "donation" %>  
+              <span><%= link_to 'Donate Now', root_path, class: 'btn btn-banner-mobile btn-lg' %></span>
+            <% else %>
+              <span><%= link_to 'Sign Petition', root_path, class: 'btn btn-banner-mobile btn-lg' %></span>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+  
 </div>
+
+
 
 <script>
   function openCharity() {

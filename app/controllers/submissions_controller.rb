@@ -1,6 +1,7 @@
 class SubmissionsController < ApplicationController
   before_action :set_submission, only: [:show, :edit, :update, :destroy, :counter]
   skip_before_action :authenticate_user!
+  layout 'sub_show', :only => [:show]
 
   def index
     @submissions = Submission.link_clicks_desc

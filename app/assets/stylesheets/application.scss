@@ -11,9 +11,10 @@
 @import "submissions";
 @import "dashboard";
 @import "choose_charity";
+@import "submission_show";
 
 
-body {
+body, .banner-bg {
   font-family: 'Source Sans Pro', sans-serif;
   padding: 0;
   margin: 0;

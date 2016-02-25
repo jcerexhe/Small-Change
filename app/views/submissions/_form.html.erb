@@ -5,7 +5,7 @@
   <%= simple_form_for(@submission) do |f| %>
     <%= f.error_notification %>
     <div class="form-inline">
-      <%= f.input_field :petition_link, class: 'form-control', placeholder: "http://www.petitionwebsite.com/", class: 'form-control input-lg main-input', size: '40' %>
+      <%= f.input_field :petition_link, class: 'form-control', placeholder: "http://www.petitionwebsite.com/", class: 'form-control input-lg main-input', size: '40', autofocus: true %>
       <button class="btn btn-black btn-lg" type="submit">SUBMIT</button>
     </div>
   <% end %>
