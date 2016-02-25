@@ -1,52 +1,35 @@
 <p id="notice"><%= notice %></p>
-
-<% if current_user.admin %>
-
-<h1>Listing Charities</h1>
-
-<table class="table table-hover">
-
-
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Categories</th>
-      <th>BSB<th>
-      <th>Account number</th>
-      <th>Contact name</th>
-      <th>Contact email</th>
-
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @charities.each do |charity| %>
+<center>
+  <h1>Listing Charities</h1>
+</center>
+<div class='col-md-8 col-md-offset-2'>
+  <table class="table table-hover">
+    <thead>
       <tr>
-        <td><%= charity.name %></td>
-        <td>
-          
-            <%= charity.cause.name if charity.cause %><br>
-          
-        </td>
-        <td><%= charity.bsb %></td>
-        <td><%= charity.account_number %></td>
-        <td><%= charity.contact_name %></td>
-        <td><%= charity.contact_email %></td>
-    
-        <td><%= link_to 'Show', charity %></td>
-        <td><%= link_to 'Edit', edit_charity_path(charity) %></td>
-        <td><%= link_to 'Destroy', charity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Name</th>
+        <th>BSB</th>
+        <th>Contact name</th>
+        <th>Contact email</th>
       </tr>
-    <% end %>
-  </tbody>
+    </thead>
 
-</table>
-  <%= link_to 'New Charity', new_charity_path, class: 'btn btn-success' %>
+    <tbody>
+      <% @charities.each do |charity| %>
+        <tr>
+          <td><%= charity.name %></td>       
+          <td><%= charity.bsb %></td>
+          <td><%= charity.contact_name %></td>
+          <td><%= charity.contact_email %></td>
+          <td><%= link_to 'Show', charity %></td>
+          <td><%= link_to 'Edit', edit_charity_path(charity) %></td>
+          <td><%= link_to 'Destroy', charity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
 
+  </table>
+    <%= link_to 'New Charity', new_charity_path, class: 'btn btn-success' %>
 </div>
-<br>
 
-<%= render 'layouts/footer' %>
 
-<% end %>
+
