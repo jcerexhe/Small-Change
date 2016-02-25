@@ -4,9 +4,5 @@ class Charity < ActiveRecord::Base
 		has_many :submissions, through: :user_submissions
 		has_many :donations, through: :user_submissions
 		has_many :users, through: :user_submissions
-
-
-        mount_uploader :choose_charity_logo, ChooseCharityLogoUploader
-
-
+    # mount_uploader :choose_charity_logo, ChooseCharityLogoUploader
 end

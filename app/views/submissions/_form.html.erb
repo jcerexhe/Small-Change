@@ -18,24 +18,29 @@
     <%= f.error_notification %>
       <div class="row text-left">
         <% @charities.each do |charity| %>
-          <div class="col-sm-6">  
-            <div class="panel">
-              <div class="panel-body">    
-                <ul class="media-list">
-                  <li class="media">
-                    <div class="col-sm-4">
-                      <div class="media-left">
-                        <img src="http://res.cloudinary.com/small-change/image/upload/v1456287080/greenpeace_logo-compressor_jm3ehh.png" alt="<%= charity.name %>" width="100%">
+          <div class="col-sm-6 ">  
+            <div data-link="<%=submission_path(@submission, charity: charity.id)%>">
+              <div class="panel charity-panel">
+                <div class="panel-body">    
+                  <ul class="media-list">
+                    <li class="media">
+                      <div class="col-sm-4">
+                        <div class="media-left">
+                          <img src=<%=charity.logo%> alt="<%= charity.name %>" width="100%" height="60px">
+                            <center>
+                              <%= link_to "Select", submission_path(@submission, charity: charity.id), class:'btn btn-black-panel' %>
+                            </center>
+                        </div>
                       </div>
-                    </div>
-                    <div class="col-sm-8">
-                      <div class="media-body">
-                        <h3><%= charity.name %></h3>
-                        <p>Greenpeace states its goal is to "ensure the ability of the Earth to nurture life in all its diversity and focuses its campaigning on worldwide issues such as climate change, deforestation, overfishing, commercial whaling, genetic engineering, and anti-nuclear issues. It uses direct action, lobbying, and research to achieve its goals.</p>
+                      <div class="col-sm-8">
+                        <div class="media-body">
+                          <h3><%= charity.name %></h3>
+                          <p class='blurb'><%=charity.blurb%></p>
+                        </div>
                       </div>
-                    </div>
-                  </li>
-                </ul>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -49,7 +54,6 @@
         <%#= f.association :charity, as: :check_boxes, unique: true %>
         <%#= f.association :cause %>
       </div>
-      <button class="btn btn-black btn-lg" type="submit">CONFIRM</button>
     <% end %>
 
 <% end %>

@@ -1,146 +1,29 @@
-<% @user = current_user %>
-
-<%= render 'layouts/header' %>
-
-<p id="notice"><%= notice %></p>
-
-
-<div class = "container">
-
-  <div class = "row">
-
-      <div class="panel panel-default">
-          <div class="panel-body">
-
-            <h1> <%= @charity.name %> </h1>
-          </div>
-      </div>
-  </div>
-
-  <div class = "row">
-
-
-      <div class = "col-md-2">
-          <div class="panel panel-default">
-            <div class="panel-image-charity">
-              <h1> <%= cl_image_tag @charity.choose_charity_logo, width: '500px', class: 'img-responsive' %></h1>
-            </div>
-          </div>
-      </div>
-
-
-       <div class = "col-md-7">
-        <div class = "row">
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <p><h4 class="activities">Charity Activities:</h4></p>
-            </div>
-          </div>
-        </div>
-        <div class = "row">
-
-          <div class = "col-md-4">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <p><h4 class="activities-txt"><br><br><%=@charity.activity_one%><br><br><br></h4></p>
-            </div>
-          </div> 
-         </div>
-
-           <div class = "col-md-4">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <p><h4 class="activities-txt"><br><br><%=@charity.activity_two%><br><br><br></h4></p>
-            </div>
-          </div> 
-         </div>
-
-           <div class = "col-md-4">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <p><h4 class="activities-txt"><br><br><%=@charity.activity_three%><br><br><br></h4></p>
-            </div>
-          </div> 
-         </div>
-
-        </div>
-        <br>
-      </div>
-
-
-      <div class = "col-md-3">
-        <div class = "row">
-          <div class="panel-charity">
-              <br><br><p class = "fact">$12,365</p>
-                <p class = "descriptor"> Raised for <%= @charity.name %> </p><br><br>
-          </div>
-        </div>
-      </div>
-
-  </div>
-
-  <div class = "row">
-    <div class = "col-md-4">
-      
-    </div>
-
-    <div class = "col-md-5">
-      <br><h2> Connect an article or video to <%= @charity.name %> </h2>
-         <%= simple_form_for(@submission, url: submissions_path(charity: @charity.id, user: @user.id)) do |f| %>
-            <div class="input-group input-group-md">
-                <%= f.input_field :url, class: 'form-control', placeholder: "Enter URL of your article here" %>
-                  <span class="input-group-btn">
-                     <button class="btn btn-info" type="submit">Submit Article</button>
-                   </span>
-            </div>
-          <% end %>
-    </div>
-    <div class = "col-md-3">
-        <div class = "centre">
-          <br><br>
-          <%= link_to "Donate" , '#', class: 'btn btn-lg btn-default  ' %> 
-            <div class ="centre">
-               <div class="btn-group" role="group" aria-label="..."><br>
-                  <button type="button" class="btn btn-danger">$1</button>
-                  <button type="button" class="btn btn-danger">$2</button>
-                  <button type="button" class="btn btn-danger">$5</button>
-               </div>
-            </div>
-        </div>
-    </div>
-  </div>
-
-</div>
-
-
-
-
-
-<%if current_user && current_user.admin %>
-
-<br>
-
+<div class='col-md-8 col-md-offset-2'>
 
 <p>
-  <strong>Logo:</strong>
-  <%= image_tag @charity.choose_charity_logo, width: '390px', class: 'img-responsive' %>
+  <strong>Name:</strong>
+  <%= @charity.name %>
 </p>
-
 
 <p>
-  <strong>Category:</strong>
-   <%# @charity.causes.each_with_index do |cause, index| %>
-    <%# cause.name %>
-    <%# "," unless index == @charity.causes.count - 1 %>
-
-    <%#end%>
+  <strong>Blurb:</strong>
+  <%= @charity.blurb %>
 </p>
 
-
+<p>
+  <strong>URL:</strong>
+  <%= @charity.url %>
+</p>
 <p>
   <strong>BSB:</strong>
   <%= @charity.bsb %>
 </p>
+
+<p>
+  <strong>Logo:</strong>
+  <%= image_tag @charity.logo, width: '200px', class: 'img-responsive' %>
+</p>
+
 
 <p>
   <strong>Account number:</strong>
@@ -157,24 +40,14 @@
   <%= @charity.contact_email %>
 </p>
 
-<p>
-  <strong>ABN:</strong>
-  <%# @charity.abn %>
-</p>
 
-<p>
-  <strong>Address:</strong>
-  <%# @charity.address %>
-</p>
 
-<p>
-<p class = "activities-txt"> - Research <br> - Sun, Smoking and Physical Activity Awareness Programs <br> - Patient Support <br> - Sun Protection Products </p>
 
 
 <%= link_to 'Edit', edit_charity_path(@charity) %> |
 <%= link_to 'Back', charities_path %>
 
-<%end%>
+</div>
 
-<%= render 'layouts/footer' %>
+
 

@@ -10,7 +10,6 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Categories</th>
       <th>BSB<th>
       <th>Account number</th>
       <th>Contact name</th>
@@ -23,17 +22,11 @@
   <tbody>
     <% @charities.each do |charity| %>
       <tr>
-        <td><%= charity.name %></td>
-        <td>
-          
-            <%= charity.cause.name if charity.cause %><br>
-          
-        </td>
+        <td><%= charity.name %></td>       
         <td><%= charity.bsb %></td>
         <td><%= charity.account_number %></td>
         <td><%= charity.contact_name %></td>
         <td><%= charity.contact_email %></td>
-    
         <td><%= link_to 'Show', charity %></td>
         <td><%= link_to 'Edit', edit_charity_path(charity) %></td>
         <td><%= link_to 'Destroy', charity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
