@@ -3,7 +3,13 @@
     <div class="container">  
       <div class='welcome-content col-xs-12 col-sm-6 col-sm-offset-3 text-center'>
         <h2 class="welcome-tagline">Improve the effectiveness of your social media activism</h2>
-        <%= render 'shared/get_started_form' %>
+        <%= simple_form_for(@submission) do |f| %>
+          <%= f.error_notification %>
+          <div class="form-inline">
+            <%= f.input_field :url, class: 'form-control', placeholder: "Enter a link to an article", class: 'form-control input-lg main-input', size: '40', autofocus: true %>
+            <button class="btn btn-black btn-lg" type="submit">GET STARTED</button>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
