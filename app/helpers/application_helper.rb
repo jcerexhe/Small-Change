@@ -13,7 +13,11 @@ module ApplicationHelper
   def strip_url(uri)
     url = URI(uri).host
     url.sub!(/www./, '') if url.include? "www."
-
     return url
   end
+  
+  def truncate(string, max)
+    string.length > max ? "#{string[0...max]}..." : string
+  end
+
 end
