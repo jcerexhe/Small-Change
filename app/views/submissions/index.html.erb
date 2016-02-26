@@ -4,10 +4,10 @@
   <div class="container">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1">
       <% @submissions.each do |submission| %>
-        <div class="panel">
-          <div class="panel-body">
+        <div class="panel panel-default">
+          <div class='panel-body'>
             <div class="hidden-xs col-sm-3">
-              <%= cl_image_tag(submission.image, class: 'img-responsive') %>
+              <%= cl_image_tag(submission.image, width: 180, height: 160, class: 'img-responsive trending-thumbnails') %>
             </div>
             <div class="col-xs-12 col-sm-9">
               <a href="<%= submission_path(submission) %>"><h4><%= submission.title %></h4></a>
