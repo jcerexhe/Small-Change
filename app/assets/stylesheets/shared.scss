@@ -35,6 +35,18 @@
   letter-spacing: 1px;
 }
 
+.btn-clear {
+  color:white;
+  text-transform: uppercase;
+  font-size: 14px;
+  padding: 14px 30px;
+  letter-spacing: 1px;
+}
+
+.btn-clear:hover {
+  text-decoration:none;
+}
+
 .btn-devise-alt {
   @include button-variant($btn-primary-color, rgba(255,255,255, 0), #f9f9f9);
   border: none;
