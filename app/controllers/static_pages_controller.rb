@@ -1,10 +1,7 @@
 class StaticPagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:about_the_founders, :faq, :about_small_change, :choose_charity, :update_charity, :choose_submission_type, :charity, :petition, :petition_link, :charity_link, :terms, :contact]
+  skip_before_action :authenticate_user!, only: [:about_the_founders, :faq, :update_charity, :choose_submission_type, :charity, :petition, :petition_link, :charity_link, :terms, :contact]
 
   def about_the_founders
-  end
-
-  def about_small_change
   end
 
   def charity
@@ -17,29 +14,12 @@ class StaticPagesController < ApplicationController
     @submissions = Submission.all
   end 
 
-  def choose_charity
-    @submission = Submission.find(params[:submission])
-    @causes = Cause.all
-    if params[:cause]
-      @charities = Cause.find(params[:cause]).charities
-    else
-      @charities = Charity.all
-    end
-    if params[:charity]
-      @charity = Charity.find(params[:charity])
-    end
-  end
-
   def choose_submission_type
     @submission = Submission.find(params[:submission])
   end
 
   def contact
     @enquiry = Enquiry.new
-  end
-
-  def dashboard
-    @submissions = current_user.submissions.paginate(:page => params[:page], :per_page => 3)
   end
 
   def faq
