@@ -4,29 +4,30 @@
       <div class="container">
         <div class="row">
           <div class="col-md-2 banner-headers">
-            <a href="<%= root_path %>" class="">
+            <a href="<%= root_path %>">
               <p class="banner-header-word">SMALL</p>
               <p class="banner-header-word">CHANGE</p>
             </a>
           </div>
           <div class="col-md-5">
             <% if @submission.submission_type == "donation" %> 
-              <p class="banner-tagline">Feel strongly about this article? Give to _____.</p>
+              <p class="banner-tagline">Feel strongly about this article?</p>
             <% else %>
               <p class="banner-tagline">Feel strongly about this article?</p>
             <% end %>
           </div>
           <div class="col-md-3">
             <% if @submission.submission_type == "donation" %>  
-              <span><%= link_to '$2', root_path, class: 'btn btn-banner btn-lg' %></span>
-              <span><%= link_to '$3', root_path, class: 'btn btn-banner btn-lg' %></span>
-              <span><%= link_to '$5', root_path, class: 'btn btn-banner btn-lg' %></span>
+              <!-- <span><%#= link_to '$2', root_path, class: 'btn btn-banner btn-lg' %></span>
+              <span><%#= link_to '$3', root_path, class: 'btn btn-banner btn-lg' %></span>
+              <span><%#= link_to '$5', root_path, class: 'btn btn-banner btn-lg' %></span> -->
+              <span><%= link_to 'Donate', new_user_registration_path(submission_id: @submission.id), class: 'btn btn-banner btn-lg btn-block', onclick: 'openCharity()' %></span>
             <% else %>
               <span><%= link_to 'Sign Petition', new_user_registration_path(submission_id: @submission.id), class: 'btn btn-banner btn-lg btn-block', onclick: 'openPetition()' %></span>
             <% end %>
           </div>
           <div class="col-md-2 banner-headers">
-            <a href="<%= aboutsmallchange_path %>" target="_blank" class="">
+            <a href="<%= root_path %>" target="_blank" class="">
               <p class="banner-header-word">WHAT</p>
               <p class="banner-header-word">IS THIS?</p>
             </a>
@@ -43,14 +44,14 @@
       <div class="">
         <div class="">
           <div class="col-xs-4 banner-headers-mobile">
-            <a href="<%= new_user_registration_path %>" target="_blank" class="">
+            <a href="<%= root_path %>" target="_blank" class="">
               <p class="banner-header-word">SMALL</p>
               <p class="banner-header-word">CHANGE</p>
             </a>
           </div>
           <div class="col-xs-8">
             <% if @submission.submission_type == "donation" %>  
-              <span><%= link_to 'Donate Now', new_user_registration_path, class: 'btn btn-banner-mobile btn-lg' %></span>
+              <span><%= link_to 'Donate Now', new_user_registration_path, class: 'btn btn-banner-mobile btn-lg', onclick: 'openCharity()' %></span>
             <% else %>
               <span><%= link_to 'Sign Petition', new_user_registration_path(submission_id: @submission.id), class: 'btn btn-banner-mobile btn-lg', onclick: 'openPetition()' %></span>
             <% end %>

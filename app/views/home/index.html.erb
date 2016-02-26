@@ -4,11 +4,15 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title text-center" id="myModalLabel">Welcome to the Small Change beta</h4>
       </div>
       <div class="modal-body">
-        ...
-        <br><br><br><br><br><br><br><br><br><br>
+        <p style="font-size:18px;">We put our Action Bar on any online content. When shared on social meda, our Action Bar allows your followers to take action on the articles or videos you share. Your friends are now empowered to donate small change to a related charity or sign a related petition.</p>
+
+        <p style="font-size:18px;">It's about putting an end to slacktivism. And turning content that describes the world's problems, into a vehicle that can solve the worlds problems.</p>
+        <div class="text-center">
+          <a href="<%= new_user_registration_path %>" class="btn btn-black btn-lg btn-modal">Join us at Small Change today.</a>
+        </div>
       </div>
     </div>
   </div>
@@ -18,7 +22,7 @@
   <div class='gradient-overlay'>
     <div class="container">  
       <div class='welcome-content col-xs-12 col-sm-6 col-sm-offset-3 text-center'>
-        <h2 class="welcome-tagline">Activate your social media post.</h2>
+        <h2 class="welcome-tagline">Make your social media post count.</h2>
         <%= simple_form_for(@submission) do |f| %>
           <%= f.error_notification %>
           <div class="form-inline">
