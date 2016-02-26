@@ -1,23 +1,28 @@
 <% provide(:title, "Trending Articles") %>
-
-<div id="trending-articles">
-  <div class="container">
-    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-      <% @submissions.each do |submission| %>
-        <div class="panel panel-default">
-          <div class='panel-body'>
-            <div class="hidden-xs col-sm-3">
-              <%= cl_image_tag(submission.image, width: 180, height: 160, class: 'img-responsive trending-thumbnails') %>
-            </div>
-            <div class="col-xs-12 col-sm-9">
-              <a href="<%= submission_path(submission) %>"><h4><%= submission.title %></h4></a>
-              <p class="card-text"><%= strip_url(submission.url) %></p>
-              <span class=""><%= submission.link_clicks %> Actions taken.</span>
-              <span style="text-transform:uppercase;float:right;"><%= submission.submission_type %></span>
+<div class='container'>
+  <div class="row featured-cards">
+    <% @submissions.each do |submission| %>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <a href="<%= submission_path(submission) %>">  
+          <div class="card">
+            <img class="card-img-top" src="<%= submission.image %>" width="100%" height="200px" alt="<%= submission.title %>">
+            <div class="card-block">
+              <h4 id="card-title"><%= truncate(submission.title, length: 90) %></h4>
+              <div class='col-md-6'>
+                <p id="card-text"><%= strip_url(submission.url) %></p>
+                <h5 id="card-clicks"><%= submission.link_clicks %> Actions Taken</h5>
+              </div>
+              <div class='col-md-6'>
+                <br><br><%= link_to "Take Action", submission_path(submission.id), class: 'btn btn-black-trending' %>
+              </div>
             </div>
           </div>
-        </div>
-      <% end %>
-    </div>
+        </a>
+      </div>
+    <% end %>
   </div>
 </div>
+
+
+
+
