@@ -27,7 +27,12 @@
           <%= f.error_notification %>
           <div class="form-inline">
             <%= f.input_field :url, placeholder: "Enter a link to an article", class: 'form-control input-lg main-input', size: '40', autofocus: true %>
-            <button class="btn btn-black btn-lg" type="submit">GET STARTED</button>
+            <div class="hidden-xs hidden-sm">
+              <button class="btn btn-black btn-lg" type="submit">GET STARTED</button>
+            </div>
+            <div class="hidden-md hidden-lg">
+              <button class="btn btn-black btn-lg btn-block btn-mobile" type="submit">GET STARTED</button>
+            </div>
           </div>
         <% end %>
       </div>
@@ -53,8 +58,11 @@
         </div>
       </div>
       <%= render 'shared/featured' %>
-      <div class="row">
+      <div class="hidden-xs hidden-sm">
         <%= link_to 'View all', submissions_path, class: 'btn btn-black btn-lg' %>
+      </div>
+      <div class="hidden-md hidden-lg">
+        <%= link_to 'View all', submissions_path, class: 'btn btn-black btn-lg btn-block' %>
       </div>
     </div>
   </div>
