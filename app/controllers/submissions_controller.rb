@@ -11,7 +11,7 @@ class SubmissionsController < ApplicationController
   def show
     @charities = Charity.all
     @submissions = Submission.all
-    @submission = Submission.find(params[:submission]) if params[:submission]
+    @submission = Submission.friendly.find(params[:submission]) if params[:submission]
   end
 
   def counter
@@ -30,7 +30,7 @@ class SubmissionsController < ApplicationController
 
   def create
     @submission = Submission.new(submission_params)
-    @existing_submission = Submission.find_by(url: @submission.url)
+    @existing_submission = Submission.friendly.find_by(url: @submission.url)
    
     # @user = current_user
 
@@ -106,10 +106,10 @@ class SubmissionsController < ApplicationController
 
   private
     def set_submission
-      @submission = Submission.find(params[:id])
+      @submission = Submission.friendly.find(params[:id])
     end
 
     def submission_params
-      params.require(:submission).permit(:url, :user_id, :charity_id, :cause_id, :origin, :charity, :youtube, :submission_type, :charity_link, :petition_link, :link_clicks)
+      params.require(:submission).permit(:url, :user_id, :charity_id, :cause_id, :origin, :charity, :youtube, :submission_type, :charity_link, :petition_link, :link_clicks, :slug)
     end
 end
