@@ -25,12 +25,15 @@
         <h2 class="welcome-tagline">Make your social media post count.</h2>
         <%= simple_form_for(@submission) do |f| %>
           <%= f.error_notification %>
-          <div class="form-inline">
-            <%= f.input_field :url, placeholder: "Enter a link to an article", class: 'form-control input-lg main-input', size: '40', autofocus: true %>
-            <div class="hidden-xs hidden-sm">
+          <div class="hidden-xs hidden-sm">
+            <div class="form-inline">
+              <%= f.input_field :url, placeholder: "Enter a link to an article", class: 'form-control input-lg main-input', size: '40', autofocus: true %>
               <button class="btn btn-black btn-lg" type="submit">GET STARTED</button>
             </div>
-            <div class="hidden-md hidden-lg">
+          </div>
+          <div class="hidden-md hidden-lg">
+            <div class="form-inline">
+              <%= f.input_field :url, placeholder: "Enter a link to an article", class: 'form-control input-lg main-input mobile-input', autofocus: true, size: '52' %>  
               <button class="btn btn-black btn-lg btn-block btn-mobile" type="submit">GET STARTED</button>
             </div>
           </div>
@@ -58,10 +61,10 @@
         </div>
       </div>
       <%= render 'shared/featured' %>
-      <div class="hidden-xs hidden-sm">
+      <div class="hidden-xs">
         <%= link_to 'View all', submissions_path, class: 'btn btn-black btn-lg' %>
       </div>
-      <div class="hidden-md hidden-lg">
+      <div class="hidden-sm hidden-md hidden-lg">
         <%= link_to 'View all', submissions_path, class: 'btn btn-black btn-lg btn-block' %>
       </div>
     </div>
