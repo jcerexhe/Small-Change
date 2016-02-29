@@ -16,8 +16,8 @@ module ApplicationHelper
     return url
   end
   
-  def truncate(string, max)
-    string.length > max ? "#{string[0...max]}..." : string
-  end
+  # def truncate(string, max)
+  #   string.length > max ? "#{string[0...max]}..." : string
+  # end
 
 end

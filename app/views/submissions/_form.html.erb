@@ -6,6 +6,7 @@
     <%= f.error_notification %>
     <div class="form-inline">
       <%= f.input_field :petition_link, class: 'form-control', placeholder: "http://www.petitionwebsite.com/", class: 'form-control input-lg main-input', size: '40', autofocus: true %>
+      <%= f.hidden_field :submission_type, :value => "petition" %>
       <button class="btn btn-black btn-lg" type="submit">SUBMIT</button>
     </div>
   <% end %>
@@ -16,26 +17,29 @@
   <h2 class="petition-tagline">Please pick the charity.</h2>
   <%= simple_form_for(@submission) do |f| %>
     <%= f.error_notification %>
-      <div class="row text-left">
-        <% @charities.each do |charity| %>
+
+    <%= f.input_field :charity_link, class: 'form-control', placeholder: "Paste URL here..." %>
+    <%= f.hidden_field :submission_type, :value => "donation" %>
+      <!-- <div class="row text-left">
+        <%# @charities.each do |charity| %>
           <div class="col-sm-6 ">  
-            <div data-link="<%=submission_path(@submission, charity: charity.id)%>">
+            <div data-link="<%#=submission_path(@submission, charity: charity.id, type: "donation")%>">
               <div class="panel charity-panel">
                 <div class="panel-body">    
                   <ul class="media-list">
                     <li class="media">
                       <div class="col-sm-4">
                         <div class="media-left">
-                          <img src=<%=charity.logo%> alt="<%= charity.name %>" width="100%" height="60px">
+                          <img src=<%#=charity.logo%> alt="<%#= charity.name %>" width="100%" height="60px">
                             <center>
-                              <%= link_to "Select", submission_path(@submission, charity: charity.id), class:'btn btn-black-panel' %>
+                              <%#= link_to "Select", submission_path(@submission, charity: charity.id, type: "donation"), class:'btn btn-black-panel' %>
                             </center>
                         </div>
                       </div>
                       <div class="col-sm-8">
                         <div class="media-body">
-                          <h3><%= charity.name %></h3>
-                          <p class='blurb'><%=truncate(charity.blurb,148)%></p>
+                          <h3><%#= charity.name %></h3>
+                          <p class='blurb'><%#=truncate(charity.blurb, length: 128)%></p>
                         </div>
                       </div>
                     </li>
@@ -44,13 +48,14 @@
               </div>
             </div>
           </div>
-        <% end %>
-      </div>
+        <%# end %> -->
+      <!-- </div> -->
 
       <div class="form-inputs">
         <% if user_signed_in? %>
           <%= f.input :user, as: :hidden, input_html: { value: current_user.email }%>
         <% end %>
+        <%#= f.hidden_field :submission_type, default: "donation" %>
         <%#= f.association :charity, as: :check_boxes, unique: true %>
         <%#= f.association :cause %>
       </div>

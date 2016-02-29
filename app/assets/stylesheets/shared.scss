@@ -7,6 +7,23 @@
   letter-spacing: 1px;
 }
 
+.sc-header-devise {
+  color: white;
+  text-align: center;
+  /*font-weight: 100;*/
+  letter-spacing: 1px;
+  padding-top: 50px;
+}
+
+.header-devise-tagline {
+  color: white;
+  text-align: center;
+  /*font-weight: 100;*/
+  padding-bottom: 40px;
+  letter-spacing: 1px;
+  padding-bottom: 50px;
+}
+
 .btn-black {
   @include button-variant($btn-primary-color, $light-black, $dark-black);
   border: none;
@@ -16,6 +33,30 @@
   font-size: 14px;
   padding: 14px 30px;
   letter-spacing: 1px;
+}
+
+.btn-clear {
+  color:white;
+  text-transform: uppercase;
+  font-size: 14px;
+  padding: 14px 30px;
+  letter-spacing: 1px;
+}
+
+.btn-clear:hover {
+  text-decoration:none;
+}
+
+.btn-devise-alt {
+  @include button-variant($btn-primary-color, rgba(255,255,255, 0), #f9f9f9);
+  border: none;
+  border-radius: 3px;
+  /*font-weight: 100;*/
+  text-transform: uppercase;
+  font-size: 14px;
+  padding: 14px 30px;
+  letter-spacing: 1px;
+  margin-top: 20px;
 }
 
 .btn-black-panel {
@@ -30,6 +71,19 @@
   margin-top: 30%;
 }
 
+.btn-black-trending {
+  @include button-variant($btn-primary-color, $light-black, $dark-black);
+  border: none;
+  border-radius: 3px;
+  /*font-weight: 100;*/
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1px;
+  position: absolute;
+  bottom:-10%;
+  left:30%;
+}
+
 .btn-black-xs {
   margin-top: 10px;
 }
@@ -40,4 +94,32 @@
   border-radius: 3px;
   font-weight: 100;
   letter-spacing: 1px;
+}
+
+.devise-input {
+  margin-bottom: 10px;
+}
+
+.modal-textbox {
+  font-size: 20;
+}
+
+.modal-title {
+  font-size: 25px;
+}
+
+.modal-body {
+  padding: 30px;
+}
+
+.btn-modal {
+  margin-top: 20px;
+}
+
+.btn-mobile {
+  margin-top: 1em;
+}
+
+.mobile-input {
+  width: 100%;
 }

@@ -24,7 +24,7 @@
   z-index: 1;
   position: fixed;
   top: 0px;
-  left: -5px;
+  /*left: -5px;*/
   width: 100%;
   background: rgba(139,112,205,1);
   background: -moz-linear-gradient(left, rgba(139,112,205,1) 0%, rgba(149,154,231,1) 25%, rgba(152,169,240,1) 34%, rgba(150,198,224,1) 72%, rgba(149,219,212,1) 100%);
@@ -99,7 +99,15 @@
   background-color: transparent;
 }
 
-.scroll-wrapper {
+iframe {
   -webkit-overflow-scrolling: touch;
   overflow: auto;
+}
+
+iframe.iframe-xs {
+  margin-top: 243px;
+}
+
+iframe.iframe-md {
+  margin-top: 10px;
 }

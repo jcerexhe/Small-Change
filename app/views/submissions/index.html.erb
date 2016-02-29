@@ -1,35 +1,28 @@
 <% provide(:title, "Trending Articles") %>
-
-<div id="trending-articles">
-  <div class="container">
-    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-      <h2 class="sc-header">Trending Articles</h2>
-      <div class="panel">  
-        <div class="panel-body">
-          <table class="table table-hover">
-
-            <thead>
-              <tr>
-                <th>Thumbnail</th>
-                <th>Source </th>
-                <th>Title</th>
-                <th><center> Actions Taken</center> </th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <% @submissions.each do |submission| %>
-                <tr data-link="<%= submission_path(submission) %>">
-                  <td><%= cl_image_tag(submission.image, width: 150, height: 100) %></td>
-                  <td><%= cl_image_tag(submission.favicon, width: 100) %></td>
-                  <td><h4><em><%= submission.title %></em></h4></td>
-                  <td><p class = "count_number"><%= submission.link_clicks %></p></td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
-        </div>
+<div class='container'>
+  <div class="row featured-cards">
+    <% @submissions.each do |submission| %>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <a href="<%= submission_path(submission) %>">  
+          <div class="card">
+            <img class="card-img-top" src="<%= submission.image %>" width="100%" height="200px" alt="<%= submission.title %>">
+            <div class="card-block">
+              <h4 id="card-title"><%= truncate(submission.title, length: 90) %></h4>
+              <div class='col-md-6'>
+                <p id="card-text"><%= strip_url(submission.url) %></p>
+                <h5 id="card-clicks"><%= submission.link_clicks %> Actions Taken</h5>
+              </div>
+              <div class='col-md-6'>
+                <br><br><%= link_to "Take Action", submission_path(submission.id), class: 'btn btn-black-trending' %>
+              </div>
+            </div>
+          </div>
+        </a>
       </div>
-    </div>
+    <% end %>
   </div>
 </div>
+
+
+
+

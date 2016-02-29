@@ -1,19 +1,51 @@
-<div id="welcome" class="people-bg">  
-  <div class='gradient-overlay'>
-    <div class="container">  
-      <div class='welcome-content col-xs-12 col-sm-6 col-sm-offset-3 text-center'>
-        <h2 class="welcome-tagline">Improve the effectiveness of your social media activism</h2>
-        <%= simple_form_for(@submission) do |f| %>
-          <%= f.error_notification %>
-          <div class="form-inline">
-            <%= f.input_field :url, class: 'form-control', placeholder: "Enter a link to an article", class: 'form-control input-lg main-input', size: '40', autofocus: true %>
-            <button class="btn btn-black btn-lg" type="submit">GET STARTED</button>
-          </div>
-        <% end %>
+<!-- Modal -->
+<div class="modal fade" id="welcomeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title text-center" id="myModalLabel">Welcome to the Small Change beta</h4>
+      </div>
+      <div class="modal-body">
+        <p style="font-size:18px;">We put our Action Bar on any online content. When shared on social meda, our Action Bar allows your followers to take action on the articles or videos you share. Your friends are now empowered to donate small change to a related charity or sign a related petition.</p>
+
+        <p style="font-size:18px;">It's about putting an end to slacktivism. And turning content that describes the world's problems, into a vehicle that can solve the worlds problems.</p>
+        <div class="text-center">
+          <a href="<%= new_user_registration_path %>" class="btn btn-black btn-lg btn-modal">Join us at Small Change today.</a>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+<div id="welcome" class="people-bg">  
+  <div class='gradient-overlay'>
+    <div class="container">  
+      <div class='welcome-content col-xs-12 col-sm-6 col-sm-offset-3 text-center'>
+        <h2 class="welcome-tagline">Make your social media post count.</h2>
+        <div class="hidden-xs hidden-sm">
+          <%= simple_form_for(@submission) do |f| %>
+            <%= f.error_notification %>  
+            <div class="form-inline">
+              <%= f.input_field :url, placeholder: "Enter a link to an article", class: 'form-control input-lg main-input', size: '40', autofocus: true %>
+              <button class="btn btn-black btn-lg" type="submit">GET STARTED</button>
+            </div>
+          <% end %>
+        </div>
+        <div class="hidden-md hidden-lg">
+          <%= simple_form_for(@submission) do |f| %>
+            <%= f.error_notification %> 
+            <div class="form-inline">
+              <%= f.input_field :url, placeholder: "Enter a link to an article", class: 'form-control input-lg main-input mobile-input', autofocus: true, size: '52' %>  
+              <button class="btn btn-black btn-lg btn-block btn-mobile" type="submit">GET STARTED</button>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div id="howitworks">
   <div class="container">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1">
@@ -32,8 +64,11 @@
         </div>
       </div>
       <%= render 'shared/featured' %>
-      <div class="row">
+      <div class="hidden-xs">
         <%= link_to 'View all', submissions_path, class: 'btn btn-black btn-lg' %>
+      </div>
+      <div class="hidden-sm hidden-md hidden-lg">
+        <%= link_to 'View all', submissions_path, class: 'btn btn-black btn-lg btn-block' %>
       </div>
     </div>
   </div>
@@ -46,3 +81,7 @@
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+  $('#welcomeModal').modal('show');
+</script>

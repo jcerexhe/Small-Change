@@ -5,3 +5,18 @@
   padding-bottom: 40px;
   font-weight: 100;
 }
+
+.panel-body{
+  padding-left:-10px;
+}
+
+.panel-trending {
+  width: 100%;
+  height: 160px;
+}
+
+.panel-default > .panel-body-custom {
+  padding: none;
+  width:100%;
+  height:100%;
+}
