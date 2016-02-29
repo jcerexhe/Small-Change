@@ -2,16 +2,29 @@
   <div class="container">
     <div class="col-sm-10 col-sm-offset-1">  
       <div class="footer-links">
-        <ul class="nav navbar-nav navbar-left">
-          <!-- <li><%#= link_to "Contact Us", new_enquiry_path(enquiry_type: "General"), class: 'navbar-text' %></li> -->
-          <li><%= link_to "FAQ", faq_path, class: 'navbar-text' %></li>
-          <li><%= link_to "Team", founders_path, class: 'navbar-text' %></li>
-          <li><%= link_to "T&C", terms_path, class: 'navbar-text' %></li>
+        <ul class="nav navbar-nav navbar-left text-left">
+          <div class="row">  
+            <div class="col-xs-4">  
+              <li><%= link_to "FAQ", faq_path, class: 'navbar-text' %></li>
+            </div>
+            <div class="col-xs-4">
+              <li><%= link_to "Team", founders_path, class: 'navbar-text' %></li>
+            </div>
+            <div class="col-xs-4">
+              <li><%= link_to "T&C", terms_path, class: 'navbar-text' %></li>
+            </div>
+          </div>
         </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="https://www.facebook.com/smallchangegiving/likes"><i class="fa fa-facebook fa-nav"></i></a></li>
-          <li><a href="https://twitter.com/smallchangeAU"><i class="fa fa-twitter fa-nav"></i></a></li>
-          <li><a href="https://www.instagram.com/smallchangegiving/"><i class="fa fa-instagram fa-nav"></i></a></li>
+        <ul class="nav navbar-nav navbar-right text-center">
+          <div class="col-xs-4">  
+            <li><a href="https://www.facebook.com/smallchangegiving/likes"><i class="fa fa-facebook fa-nav"></i></a></li>
+          </div>
+          <div class="col-xs-4">
+            <li><a href="https://twitter.com/smallchangeAU"><i class="fa fa-twitter fa-nav"></i></a></li>
+          </div>
+          <div class="col-xs-4">
+            <li><a href="https://www.instagram.com/smallchangegiving/"><i class="fa fa-instagram fa-nav"></i></a></li>
+          </div>
         </ul>
       </div>
     </div>
