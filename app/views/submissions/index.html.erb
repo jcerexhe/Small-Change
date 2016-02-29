@@ -4,7 +4,7 @@
     <% @submissions.each do |submission| %>
       <div class="col-xs-12 col-sm-6 col-md-4">
         <a href="<%= submission_path(submission) %>">  
-          <div class="card">
+          <div class="card card-featured">
             <img class="card-img-top" src="<%= submission.image %>" width="100%" height="200px" alt="<%= submission.title %>">
             <div class="card-block">
               <h4 id="card-title"><%= truncate(submission.title, length: 90) %></h4>

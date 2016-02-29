@@ -23,3 +23,7 @@ window.location = this.dataset.link
 });
 })
 
+
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
