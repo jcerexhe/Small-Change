@@ -23,21 +23,24 @@
     <div class="container">  
       <div class='welcome-content col-xs-12 col-sm-6 col-sm-offset-3 text-center'>
         <h2 class="welcome-tagline">Make your social media post count.</h2>
-        <%= simple_form_for(@submission) do |f| %>
-          <%= f.error_notification %>
-          <div class="hidden-xs hidden-sm">
+        <div class="hidden-xs hidden-sm">
+          <%= simple_form_for(@submission) do |f| %>
+            <%= f.error_notification %>  
             <div class="form-inline">
               <%= f.input_field :url, placeholder: "Enter a link to an article", class: 'form-control input-lg main-input', size: '40', autofocus: true %>
               <button class="btn btn-black btn-lg" type="submit">GET STARTED</button>
             </div>
-          </div>
-          <div class="hidden-md hidden-lg">
+          <% end %>
+        </div>
+        <div class="hidden-md hidden-lg">
+          <%= simple_form_for(@submission) do |f| %>
+            <%= f.error_notification %> 
             <div class="form-inline">
               <%= f.input_field :url, placeholder: "Enter a link to an article", class: 'form-control input-lg main-input mobile-input', autofocus: true, size: '52' %>  
               <button class="btn btn-black btn-lg btn-block btn-mobile" type="submit">GET STARTED</button>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
