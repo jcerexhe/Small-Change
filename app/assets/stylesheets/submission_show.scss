@@ -103,9 +103,14 @@ iframe {
 }
 
 iframe.iframe-xs {
-  margin-top: 243px;
+  margin-top: 107px;
 }
 
 iframe.iframe-md {
   margin-top: 10px;
+}
+
+.iframe-wrapper {
+  overflow:scroll !important; 
+  -webkit-overflow-scrolling:touch !important;
 }
