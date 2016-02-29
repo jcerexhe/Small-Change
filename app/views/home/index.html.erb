@@ -1,27 +1,32 @@
-<!-- Modal -->
-<div class="modal fade" id="welcomeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title text-center" id="myModalLabel">Welcome to the Small Change</h4>
-      </div>
-      <div class="modal-body">
-        <p style="font-size:18px;">Small Change is about putting an end to slacktivism.</p>
-        <p style="font-size:18px;">We're still getting a few things ready, but feel free to look around and even link a social media post to a petition!</p>
-        <p style="font-size:18px;">Coming soon:</p>
-        <ul>
-          <li style="font-size:18px;">Link online content you share to a related charity.</li>
-          <li style="font-size:18px;">Donate to related charities with one click.</li>
-          <li style="font-size:18px;">Track the impact your posts are making.</li>
-        </ul>
-        <div class="text-center">
-          <a href="<%= new_user_registration_path %>" class="btn btn-black btn-lg btn-modal">Join us at Small Change today.</a>
+<% unless user_signed_in? %>  
+  <!-- Modal -->
+  <div class="modal fade" id="welcomeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="close-btn">&times;</span></button>
+          <h4 class="modal-title text-center" id="myModalLabel">Welcome to the Small Change</h4>
+        </div>
+        <div class="modal-body">
+          <p style="font-size:18px;">Small Change is about putting an end to slacktivism.</p>
+          <p style="font-size:18px;">We're still getting a few things ready, but feel free to look around and even link a social media post to a petition!</p>
+          <p style="font-size:18px;">Coming soon:</p>
+          <ul>
+            <li style="font-size:18px;">Link online content you share to a related charity.</li>
+            <li style="font-size:18px;">Donate to related charities with one click.</li>
+            <li style="font-size:18px;">Track the impact your posts are making.</li>
+          </ul>
+          <div class="hidden-xs hidden-sm text-center">
+            <a href="<%= new_user_registration_path %>" class="btn btn-black btn-lg btn-modal">Join us at Small Change today.</a>
+          </div>
+          <div class="hidden-md hidden-lg">
+            <a href="<%= new_user_registration_path %>" class="btn btn-black btn-lg btn-modal btn-block">Join us</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+<% end %>
 
 <div id="welcome" class="people-bg">  
   <div class='gradient-overlay'>

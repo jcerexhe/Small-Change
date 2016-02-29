@@ -9,9 +9,8 @@ Rails.application.routes.draw do
   get 'founders' => 'static_pages#about_the_founders'
   get 'terms' => 'static_pages#terms'
   get 'contact' => 'static_pages#contact'
-  get 'aboutsmallchange' => 'static_pages#about_small_change'
 
-  # get 'dashboard' => 'dashboard#show'
+  get 'dashboard' => 'dashboard#show'
 
   resources :submissions do
     member do
@@ -27,11 +26,6 @@ Rails.application.routes.draw do
   # resources :causes
   # resources :enquiries
   # resources :profiles
- 
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
   root 'home#index'
-
 end
