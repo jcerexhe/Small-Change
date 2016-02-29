@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160224233908) do
+ActiveRecord::Schema.define(version: 20160229123038) do
 
   create_table "beta_users", force: :cascade do |t|
     t.string   "email"
@@ -101,7 +101,10 @@ ActiveRecord::Schema.define(version: 20160224233908) do
     t.string   "petition_link"
     t.string   "submission_type"
     t.integer  "link_clicks",     default: 0
+    t.string   "slug"
   end
+
+  add_index "submissions", ["slug"], name: "index_submissions_on_slug", unique: true
 
   create_table "user_submissions", force: :cascade do |t|
     t.integer  "user_id"
