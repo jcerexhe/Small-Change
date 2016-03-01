@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   get 'dashboard' => 'dashboard#show'
 
-  resources :submissions do
+  resources :submissions, only: [:index, :show] do
     member do
       get 'counter'
     end
@@ -25,7 +25,6 @@ Rails.application.routes.draw do
   # resources :charities
   # resources :causes
   # resources :enquiries
-  # resources :profiles
 
   root 'home#index'
 end

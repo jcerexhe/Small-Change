@@ -19,15 +19,6 @@ class SubmissionsController < ApplicationController
     redirect_to new_user_registration_path
   end
 
-  def new
-    @submission = Submission.new
-    @user = current_user
-  end
-
-  def edit
-    @charities = Charity.all
-  end
-
   def create
     @submission = Submission.new(submission_params)
     @existing_submission = Submission.friendly.find_by(url: @submission.url)
