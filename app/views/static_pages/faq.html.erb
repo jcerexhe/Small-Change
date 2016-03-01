@@ -1,79 +1,99 @@
 <% provide(:title, "FAQ") %>
-<%= render 'layouts/header'%>
-<div class = 'other_heading'>
-<br><h1 class = 'other_heading'>Frequently Asked Questions</h1> <br><br>
+      
+<div id="faq">
+  <div class="container">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 ">
+      <h2 class='page-heading'>Frequently Asked Questions </h2><br> 
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <!-- Nav tabs category -->
+
+
+          <!-- Tab panes -->
+          <div class="tab-content faq-cat-content">
+            <div class="tab-pane active in fade" id="faq-cat-1">
+                <div class="panel-group" id="accordion-cat-1">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a data-toggle="collapse" data-parent="#accordion-cat-1" href="#faq-cat-1-sub-1">
+                                <h4 class="panel-title">
+                                    How Much of My Donation Will Actually Go To Charity? <span class="pull-right"><i class="fa fa-angle-double-down"></i></span>
+                                </h4>
+                                
+                            </a>
+                        </div>
+                        <div id="faq-cat-1-sub-1" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                We don't take a clip. But the payment processor we uses charges a fee of 1.25% + 10c on domestic transactions.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a data-toggle="collapse" data-parent="#accordion-cat-2" href="#faq-cat-1-sub-2">
+                                <h4 class="panel-title">
+                                    What Can I Do To Support Small Change? <span class="pull-right"><i class="fa fa-angle-double-down"></i></span>
+                                </h4>
+                            </a>
+                        </div>
+                        <div id="faq-cat-1-sub-2" class="panel-collapse collapse">
+                            <div class="panel-body panel-faq">
+                                What we need more than funding is a growing user base. Sign up to join our platform <%= link_to 'here', new_user_registration_path %> and start a campaign. We are on Facebook  <%= link_to 'here', "https://www.facebook.com/smallchangegiving/?" %> We also need your feedback about what you like about Small Change, but most importantly, we need to know how to make it better.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a data-toggle="collapse" data-parent="#accordion-cat-3" href="#faq-cat-1-sub-3">
+                                <h4 class="panel-title">
+                                    I'm A Charity. How Do I Get On Small Change? <span class="pull-right"><i class="fa fa-angle-double-down"></i></span>
+                                </h4>
+                            </a>
+                        </div>
+                        <div id="faq-cat-1-sub-3" class="panel-collapse collapse">
+                            <div class="panel-body panel-faq">
+                                Great, we are looking to get new charities on board. Email Henry, henry@smallchangegiving.net and you can start attracting donations through us right away.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a data-toggle="collapse" data-parent="#accordion-cat-4" href="#faq-cat-1-sub-4">
+                                <h4 class="panel-title">
+                                    How Do I Know My Credit Card Details Are Secure? <span class="pull-right"><i class="fa fa-angle-double-down"></i></span>
+                                </h4>
+                            </a>
+                        </div>
+                        <div id="faq-cat-1-sub-4" class="panel-collapse collapse">
+                            <div class="panel-body panel-faq">
+                                All our payments are handled by Stripe, a trusted online payment gateway.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a data-toggle="collapse" data-parent="#accordion-cat-5" href="#faq-cat-1-sub-5">
+                                <h4 class="panel-title">
+                                    What Happens To My Personal Information? <span class="pull-right"><i class="fa fa-angle-double-down"></i></span>
+                                </h4>
+                            </a>
+                        </div>
+                        <div id="faq-cat-1-sub-5" class="panel-collapse collapse">
+                            <div class="panel-body panel-faq">
+                                We do not pass on any of your personal details to charity without your express permission. See our terms and conditions for more details on our privacy policy.
+                            </div>
+                        </div>
+                    </div><br><br>
+                </div>
+              </div>
+           </div>
+        </div>
+      </div> 
+    </div>
+  </div>
 </div>
-<div class = "FAQ_List">
-
-
-		<div class = "row">
-			<div class = "col-md-12">
-				<p class = 'white'><b> 1. How much of my donation will actually go to charity? </b></p><br>
-				<p> We don't take a clip. But the bloody payment providers take a fee per transaction (around 10c). </p>
-			</div>
-		</div>
-
-
-    
-
-
-		<div class = "logo">
-  			<br><%= image_tag "greenlogo.png", :size => "30x27", :class => 'logo-img', alt: "Rails logo" %>
-    	</div><br><br>
-
-
-		<div class = "row">
-			<div class = "col-md-12">
-				<p class = 'white'><b> 2.	Is Small Change a non-profit organisation? </b></p><br>
-				<p> No. We're a social enteprise. Small Change was founded by a lawyer and a programmer. We're not doing this for the money. </p>
-			</div>
-		</div>
-
-
-		<div class = "logo">
-  			<br><%= image_tag "greenlogo.png", :size => "30x27", :class => 'logo-img', alt: "Rails logo" %>
-    	</div><br><br>
-
-
-		<div class = "row">
-			<div class = "col-md-12">
-				<p class = 'white'><b> 3. How does Small Change cover its costs?</b></p><br>
-				<p> We are funded by impact investors. We also sell data to charities that helps them understand the behaviour of donors. </p>
-			</div>
-		</div>
-
-
-		<div class = "logo">
-  			<br><%= image_tag "greenlogo.png", :size => "30x27", :class => 'logo-img', alt: "Rails logo" %>
-    	</div><br><br>
-
-
-		<div class = "row">
-			<div class = "col-md-12">
-				<p class = 'white'><b> 4. What can I do to support Small Change?</b></p><br>
-				<p> What we need more than funding is a growing user base. Sign up to join our platform <%= link_to 'here', ''%>. </p>
-			</div>
-		</div>
-
-
-		<div class = "logo">
-  			<br><%= image_tag "greenlogo.png", :size => "30x27", :class => 'logo-img', alt: "Rails logo" %>
-    	</div><br><br>
-
-
-    	<div class = "row">
-			<div class = "col-md-12">
-				<p class = 'white'><b> 5. I'm a charity. How do I get on Small Change so people can donate to us?</b></p><br>
-				<p> Great, email Sam on sam at smallchangegiving.net. Obviously put @ instead of 'at', I just don't want bots scraping my email if I can avoid it :) </em></p>
-			</div>
-		</div>
-
-
-</div>
 
 
 
 
 
-
-<%= render 'layouts/footer' %>
