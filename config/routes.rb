@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   get 'dashboard' => 'dashboard#show'
 
+  resources :submissions
+
   resources :submissions, only: [:index, :show] do
     member do
       get 'counter'
