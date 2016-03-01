@@ -19,12 +19,7 @@ class SubmissionsController < ApplicationController
     redirect_to new_user_registration_path
   end
 
-  def new
-    @submission = Submission.new
-    @user = current_user
-  end
-
-  def edit
+  def edit 
     @charities = Charity.all
   end
 

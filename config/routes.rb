@@ -25,7 +25,6 @@ Rails.application.routes.draw do
   # resources :charities
   # resources :causes
   # resources :enquiries
-  # resources :profiles
 
   root 'home#index'
 end

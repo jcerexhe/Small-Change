@@ -1,67 +1,83 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The page you were looking for doesn't exist (404)</title>
+  <title>The page you were looking for doesn't exist (404) | Small Change</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <style>
+  html, body {
+    height: 100%;
+  }
   body {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: arial, sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
+    padding: 0;
     margin: 0;
+    -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+    background-size: cover;
+    background: -webkit-linear-gradient(left bottom, $bg-green, $bg-blue); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(top right, $bg-green, $bg-blue); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(top right, $bg-green, $bg-blue); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to top right, $bg-green, $bg-blue); /* Standard syntax  */
+    background: rgba(0,176,93,1);
+    background: -moz-linear-gradient(45deg, rgba(0,176,93,1) 0%, rgba(56,189,125,1) 22%, rgba(0,216,214,1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(0,176,93,1)), color-stop(22%, rgba(56,189,125,1)), color-stop(100%, rgba(0,216,214,1)));
+    background: -webkit-linear-gradient(45deg, rgba(0,176,93,1) 0%, rgba(56,189,125,1) 22%, rgba(0,216,214,1) 100%);
+    background: -o-linear-gradient(45deg, rgba(0,176,93,1) 0%, rgba(56,189,125,1) 22%, rgba(0,216,214,1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(0,176,93,1) 0%, rgba(56,189,125,1) 22%, rgba(0,216,214,1) 100%);
+    background: linear-gradient(45deg, rgba(0,176,93,1) 0%, rgba(56,189,125,1) 22%, rgba(0,216,214,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b05d', endColorstr='#00d8d6', GradientType=1 );
+    background-repeat: no-repeat;
+    text-align: center;
+    color: white;
   }
 
-  div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
+  .page-heading {
+    letter-spacing: 1px;
+    padding-bottom: 10px;
+    padding-top: 50px;
   }
 
-  div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+  .name {
+    font-size: 110%;
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 2px;
   }
 
-  h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
+  .img {
+    height: 120px !important;
+    margin-top: 100px;
   }
 
-  div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+  .link {
+    text-decoration: none;
   }
+
+  .fa-home {
+    color: white;
+    margin-top: 50px;
+  }
+
   </style>
 </head>
 
 <body>
   <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <div>
-      <h1>The page you were looking for doesn't exist.</h1>
-      <p>You may have mistyped the address or the page may have moved.</p>
-    </div>
-    <p>If you are the application owner check the logs for more information.</p>
+  <div>
+    <a href="http://smallchangegiving.co/" class="link">
+      <img src="http://res.cloudinary.com/small-change/image/upload/v1456809563/smallchangelogo_e8vtaw.png" class="img">
+      <h2 class="name">Small Change</h2>
+    </a>
+    <h2 class="page-heading">Oops! We can't find this page.</h2>
+    <p>You may have mistyped the address or the page may have moved.</p>
+    <p>If you have any concerns or feedback please contact <a href="mailto:sam@smallchangegiving.net">sam@smallchangegiving.net</a>.</p>
+    <a href="http://smallchangegiving.co/">
+      <i class="fa fa-home fa-3x"></i>
+    </a>
   </div>
 </body>
 </html>
