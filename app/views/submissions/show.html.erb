@@ -6,12 +6,13 @@
   <meta property="og:description" content="<%= @submission.description %> | Small Change" />
   <meta property="og:url" content= "<%= @submission.url %>" />
   <meta property="og:type" content="blog" />
-  <meta property="og:image" content='<%= @submission.image %>' />
+  
 <% end %>
 
 <%= render 'banner' %>
 
 <% if @submission.youtube %>
+  <img style="visibility:hidden;" src="<%= @submission.image %>">
   <div class="hidden-xs hidden-sm">
     <center>
       <div class="iframe-wrapper"> 
@@ -21,7 +22,7 @@
   </div>
   <div class="hidden-md hidden-lg">
     <div class='iframe-wrapper'>
-      <iframe class="iframe-xs" width="90%" height="550" src="<%= @submission.url %>" frameborder="0" allowfullscreen scrolling="yes"></iframe>
+      <iframe class="iframe-xs" width="100%" height="550" src="<%= @submission.url %>" frameborder="0" allowfullscreen scrolling="yes"></iframe>
     </div>
   </div>
 <% else %>
