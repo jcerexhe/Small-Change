@@ -14,7 +14,9 @@
 <% if @submission.youtube %>
   <div class="hidden-xs hidden-sm">
     <center>
-      <iframe class="iframe-md" width="90%" height="550" src="<%= @submission.url %>" frameborder="0" allowfullscreen scrolling="yes"></iframe>
+      <div class="iframe-wrapper"> 
+        <iframe class="iframe-md" width="70%" height="550" src="<%= @submission.url %>" frameborder="0" allowfullscreen scrolling="yes"></iframe>
+      </div>
     </center>
   </div>
   <div class="hidden-md hidden-lg">
