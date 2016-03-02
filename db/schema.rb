@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160229123038) do
+ActiveRecord::Schema.define(version: 20160302040226) do
 
   create_table "beta_users", force: :cascade do |t|
     t.string   "email"
@@ -137,6 +137,7 @@ ActiveRecord::Schema.define(version: 20160229123038) do
     t.datetime "updated_at",                             null: false
     t.string   "name"
     t.boolean  "admin",                  default: false
+    t.integer  "actions_taken",          default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

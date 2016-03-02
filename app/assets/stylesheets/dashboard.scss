@@ -18,13 +18,18 @@
   margin-bottom: 30px;
 }
 
+.panel-donation-margin {
+  margin: 0 19px;
+}
+
 .dash-subheading {
   color: white;
 }
 
-.donation-amounts {
+.action-amounts {
   color: white;
-  font-size: 40px;
+  font-size: 30px;
+  /*font-size: 30px;*/
   letter-spacing: 1px;
 }
 
@@ -35,4 +40,12 @@
 .btn-donate-now {
   height: 100%;
   width: 100%;
+}
+
+.user-rank {
+  color: white;
+  /*font-size: 90px;*/
+  font-size: 50px;
+  font-weight: 900;
+  margin-top: -10px;
 }
