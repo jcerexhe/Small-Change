@@ -1,0 +1,28 @@
+  <div class="modal fade" id="welcomeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="close-btn">&times;</span></button>
+          <h4 class="modal-title text-center" id="myModalLabel">Great minds think alike...</h4>
+        </div>
+        <div class="modal-body">
+          <p class='modal-text'>Another small changer (that’s what we call you guys) has already submitted the same URL. 
+          </p><br>
+         <p class='modal-text'>They've done all the hard work for you.
+          </p><br>
+          <p class='modal-text'>Enjoy!
+          </p>
+          <div class="hidden-xs hidden-sm text-center">
+            <a href="<%= submission_path(@submission) %>" class="btn btn-black btn-lg btn-modal">Continue</a>
+          </div>
+          <div class="hidden-md hidden-lg">
+            <a href="<%= submission_path(@submission) %>" class="btn btn-black btn-lg btn-modal btn-block">Continue</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+  $('#welcomeModal').modal('show');
+</script>
