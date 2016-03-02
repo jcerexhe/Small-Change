@@ -16,6 +16,7 @@ class SubmissionsController < ApplicationController
 
   def counter
     @submission.increment! :link_clicks, 1
+    current_user.increment! :actions_taken, 1
     redirect_to new_user_registration_path
   end
 
