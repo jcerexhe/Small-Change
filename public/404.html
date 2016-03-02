@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The page you were looking for doesn't exist (404)</title>
+  <title>The page you were looking for doesn't exist (404) | Small Change</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <style>
   html, body {
     height: 100%;
@@ -33,20 +35,49 @@
   }
 
   .page-heading {
-    padding-bottom: 20px;
-    padding-top: 40px;
     letter-spacing: 1px;
+    padding-bottom: 10px;
+    padding-top: 50px;
   }
+
+  .name {
+    font-size: 110%;
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 2px;
+  }
+
+  .img {
+    height: 120px !important;
+    margin-top: 100px;
+  }
+
+  .link {
+    text-decoration: none;
+  }
+
+  .fa-home {
+    color: white;
+    margin-top: 50px;
+  }
+
   </style>
 </head>
 
 <body>
   <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <div>
-      <h2 class="page-heading">Oops! We can't find this page.</h2>
-      <p>You may have mistyped the address or the page may have moved.</p>
-    </div>
+  <div>
+    <a href="http://smallchangegiving.co/" class="link">
+      <img src="http://res.cloudinary.com/small-change/image/upload/v1456809563/smallchangelogo_e8vtaw.png" class="img">
+      <h2 class="name">Small Change</h2>
+    </a>
+    <h2 class="page-heading">Oops! We can't find this page.</h2>
+    <p>You may have mistyped the address or the page may have moved.</p>
+    <p>If you have any concerns or feedback please contact <a href="mailto:sam@smallchangegiving.net">sam@smallchangegiving.net</a>.</p>
+    <a href="http://smallchangegiving.co/">
+      <i class="fa fa-home fa-3x"></i>
+    </a>
   </div>
 </body>
 </html>
