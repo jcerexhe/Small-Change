@@ -32,7 +32,7 @@ class SubmissionsController < ApplicationController
 
     if @existing_submission         #if this is the first time
       @existing_submission.users << current_user if current_user
-      redirect_to submission_path(@existing_submission) 
+      redirect_to submission_path(@existing_submission, existing: true) 
     else
       if @submission.url.include? "youtube.com"
           object = VideoInfo.new(@submission.url)

@@ -6,7 +6,10 @@
   <meta property="og:description" content="<%= @submission.description %> | Small Change" />
   <meta property="og:url" content= "<%= @submission.url %>" />
   <meta property="og:type" content="blog" />
-  
+<% end %>
+
+<% if params[:existing] %>
+  <%= render 'existing_submission_warning' %>
 <% end %>
 
 <%= render 'banner' %>
