@@ -7,17 +7,7 @@ class Submission < ActiveRecord::Base
 
   scope :link_clicks_desc, -> { order(:link_clicks => :desc) }
 
-
-  
-    extend FriendlyId
-    friendly_id :title, use: :slugged
-
-  def slug_candidates
-    [
-      :title,
-      [:title, :description],
-      [:title, :description, :submission_type],
-    ]
-  end
+  extend FriendlyId
+  friendly_id :title, use: :slugged
 
 end
