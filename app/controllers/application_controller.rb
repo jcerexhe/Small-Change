@@ -3,11 +3,11 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  # before_filter do
-  #   if request.ssl? && Rails.env.production? && controller_name != 'donations'
-  #     redirect_to :protocol => 'http://', :status => :moved_permanently
-  #   end
-  # end
+  before_filter do
+    if request.ssl? && Rails.env.production?
+      redirect_to :protocol => 'http://', :status => :moved_permanently
+    end
+  end
 
     protected
 
