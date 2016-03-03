@@ -1,5 +1,8 @@
 class DonationsController < ApplicationController
   before_action :set_donation, only: [:show, :edit, :update, :destroy]
+  if Rails.env.production?
+    force_ssl :only => [:new, :create]
+  end
 
   # GET /donations
   # GET /donations.json
