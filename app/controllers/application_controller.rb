@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   before_filter do
-    if request.ssl? && Rails.env.production?
+    if request.ssl? && Rails.env.production? && controller_name != 'donations'
       redirect_to :protocol => 'http://', :status => :moved_permanently
     end
   end
