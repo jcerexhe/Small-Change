@@ -1,0 +1,34 @@
+<% provide(:title, "Admin") %>
+
+<div class='container'> 
+  <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+    <h2 class="page-heading">Admin Panel</h2>
+
+    <table>
+  <thead>
+    <tr>
+      <th>Amount</th>
+      <th>Charity</th>
+      <th>User</th>
+      <th>Submission</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @submissions.each do |submission| %>
+      <tr>
+        <td><%= submission.title %></td>
+        <td><%= strip_url(submission.url) %></td>
+        <td><%= submission.submission_type %></td>
+        <td><%= link_to 'Show', submission %></td>
+        <td><%= link_to 'Edit', edit_submission_path(submission) %></td>
+        <td><%= link_to 'Destroy', submission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+  </div>
+</div>
+

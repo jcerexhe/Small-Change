@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   get 'founders' => 'static_pages#about_the_founders'
   get 'terms' => 'static_pages#terms'
   get 'contact' => 'static_pages#contact'
-
   get 'dashboard' => 'dashboard#show'
+  get 'admin' => 'static_pages#admin'
 
 
   resources :submissions do
