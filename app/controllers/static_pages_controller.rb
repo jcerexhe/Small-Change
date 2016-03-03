@@ -4,6 +4,13 @@ class StaticPagesController < ApplicationController
   def about_the_founders
   end
 
+  def admin
+    @users = User.all
+    @submissions = Submission.all
+    @charities = Charity.all
+    @donations = Donation.all
+  end
+
   def charity
     submission = Submission.find(params[:id])
     submission.type="charity"
