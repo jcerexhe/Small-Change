@@ -17,13 +17,10 @@
  	  <%= render 'shared/googleanalytics' %>
 	</head>
 	<body>
-		<%= render 'layouts/header' unless current_page?(submission_path(:id)) %>
-
-<!-- 		<p class = "notice"><%#= notice %></p>
-		<p class = "alert"><%#= alert %></p> -->
+		<%= render 'layouts/header' %>
 
 		<%= yield %>
 			
-		<%= render 'layouts/footer' unless current_page?(submission_path(:id)) %>
+		<%= render 'layouts/footer' %>
 	</body>
 </html>

@@ -1,7 +1,7 @@
 class DonationsController < ApplicationController
   before_action :set_donation, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: :create
-  protect_from_forgery :except => :create 
+  skip_before_filter :verify_authenticity_token, only: :create
   # if Rails.env.production?
   #   force_ssl :only => [:new, :create]
   # end
@@ -29,10 +29,12 @@ class DonationsController < ApplicationController
   # POST /donations
   # POST /donations.json
   def create
-    @amount = params[:amount]
-    @dollar_amount = @amount.to_i / 100
-    @submission = Submission.find(params[:submission])
-    @charity = Charity.find(params[:charity])
+    # @amount = params[:amount]
+    # @dollar_amount = @amount.to_i / 100
+    # @submission = Submission.find(params[:submission])
+    # @charity = Charity.find(params[:charity])
+    @donation = Donation.new(donation_params)
+    @donation.save
 
     render json: @donation
   end
