@@ -9,7 +9,6 @@ class SubmissionsController < ApplicationController
   end
 
   def show
-    # @charity = Charity.find(params[:charity_id])
     @submissions = Submission.all
     @submission = Submission.friendly.find(params[:submission]) if params[:submission]
   end
