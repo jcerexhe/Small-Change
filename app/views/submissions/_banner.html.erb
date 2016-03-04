@@ -28,7 +28,7 @@
                 <%= link_to '$5', counter_submission_path(submission_id: @submission.id), class: 'btn btn-banner btn-lg', onclick: 'openCharity500()' %>
               </span>
             <% else %>
-              <span><%= link_to 'Sign Petition', counter_submission_path(submission_id: @submission.id), class: 'btn btn-banner btn-lg btn-block', onclick: 'openPetition()' %></span>
+              <span><%= link_to 'Take Action', counter_submission_path(submission_id: @submission.id), class: 'btn btn-banner btn-lg btn-block', onclick: 'openPetition()' %></span>
             <% end %>
           </div>
           <div class="col-md-2 banner-headers">
@@ -58,7 +58,7 @@
             <% if params[:type] == "donation" %>  
               <span><%= link_to 'Donate Now', counter_submission_path(submission_id: @submission.id), class: 'btn btn-banner-mobile btn-lg', onclick: 'openCharity300()' %></span>
             <% else %>
-              <span><%= link_to 'Sign Petition', counter_submission_path(submission_id: @submission.id), class: 'btn btn-banner-mobile btn-lg', onclick: 'openPetition()' %></span>
+              <span><%= link_to 'Take Action', counter_submission_path(submission_id: @submission.id), class: 'btn btn-banner-mobile btn-lg', onclick: 'openPetition()' %></span>
             <% end %>
           </div>
         </div>
