@@ -33,7 +33,8 @@ class DonationsController < ApplicationController
     # @dollar_amount = @amount.to_i / 100
     # @submission = Submission.find(params[:submission])
     # @charity = Charity.find(params[:charity])
-    @donation = Donation.new(donation_params)
+    # @donation = Donation.new(donation_params)
+    @donation = Donation.new
     @donation.save
 
     render json: @donation
@@ -70,7 +71,7 @@ class DonationsController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def donation_params
-      params.require(:donation).permit(:amount, :charity_id, :user_id, :submission_id)
-    end
+    # def donation_params
+    #   params.require(:donation).permit(:amount, :charity_id, :user_id, :submission_id)
+    # end
 end
