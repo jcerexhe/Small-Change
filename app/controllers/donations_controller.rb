@@ -1,5 +1,6 @@
 class DonationsController < ApplicationController
   before_action :set_donation, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: :create
   # if Rails.env.production?
   #   force_ssl :only => [:new, :create]
   # end
