@@ -1,24 +1,9 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Amount:</strong>
-  <%= @donation.amount %>
-</p>
-
-<p>
-  <strong>Charity:</strong>
-  <%= @donation.charity_id %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @donation.user %>
-</p>
-
-<p>
-  <strong>Submission:</strong>
-  <%= @donation.submission_id %>
-</p>
-
-<%= link_to 'Edit', edit_donation_path(@donation) %> |
-<%= link_to 'Back', donations_path %>
+<div class="container">
+  <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+    <h2 class="page-heading">Thank! We've received your donation.</h2>
+    <p>You paid: $2</p>
+    <p>Date: <%= @donation.created_at %></p>
+    <p>Charity: <%= @charity.name %></p>
+    <p>A confirmation email has been sent to: <%= current_user.email %></p>
+  </div>
+</div>
