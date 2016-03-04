@@ -10,18 +10,23 @@
             </a>
           </div>
           <div class="col-md-5">
-            <% if @submission.submission_type == "donation" %> 
+            <% if params[:type] == "donation" %> 
               <p class="banner-tagline">Feel strongly about this article?</p>
             <% else %>
               <p class="banner-tagline">Feel strongly about this article?</p>
             <% end %>
           </div>
           <div class="col-md-3">
-            <% if @submission.submission_type == "donation" %>  
-              <!-- <span><%#= link_to '$2', root_path, class: 'btn btn-banner btn-lg' %></span>
-              <span><%#= link_to '$3', root_path, class: 'btn btn-banner btn-lg' %></span>
-              <span><%#= link_to '$5', root_path, class: 'btn btn-banner btn-lg' %></span> -->
-              <span><%= link_to 'Donate Now', counter_submission_path(submission_id: @submission.id), class: 'btn btn-banner btn-lg btn-block', onclick: 'openCharity()' %></span>
+            <% if params[:type] == "donation" %>  
+              <span>
+                <%= link_to '$2', counter_submission_path(submission_id: @submission.id), class: 'btn btn-banner btn-lg' %>
+              </span>
+              <span>
+                <%= link_to '$3', counter_submission_path(submission_id: @submission.id), class: 'btn btn-banner btn-lg' %>
+              </span>
+              <span>
+                <%= link_to '$5', counter_submission_path(submission_id: @submission.id), class: 'btn btn-banner btn-lg' %>
+              </span>
             <% else %>
               <span><%= link_to 'Sign Petition', counter_submission_path(submission_id: @submission.id), class: 'btn btn-banner btn-lg btn-block', onclick: 'openPetition()' %></span>
             <% end %>
@@ -50,7 +55,7 @@
             </a>
           </div>
           <div class="col-xs-8">
-            <% if @submission.submission_type == "donation" %>  
+            <% if params[:type] == "donation" %>  
               <span><%= link_to 'Donate Now', counter_submission_path(submission_id: @submission.id), class: 'btn btn-banner-mobile btn-lg', onclick: 'openCharity()' %></span>
             <% else %>
               <span><%= link_to 'Sign Petition', counter_submission_path(submission_id: @submission.id), class: 'btn btn-banner-mobile btn-lg', onclick: 'openPetition()' %></span>
@@ -66,7 +71,7 @@
 
 <script>
   function openCharity() {
-    window.open("<%= @submission.charity_link %>");
+    window.open("https://donate.smallchangegiving.co/?user_id=<%= current_user.id %>?charity_name=<%= @charity.name %>?amount=200");
   }
   function openPetition() {
     window.open("<%= @submission.petition_link %>");
