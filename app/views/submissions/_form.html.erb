@@ -23,7 +23,7 @@
       <div class="row text-left">
         <% @charities.each do |charity| %>
           <div class="col-sm-6 ">  
-            <div data-link="<%=submission_path(@submission, charity: charity.id, type: "donation")%>">
+            <div data-link="<%=submission_path(@submission, charity_id: charity.id, type: "donation")%>">
               <div class="panel charity-panel">
                 <div class="panel-body">    
                   <ul class="media-list">
