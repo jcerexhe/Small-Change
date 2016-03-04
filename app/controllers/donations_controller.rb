@@ -32,29 +32,7 @@ class DonationsController < ApplicationController
     @submission = Submission.find(params[:submission])
     @charity = Charity.find(params[:charity])
 
-      customer = Stripe::Customer.create(
-        :email => params[:stripeEmail],
-        :source  => params[:stripeToken]
-      )
-
-      charge = Stripe::Charge.create(
-        :customer    => customer.id,
-        :amount      => @amount,
-        :description => @charity.name,
-        :currency    => 'aud',
-      )
-
-      if charge['paid']
-        @donation = Donation.create(amount: @dollar_amount, submission_id: @submission.id, charity_id: @charity.id, user_id: current_user.id )
-         DonationsMailer.new_donation_notification(@donation.id, customer).deliver_now
-
-        redirect_to submissions_path, notice: "Thanks for your kind contribution. Feel free to poke around our trending articles"
-      end
-      
-
-    rescue Stripe::CardError => e
-      flash[:error] = e.message
-      redirect_to :back
+    render json: @donation
   end
 
   # PATCH/PUT /donations/1
