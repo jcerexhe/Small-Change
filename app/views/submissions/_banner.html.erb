@@ -9,9 +9,9 @@
               <p class="banner-header-word">CHANGE</p>
             </a>
           </div>
-          <div class="col-md-5">
-            <% if params[:type] == "donation" %> 
-              <p class="banner-tagline">Feel strongly about this article?</p>
+          <div class="col-md-5 text-align">
+            <% if @submission.link_clicks.to_i > 1 %> 
+              <p class="banner-tagline"><%= @submission.link_clicks %> people have taken action already.</p>
             <% else %>
               <p class="banner-tagline">Feel strongly about this article?</p>
             <% end %>
