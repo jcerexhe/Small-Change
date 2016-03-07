@@ -69,7 +69,8 @@
 
 
 
-<script>
+<!-- 
+  <script>
   function openCharity200() {
     window.open("https://donate.smallchangegiving.co/?user_id=<%#= current_user.id %>?charity_name=<%#= @charity.name %>?amount=200?charity_id=<%#= @charity.id %>?submission_id=<%#= @submission.id %>");
   }
@@ -80,6 +81,7 @@
     window.open("https://donate.smallchangegiving.co/?user_id=<%#= current_user.id %>?charity_name=<%#= @charity.name %>?amount=500?charity_id=<%#= @charity.id %>?submission_id=<%#= @submission.id %>");
   }
   function openPetition() {
-    window.open("<%= @submission.petition_link %>");
-  }
-</script>
+    window.open("<%#= @submission.petition_link %>");
+    </script>
+     -->
+
