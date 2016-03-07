@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'terms' => 'static_pages#terms'
   get 'contact' => 'static_pages#contact'
   get 'dashboard' => 'dashboard#show'
-  # get 'admin' => 'static_pages#admin'
+  get 'admin' => 'static_pages#admin'
 
   resources :submissions do
     member do
