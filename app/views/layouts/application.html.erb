@@ -10,7 +10,11 @@
    	<%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <%= content_for?(:head) ? yield(:head) : '' %>
+
+  <meta property="og:url"    content="<%=@submission.url if @submission.url%>" /> 
+  <meta property="og:title"  content="<%=@submission.title if @submission.title%>" /> 
+  <meta property="og:image"  content="<%=@submission.image if @submission.image%>" /> 
+  <meta property="og:description"  content="<%=@submission.description if @submission.description%>" /> 
 
  	  <%= render 'shared/googleanalytics' %>
 	</head>
