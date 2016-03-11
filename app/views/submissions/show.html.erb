@@ -1,5 +1,14 @@
 <% provide(:title, @submission.title) %>
 
+<% content_for :head do %>
+  <meta property="og:title" content=<%=@submission.title%> />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content=<%=@submission.url%> />
+  <meta property="og:image" content=<%=@submission.image%> />
+  <meta property="og:description" content=<%=@submission.description%> />
+<% end %>
+
+
 
 <% if params[:existing] %>
   <%= render 'existing_submission_warning' %>

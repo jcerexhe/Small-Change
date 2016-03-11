@@ -10,6 +10,10 @@
    	<%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <% if content_for?(:head) %>
+      <%= yield(:head) %>
+    <% end %>
+
  	  <%= render 'shared/googleanalytics' %>
 	</head>
 	<body>
