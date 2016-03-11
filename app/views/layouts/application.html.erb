@@ -2,9 +2,7 @@
 <html>
 	<head>
  	 <title><%= full_title(yield(:title)) %></title>
-    <% if content_for?(:head) %>
-      <%= yield(:head) %>
-    <% end %>
+
 
    	<%= favicon_link_tag(source='http://res.cloudinary.com/small-change/image/upload/v1456809563/smallchangelogo_e8vtaw.png') %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -12,14 +10,14 @@
     <%= stylesheet_link_tag    'application', media: 'all'%>
     <%= javascript_include_tag 'application'%>
    	<%= csrf_meta_tags %>
-   
+    <meta name="viewport" content="width=device-width, initial-scale=1">
  	  <%= render 'shared/googleanalytics' %>
 	</head>
 	<body>
 		<%= render 'layouts/header' %>
 
 		<%= yield %>
-			
+
 		<%= render 'layouts/footer' %>
 	</body>
 </html>
