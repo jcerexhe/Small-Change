@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 	<head>
- 	 <title><%= full_title(yield(:title)) %></title>
+ 	 <title><%= testing %></title>
     <% if content_for?(:head) %>
       <%= yield(:head) %>
     <% end %>
+
    	<%= favicon_link_tag(source='http://res.cloudinary.com/small-change/image/upload/v1456809563/smallchangelogo_e8vtaw.png') %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300' rel='stylesheet' type='text/css'>
