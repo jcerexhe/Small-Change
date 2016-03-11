@@ -9,13 +9,6 @@
     <%= javascript_include_tag 'application'%>
    	<%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-
-  <meta name="url"    content="<%=@submission.url if @submission.url%>"> 
-  <meta name="title"  content="<%=@submission.title if @submission.title%>"> 
-  <meta name="image"  content="<%=@submission.image if @submission.image%>"> 
-  <meta name="description"  content="<%=@submission.description if @submission.description%>"> 
-
 
  	  <%= render 'shared/googleanalytics' %>
 	</head>
