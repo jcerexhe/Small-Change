@@ -22,6 +22,7 @@ FactoryGirl.define do
     title                 { FFaker::Lorem.sentence(1) }
     description           { FFaker::Lorem.sentence(4) }
     link_clicks           { "#{rand(0..100)}" }
+    slug                  { "sample-slug" }
   end
 
   factory :user do

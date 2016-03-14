@@ -12,20 +12,19 @@
   <% end %>
 
 <% else %>
-  
+
   <h2 class="sc-header">Sweet!</h2>
   <h2 class="petition-tagline">Please pick the charity.</h2>
   <%= simple_form_for(@submission) do |f| %>
     <%= f.error_notification %>
 
-    <%#= f.input_field :charity_link, class: 'form-control', placeholder: "Paste URL here..." %>
     <%= f.hidden_field :submission_type, :value => "donation" %>
       <div class="row text-left">
         <% @charities.each do |charity| %>
-          <div class="col-sm-6 ">  
-            <div data-link="<%=submission_path(@submission, charity_id: charity.id, type: "donation")%>">
+          <div class="col-sm-6 ">
+            <div data-link="<%= submission_path(@submission, charity_id: charity.id, type: "donation")%>">
               <div class="panel charity-panel">
-                <div class="panel-body">    
+                <div class="panel-body">
                   <ul class="media-list">
                     <li class="media">
                       <div class="col-sm-4">
@@ -49,15 +48,6 @@
             </div>
           </div>
         <% end %>
-      </div>
-
-      <div class="form-inputs">
-        <%# if user_signed_in? %>
-          <%#= f.input :user, as: :hidden, input_html: { value: current_user.email } %>
-        <%# end %>
-        <%#= f.hidden_field :submission_type, default: "donation" %>
-        <%#= f.association :charity, as: :check_boxes, unique: true %>
-        <%#= f.association :cause %>
       </div>
     <% end %>
 

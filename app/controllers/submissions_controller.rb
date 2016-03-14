@@ -9,8 +9,7 @@ class SubmissionsController < ApplicationController
   end
 
   def show
-    @submissions = Submission.all
-    @submission = Submission.friendly.find(params[:submission]) if params[:submission]
+    # @submission = Submission.friendly.find(params[:submission])
   end
 
   def counter
