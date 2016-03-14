@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :admin, only: :index
+
   # resources :beta_users
 
   get 'faq' => 'static_pages#faq'
@@ -9,7 +11,6 @@ Rails.application.routes.draw do
   get 'founders' => 'static_pages#about_the_founders'
   get 'terms' => 'static_pages#terms'
   get 'dashboard' => 'dashboard#show'
-  get 'admin' => 'static_pages#admin'
 
   resources :submissions do
     member do
@@ -21,7 +22,7 @@ Rails.application.routes.draw do
   # devise_for :users, controllers: {sessions: 'users/sessions', registrations: 'users/registrations'}
 
   resources :donations
-  # resources :charities
+  resources :charities
   # resources :causes
 
   root 'home#index'

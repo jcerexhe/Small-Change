@@ -1,0 +1,25 @@
+<% provide(:title, "Admin") %>
+
+<div class='container'>
+  <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+    <% if current_user.admin %>
+      <div class="panel">
+        <div class="panel-body">
+          <h2 class="page-heading" style="color:black;">Admin Panel</h2>
+          <%= render 'submissions' %>
+          <hr>
+          <%= render 'users' %>
+          <hr>
+          <%= render 'charities' %>
+          <hr>
+          <%= render 'donations' %>
+        </div>
+      </div>
+    <% else %>
+     <h2 class="page-heading">Oops, it seems like you've taken a wrong turn.</h2>
+     <div class='btn-admin'>
+      <%= link_to "Jump Back To Our Hompage", root_path, class: 'btn btn-black btn-lg' %>
+    </div>
+    <% end %>
+  </div>
+</div>

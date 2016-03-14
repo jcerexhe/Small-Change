@@ -1,0 +1,23 @@
+<h3>Donations (<%= @donations.count %>)</h3>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Amount</th>
+      <th>Charity id</th>
+      <th>User id</th>
+      <th>Submission id</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @donations.each do |donation| %>
+      <tr>
+        <td><%= donation.amount %></td>
+        <td><%= donation.charity_id %></td>
+        <td><%= donation.user_id %></td>
+        <td><%= donation.submission_id %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

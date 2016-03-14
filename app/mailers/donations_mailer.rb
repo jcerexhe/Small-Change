@@ -9,7 +9,4 @@ class DonationsMailer < ApplicationMailer
     @donation = Donation.find(donation_id)
     mail to: customer.email, subject: "Thank you for your donation of <%= @donation.amount %>"
   end
-
-  
-  
 end

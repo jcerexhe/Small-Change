@@ -14,5 +14,4 @@ class EnquiriesMailer < ApplicationMailer
   	 @enquiry = Enquiry.find(enquiry_id)
   	mail to: "hendersonsam456@gmail.com", subject: "An enquiry was made"
   end
-  
 end

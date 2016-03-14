@@ -19,23 +19,23 @@ class SubmissionsController < ApplicationController
     redirect_to new_user_registration_path
   end
 
-  def edit 
+  def edit
     @charities = Charity.all
   end
 
   def create
     @submission = Submission.new(submission_params)
     @existing_submission = Submission.friendly.find_by(url: @submission.url)
-   
+
     # @user = current_user
 
     if @existing_submission         #if this is the first time
       @existing_submission.users << current_user if current_user
-      redirect_to submission_path(@existing_submission, existing: true) 
+      redirect_to submission_path(@existing_submission, existing: true)
     else
       if @submission.url.include? "youtube.com"
           object = VideoInfo.new(@submission.url)
-          video = LinkThumbnailer.generate(@submission.url)                             #if this is not the first time 
+          video = LinkThumbnailer.generate(@submission.url)                             #if this is not the first time
           @submission.users << current_user if current_user
           @submission.title = video.title
           @submission.favicon = 'https://upload.wikimedia.org/wikipedia/commons/0/06/YouTube_logo_2013.svg'
@@ -45,7 +45,7 @@ class SubmissionsController < ApplicationController
           @submission.youtube = true
 
       else
-          object = LinkThumbnailer.generate(@submission.url)                             #if this is not the first time 
+          object = LinkThumbnailer.generate(@submission.url)                             #if this is not the first time
           @submission.users << current_user if current_user
           @submission.title = object.title
           @submission.favicon = object.favicon
@@ -68,7 +68,7 @@ class SubmissionsController < ApplicationController
       if @submission.url.include? "aljazeera.com"
         @submission.favicon = "http://www.freelogovectors.net/wp-content/uploads/2012/04/al-jazeera-logo.jpg"
       end
-    
+
       if @submission.save
           redirect_to submissiontype_path(submission: @submission.id)
         # format.json { render :show, status: :created, location: @submission }
