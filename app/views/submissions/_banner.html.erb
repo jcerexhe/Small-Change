@@ -3,13 +3,18 @@
     <div class='banner banner-bg'>
       <div class="container">
         <div class="row">
-          <div class="col-md-2 banner-headers">
+          <div class="col-md-1 banner-headers">
             <a href="<%= root_path %>">
               <p class="banner-header-word">SMALL</p>
               <p class="banner-header-word">CHANGE</p>
             </a>
           </div>
-          <div class="col-md-5 text-align">
+          <div class='col-md-2 desktop-fb'>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=<%= @submission.url %>">
+              <i class="fa fa-facebook-square fa-lg"></i>
+            </a>
+          </div>
+          <div class='col-md-4'>
             <% if @submission.link_clicks.to_i > 1 %> 
               <p class="banner-tagline"><%= @submission.link_clicks %> people have taken action already.</p>
             <% else %>
@@ -46,48 +51,30 @@
 <div class="hidden-md hidden-lg">
   <div class="navbar navbar-static-top">
     <div class='banner-mobile banner-bg'>
-      <div class="">
-        <div class="">
-          <div class="col-xs-4 banner-headers-mobile">
-            <a href="<%= root_path %>" target="_blank" class="">
-              <p class="banner-header-word">SMALL</p>
-              <p class="banner-header-word">CHANGE</p>
-            </a>
-          </div>
-          <div class="col-xs-8">
-            <% if params[:type] == "donation" %>  
-              <span><%= link_to 'Donate Now', counter_submission_path(submission_id: @submission.id), class: 'btn btn-banner-mobile btn-lg', onclick: 'openCharity300()' %></span>
-            <% else %>
-              <span><%= link_to 'Take Action', counter_submission_path(submission_id: @submission.id), class: 'btn btn-banner-mobile btn-lg', onclick: 'openPetition()' %></span>
-            <% end %>
-          </div>
-        </div>
+      <div class="col-xs-4 banner-headers-mobile">
+        <a href="<%= root_path %>" target="_blank" class="">
+          <p class="banner-header-word">SMALL</p>
+          <p class="banner-header-word">CHANGE</p>
+        </a>
+      </div>
+      <div class="col-xs-6">
+        <% if params[:type] == "donation" %>  
+          <span><%= link_to 'Donate Now', counter_submission_path(submission_id: @submission.id), class: 'btn btn-banner-mobile btn-lg', onclick: 'openCharity300()' %></span>
+        <% else %>
+          <span><%= link_to 'Take Action', counter_submission_path(submission_id: @submission.id), class: 'btn btn-banner-mobile btn-lg', onclick: 'openPetition()' %></span>
+        <% end %>
+      </div>
+      <div class="col-xs-2 mobile-fb">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=<%= @submission.url %>">
+          <i class="fa fa-facebook-square fa-lg"></i>
+        </a>
       </div>
     </div>
   </div>
 </div>
 
-
-
-<!-- 
-  <script>
-  function openCharity200() {
-    window.open("https://donate.smallchangegiving.co/?user_id=<%#= current_user.id %>?charity_name=<%#= @charity.name %>?amount=200?charity_id=<%#= @charity.id %>?submission_id=<%#= @submission.id %>");
-  }
-  function openCharity300() {
-    window.open("https://donate.smallchangegiving.co/?user_id=<%#= current_user.id %>?charity_name=<%#= @charity.name %>?amount=300?charity_id=<%#= @charity.id %>?submission_id=<%#= @submission.id %>");
-  }
-  function openCharity500() {
-    window.open("https://donate.smallchangegiving.co/?user_id=<%#= current_user.id %>?charity_name=<%#= @charity.name %>?amount=500?charity_id=<%#= @charity.id %>?submission_id=<%#= @submission.id %>");
-  }
-  function openPetition() {
-    window.open("<%#= @submission.petition_link %>");
-    </script>
-     -->
-
-     <script>
-      function openPetition() {
-       window.open("<%= @submission.petition_link %>");
-     }
-    </script>
-
+<script>
+function openPetition() {
+  window.open("<%= @submission.petition_link %>");
+}
+</script>
