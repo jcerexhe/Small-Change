@@ -32,6 +32,17 @@ end
 group :development, :test do
   gem 'byebug'
   gem 'quiet_assets'
+  gem 'awesome_print', '~> 1.1.0'
+  gem 'rspec-rails'
+  gem 'database_cleaner'
+  gem 'ffaker'
+  gem 'factory_girl_rails'
+  gem 'webmock', :require => false
+end
+
+group :test do
+  gem 'simplecov', require: false
+  gem 'shoulda-matchers'
 end
 
 group :development do

@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   # get 'charity_link' => 'static_pages#charity_link'
   get 'founders' => 'static_pages#about_the_founders'
   get 'terms' => 'static_pages#terms'
-  get 'contact' => 'static_pages#contact'
   get 'dashboard' => 'dashboard#show'
   get 'admin' => 'static_pages#admin'
 
@@ -24,7 +23,6 @@ Rails.application.routes.draw do
   resources :donations
   # resources :charities
   # resources :causes
-  # resources :enquiries
 
   root 'home#index'
 end
