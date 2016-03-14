@@ -14,11 +14,3 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require_tree .
-
-  
-
-jQuery(function($) {
-$("[data-link]").click(function() {
-window.location = this.dataset.link
-});
-})
