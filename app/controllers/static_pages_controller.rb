@@ -1,15 +1,8 @@
 class StaticPagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:about_the_founders, :faq, :update_charity, :choose_submission_type, :charity, :petition, :petition_link, :charity_link, :terms, :contact]
+  skip_before_action :authenticate_user!, only: [:about_the_founders, :faq, :update_charity, :choose_submission_type, :petition_link, :charity_link, :terms]
   before_action :load_submission, only: [:choose_submission_type, :update_charity]
 
   def about_the_founders
-  end
-
-  def admin
-    @users = User.all
-    @submissions = Submission.all
-    @charities = Charity.all
-    @donations = Donation.all
   end
 
   def charity_link
