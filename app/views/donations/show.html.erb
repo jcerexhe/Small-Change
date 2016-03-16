@@ -3,27 +3,32 @@
     <div class="panel panel-default">
       <div class="panel-body">
         <h2 class="page-heading">Thanks for the small change.</h2>
-        <% if current_user %>
           <div class="envelope-icon">
             <i class="fa fa-envelope-o fa-4x"></i>
           </div>
           <p class="sc-header-donation"> We sent a confirmation email to bob@gmail.com </p>
-        <% else %>
-        <% end %>
-        <div class="col-sm-offset-1 col-sm-4">
-          <%= render 'donation_card' %>
-        </div>
-        <div class="col-sm-offset-1 col-sm-6">
-          <div class="first-icon-row">
-            <i class="fa fa-facebook-square fa-4x facebook-icon"></i>
-            <i class="fa fa-linkedin-square fa-4x facebook-icon"></i>
-            <i class="fa fa-twitter-square fa-4x facebook-icon"></i>
-            <i class="fa fa-instagram fa-4x facebook-icon"></i>
+          <div class='row'>
+            <div class="col-sm-offset-1 col-sm-4">
+              <%= render 'donation_card' %>
+            </div>
+            <div class="col-sm-offset-1 col-sm-6">
+              <div class="first-icon-row">
+                <i class="fa fa-facebook-square fa-4x facebook-icon"></i>
+                <i class="fa fa-linkedin-square fa-4x facebook-icon"></i>
+                <i class="fa fa-twitter-square fa-4x facebook-icon"></i>
+                <i class="fa fa-instagram fa-4x facebook-icon"></i>
+              </div>
+              <p class="sc-header-donation">Share To Inspire Your Friends.</p>
+              <p class="share-plug">You're a bloody legend!</p>
+              <p class="share-plug">We're trying to build a community of people who use social media properly (booo slacktivism). By sharing, you're making social media a place of tangible action. </p>
+            </div>
           </div>
-          <p class="sc-header-donation">Share To Inspire Your Friends.</p>
-          <p class="share-plug">You're a bloody legend!</p>
-          <p class="share-plug">We're trying to build a community of people who use social media properly (booo slacktivism). By sharing, you're making social media a place of tangible action. </p>
-        </div>
+        <% if current_user %>
+        <% else %>
+          <div class="col-sm-10 col-sm-offset-1">
+            <h2 class="page-heading-sign-in">Sooooo, we couldn't help notice that you're not signed in.</h2>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
