@@ -6,7 +6,7 @@
 .donation-brag {
   margin-bottom: 0;
   color: black;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.2px;
   font-family: 'Source Sans Pro', sans-serif;
   padding-bottom: 4%;
   padding-top: 2%;
@@ -19,4 +19,22 @@
     padding-bottom: 40px;
     padding-top: 45px;
     letter-spacing: 1px;
+}
+
+.first-icon-row {
+  font-size: 5em;
+  padding-top: 9%;
+  text-align: center;
+}
+
+.facebook-icon {
+  padding-right: 7%;
+}
+
+.share-plug {
+    color: white;
+    /* font-weight: 100; */
+    padding-top: 5px;
+    letter-spacing: 0.5px;
+    text-align: justify;
 }
