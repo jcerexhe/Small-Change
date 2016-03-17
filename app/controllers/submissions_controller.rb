@@ -9,7 +9,7 @@ class SubmissionsController < ApplicationController
   end
 
   def show
-    # @submission = Submission.friendly.find(params[:submission])
+    @charity_id = params[:charity_id]
   end
 
   def counter
@@ -25,8 +25,6 @@ class SubmissionsController < ApplicationController
   def create
     @submission = Submission.new(submission_params)
     @existing_submission = Submission.friendly.find_by(url: @submission.url)
-
-    # @user = current_user
 
     if @existing_submission         #if this is the first time
       @existing_submission.users << current_user if current_user
