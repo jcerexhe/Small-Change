@@ -81,6 +81,22 @@
   margin-top: 30%;
 }
 
+.btn-black-admin {
+  @include button-variant($btn-primary-color, $light-black, $dark-black);
+  border: none;
+  border-radius: 3px;
+  /*font-weight: 100;*/
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1px;
+  margin-top: 1%;
+  width: 19%;
+}
+
+.admin-buttons {
+  margin-left: 3%;
+}
+
 .btn-black-trending {
   @include button-variant($btn-primary-color, $light-black, $dark-black);
   border: none;

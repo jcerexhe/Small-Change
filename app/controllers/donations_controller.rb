@@ -4,14 +4,11 @@ class DonationsController < ApplicationController
   skip_before_filter :verify_authenticity_token, only: :create
 
   def thanks
-    @charity = Charity.find(params[:charity]) if params[:charity]
-    @user = current_user
-    @submission = Submission.find(params[:submission]) if params[:submission]
-    
+    @charity = current_user ? Charity.find_by(Donation.where(user_id=current_user.id).last.charity_id) : Charity.find_by(params[:charity_id])
+    @submission = current_user ? Submission.find_by(Donation.where(user_id=current_user.id).last.submission_id) : Submission.find_by(params[:submission_id])
+    @donation = Donation.where(user_id=current_user.id).last if current_user
   end
 
-  # POST /donations
-  # POST /donations.json
   def create
     # @amount = params[:amount]
     # @dollar_amount = @amount.to_i / 100
@@ -23,8 +20,6 @@ class DonationsController < ApplicationController
     render json: @donation
   end
 
-  # DELETE /donations/1
-  # DELETE /donations/1.json
   def destroy
     @donation.destroy
     respond_to do |format|

@@ -6,7 +6,7 @@
           <div class="envelope-icon">
             <i class="fa fa-envelope-o fa-4x"></i>
           </div>
-          <p class="sc-header-donation"> We sent a confirmation email to <%= user_signed_in? ? @user.email : params[:email]%></p>
+          <p class="sc-header-donation"> We sent a confirmation email to <%= user_signed_in? ? current_user.email : params[:email]%></p>
           <div class='row'>
             <div class="col-sm-offset-4 col-sm-4">
               <%= render 'donation_card' %>
