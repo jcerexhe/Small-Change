@@ -1,4 +1,4 @@
-<% unless user_signed_in? %>  
+<% unless user_signed_in? %>
   <!-- Modal -->
   <div class="modal fade" id="welcomeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
@@ -28,14 +28,14 @@
   </div>
 <% end %>
 
-<div id="welcome" class="people-bg">  
+<div id="welcome" class="people-bg">
   <div class='gradient-overlay'>
-    <div class="container">  
+    <div class="container">
       <div class='welcome-content col-xs-12 col-sm-6 col-sm-offset-3 text-center'>
         <h2 class="welcome-tagline">Making social media meaningful.</h2>
         <div class="hidden-xs hidden-sm">
           <%= simple_form_for(@submission) do |f| %>
-            <%= f.error_notification %>  
+            <%= f.error_notification %>
             <div class="form-inline">
               <%= f.input_field :url, placeholder: "Enter a link to an article", class: 'form-control input-lg main-input', size: '40', autofocus: true %>
               <button class="btn btn-black btn-lg" type="submit">GET STARTED</button>
@@ -44,9 +44,9 @@
         </div>
         <div class="hidden-md hidden-lg">
           <%= simple_form_for(@submission) do |f| %>
-            <%= f.error_notification %> 
+            <%= f.error_notification %>
             <div class="form-inline">
-              <%= f.input_field :url, placeholder: "Enter a link to an article", class: 'form-control input-lg main-input mobile-input', autofocus: true, size: '52' %>  
+              <%= f.input_field :url, placeholder: "Enter a link to an article", class: 'form-control input-lg main-input mobile-input', autofocus: true, size: '52' %>
               <button class="btn btn-black btn-lg btn-block btn-mobile" type="submit">GET STARTED</button>
             </div>
           <% end %>
@@ -68,8 +68,8 @@
   <div class="container">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1">
       <div class="row">
-        <div class="col-md-6 col-md-offset-3"> 
-          <h2 class="sc-header black-header">Trending Articles</h2> 
+        <div class="col-md-6 col-md-offset-3">
+          <h2 class="sc-header black-header">Trending Articles</h2>
           <p class="sc-header-tagline">Some of the top performing articles that are raising funds and promoting petitions right now.</p>
         </div>
       </div>

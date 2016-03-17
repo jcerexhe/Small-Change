@@ -52,27 +52,12 @@ class SubmissionsController < ApplicationController
           @submission.image = object.images.first.src.to_s if object.images.first
       end
 
-      if @submission.url.include? "skynews.com"
-        @submission.favicon = "https://lh3.googleusercontent.com/-uYnyeu0wFpQ/AAAAAAAAAAI/AAAAAAAAe8k/uwcJE42X16E/s0-c-k-no-ns/photo.jpg"
-      end
-
-      if @submission.url.include? "sbs.com"
-        @submission.favicon = "https://pbs.twimg.com/profile_images/434661068011339776/q5OHXv0Q.jpeg"
-      end
-
-      if @submission.url.include? "/wp-content/themes/wp-inspired-prem/images/favicon.ico"
-        @submission.favicon = "https://i.vimeocdn.com/portrait/432427_300x300.jpg"
-      end
-
-      if @submission.url.include? "aljazeera.com"
-        @submission.favicon = "http://www.freelogovectors.net/wp-content/uploads/2012/04/al-jazeera-logo.jpg"
-      end
-
       if @submission.save
           redirect_to submissiontype_path(submission: @submission.id)
         # format.json { render :show, status: :created, location: @submission }
       else
-        render :new
+        # Not sure when exactly this triggers
+        redirect_to :back
         # format.json { render json: @submission.errors, status: :unprocessable_entity }
       end
     end
@@ -93,7 +78,7 @@ class SubmissionsController < ApplicationController
   def destroy
     @submission.destroy
     respond_to do |format|
-      format.html { redirect_to :back, notice: 'Submission was successfully destroyed.' }
+      format.html { redirect_to admin_index_path, notice: 'Submission was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

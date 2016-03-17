@@ -17,12 +17,15 @@ FactoryGirl.define do
     # submission_id
   end
 
+  factory :user_submission do
+  end
+
   factory :submission do
     url                   { FFaker::Internet.domain_name }
     title                 { FFaker::Lorem.sentence(1) }
     description           { FFaker::Lorem.sentence(4) }
     link_clicks           { "#{rand(0..100)}" }
-    slug                  { "sample-slug" }
+    slug                  { FFaker::Name.first_name }
   end
 
   factory :user do
