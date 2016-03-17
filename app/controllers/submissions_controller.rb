@@ -10,6 +10,9 @@ class SubmissionsController < ApplicationController
 
   def show
     # @submission = Submission.friendly.find(params[:submission])
+    @charity_id = params[:charity_id]
+    # @submission.charity = @charity_id
+    # @submission.save
   end
 
   def counter
@@ -20,6 +23,8 @@ class SubmissionsController < ApplicationController
 
   def edit
     @charities = Charity.all
+    # @submission.charity = params[:charity_id] if params[:charity_id]
+    # @submission.save
   end
 
   def create
