@@ -15,9 +15,17 @@ module ApplicationHelper
     url.sub!(/www./, '') if url.include? "www."
     return url
   end
-  
-  # def truncate(string, max)
-  #   string.length > max ? "#{string[0...max]}..." : string
-  # end
+
+  def resource_name
+    :user
+  end
+
+  def resource
+    @resource ||= User.new
+  end
+
+  def devise_mapping
+    @devise_mapping ||= Devise.mappings[:user]
+  end
 
 end
