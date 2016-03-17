@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'founders' => 'static_pages#about_the_founders'
   get 'terms' => 'static_pages#terms'
   get 'dashboard' => 'dashboard#show'
+  get 'thanks' => 'donations#thanks'
 
   resources :submissions do
     member do
@@ -21,7 +22,7 @@ Rails.application.routes.draw do
   devise_for :users
   # devise_for :users, controllers: {sessions: 'users/sessions', registrations: 'users/registrations'}
 
-  resources :donations
+  resources :donations, only: [:create, :destroy]
   resources :charities
   # resources :causes
 

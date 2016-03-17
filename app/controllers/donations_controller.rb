@@ -1,29 +1,13 @@
 class DonationsController < ApplicationController
-  before_action :set_donation, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: [:create, :show]
+  before_action :set_donation, only: [:destroy]
+  skip_before_action :authenticate_user!, only: [:create, :thanks]
   skip_before_filter :verify_authenticity_token, only: :create
-  # if Rails.env.production?
-  #   force_ssl :only => [:new, :create]
-  # end
 
-  # GET /donations
-  # GET /donations.json
-  def index
-    @donations = Donation.all
-  end
-
-  # GET /donations/1
-  # GET /donations/1.json
-  def show
-  end
-
-  # GET /donations/new
-  def new
-    @donation = Donation.new
-  end
-
-  # GET /donations/1/edit
-  def edit
+  def thanks
+    @charity = Charity.find(params[:charity]) if params[:charity]
+    @user = current_user
+    @submission = Submission.find(params[:submission]) if params[:submission]
+    
   end
 
   # POST /donations
@@ -37,20 +21,6 @@ class DonationsController < ApplicationController
     @donation.save
 
     render json: @donation
-  end
-
-  # PATCH/PUT /donations/1
-  # PATCH/PUT /donations/1.json
-  def update
-    respond_to do |format|
-      if @donation.update(donation_params)
-        format.html { redirect_to @donation, notice: 'Donation was successfully updated.' }
-        format.json { render :show, status: :ok, location: @donation }
-      else
-        format.html { render :edit }
-        format.json { render json: @donation.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # DELETE /donations/1
