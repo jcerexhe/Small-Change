@@ -1,18 +1,19 @@
 <% provide(:title, @submission.title) %>
 
 <% content_for :head do %>
-  <meta property="og:title" content="<%=@submission.title%>" />
+  <meta property="og:title" content="<%= @submission.title %>" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="<%=@submission.url%>" />
-  <meta property="og:image" content="<%=@submission.image%>" />
-  <meta property="og:description" content="<%=@submission.description%>" />
+  <meta property="og:url" content="<%= @submission.url %>" />
+  <meta property="og:image" content="<%= @submission.image %>" />
+  <meta property="og:description" content="<%= @submission.description %>" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:site" content="<%=@submission.url%>" />
-  <meta name="twitter:title" content="<%=@submission.title%>" />
-  <meta name="twitter:description" content="<%=@submission.description%>" />
-  <meta name="twitter:image" content="<%=@submission.image%>" />
+  <meta name="twitter:site" content="<%= @submission.url %>" />
+  <meta name="twitter:title" content="<%= @submission.title %>" />
+  <meta name="twitter:description" content="<%= @submission.description %>" />
+  <meta name="twitter:image" content="<%= @submission.image %>" />
 <% end %>
 
+<img src="<%= @submission.image %>" style="display:none;">
 
 <% if params[:existing] %>
   <%= render 'existing_submission_warning' %>
@@ -23,7 +24,7 @@
 <% if @submission.youtube %>
   <div class="hidden-xs hidden-sm">
     <center>
-      <div class="iframe-wrapper"> 
+      <div class="iframe-wrapper">
         <iframe class="iframe-md" width="70%" height="550" src="<%= @submission.url %>" frameborder="0" allowfullscreen scrolling="yes"></iframe>
       </div>
     </center>
@@ -39,7 +40,7 @@
 <% else %>
   <div class="hidden-xs hidden-sm">
     <center>
-      <div class="iframe-wrapper">  
+      <div class="iframe-wrapper">
         <iframe class="iframe-md" width="100%" height="2000" src="<%= @submission.url %>" frameborder="0" allowfullscreen scrolling="yes"></iframe>
       </div>
     </center>
