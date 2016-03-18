@@ -3,12 +3,12 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Email</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Mobile</th>
-      <th>Actions Taken</th>
-      <th>Sign In Count</th>
+        <th>Email</th>
+        <th>Name</th>
+        <th>Donated</th>
+        <th>Mobile</th>
+        <th>Actions Taken</th>
+        <th>Sign In Count</th>
     </tr>
   </thead>
 
@@ -16,8 +16,8 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.email %></td>
-        <td><%= user.first_name %> </td>
-        <td><%= user.last_name %> </td>
+        <td><%= user.first_name %> <%= user.last_name %> </td>
+        <td><%= number_to_currency(user.donations.sum(:amount).to_i) %></td>
         <td><%= user.mobile %> </td>
         <td><%= user.actions_taken %> </td>
         <td><%= user.sign_in_count %></td>

@@ -1,31 +1,40 @@
 <p class='admin-header'>Small Change Summary</p>
-<div class="col-sm-5 col-sm-offset-1 col-md-3 col-md-offset-1">
-  <div class="panel">
-    <p><%= @users.count %> Users</p>
+<div class="admin-box">
+  <div class="col-sm-5 col-sm-offset-1 col-md-3">
+    <div class="panel">
+      <p class="admin-stat"><%= @users.count %></p>
+      <p class="admin-category">Users</p>
+    </div>
   </div>
-</div>
-<div class="col-sm-5 col-sm-offset-1 col-md-3 col-md-offset-1">
-  <div class="panel">
-    <p>Views</p>
+  <div class="col-sm-5 col-sm-offset-1 col-md-3">
+    <div class="panel">
+      <p class="admin-stat">X</p>
+      <p class="admin-category">Views</p>
+    </div>
   </div>
-</div>
-<div class="col-sm-5 col-sm-offset-1 col-md-3 col-md-offset-1">
-  <div class="panel">
-    <p>Amount Raised</p>
+  <div class="col-sm-5 col-sm-offset-1 col-md-3">
+    <div class="panel">
+      <p class="admin-stat">$<%= @donation_total%></p> 
+      <p class="admin-category">Amount Raised</p>
+    </div>
   </div>
-</div>
-<div class="col-sm-5 col-sm-offset-1 col-md-3 col-md-offset-1">
-  <div class="panel">
-    <p> <%= @donations.count %> Donations</p>
+  <div class="col-sm-5 col-sm-offset-1 col-md-3">
+    <div class="panel">
+      <p class="admin-stat"><%= @donations.count %></p>
+      <p class="admin-category">Donations</p>
+    </p>
+    </div>
   </div>
-</div>
-<div class="col-sm-5 col-sm-offset-1 col-md-3 col-md-offset-1">
-  <div class="panel">
-    <p>Actions</p>
+  <div class="col-sm-5 col-sm-offset-1 col-md-3">
+    <div class="panel">
+     <p class="admin-stat"><%= @link_clicks %></p>
+     <p class="admin-category"> Actions</p>
+    </div>
   </div>
-</div>
-<div class="col-sm-5 col-sm-offset-1 col-md-3 col-md-offset-1">
-  <div class="panel">
-    <p><%= @submissions.count %> Submissions</p>
+  <div class="col-sm-5 col-sm-offset-1 col-md-3">
+    <div class="panel">
+     <p class="admin-stat"><%= @submissions.count %></p>
+     <p class="admin-category"> Submissions</p>
+    </div>
   </div>
 </div>
