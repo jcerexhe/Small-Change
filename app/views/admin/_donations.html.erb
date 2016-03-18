@@ -4,19 +4,19 @@
   <thead>
     <tr>
       <th>Amount</th>
-      <th>Charity id</th>
-      <th>User id</th>
-      <th>Submission id</th>
+      <th>Charity</th>
+      <th>Donor Email</th>
+      <th>Submission Title</th>
     </tr>
   </thead>
 
   <tbody>
     <% @donations.each do |donation| %>
       <tr>
-        <td><%= donation.amount %></td>
-        <td><%= donation.charity_id %></td>
-        <td><%= donation.user_id %></td>
-        <td><%= donation.submission_id %></td>
+        <td><%= number_to_currency(donation.amount) %></td>
+        <td><%= donation.charity.try(:name) %></td>
+        <td><%= @users.find(donation.user_id).email %></td>
+        <td><%= truncate(donation.submission.try(:title), length: 30) %></td>
       </tr>
     <% end %>
   </tbody>
