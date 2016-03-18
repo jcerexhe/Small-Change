@@ -1,33 +1,24 @@
 class DonationsController < ApplicationController
-  before_action :set_donation, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: [:create, :show]
+  before_action :set_donation, only: [:destroy]
+  skip_before_action :authenticate_user!, only: [:create, :thanks]
   skip_before_filter :verify_authenticity_token, only: :create
-  # if Rails.env.production?
-  #   force_ssl :only => [:new, :create]
-  # end
 
-  # GET /donations
-  # GET /donations.json
-  def index
-    @donations = Donation.all
+  def thanks
+
+    if user_signed_in?
+      @donation = current_user.donations.last
+      @submission = @donation.submission
+      @charity = @donation.charity
+      @amount = @donation.amount
+      @user = current_user
+    else
+      @email = params[:email]
+      @amount = params[:amount]
+      @charity = Charity.find(params[:charity_id])
+      @submission = Submission.find(params[:submission_id])
+    end
   end
 
-  # GET /donations/1
-  # GET /donations/1.json
-  def show
-  end
-
-  # GET /donations/new
-  def new
-    @donation = Donation.new
-  end
-
-  # GET /donations/1/edit
-  def edit
-  end
-
-  # POST /donations
-  # POST /donations.json
   def create
     # @amount = params[:amount]
     # @dollar_amount = @amount.to_i / 100
@@ -39,22 +30,6 @@ class DonationsController < ApplicationController
     render json: @donation
   end
 
-  # PATCH/PUT /donations/1
-  # PATCH/PUT /donations/1.json
-  def update
-    respond_to do |format|
-      if @donation.update(donation_params)
-        format.html { redirect_to @donation, notice: 'Donation was successfully updated.' }
-        format.json { render :show, status: :ok, location: @donation }
-      else
-        format.html { render :edit }
-        format.json { render json: @donation.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /donations/1
-  # DELETE /donations/1.json
   def destroy
     @donation.destroy
     respond_to do |format|

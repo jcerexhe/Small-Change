@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h2 class="page-heading">Thanks for the small change.</h2>
+          <div class="envelope-icon">
+            <i class="fa fa-envelope-o fa-4x"></i>
+          </div>
+          <p class="sc-header-donation"> We sent a confirmation email to <%= user_signed_in? ? current_user.email : params[:email]%></p>
+          <div class='row'>
+            <div class="col-sm-offset-4 col-sm-4">
+              <%= render 'donation_card' %>
+            </div>
+          </div>
+          <div class="col-sm-offset-3 col-sm-6">
+          </div>
+        <% if current_user %>
+        <% else %>
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="sc-header-donation">Sooooo, we couldn't help notice that you're not signed in.</p>
+            <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-2 ">
+              <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                <%= f.error_notification %>
+                 <div class="form-inputs form-group">
+                    <%= f.input_field :first_name, required: true, autofocus: true, label: false, placeholder: 'First Name', class: 'form-control input-lg main-input devise-input' %>
+                    <%= f.input_field :last_name, required: true, autofocus: true, label: false, placeholder: 'Last Name', class: 'form-control input-lg main-input devise-input' %>
+                    <%= f.input_field :email, required: true, autofocus: true, label: false, placeholder: 'Email', class: 'form-control input-lg main-input devise-input' %>
+                    <%= f.input_field :mobile, required: false, autofocus: true, label: false, placeholder: 'Mobile', class: 'form-control input-lg main-input devise-input' %>
+                    <%= f.input_field :password, required: true, label: false, placeholder: 'Password', class: 'form-control input-lg main-input devise-input' %>
+                    <%= f.input_field :password_confirmation, required: true, label: false, placeholder: 'Password confirmation', class: 'form-control input-lg main-input devise-input' %>
+                  </div>
+                <div class="form-actions">
+                  <%= f.button :submit, "Sign up", class: 'btn btn-black btn-lg btn-block' %>
+                  <div class=''><br>
+                    <center><%= link_to 'Sign in', new_user_session_path, class: 'btn-clear center' %></center>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
