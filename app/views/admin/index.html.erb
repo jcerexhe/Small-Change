@@ -5,21 +5,18 @@
     <% if current_user.admin %>
       <div class="panel">
         <div class="admin-buttons">
-          <%= link_to "All", admin_index_path(all: true), class: 'btn btn-black-admin' %>
+          <%= link_to "Summary", admin_index_path(summary: true), class: 'btn btn-black-admin' %>
           <%= link_to "Users", admin_index_path(users: true), class: 'btn btn-black-admin' %>
           <%= link_to "Submissions", admin_index_path(submissions: true), class: 'btn btn-black-admin' %>
           <%= link_to "Charities", admin_index_path(charities: true), class: 'btn btn-black-admin' %>
           <%= link_to "Donations", admin_index_path(donations: true), class: 'btn btn-black-admin' %>
         </div>
           <div class="panel-body">
-            <h2 class="page-heading" style="color:black;">Admin Panel</h2>
-            <%= render 'submissions' if  params[:submissions] || params[:all] %>
-            
-            <%= render 'users' if params[:users] || params[:all] %>
-            
-            <%= render 'charities' if params[:charities] || params[:all] %>
-            
-            <%= render 'donations' if params[:donations] || params[:all] %>
+            <%= render 'summary' if  params[:summary] %>
+            <%= render 'submissions' if  params[:submissions] %>
+            <%= render 'users' if params[:users] %>
+            <%= render 'charities' if params[:charities] %>
+            <%= render 'donations' if params[:donations] %>
           </div>
       </div>
     <% else %>
