@@ -9,7 +9,10 @@
               <p class="banner-header-word">CHANGE</p>
             </a>
           </div>
-          <div class="col-md-5 text-align">
+          <div class="col-md-2">
+            <a href="http://www.facebook.com/sharer.php?u=http://www.smallchangegiving.co/submissions/<%= @submission.slug %>/&t=Small Change Giving" class="btn btn-share"><i class="fa fa-facebook-official fa-fb"></i> Share</a>
+          </div>
+          <div class="col-md-3 text-align">
             <% if @submission.link_clicks.to_i > 1 %>
               <p class="banner-tagline"><%= @submission.link_clicks %> people have taken action already.</p>
             <% else %>
@@ -17,7 +20,7 @@
             <% end %>
           </div>
           <div class="col-md-3">
-            <% if !@submission.charity_id.nil? %>
+            <% if @submission.charity.present? %>
               <span>
                 <%= link_to '$2', counter_submission_path(submission_id: @submission.id), class: 'btn btn-banner btn-lg', onclick: 'openCharity200()' %>
               </span>
