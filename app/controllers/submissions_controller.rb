@@ -3,6 +3,8 @@ class SubmissionsController < ApplicationController
   skip_before_action :authenticate_user!
   layout 'sub_show', :only => [:show]
 
+  impressionist :actions => [:show]
+
   def index
     @submissions = Submission.link_clicks_desc
     @charities = Charity.all
@@ -10,6 +12,7 @@ class SubmissionsController < ApplicationController
 
   def show
     @charity_id = params[:charity_id]
+    impressionist(@submission)
   end
 
   def counter
