@@ -4,9 +4,19 @@ class DonationsController < ApplicationController
   skip_before_filter :verify_authenticity_token, only: :create
 
   def thanks
-    @charity = current_user ? Charity.find_by(Donation.where(user_id=current_user.id).last.charity_id) : Charity.find_by(params[:charity_id])
-    @submission = current_user ? Submission.find_by(Donation.where(user_id=current_user.id).last.submission_id) : Submission.find_by(params[:submission_id])
-    @donation = Donation.where(user_id=current_user.id).last if current_user
+
+    if user_signed_in?
+      @donation = current_user.donations.last
+      @submission = @donation.submission
+      @charity = @donation.charity
+      @amount = @donation.amount
+      @user = current_user
+    else
+      @email = params[:email]
+      @amount = params[:amount]
+      @charity = Charity.find(params[:charity_id])
+      @submission = Submission.find(params[:submission_id])
+    end
   end
 
   def create

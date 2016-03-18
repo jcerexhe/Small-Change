@@ -5,16 +5,18 @@
       <div class="row">  
         <div class="col-xs-12">
           <h4 id="card-title"><%= @submission ? @submission.title : "Title" %></h4>
-          <p class="donation-brag"> <%= current_user ? current_user.first_name : "I" %> small changed $<%= current_user ? @donation.amount : params[:amount]  %>0 to <%= @charity ? @charity.name : "charity" %> after reading this article. </p>
+          <p class="donation-brag"> <%= current_user ? current_user.first_name : "I" %> small changed <%= number_to_currency(@amount) %> to <%= @charity.name %> after reading this article. </p>
         </div>
       </div>
       <div class="card-bottom">
         <div class='row'>
           <div class='col-xs-5 col-offset-1'>
-            <p id="card-text-thanks">youtube.com</p>
+            <p id="card-text-thanks"><%= @submission.present? ? strip_url(@submission.url) : example.com %></p>
           </div>
           <div class='col-xs-offset-2 col-xs-2'>
-            <i class="fa fa-facebook-square facebook-icon"></i>
+            <a href="https://www.facebook.com/smallchangegiving/?fref=ts">
+              <i class="fa fa-facebook-square facebook-icon"></i>
+            </a>
           </div>
           <div class='col-xs-2'>
             <i class="fa fa-twitter-square twitter-icon"></i>
