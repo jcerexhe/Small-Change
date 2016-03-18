@@ -93,10 +93,6 @@
   width: 19%;
 }
 
-.admin-buttons {
-  margin-left: 3%;
-}
-
 .btn-black-trending {
   @include button-variant($btn-primary-color, $light-black, $dark-black);
   border: none;
