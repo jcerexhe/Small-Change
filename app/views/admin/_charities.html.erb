@@ -4,9 +4,10 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>BSB</th>
+      <th>Amount Raised</th>
       <th>Contact name</th>
       <th>Contact email</th>
+      <th>Account</th>
     </tr>
   </thead>
 
@@ -14,9 +15,10 @@
     <% @charities.each do |charity| %>
       <tr>
         <td><%= charity.name %></td>
-        <td><%= charity.bsb %></td>
+        <td><%= number_to_currency(charity.donations.sum(:amount).to_i) %></td>
         <td><%= charity.contact_name %></td>
         <td><%= charity.contact_email %></td>
+        <td><%= charity.account_number%>
         <td><%= link_to 'Show', charity %></td>
         <td><%= link_to 'Edit', edit_charity_path(charity) %></td>
         <td><%= link_to 'Destroy', charity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
