@@ -30,13 +30,12 @@ class SubmissionsController < ApplicationController
     @existing_submission = Submission.friendly.find_by(url: @submission.url)
 
     if @existing_submission         #if this is the first time
-      @existing_submission.users << current_user if current_user
       redirect_to submission_path(@existing_submission, existing: true)
     else
       if @submission.url.include? "youtube.com"
           object = VideoInfo.new(@submission.url)
           video = LinkThumbnailer.generate(@submission.url)                             #if this is not the first time
-          @submission.users << current_user if current_user
+          @submission.user = current_user if current_user
           @submission.title = video.title
           @submission.favicon = 'https://upload.wikimedia.org/wikipedia/commons/0/06/YouTube_logo_2013.svg'
           @submission.description = video.description
@@ -46,7 +45,7 @@ class SubmissionsController < ApplicationController
 
       else
           object = LinkThumbnailer.generate(@submission.url)                             #if this is not the first time
-          @submission.users << current_user if current_user
+          @submission.user = current_user if current_user
           @submission.title = object.title
           @submission.favicon = object.favicon
           @submission.description = object.description
