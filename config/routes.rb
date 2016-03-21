@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get 'dashboard' => 'dashboard#show'
   get 'thanks' => 'donations#thanks'
 
+  resources :demo_day_contacts, only: :create
+
   resources :submissions do
     member do
       get 'counter'
