@@ -16,6 +16,12 @@
   letter-spacing: 1px;
 }
 
+@media only screen and (max-device-width : 667px) {
+  .sc-header {
+    padding-top: 180px;
+  }
+}
+
 .sc-header-devise {
   color: white;
   text-align: center;
