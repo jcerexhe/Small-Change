@@ -2,9 +2,9 @@ require 'spec_helper'
 
 describe DashboardController do
   context 'signed in user' do
-    let(:user)            { create(:user) }
+    let(:user)            { create(:user, actions_taken: 10) }
     before                { sign_in user }
-    let(:submission)      { create(:submission) }
+    let(:submission)      { create(:submission, user_id: user.id, link_clicks: 100) }
     let(:user_submission) { create(:user_submission, user_id: user.id, submission_id: submission.id) }
 
 
@@ -20,6 +20,21 @@ describe DashboardController do
         subject
         expect(assigns[:submissions]).to eq [submission]
       end
+
+      xit "assigns @submissions_actions" do
+        subject
+        expect(assigns[:submissions_actions]).to eq submission.link_clicks
+      end
+
+      it "assigns @user_actions" do
+        subject
+        expect(assigns[:user_actions]).to eq user.actions_taken
+      end
+
+      it "assigns @users" do
+        subject
+        expect(assigns[:users]).to eq [user]
+      end
     end
   end
 
@@ -33,10 +48,5 @@ describe DashboardController do
   end
 end
 
-# @submissions = current_user.submissions
-# @submissions_actions = @submissions.sum(:link_clicks)
-# @user_actions = current_user.actions_taken
 # @submission = Submission.new
-
-# @users = User.all
 # @total_actions_taken = @users.sum(:actions_taken)

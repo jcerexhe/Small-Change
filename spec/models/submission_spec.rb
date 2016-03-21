@@ -11,19 +11,4 @@ describe Submission do
     end
   end
 
-  # describe '#reviewed_by?' do
-  #   it 'returns true if a submission has been reviewed by the provided user' do
-  #     expect(submission1.reviewed_by?(user1)).to eq true
-  #   end
-
-  #   it 'returns false if a submission has not been reviewed by the provided user' do
-  #     expect(submission2.reviewed_by?(user1)).to eq false
-  #   end
-  # end
-
-  # describe '#average_rating' do
-  #   it "returns the average rating from all that submission's reviews" do
-  #     expect(submission1.average_rating).to eq 3.0
-  #   end
-  # end
 end
