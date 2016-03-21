@@ -18,7 +18,7 @@ class SubmissionsController < ApplicationController
   def counter
     @submission.increment! :link_clicks, 1
     current_user.increment! :actions_taken, 1 if current_user
-    redirect_to new_user_registration_path
+    redirect_to new_user_registration_path(action_taker: true)
   end
 
   def edit
@@ -53,12 +53,9 @@ class SubmissionsController < ApplicationController
       end
 
       if @submission.save
-          redirect_to submissiontype_path(submission: @submission.id)
-        # format.json { render :show, status: :created, location: @submission }
+        redirect_to submissiontype_path(submission: @submission.id)
       else
-        # Not sure when exactly this triggers
         redirect_to :back
-        # format.json { render json: @submission.errors, status: :unprocessable_entity }
       end
     end
   end
