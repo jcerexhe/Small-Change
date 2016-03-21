@@ -1,31 +1,33 @@
 <% unless user_signed_in? %>
-  <!-- Modal -->
-  <div class="modal fade" id="welcomeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="close-btn">&times;</span></button>
-          <h4 class="modal-title text-center" id="myModalLabel">Welcome to Small Change</h4>
-        </div>
-        <div class="modal-body">
-          <p style="font-size:18px;">Small Change is about putting an end to slacktivism.</p>
-          <p style="font-size:18px;">We're still getting a few things ready, but feel free to look around and even link a social media post to a petition!</p>
-          <p style="font-size:18px;">Coming soon:</p>
-          <ul>
-            <li style="font-size:18px;">Link online content you share to a related charity.</li>
-            <li style="font-size:18px;">Donate to related charities with one click.</li>
-            <li style="font-size:18px;">Track the impact your posts are making.</li>
-          </ul>
-          <div class="hidden-xs hidden-sm text-center">
-            <a href="<%= new_user_registration_path %>" class="btn btn-black btn-lg btn-modal">Join us at Small Change today.</a>
+  <% unless params[:clear] %>
+    <!-- Modal -->
+    <div class="modal fade" id="welcomeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="close-btn">&times;</span></button>
+            <h4 class="modal-title text-center" id="myModalLabel">I came from Demo Day and love Small Change</h4>
           </div>
-          <div class="hidden-md hidden-lg">
-            <a href="<%= new_user_registration_path %>" class="btn btn-black btn-lg btn-modal btn-block">Join us</a>
+          <div class="modal-body">
+            <%= simple_form_for(@demo_day_contact) do |f| %>
+              <%= f.error_notification %>
+
+              <%= f.email_field :email, placeholder: "Email", label: false, class: 'form-control input-lg main-input' %>
+              <%= f.input_field :message, placeholder: "I'm happy to be contacted about...", label: false, class: 'form-control input-lg main-input', style: 'margin-top:15px;' %>
+              <button class="btn btn-black btn-lg btn-block btn-mobile" type="submit">SUBMIT</button>
+            <% end %>
+
+            <p style="font-size:18px;margin-top: 20px;">Can't find us in the crowd (even though one of us is 6ft8)?</p>
+            <p style="font-size:18px;">Contact Sam on <a href="tel: 0432211241">0432 211 241</a> or <a href="mailto:sam@smallchangegiving.net">sam@smallchangegiving.net</a></p>
+            <div class="text-center">
+              <img src="http://res.cloudinary.com/small-change/image/upload/v1458196172/sc-concept2-highres-02_pc08ny.png" width="40%">
+            </div>
+            <%#= image_tag('http://res.cloudinary.com/small-change/image/upload/v1458196172/sc-concept2-highres-02_pc08ny.png', width: "20%", class: "pull-right") %>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  <% end %>
 <% end %>
 
 <div id="welcome" class="people-bg">

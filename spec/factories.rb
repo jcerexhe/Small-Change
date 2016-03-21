@@ -1,4 +1,5 @@
 FactoryGirl.define do
+  
   factory :charity do
     name                  { FFaker::Company.name }
     bsb                   { "748564" }
