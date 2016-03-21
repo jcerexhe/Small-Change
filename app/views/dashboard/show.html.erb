@@ -35,39 +35,42 @@
 <div id="donations">
   <div class="container">
     <div class="panel-donation-margin">
-    <div class="col-xs-12 col-sm-10 col-sm-offset-1 panel-donation">
-      <div class="row">
-        <div class="col-xs-12 col-sm-6"> 
-          <h4 class="dash-subheading" style="padding-bottom: 40px;">Campaign Stats</h4>
-          <div class="row">  
-            <div class="col-xs-6">
-              <h6 class="white-text">Actions on your campaigns</h6>
-              <p class="action-amounts"><%= @submissions_actions %> Actions</p>
+      <div class="col-xs-12 col-sm-10 col-sm-offset-1 panel-donation">
+        <div class="row">
+          <div class="col-sm-8">
+            <h4 class="dash-subheading" style="padding-bottom: 20px;">Campaign Stats</h4>
+            <div class="row">
+              <div class="col-xs-6">
+                <p class="dashboard-stat"><span class="integer" data-from="0" data-to="<%= @views %>" data-speed="1000" data-refresh-interval="50"></span></p>
+                <p class="dashboard-category">Views</p>
+              </div>
+              <div class="col-xs-6">
+                <p class="dashboard-stat"><span class="integer" data-from="0" data-to="<%= @link_clicks %>" data-speed="1000" data-refresh-interval="50"></span></p>
+                <p class="dashboard-category"> Actions Raised</p>
+              </div>
             </div>
-            <div class="col-xs-6">
-              <h6 class="white-text">You have personally made</h6>
-              <p class="action-amounts"><%= @user_actions %> Actions</p>
+            <div class="row" style="padding-top: 10px;">
+              <div class="col-xs-6">
+                <p class="dashboard-stat"><span>$</span><span class="currency" data-from="0" data-to="<%= @amount_raised %>" data-speed="1000" data-refresh-interval="50"></span></p>
+                <p class="dashboard-category">Raised</p>
+              </div>
+              <div class="col-xs-6">
+                <p class="dashboard-stat"><span>$</span><span class="currency" data-from="0" data-to="<%= @donation_total %>" data-speed="1000" data-refresh-interval="50"></span></p>
+                <p class="dashboard-category">Donated</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-xs-12 col-sm-6">
-          <h4 class="dash-subheading">Rank</h4>
-          <div class="row text-center">  
-            <h1 class="user-rank">Coming soon</h1>
+          <div class="col-sm-4">
+            <h4 class="dash-subheading" style="padding-bottom: 40px;">Rank</h4>
+            <div class="text-center" style="padding-top: 30px;">
+              <h1><%= @rank.ordinalize %></h1>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    </div>
   </div>
 </div>
-
-<!-- Rankings -->
-<!-- <div class="container">
-  <%# @users.each_with_index do |user, index| %>
-    <p class="lead"><%#= user.submissions.sum(:link_clicks) %> <%#= index %></p>
-  <%# end %>
-</div> -->
 
 <div class="container">
   <div class="col-sm-10 col-sm-offset-1">
@@ -78,7 +81,7 @@
 <div class="container">
   <div class="col-xs-12 col-sm-10 col-sm-offset-1">
     <% if @submissions.any? %> 
-      <h2 class="page-heading">Trending Articles</h2>
+      <h2 class="page-heading">Your Campaigns</h2>
       <div class="row featured-cards"> 
         <% @submissions.each do |submission| %>
           <div class="col-xs-12 col-sm-6 col-md-4">
@@ -110,3 +113,32 @@
     <% end %>
   </div>
 </div>
+
+<script type="text/javascript">
+  $('.currency').countTo({
+    speed: 1000,
+    refreshInterval: 50,
+    formatter: function (value, options) {
+      return value.toFixed(2);
+    },
+    onUpdate: function (value) {
+      console.debug(this);
+    },
+    onComplete: function (value) {
+      console.debug(this);
+    }
+  });
+</script>
+
+<script type="text/javascript">
+  $('.integer').countTo({
+    speed: 1000,
+    refreshInterval: 50,
+    onUpdate: function (value) {
+      console.debug(this);
+    },
+    onComplete: function (value) {
+      console.debug(this);
+    }
+  });
+</script>
