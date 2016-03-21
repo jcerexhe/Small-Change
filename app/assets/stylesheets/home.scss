@@ -1,11 +1,14 @@
 .people-bg {
   background-image: url('http://res.cloudinary.com/small-change/image/upload/v1456194152/homepageimages-compressor_f9raeu.png');
-  background-size: 100% 100%;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 
 #welcome {
-  margin-top: -141px;
+  /*margin-top: -141px;*/
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 
 .welcome-content {
@@ -31,11 +34,13 @@
 .welcome-tagline {
   color: white;
   padding-bottom: 40px;
+  margin-top: 90px;
 }
 
 #howitworks {
   background-color: white;
   padding-bottom: 100px;
+  margin-top: 405px;
 }
 
 .black-header {

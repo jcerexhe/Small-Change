@@ -3,6 +3,10 @@
   margin-top: 40px;
 }
 
+.navbar-static-top-main {
+  padding-left: 25px;
+}
+
 .navbar-toggle {
   margin-top: 22px;
   color: white;
@@ -32,6 +36,17 @@
   color: white;
   font-size: 90%;
   text-transform: uppercase;
+}
+
+@media only screen and (max-device-width : 667px) {
+  .fa, .navbar-text {
+    font-size: 110%;
+  }
+}
+
+.mobile-icons {
+  padding: 15px 0 0 20px;
+  line-height: 3.428571;
 }
 
 .navbar-text:hover, .navbar-text:focus {
