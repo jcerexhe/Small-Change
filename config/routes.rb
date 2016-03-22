@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :charity_categories
+
   resources :admin, only: :index
 
   get 'faq' => 'static_pages#faq'

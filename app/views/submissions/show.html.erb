@@ -3,7 +3,7 @@
 <% content_for :head do %>
   <meta property="og:title" content="<%= @submission.title %>" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="<%= @submission.url %>" />
+  <meta property="og:url" content="<%= submission_url(@submission) %>" />
   <meta property="og:image" content="<%= @submission.image %>" />
   <meta property="og:description" content="<%= @submission.description %>" />
   <meta name="twitter:card" content="summary" />

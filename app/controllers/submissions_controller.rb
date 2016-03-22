@@ -33,6 +33,7 @@ class SubmissionsController < ApplicationController
 
   def edit
     @charities = Charity.all
+    @charity_categories = CharityCategory.where(charity_id: params[:charity_id])
   end
 
   def create
