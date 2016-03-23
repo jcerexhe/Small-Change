@@ -66,6 +66,22 @@
   letter-spacing: 1px;
 }
 
+.btn-black-default {
+  @include button-variant($btn-primary-color, white, grey);
+  border: none;
+  border-radius: 3px;
+  /*font-weight: 100;*/
+  text-transform: uppercase;
+  font-size: 14px;
+  padding: 14px 30px;
+  letter-spacing: 1px;
+  color: black;
+}
+
+.btn-black-default:hover {
+  color: black;
+}
+
 .btn-clear {
   color:white;
   text-transform: uppercase;
