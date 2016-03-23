@@ -13,8 +13,8 @@
             <a href="http://www.facebook.com/sharer.php?u=<%= submission_url(@submission.slug) %>/&t=Small Change Giving" class="btn btn-share"><i class="fa fa-facebook-official fa-fb"></i> Share</a>
           </div>
           <div class="col-md-3 text-align">
-            <% if !@submission.submission_type %>
-              <p class="banner-tagline-donation-top"><%= @charity.name %></p>
+            <% if @submission.submission_type=="donation" %>
+              <p class="banner-tagline-donation-top"><%= @charity.name if @charity %></p>
               <p class="banner-tagline-donation">$<%= @amount %> small changed already</p>
             <% elsif @submission.link_clicks.to_i > 1 %>
               <p class="banner-tagline"><%= @submission.link_clicks %> people have taken action already.</p>
