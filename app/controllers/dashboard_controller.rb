@@ -9,6 +9,8 @@ class DashboardController < ApplicationController
     @donation_total = current_user.donations.sum(:amount).to_i
     @donation_count = current_user.donations.count
 
+    @featured_submissions = Submission.last(3)
+
     # Number of views a user has gotten on all their submissions
     count = 0
     current_user.submissions.each do |submission|

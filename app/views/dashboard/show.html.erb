@@ -1,15 +1,15 @@
 <div id="your-dashboard">
   <div class="container">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-      <div class="row">  
+      <div class="row">
         <div class="col-md-4">
           <h2 class="dashboard-header">Your Dashboard</h2>
         </div>
         <div class="col-md-8">
-          <div class="dashboard-form pull-right">  
+          <div class="dashboard-form pull-right">
             <div class="hidden-xs hidden-sm">
               <%= simple_form_for(@submission) do |f| %>
-                <%= f.error_notification %>  
+                <%= f.error_notification %>
                 <div class="form-inline">
                   <%= f.input_field :url, placeholder: "Enter a link to an article", class: 'form-control input-lg main-input', size: '40', autofocus: true %>
                   <button class="btn btn-black btn-lg" type="submit">CREATE NEW CAMPAIGN</button>
@@ -18,9 +18,9 @@
             </div>
             <div class="hidden-md hidden-lg">
               <%= simple_form_for(@submission) do |f| %>
-                <%= f.error_notification %> 
+                <%= f.error_notification %>
                 <div class="form-inline">
-                  <%= f.input_field :url, placeholder: "Enter a link to an article", class: 'form-control input-lg main-input mobile-input', autofocus: true, size: '52' %>  
+                  <%= f.input_field :url, placeholder: "Enter a link to an article", class: 'form-control input-lg main-input mobile-input', autofocus: true, size: '52' %>
                   <button class="btn btn-black btn-lg btn-block btn-mobile" type="submit">CREATE NEW CAMPAIGN</button>
                 </div>
               <% end %>
@@ -42,28 +42,29 @@
             <div class="row">
               <div class="col-xs-6">
                 <p class="dashboard-stat"><span class="integer" data-from="0" data-to="<%= @views %>" data-speed="1000" data-refresh-interval="50"></span></p>
-                <p class="dashboard-category">Views</p>
+                <p class="dashboard-category">Views <span type="button" data-toggle="tooltip" data-placement="right" title="The total number of views your campaigns have collected."><i style="font-size:18px;" class="fa fa-question-circle"></i></span></p>
               </div>
               <div class="col-xs-6">
                 <p class="dashboard-stat"><span class="integer" data-from="0" data-to="<%= @link_clicks %>" data-speed="1000" data-refresh-interval="50"></span></p>
-                <p class="dashboard-category"> Actions Raised</p>
+                <p class="dashboard-category">Actions Raised <span type="button" data-toggle="tooltip" data-placement="right" title="The total number of actions that have been taken on your campaigns."><i style="font-size:18px;" class="fa fa-question-circle"></i></span></p>
               </div>
             </div>
             <div class="row" style="padding-top: 10px;">
               <div class="col-xs-6">
                 <p class="dashboard-stat"><span>$</span><span class="currency" data-from="0" data-to="<%= @amount_raised %>" data-speed="1000" data-refresh-interval="50"></span></p>
-                <p class="dashboard-category">Raised</p>
+                <p class="dashboard-category">Raised <span type="button" data-toggle="tooltip" data-placement="right" title="The total amount of money your campaigns have raised."><i style="font-size:18px;" class="fa fa-question-circle"></i></span></p>
               </div>
               <div class="col-xs-6">
                 <p class="dashboard-stat"><span>$</span><span class="currency" data-from="0" data-to="<%= @donation_total %>" data-speed="1000" data-refresh-interval="50"></span></p>
-                <p class="dashboard-category">Donated</p>
+                <p class="dashboard-category">Donated <span type="button" data-toggle="tooltip" data-placement="right" title="The total amount you have donated yourself."><i style="font-size:18px;" class="fa fa-question-circle"></i></span></p>
               </div>
             </div>
           </div>
           <div class="col-sm-4">
             <h4 class="dash-subheading" style="padding-bottom: 40px;">Rank</h4>
             <div class="text-center" style="padding-top: 30px;">
-              <h1><%= @rank.ordinalize %></h1>
+              <!-- <h1><%#= @rank.ordinalize %></h1> -->
+              <h1>Coming soon!</h1>
             </div>
           </div>
         </div>
@@ -80,16 +81,16 @@
 
 <div class="container">
   <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-    <% if @submissions.any? %> 
+    <% if @submissions.any? %>
       <h2 class="page-heading">Your Campaigns</h2>
-      <div class="row featured-cards"> 
+      <div class="row featured-cards">
         <% @submissions.each do |submission| %>
           <div class="col-xs-12 col-sm-6 col-md-4">
-            <a href="<%= submission_path(submission) %>">  
+            <a href="<%= submission_path(submission) %>">
               <div class="card index-card">
                 <img class="card-img-top" src="<%= submission.image %>" width="100%" height="180px" alt="<%= submission.title %>">
                 <div class="card-block">
-                  <div class="row">  
+                  <div class="row">
                     <div class="col-xs-12">
                       <h4 id="card-title"><%= truncate(submission.title, length: 55) %></h4>
                       <p id="card-text"><%= strip_url(submission.url) %></p>
@@ -107,8 +108,16 @@
       </div>
     <% else %>
       <div class="text-center">
-        <h4 class="dash-subheading" style="padding: 70px 0 10px 0;">You haven't started a campaign yet!</h4>
+        <h2 class="dash-subheading" style="padding: 70px 0 10px 0;">You haven't started a campaign yet!</h2>
         <%= render 'shared/get_started_form' %>
+      </div>
+      <h3 class="dash-subheading text-center" style="padding-top:80px;">Check out the most recent campaigns</h3>
+      <%= render 'shared/featured' %>
+      <div class="hidden-xs text-center">
+        <%= link_to 'View all', submissions_path, class: 'btn btn-black btn-lg' %>
+      </div>
+      <div class="hidden-sm hidden-md hidden-lg text-center">
+        <%= link_to 'View all', submissions_path, class: 'btn btn-black btn-lg btn-block' %>
       </div>
     <% end %>
   </div>
@@ -128,9 +137,7 @@
       console.debug(this);
     }
   });
-</script>
 
-<script type="text/javascript">
   $('.integer').countTo({
     speed: 1000,
     refreshInterval: 50,
@@ -141,4 +148,8 @@
       console.debug(this);
     }
   });
+
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
 </script>
