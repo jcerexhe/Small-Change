@@ -11,21 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160321012513) do
-
-  create_table "beta_users", force: :cascade do |t|
-    t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "causes", force: :cascade do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.decimal  "amount_raised"
-  end
+ActiveRecord::Schema.define(version: 20160323041923) do
 
   create_table "charities", force: :cascade do |t|
     t.string   "name"
@@ -39,16 +25,6 @@ ActiveRecord::Schema.define(version: 20160321012513) do
     t.string   "logo"
     t.text     "blurb"
   end
-
-  create_table "charity_causes", force: :cascade do |t|
-    t.integer  "cause_id"
-    t.integer  "charity_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "charity_causes", ["cause_id"], name: "index_charity_causes_on_cause_id"
-  add_index "charity_causes", ["charity_id"], name: "index_charity_causes_on_charity_id"
 
   create_table "demo_day_contacts", force: :cascade do |t|
     t.string   "email"
@@ -69,18 +45,6 @@ ActiveRecord::Schema.define(version: 20160321012513) do
   add_index "donations", ["charity_id"], name: "index_donations_on_charity_id"
   add_index "donations", ["submission_id"], name: "index_donations_on_submission_id"
   add_index "donations", ["user_id"], name: "index_donations_on_user_id"
-
-  create_table "enquiries", force: :cascade do |t|
-    t.string   "enquiry_type"
-    t.string   "name"
-    t.string   "email"
-    t.text     "message"
-    t.integer  "user_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  add_index "enquiries", ["user_id"], name: "index_enquiries_on_user_id"
 
   create_table "impressions", force: :cascade do |t|
     t.string   "impressionable_type"
@@ -107,15 +71,6 @@ ActiveRecord::Schema.define(version: 20160321012513) do
   add_index "impressions", ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index"
   add_index "impressions", ["user_id"], name: "index_impressions_on_user_id"
 
-  create_table "profiles", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
-
   create_table "submissions", force: :cascade do |t|
     t.string   "url"
     t.datetime "created_at",                  null: false
@@ -138,22 +93,6 @@ ActiveRecord::Schema.define(version: 20160321012513) do
   add_index "submissions", ["charity_id"], name: "index_submissions_on_charity_id"
   add_index "submissions", ["slug"], name: "index_submissions_on_slug", unique: true
   add_index "submissions", ["user_id"], name: "index_submissions_on_user_id"
-
-  create_table "user_submissions", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "submission_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.integer  "donation_id"
-    t.integer  "charity_id"
-    t.integer  "cause_id"
-  end
-
-  add_index "user_submissions", ["cause_id"], name: "index_user_submissions_on_cause_id"
-  add_index "user_submissions", ["charity_id"], name: "index_user_submissions_on_charity_id"
-  add_index "user_submissions", ["donation_id"], name: "index_user_submissions_on_donation_id"
-  add_index "user_submissions", ["submission_id"], name: "index_user_submissions_on_submission_id"
-  add_index "user_submissions", ["user_id"], name: "index_user_submissions_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
