@@ -11,7 +11,7 @@ class SubmissionsController < ApplicationController
     @most_recent = Submission.most_recent
     @charities = Charity.all
 
-    if params[:newest]
+    if params[:most_recent]
       @submissions = @most_recent
     else
       @submissions = @most_actioned

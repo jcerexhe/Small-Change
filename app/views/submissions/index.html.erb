@@ -3,7 +3,7 @@
 <div class="container">
   <div class="col-xs-12 col-sm-10 col-sm-offset-1">
     <h2 class="page-heading">Trending Articles</h2>
-    <%= link_to "Most Actioned", submissions_path(most_actioned: true), class: (params[:most_actioned] || !params[:most_actioned] ? 'btn btn-black' : 'btn btn-black-default') %>
+    <%= link_to "Most Actioned", submissions_path(most_actioned: true), class: (params[:most_actioned] || !params[:most_actioned] && !params[:most_recent] ? 'btn btn-black' : 'btn btn-black-default') %>
     <%= link_to "Most Recent", submissions_path(most_recent: true), class: (params[:most_recent] ? 'btn btn-black' : 'btn btn-black-default') %>
     <div class="row featured-cards">
       <% @submissions.each do |submission| %>
