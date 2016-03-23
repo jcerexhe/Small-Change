@@ -1,0 +1,29 @@
+<% if params[:charity_id] %>
+  <h2 class="sc-header"></h2>
+  <h2 class="petition-tagline">Select which area of <%= @charity.name %></h2>
+<% else %>
+  <h2 class="sc-header">Nice one!</h2>
+  <h2 class="petition-tagline">Select a Related Charity.</h2>
+<% end %>
+
+<div class="col-md-4 col-md-offset-2">
+  <% @charities.each do |charity| %>
+    <%= link_to charity.name, edit_submission_path(@submission.id, charity_id: charity.id), class: (params[:charity_id] == charity.id.to_s ? "btn btn-block btn-lg btn-black" : "btn btn-block btn-lg btn-black-default") %>
+  <% end %>
+</div>
+
+<% if params[:charity_id] %>
+  <%= simple_form_for(@submission) do |f| %>
+    <%= f.error_notification %>
+    <%= f.hidden_field :submission_type, :value => "donation"%>
+    <div class="col-md-4">
+      <% @charity_categories.each do |charity_category| %>
+        <button class="btn btn-black btn-block btn-lg" type="submit" 
+        name="submission[charity_category_id]"
+         id="submission_charity_category_<%= charity_category.id %>" value="<%= charity_category.id %>">
+          <%= charity_category.category_name %>
+        </button>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

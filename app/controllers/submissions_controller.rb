@@ -16,6 +16,7 @@ class SubmissionsController < ApplicationController
     else
       @submissions = @most_actioned
     end
+
   end
 
   def show

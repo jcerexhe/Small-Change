@@ -18,10 +18,11 @@
                     <p id="card-text"><%= strip_url(submission.url) %></p>
                   </div>
                 </div>
-                  <footer>
-                    <h5 id="card-clicks"><%= submission.link_clicks %> Actions Taken</h5>
-                    <span><%= link_to "Take Action", submission_path(submission.id), class: 'btn btn-black-trending pull-right' %></span>
-                  </footer>
+                <h5 id="card-clicks"><%= submission.link_clicks %> Actions Taken</h5> 
+                <footer>
+                  <h5 id="card-views"><%= submission.impressionist_count %> Views</h5>
+                  <span><%= link_to "Take Action", submission_path(submission.id), class: 'btn btn-black-trending pull-right' %></span>
+                </footer>
               </div>
             </div>
           </a>
