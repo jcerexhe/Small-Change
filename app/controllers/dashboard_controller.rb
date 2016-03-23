@@ -2,7 +2,7 @@ class DashboardController < ApplicationController
   def show
     @submissions = current_user.submissions
     @submission = Submission.new
-    @submission_count = current_user.submissions.count  
+    @submission_count = current_user.submissions.count
     @link_clicks = current_user.submissions.sum(:link_clicks).to_i
 
     # Amount user has donated to charity
@@ -26,7 +26,8 @@ class DashboardController < ApplicationController
         user_donations.store(user_id, d)
     end
     sorted = user_donations.sort_by{|k, v| v}.reverse.to_h
-    sorted_keys = sorted.keys 
+    sorted_keys = sorted.keys
     @rank = sorted_keys.index(current_user.id) + 1
+    # batch, chron job
   end
 end

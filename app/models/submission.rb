@@ -9,4 +9,10 @@ class Submission < ActiveRecord::Base
   is_impressionable
 
   scope :link_clicks_desc, -> { order(:link_clicks => :desc) }
+  # scope :most_viewed, -> { order(:impressionist_count => :desc) }
+  scope :most_recent, -> { order(:created_at => :desc) }
+
+  # def self.most_viewed
+    # self.impressionist_count.order(:desc)
+  # end
 end

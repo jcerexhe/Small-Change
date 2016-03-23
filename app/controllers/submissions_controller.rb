@@ -6,8 +6,16 @@ class SubmissionsController < ApplicationController
   impressionist :actions => [:show]
 
   def index
-    @submissions = Submission.link_clicks_desc
+    @most_actioned = Submission.link_clicks_desc
+    # @most_viewed = Submission.most_viewed
+    @most_recent = Submission.most_recent
     @charities = Charity.all
+
+    if params[:most_recent]
+      @submissions = @most_recent
+    else
+      @submissions = @most_actioned
+    end
   end
 
   def show
