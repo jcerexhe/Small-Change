@@ -52,13 +52,13 @@
 <div class="hidden-md hidden-lg">
   <div class="navbar navbar-static-top">
     <div class='banner-mobile banner-bg'>
-      <div class="col-xs-4 banner-headers-mobile">
+      <div class="col-xs-7 banner-headers-mobile">
         <a href="<%= root_path %>" target="_blank" class="">
           <p class="banner-header-word">SMALL</p>
           <p class="banner-header-word">CHANGE</p>
         </a>
       </div>
-      <div class="col-xs-8">
+      <div class="col-xs-5">
         <% if @submission.charity.present? %>
           <span><%= link_to 'Donate Now', counter_submission_path(submission_id: @submission.id), class: 'btn btn-banner-mobile btn-lg', onclick: 'openCharity300()' %></span>
         <% else %>
