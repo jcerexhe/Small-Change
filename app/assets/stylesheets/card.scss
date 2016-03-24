@@ -27,7 +27,7 @@
 
 .index-card {
   margin-bottom: 30px;
-  height: 320px;
+  height: 340px;
 }
 
 .index-card-donation {
@@ -71,7 +71,7 @@
   color: black;
   font-family: 'Source Sans Pro', sans-serif;
   position: absolute;
-  top: 83%;
+  top: 79%;
   padding-top:1%;
 }
 
@@ -81,6 +81,9 @@
   font-family: 'Source Sans Pro', sans-serif;
   position: absolute;
   top: 90%;
+  padding-left: 1%;
+  font-style: italic;
+  font-size: 11px;
 }
 
 .card-subtitle {
