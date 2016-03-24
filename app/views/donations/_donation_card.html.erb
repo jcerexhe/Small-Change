@@ -2,7 +2,7 @@
   <div class="card index-card-donation">
     <img class="card-img-top" src="<%= @submission.present? ? @submission.image  : "http://res.cloudinary.com/small-change/image/upload/v1458196252/sc-cut_kunq42.png" %>" width="100%" height="180px" alt="Submission Image">
     <div class="card-block">
-      <div class="row">  
+      <div class="row">
         <div class="col-xs-12">
           <h4 id="card-title"><%= @submission ? @submission.title : "Title" %></h4>
           <p class="donation-brag"> <%= current_user ? current_user.first_name : "I" %> small changed <%= number_to_currency(@amount) %> to <%= @charity.name %> after reading this article. </p>
