@@ -100,6 +100,6 @@ class SubmissionsController < ApplicationController
     end
 
     def submission_params
-      params.require(:submission).permit(:url, :user_id, :cause_id, :origin, :charity, :charity_category_id, :submission_type, :charity_link, :petition_link, :link_clicks, :slug)
+      params.require(:submission).permit(:url, :user_id, :cause_id, :origin, :charity, :charity_category_id, :submission_type, :charity_link, :petition_link, :link_clicks, :slug, :youtube)
     end
 end
