@@ -10,12 +10,14 @@ class SubmissionsController < ApplicationController
     # @most_viewed = Submission.most_viewed
     @most_recent = Submission.most_recent
     @charities = Charity.all
+    @donations = Donation.all
 
     if params[:most_recent]
       @submissions = @most_recent
     else
       @submissions = @most_actioned
     end
+
   end
 
   def show
