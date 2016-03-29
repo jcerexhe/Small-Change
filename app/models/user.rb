@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  validates :terms_of_service, acceptance: { accept: true }
+
   has_many :submissions
   has_many :donations
 end
