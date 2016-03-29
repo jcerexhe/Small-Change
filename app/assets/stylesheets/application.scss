@@ -15,6 +15,7 @@
 @import "faq";
 @import "donation";
 @import "admin";
+@import "terms";
 
 html {
   min-height: 100%;
@@ -172,4 +173,11 @@ input[name=other]{
 
 .btn.disabled {
   pointer-events: auto;
+}
+
+.label-signup {
+  color:#555555;
+  font-size: 14px;
+  padding: 18px 20px;
+  font-weight: 100;
 }

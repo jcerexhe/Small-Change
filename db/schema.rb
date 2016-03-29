@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160323041923) do
+ActiveRecord::Schema.define(version: 20160329041218) do
 
   create_table "charities", force: :cascade do |t|
     t.string   "name"
@@ -25,6 +25,15 @@ ActiveRecord::Schema.define(version: 20160323041923) do
     t.string   "logo"
     t.text     "blurb"
   end
+
+  create_table "charity_categories", force: :cascade do |t|
+    t.integer  "charity_id"
+    t.string   "category_name"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "charity_categories", ["charity_id"], name: "index_charity_categories_on_charity_id"
 
   create_table "demo_day_contacts", force: :cascade do |t|
     t.string   "email"
@@ -73,24 +82,22 @@ ActiveRecord::Schema.define(version: 20160323041923) do
 
   create_table "submissions", force: :cascade do |t|
     t.string   "url"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "title"
     t.string   "favicon"
     t.text     "description"
     t.string   "image"
-    t.integer  "charity"
-    t.boolean  "youtube"
-    t.string   "charity_link"
     t.string   "petition_link"
     t.string   "submission_type"
-    t.integer  "link_clicks",     default: 0
+    t.integer  "link_clicks",         default: 0
     t.string   "slug"
-    t.integer  "charity_id"
     t.integer  "user_id"
+    t.integer  "charity_category_id"
+    t.boolean  "youtube"
   end
 
-  add_index "submissions", ["charity_id"], name: "index_submissions_on_charity_id"
+  add_index "submissions", ["charity_category_id"], name: "index_submissions_on_charity_category_id"
   add_index "submissions", ["slug"], name: "index_submissions_on_slug", unique: true
   add_index "submissions", ["user_id"], name: "index_submissions_on_user_id"
 
@@ -112,6 +119,8 @@ ActiveRecord::Schema.define(version: 20160323041923) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "mobile"
+    t.boolean  "terms_of_service"
+    t.boolean  "mailing_list"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
