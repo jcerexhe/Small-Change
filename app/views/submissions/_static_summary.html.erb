@@ -1,5 +1,5 @@
 <div class='submission-image'>
-  <img src="<%= @submission.image %>", width="100%" >
+  <img src="<%= @submission.image %>", width="100%" class="xs-preview-img">
 </div>
 <div class='col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1'>
   <div class="submission-source">
@@ -7,10 +7,10 @@
   </div>
   <div class=''>
     <hr>
-    <p class='submission-description'><%= @submission.description %>
+    <p class='submission-description'><%= @submission.description %><br>
     <%= link_to "Read more <i class='fa fa-chevron-down'></i>".html_safe, @submission.url %> </p>
   </div>
-  <div class="read-more">
+  <div class="">
     <%= link_to "Take Action Through Small Change", '', class: 'btn btn-black-show btn-block' %>
   </div>
 </div>
