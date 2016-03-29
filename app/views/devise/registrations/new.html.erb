@@ -30,6 +30,9 @@
     <% end %>
   </div>
   <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-2 ">
+    <div class='visible-xs'>
+      <br><br><hr>
+    </div>
     <h2 class="page-heading header-devise-tagline">Regulars.</h2>
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <%= f.error_notification %>
