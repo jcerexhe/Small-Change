@@ -159,26 +159,35 @@ iframe.iframe-md {
   color: white;
   text-align: center;
   font-weight: 800;
-  padding-bottom: 20px;
-  padding-top: 46px;
+  padding-bottom: 30px;
+  padding-top: 55px;
   letter-spacing: 1px;
   font-size: 38px;
 }
 
 .submission-description {
   color: white;
-  font-weight: 100;
+  font-weight: 300;
   padding-bottom: 20px;
   padding-top: 46px;
   letter-spacing: 1px;
-  font-size: 45px;
+  font-size: 30px;
   text-align: justify;
+}
+
+.submission-source {
+  color:white;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 20px;
+  text-align: right;
+  padding-top: 20px;
 }
 
 .read-more {
   text-align:center;
   margin-bottom: 200px;
-  margin-top: 200px;
+  margin-top: 55px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 

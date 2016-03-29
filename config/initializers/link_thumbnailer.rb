@@ -37,7 +37,7 @@ LinkThumbnailer.configure do |config|
   # here. See wiki for more details on how to build your own graders.
   #
   # config.graders = [
-  #   ->(description) { ::LinkThumbnailer::Graders::Length.new(description) },
+  #   ->(description) { ::LinkThumbnailer::Graders::Length.new(description, weight: 4) },
   #   ->(description) { ::LinkThumbnailer::Graders::HtmlAttribute.new(description, :class) },
   #   ->(description) { ::LinkThumbnailer::Graders::HtmlAttribute.new(description, :id) },
   #   ->(description) { ::LinkThumbnailer::Graders::Position.new(description, weight: 3) },
@@ -46,7 +46,7 @@ LinkThumbnailer.configure do |config|
 
   # Minimum description length for a website.
   #
-  # config.description_min_length = 150
+  # config.description_min_length = 500
 
   # Regex of words considered positive to rate website description.
   #
