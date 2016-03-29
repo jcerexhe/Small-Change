@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  
+
   factory :charity do
     name                  { FFaker::Company.name }
     bsb                   { "748564" }
@@ -22,11 +22,11 @@ FactoryGirl.define do
   end
 
   factory :submission do
-    url                   { FFaker::Internet.domain_name }
+    url                   { "http://smallchangegiving.co/submissions/chris-rock-at-the-2016-oscars-you-re-damn-right-hollywood-s-racist" }
     title                 { FFaker::Lorem.sentence(1) }
     description           { FFaker::Lorem.sentence(4) }
     link_clicks           { "#{rand(0..100)}" }
-    slug                  { FFaker::Name.first_name }
+    slug                  { "chris-rock-at-the-2016-oscars-you-re-damn-right-hollywood-s-racist" }
   end
 
   factory :user do

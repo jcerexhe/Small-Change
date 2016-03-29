@@ -8,7 +8,7 @@ describe HomeController do
       expect(response).to be_success
     end
 
-    it "assigns a new Submission to @contact" do
+    it "assigns a new Submission to @submission" do
       get :index
       expect(assigns(:submission)).to be_a_new(Submission)
     end

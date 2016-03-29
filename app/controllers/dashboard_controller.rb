@@ -23,13 +23,13 @@ class DashboardController < ApplicationController
 
     # Rank
     user_donations = Hash.new
-    User.all.each do |user|
+    # .find_each uses batches of 1000 so that it doesn't instantiate all the objects at once
+    User.all.find_each do |user|
         d = Donation.where(user_id: user.id).sum(:amount).to_i
         user_donations.store(user_id, d)
     end
     sorted = user_donations.sort_by{|k, v| v}.reverse.to_h
     sorted_keys = sorted.keys
     @rank = sorted_keys.index(current_user.id) + 1
-    # batch, chron job
   end
 end

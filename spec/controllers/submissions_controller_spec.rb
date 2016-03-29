@@ -10,9 +10,9 @@ describe SubmissionsController do
       expect(response).to be_success
     end
 
-    xit "assigns @submission" do
-      get :show, id: submission.id
-      expect(assigns[:submission]).to eq [submission]
+    it "assigns @submission" do
+      get :show, id: submission
+      expect(assigns(:submission)).to eq submission
     end
   end
 
@@ -28,6 +28,11 @@ describe SubmissionsController do
       subject
       expect(assigns[:submissions]).to eq [submission]
     end
+
+    xit "assigns @most_recent" do
+      subject
+      expect(assigns[:most_recent]).to eq [submission]
+    end
   end
 
   describe "GET #edit" do
@@ -42,11 +47,16 @@ describe SubmissionsController do
       subject
       expect(assigns[:charities]).to eq [charity]
     end
+
+    it "assigns @submission" do
+      get :show, id: submission
+      expect(assigns(:submission)).to eq submission
+    end
   end
 
   describe "GET #counter" do
     xit "should increment link clicks" do
-      expect(get :counter, id: submission.id).to change(submission.link_clicks, :count).by(1)
+      expect(get :counter, id: submission).to change(submission.link_clicks, :count).by(1)
     end
   end
 
@@ -80,7 +90,7 @@ describe SubmissionsController do
     context 'with invalid attributes' do
       subject { post :create, :submission => { :foo => 'bar' } }
 
-      xit 'does not save a new submission in the database' do
+      it 'does not save a new submission in the database' do
         expect { subject }.to_not change(Submission, :count)
       end
 

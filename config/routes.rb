@@ -29,5 +29,7 @@ Rails.application.routes.draw do
     root 'dashboard#show', as: :authenticated_root
   end
 
+  get 'home', to: 'home#index'
+
   root 'home#index'
 end
