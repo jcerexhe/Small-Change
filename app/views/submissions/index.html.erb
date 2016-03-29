@@ -18,10 +18,15 @@
                     <p id="card-text"><%= strip_url(submission.url) %></p>
                   </div>
                 </div>
-                  <footer>
-                    <h5 id="card-clicks"><%= submission.link_clicks %> Actions Taken</h5>
-                    <span><%= link_to "Take Action", submission_path(submission.id), class: 'btn btn-black-trending pull-right' %></span>
-                  </footer>
+                <% if submission.submission_type == "petition" %>
+                  <h5 id="card-clicks"><span class="badge"><%= submission.link_clicks %></span> Signatures</h5> 
+                  <% else %>
+                  <h5 id="card-clicks"><span class="badge">$<%= @donations.where(submission_id: submission.id).sum(:amount).to_i %></span> Raised</h5> 
+                <% end %>
+                <footer>
+                  <h5 id="card-views"><%= submission.impressionist_count %> Views</h5>
+                  <span><%= link_to "Take Action", submission_path(submission.id), class: 'btn btn-black-trending pull-right' %></span>
+                </footer>
               </div>
             </div>
           </a>

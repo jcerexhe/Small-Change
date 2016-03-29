@@ -1,0 +1,12 @@
+<h2 class="sc-header">Nice!</h2>
+<h2 class="petition-tagline">Please enter a link to the petition.</h2>
+<div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
+  <%= simple_form_for(@submission) do |f| %>
+    <%= f.error_notification %>
+    <%= f.hidden_field :submission_type, :value => "petition"%>
+    <div class="form-inline">
+      <%= f.input_field :petition_link, class: 'form-control', placeholder: "http://www.petitionwebsite.com/", class: 'form-control input-lg main-input', size: '40', autofocus: true %>
+      <button class="btn btn-black btn-lg" type="submit">SUBMIT</button>
+    </div>
+  <% end %>
+</div>
