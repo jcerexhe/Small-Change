@@ -46,7 +46,7 @@ LinkThumbnailer.configure do |config|
 
   # Minimum description length for a website.
   #
-  # config.description_min_length = 500
+  config.description_min_length = 1000
 
   # Regex of words considered positive to rate website description.
   #
