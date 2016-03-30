@@ -1,27 +1,5 @@
 <% if params[:type] == "petition" %>
-
-  <h2 class="sc-header">Nice!</h2>
-  <h2 class="petition-tagline">Please enter a link to the petition.</h2>
-  <%= simple_form_for(@submission) do |f| %>
-    <%= f.error_notification %>
-    <div class="form-inline">
-      <%= f.input_field :petition_link, class: 'form-control', placeholder: "http://www.petitionwebsite.com/", class: 'form-control input-lg main-input', size: '40', autofocus: true %>
-      <button class="btn btn-black btn-lg" type="submit">SUBMIT</button>
-    </div>
-  <% end %>
-
+  <%= render 'petition_form' %>
 <% else %>
-
-  <h2 class="sc-header">Sweet!</h2>
-  <h2 class="petition-tagline">Please pick the charity.</h2>
-  <%= simple_form_for(@submission) do |f| %>
-    <%= f.error_notification %>
-
-    <%#= f.input :charity, as: :radio_buttons, label: false, collection: @charities %>
-    <% @charities.each do |charity| %>
-      <button class="btn btn-black btn-lg charity-select-btn" type="submit" name="submission[charity_id]" id="submission_charity_<%= charity.id %>" value="<%= charity.id %>"><%= charity.name %></button><br>
-    <% end %>
-    <!-- <button class="btn btn-black btn-lg" type="submit">SUBMIT</button> -->
-  <% end %>
-
+  <%= render 'donation_form' %>
 <% end %>

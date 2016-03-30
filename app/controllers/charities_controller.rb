@@ -1,18 +1,17 @@
 class CharitiesController < ApplicationController
   before_action :set_charity, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_admin
 
   # GET /charities
   # GET /charities.json
   def index
     @charities = Charity.all
-    @cause = Cause.new
   end
 
   # GET /charities/1
   # GET /charities/1.json
   def show
     @charities = Charity.all
-    @cause = Cause.new
     @submission = Submission.new
     @submissions = Submission.all
   end
@@ -20,13 +19,10 @@ class CharitiesController < ApplicationController
   # GET /charities/new
   def new
     @charity = Charity.new
-    @causes = Cause.all
   end
 
   # GET /charities/1/edit
   def edit
-    @causes = Cause.all
-
   end
 
   # POST /charities
@@ -73,6 +69,12 @@ class CharitiesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_charity
       @charity = Charity.find(params[:id])
+    end
+
+    def authenticate_admin
+      unless current_user.admin == true
+        redirect_to root_url
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

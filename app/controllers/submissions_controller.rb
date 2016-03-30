@@ -21,8 +21,10 @@ class SubmissionsController < ApplicationController
   end
 
   def show
-    @charity_id = params[:charity_id]
     impressionist(@submission)
+    @amount = Donation.where(submission_id: @submission.id).sum(:amount).to_i
+    @charity_category = CharityCategory.find(@submission.charity_category_id) if @submission.charity_category_id
+    @charity = Charity.find(@charity_category.charity_id) if @submission.charity_category_id
   end
 
   def counter
@@ -33,6 +35,8 @@ class SubmissionsController < ApplicationController
 
   def edit
     @charities = Charity.all
+    @charity_categories = CharityCategory.where(charity_id: params[:charity_id])
+    @charity = Charity.find(params[:charity_id]) if params[:charity_id]
   end
 
   def create
@@ -96,6 +100,6 @@ class SubmissionsController < ApplicationController
     end
 
     def submission_params
-      params.require(:submission).permit(:url, :user_id, :charity_id, :cause_id, :origin, :charity, :youtube, :submission_type, :charity_link, :petition_link, :link_clicks, :slug)
+      params.require(:submission).permit(:url, :user_id, :cause_id, :origin, :charity, :charity_category_id, :submission_type, :charity_link, :petition_link, :link_clicks, :slug, :youtube)
     end
 end
