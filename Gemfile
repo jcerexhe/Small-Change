@@ -22,12 +22,12 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'sqlite3', group: :development
+# gem 'sqlite3', group: :development
 gem 'impressionist'
 gem 'puma'
+gem 'pg'
 
 group :production do
-	gem 'pg'
 	gem 'rails_12factor'
   gem 'passenger'
 end
