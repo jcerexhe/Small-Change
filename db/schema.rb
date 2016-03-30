@@ -13,6 +13,23 @@
 
 ActiveRecord::Schema.define(version: 20160329061716) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "beta_users", force: :cascade do |t|
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "causes", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.decimal  "amount_raised"
+  end
+
   create_table "charities", force: :cascade do |t|
     t.string   "name"
     t.string   "bsb"
@@ -33,7 +50,17 @@ ActiveRecord::Schema.define(version: 20160329061716) do
     t.datetime "updated_at",    null: false
   end
 
-  add_index "charity_categories", ["charity_id"], name: "index_charity_categories_on_charity_id"
+  add_index "charity_categories", ["charity_id"], name: "index_charity_categories_on_charity_id", using: :btree
+
+  create_table "charity_causes", force: :cascade do |t|
+    t.integer  "cause_id"
+    t.integer  "charity_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "charity_causes", ["cause_id"], name: "index_charity_causes_on_cause_id", using: :btree
+  add_index "charity_causes", ["charity_id"], name: "index_charity_causes_on_charity_id", using: :btree
 
   create_table "demo_day_contacts", force: :cascade do |t|
     t.string   "email"
@@ -51,9 +78,21 @@ ActiveRecord::Schema.define(version: 20160329061716) do
     t.datetime "updated_at",    null: false
   end
 
-  add_index "donations", ["charity_id"], name: "index_donations_on_charity_id"
-  add_index "donations", ["submission_id"], name: "index_donations_on_submission_id"
-  add_index "donations", ["user_id"], name: "index_donations_on_user_id"
+  add_index "donations", ["charity_id"], name: "index_donations_on_charity_id", using: :btree
+  add_index "donations", ["submission_id"], name: "index_donations_on_submission_id", using: :btree
+  add_index "donations", ["user_id"], name: "index_donations_on_user_id", using: :btree
+
+  create_table "enquiries", force: :cascade do |t|
+    t.string   "enquiry_type"
+    t.string   "name"
+    t.string   "email"
+    t.text     "message"
+    t.integer  "user_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "enquiries", ["user_id"], name: "index_enquiries_on_user_id", using: :btree
 
   create_table "impressions", force: :cascade do |t|
     t.string   "impressionable_type"
@@ -71,14 +110,23 @@ ActiveRecord::Schema.define(version: 20160329061716) do
     t.datetime "updated_at"
   end
 
-  add_index "impressions", ["controller_name", "action_name", "ip_address"], name: "controlleraction_ip_index"
-  add_index "impressions", ["controller_name", "action_name", "request_hash"], name: "controlleraction_request_index"
-  add_index "impressions", ["controller_name", "action_name", "session_hash"], name: "controlleraction_session_index"
-  add_index "impressions", ["impressionable_type", "impressionable_id", "ip_address"], name: "poly_ip_index"
-  add_index "impressions", ["impressionable_type", "impressionable_id", "request_hash"], name: "poly_request_index"
-  add_index "impressions", ["impressionable_type", "impressionable_id", "session_hash"], name: "poly_session_index"
-  add_index "impressions", ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index"
-  add_index "impressions", ["user_id"], name: "index_impressions_on_user_id"
+  add_index "impressions", ["controller_name", "action_name", "ip_address"], name: "controlleraction_ip_index", using: :btree
+  add_index "impressions", ["controller_name", "action_name", "request_hash"], name: "controlleraction_request_index", using: :btree
+  add_index "impressions", ["controller_name", "action_name", "session_hash"], name: "controlleraction_session_index", using: :btree
+  add_index "impressions", ["impressionable_type", "impressionable_id", "ip_address"], name: "poly_ip_index", using: :btree
+  add_index "impressions", ["impressionable_type", "impressionable_id", "request_hash"], name: "poly_request_index", using: :btree
+  add_index "impressions", ["impressionable_type", "impressionable_id", "session_hash"], name: "poly_session_index", using: :btree
+  add_index "impressions", ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index", using: :btree
+  add_index "impressions", ["user_id"], name: "index_impressions_on_user_id", using: :btree
+
+  create_table "profiles", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
 
   create_table "submissions", force: :cascade do |t|
     t.string   "url"
@@ -88,6 +136,7 @@ ActiveRecord::Schema.define(version: 20160329061716) do
     t.string   "favicon"
     t.text     "description"
     t.string   "image"
+    t.integer  "charity"
     t.string   "petition_link"
     t.string   "submission_type"
     t.integer  "link_clicks",         default: 0
@@ -97,9 +146,25 @@ ActiveRecord::Schema.define(version: 20160329061716) do
     t.boolean  "youtube"
   end
 
-  add_index "submissions", ["charity_category_id"], name: "index_submissions_on_charity_category_id"
-  add_index "submissions", ["slug"], name: "index_submissions_on_slug", unique: true
-  add_index "submissions", ["user_id"], name: "index_submissions_on_user_id"
+  add_index "submissions", ["charity_category_id"], name: "index_submissions_on_charity_category_id", using: :btree
+  add_index "submissions", ["slug"], name: "index_submissions_on_slug", unique: true, using: :btree
+  add_index "submissions", ["user_id"], name: "index_submissions_on_user_id", using: :btree
+
+  create_table "user_submissions", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "submission_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "donation_id"
+    t.integer  "charity_id"
+    t.integer  "cause_id"
+  end
+
+  add_index "user_submissions", ["cause_id"], name: "index_user_submissions_on_cause_id", using: :btree
+  add_index "user_submissions", ["charity_id"], name: "index_user_submissions_on_charity_id", using: :btree
+  add_index "user_submissions", ["donation_id"], name: "index_user_submissions_on_donation_id", using: :btree
+  add_index "user_submissions", ["submission_id"], name: "index_user_submissions_on_submission_id", using: :btree
+  add_index "user_submissions", ["user_id"], name: "index_user_submissions_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
@@ -122,7 +187,21 @@ ActiveRecord::Schema.define(version: 20160329061716) do
     t.boolean  "terms_of_service"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "charity_categories", "charities"
+  add_foreign_key "charity_causes", "causes"
+  add_foreign_key "charity_causes", "charities"
+  add_foreign_key "donations", "charities"
+  add_foreign_key "donations", "submissions"
+  add_foreign_key "donations", "users"
+  add_foreign_key "enquiries", "users"
+  add_foreign_key "profiles", "users"
+  add_foreign_key "submissions", "users"
+  add_foreign_key "user_submissions", "causes"
+  add_foreign_key "user_submissions", "charities"
+  add_foreign_key "user_submissions", "donations"
+  add_foreign_key "user_submissions", "submissions"
+  add_foreign_key "user_submissions", "users"
 end
