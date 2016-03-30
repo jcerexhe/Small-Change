@@ -1,8 +1,4 @@
 FactoryGirl.define do
-  factory :charity_category do
-    charity nil
-    category_name "MyString"
-  end
   
   factory :charity do
     name                  { FFaker::Company.name }

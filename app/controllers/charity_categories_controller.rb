@@ -1,5 +1,6 @@
 class CharityCategoriesController < ApplicationController
   before_action :set_charity_category, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_admin
 
   # GET /charity_categories
   # GET /charity_categories.json
@@ -65,6 +66,12 @@ class CharityCategoriesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_charity_category
       @charity_category = CharityCategory.find(params[:id])
+    end
+
+    def authenticate_admin
+      unless current_user.admin == true
+        redirect_to root_url
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
