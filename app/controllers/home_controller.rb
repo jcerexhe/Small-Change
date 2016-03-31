@@ -5,5 +5,6 @@ class HomeController < ApplicationController
   	@submission = Submission.new
     @featured_submissions = Submission.link_clicks_desc.limit(3)
     @demo_day_contact = DemoDayContact.new
+    @donations = Donation.all
   end
 end
