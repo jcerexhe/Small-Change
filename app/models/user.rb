@@ -8,4 +8,10 @@ class User < ActiveRecord::Base
 
   has_many :submissions
   has_many :donations
+
+  after_create :send_welcome_email
+
+  def send_welcome_email
+    UserMailer.signup(self.id).deliver
+  end
 end
