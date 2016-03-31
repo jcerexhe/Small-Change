@@ -1,5 +1,8 @@
 <h3>Submissions (<%= @submissions.count %>)</h3>
 
+<%= link_to "Most Actioned", admin_index_path(submissions: true, most_actioned: true), class: (params[:most_actioned] || !params[:most_actioned] && !params[:most_recent] ? 'btn btn-black' : 'btn btn-black-default') %>
+<%= link_to "Most Recent", admin_index_path(submissions: true, most_recent: true), class: (params[:most_recent] ? 'btn btn-black' : 'btn btn-black-default') %>
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -15,7 +18,7 @@
   </thead>
 
   <tbody>
-    <% @submissions.each do |submission| %>
+    <% @submissions.find_each do |submission| %>
       <tr>
         <td><%= submission.impressionist_count %></td>
         <td><%= submission.link_clicks %></td>
