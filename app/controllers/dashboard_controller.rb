@@ -33,5 +33,12 @@ class DashboardController < ApplicationController
     sorted = user_donations.sort_by{|k, v| v}.reverse.to_h
     sorted_keys = sorted.keys
     @rank = sorted_keys.index(current_user.id) + 1
+
+    def possessive
+        self + case self[-1,1]
+        when 's' then "'"
+            else "'s"
+        end
+    end
   end
 end
