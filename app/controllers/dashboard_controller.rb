@@ -3,6 +3,7 @@ class DashboardController < ApplicationController
     @submissions = current_user.submissions
     @submission = Submission.new
     @submission_count = current_user.submissions.count
+    @donations = Donation.all
     @link_clicks = current_user.submissions.sum(:link_clicks).to_i
 
     # Amount user has donated to charity
