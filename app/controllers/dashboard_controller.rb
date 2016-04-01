@@ -1,6 +1,6 @@
 class DashboardController < ApplicationController
   def show
-    @submissions = current_user.submissions
+    @submissions = current_user.submissions if current_user.submissions
     @submission = Submission.new
     @submission_count = current_user.submissions.count
     @donations = Donation.all
