@@ -5,6 +5,7 @@ class DashboardController < ApplicationController
     @submission_count = current_user.submissions.count
     @donations = Donation.all
     @link_clicks = current_user.submissions.sum(:link_clicks).to_i
+    @users = User.all
 
     # Amount user has donated to charity
     @donation_total = current_user.donations.sum(:amount).to_i
@@ -25,7 +26,7 @@ class DashboardController < ApplicationController
     # Rank
     user_donations = Hash.new
     # .find_each uses batches of 1000 so that it doesn't instantiate all the objects at once
-    User.all.find_each do |user|
+    @users.find_each do |user|
         d = Donation.where(user_id: user.id).sum(:amount).to_i
         user_donations.store(user_id, d)
     end

@@ -1,0 +1,66 @@
+<div id="pieChart"></div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.4/d3.min.js"></script>
+<script src="d3pie.min.js"></script>
+<script>
+var pie = new d3pie("pieChart", {
+
+  "size": {
+    "canvasWidth": 250,
+    "canvasHeight": 220,
+    "pieOuterRadius": "90%"
+  },
+  "data": {
+    "sortOrder": "value-desc",
+    "content": [
+      {
+        "label": "You",
+        "value": <%= @rank %>,
+        "color": "#00b05d"
+      },
+      {
+        "label": "Small Change Community",
+        "value": <%= @users.count %>,
+        "color": "#00d8d6"
+      }
+    ]
+  },
+  "tooltips": {
+    "enabled": true,
+    "type": "placeholder",
+    "string": "You're in <%=@rank.ordinalize%> out of <%= @users.count %>",
+    "color" : "#000000",
+    "styles": {
+      "backgroundOpacity": 0
+    },
+  },
+  "labels": {
+    "outer": {
+      "format": "none",
+      "pieDistance": 32
+    },
+    
+    "percentage": {
+      "color": "#ffffff",
+      "decimalPlaces": 0
+    },
+    "value": {
+      "color": "#adadad",
+      "fontSize": 11
+    },
+  },
+  "effects": {
+    "pullOutSegmentOnClick": {
+      "effect": "linear",
+      "speed": 400,
+      "size": 8
+    }
+  },
+  "misc": {
+    "gradient": {
+      "enabled": true,
+      "percentage": 100
+    }
+  }
+});
+</script>
