@@ -24,7 +24,6 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'sqlite3', group: :development
 gem 'impressionist'
-gem 'possessive'
 gem 'puma'
 gem 'pg'
 
