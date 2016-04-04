@@ -2,12 +2,17 @@
 
 <p>
   <strong>Charity:</strong>
-  <%= @charity_category.charity %>
+  <%= @charity_category.charity.name %>
 </p>
 
 <p>
   <strong>Category name:</strong>
   <%= @charity_category.category_name %>
+</p>
+
+<p>
+  <strong>Category name:</strong>
+  <%= @charity_category.description %>
 </p>
 
 <%= link_to 'Edit', edit_charity_category_path(@charity_category) %> |

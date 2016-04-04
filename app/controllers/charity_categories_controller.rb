@@ -76,6 +76,6 @@ class CharityCategoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def charity_category_params
-      params.require(:charity_category).permit(:charity_id, :category_name)
+      params.require(:charity_category).permit(:charity_id, :category_name, :description)
     end
 end

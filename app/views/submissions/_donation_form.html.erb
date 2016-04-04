@@ -1,6 +1,6 @@
 <% if params[:charity_id] %>
   <h2 class="sc-header"></h2>
-  <h2 class="petition-tagline">Which <u>mission</u> of <%= @charity.name %>?</h2>
+  <h2 class="petition-tagline">Which mission of <%= @charity.name %>?</h2>
 <% else %>
   <h2 class="sc-header">Nice one!</h2>
   <h2 class="petition-tagline">Select a Related Charity.</h2>
@@ -25,11 +25,16 @@
  
     <div class="col-md-4"> 
       <% @charity_categories.each do |charity_category| %>
-        <button class="btn btn-black btn-block btn-lg" type="submit" 
-        name="submission[charity_category_id]"
-         id="submission_charity_category_<%= charity_category.id %>" value="<%= charity_category.id %>">
-          <%= charity_category.category_name %>
-        </button>
+        <div class='hidden-xs'>
+          <button type="submit" class="btn btn-black-in-div btn-block btn-lg" name="submission[charity_category_id]" id="submission_charity_category_<%= charity_category.id %>" value="<%= charity_category.id %>" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="right" data-title="<%= charity_category.category_name %>" data-content="<%= charity_category.description %>">
+              <%= charity_category.category_name %>
+          </button>
+        </div>
+        <div class='visible-xs'>
+          <button type="submit" class="btn btn-black-in-div btn-block btn-lg" name="submission[charity_category_id]" id="submission_charity_category_<%= charity_category.id %>" value="<%= charity_category.id %>">
+              <%= charity_category.category_name %>
+          </button>
+        </div>
       <% end %>
     </div>
     
@@ -41,3 +46,9 @@
     </div>
   <% end %>
 <% end %>
+
+<script type="text/javascript">
+  $(function () {
+    $('[data-toggle="popover"]').popover()
+  })
+</script>
