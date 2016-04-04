@@ -14,7 +14,11 @@
           </div>
           <div class="col-md-3 text-align">
             <% if @submission.submission_type=="donation" %>
-              <p class="banner-tagline-donation-top"><%= @charity.name if @charity %></p>
+              <p class="banner-tagline-donation-top">
+                <span type="button" data-toggle="popover" data-placement="bottom" title="What <%= @charity.name if @charity %> does." data-content="<%= @charity_category.description %>" data-trigger="hover">
+                  <i style="font-size:18px;" class="fa fa-question-circle"></i><%= @charity.name if @charity %>
+                </span>
+              </p>
               <p class="banner-tagline-donation">$<%= @amount %> small changed already</p>
             <% elsif @submission.link_clicks.to_i > 1 %>
               <p class="banner-tagline"><%= @submission.link_clicks %> people have taken action already.</p>
@@ -38,10 +42,10 @@
             <% end %>
           </div>
           <div class="col-md-2 banner-headers">
-            <a href="<%= root_path %>" target="_blank" class="">
+            <span type="button" data-toggle="popover" data-placement="bottom" title="What is the Small Change Action Bar?" data-content="<%= @name ? @name : 'Someone has' %> entered the media content you see below into Small Change. The point is to provide you with a way of taking meaningful action on the issue described." data-trigger="hover">
               <p class="banner-header-word">WHAT</p>
               <p class="banner-header-word">IS THIS?</p>
-            </a>
+            </span>
           </div>
         </div>
       </div>
@@ -88,4 +92,10 @@ function openCharity500() {
 function openPetition() {
   window.open("<%= @submission.petition_link %>");
 }
+</script>
+
+<script type="text/javascript">
+  $(function () {
+    $('[data-toggle="popover"]').popover()
+  })
 </script>
