@@ -15,7 +15,7 @@
           <div class="col-md-3 text-align">
             <% if @submission.submission_type=="donation" %>
               <p class="banner-tagline-donation-top">
-                <span type="button" data-toggle="popover" data-placement="bottom" title="What <%= @charity.name if @charity %> does." data-content="<%= @charity_category.description %>" data-trigger="hover">
+                <span type="button" data-toggle="popover" data-placement="bottom" title="What <%= @charity.name if @charity %> does." data-content="<%= @charity_category.description %> You can help them out through this Action Bar." data-trigger="hover">
                   <i style="font-size:18px;" class="fa fa-question-circle"></i><%= @charity.name if @charity %>
                 </span>
               </p>
@@ -42,7 +42,7 @@
             <% end %>
           </div>
           <div class="col-md-2 banner-headers">
-            <span type="button" data-toggle="popover" data-placement="bottom" title="What is the Small Change Action Bar?" data-content="<%= @name ? @name : 'Someone has' %> entered the media content you see below into Small Change. The point is to provide you with a way of taking meaningful action on the issue described." data-trigger="hover">
+            <span type="button" data-toggle="popover" data-placement="bottom" title="What is the Small Change Action Bar?" data-content="<%= @name ? @name : 'Someone has' %> entered the media content you see below into Small Change. The point was to provide you with a way of taking meaningful action on the issue described." data-trigger="hover">
               <p class="banner-header-word">WHAT</p>
               <p class="banner-header-word">IS THIS?</p>
             </span>
