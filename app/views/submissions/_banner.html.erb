@@ -21,7 +21,7 @@
               </p>
               <p class="banner-tagline-donation">$<%= @amount %> small changed already</p>
             <% elsif @submission.link_clicks.to_i > 1 %>
-              <p class="banner-tagline"><%= @submission.link_clicks %> people have taken action already.</p>
+              <p class="banner-tagline"><span type="button" data-toggle="popover" data-placement="bottom" data-title="Join the movement." data-content="Our Take Action button leads to <%= strip_url(@submission.petition_link) %> where you can make a meaningful impact on the issue below." data-trigger="hover"><%= @submission.link_clicks %> people have taken action already.</span></p>
             <% else %>
               <p class="banner-tagline">Feel strongly about this article?</p>
             <% end %>
@@ -42,7 +42,7 @@
             <% end %>
           </div>
           <div class="col-md-2 banner-headers">
-            <span type="button" data-toggle="popover" data-placement="bottom" title="What is the Small Change Action Bar?" data-content="<%= @name ? @name : 'Someone has' %> entered the media content you see below into Small Change. The point was to provide you with a way of taking meaningful action on the issue described." data-trigger="hover">
+            <span type="button" data-toggle="popover" data-placement="bottom" title="The Action Bar." data-content="The Action Bar provides your friends on social media with a way to take meaningful action on the content you share." data-trigger="hover">
               <p class="banner-header-word">WHAT</p>
               <p class="banner-header-word">IS THIS?</p>
             </span>
