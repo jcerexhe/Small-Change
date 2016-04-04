@@ -24,7 +24,9 @@ class SubmissionsController < ApplicationController
     @charity_category = CharityCategory.find(@submission.charity_category_id) if @submission.charity_category_id
     @charity = Charity.find(@charity_category.charity_id) if @submission.charity_category_id
     if Submission.friendly.find(params[:id]).user_id.present?
-      @name = User.find(Submission.friendly.find(params[:id]).user_id).first_name + User.find(Submission.friendly.find(params[:id]).user_id).last_name
+      if User.find(Submission.friendly.find(params[:id]).user_id).present?
+        @name = User.find(Submission.friendly.find(params[:id]).user_id).first_name + " " + User.find(Submission.friendly.find(params[:id]).user_id).last_name
+      end
     end
 
 
