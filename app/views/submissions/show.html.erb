@@ -33,6 +33,19 @@
     <div class='iframe-wrapper'>
       <iframe class="iframe-xs" width="100%" height="550" src="<%= @submission.url %>" frameborder="0" allowfullscreen scrolling="yes"></iframe>
     </div>
+      <div class='col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1'>
+        <div class="submission-source">
+          <br><%= strip_url(@submission.url) %>
+        </div>
+        <div class='description-box'>
+          <hr>
+          <p class='submission-description'><%= @submission.description %><br>
+        </div> 
+        <div class="stat-box">
+          <p class="top-line"> <%= @submission.link_clicks %> Actions </p>
+          <p class="bot-line"> taken through <%= strip_url(@submission.url) %> </p>
+        </div>   
+      </div>
   </div>
   <div class="black-bg">
     <img style="visibility:hidden;width:0px;height:0px;margin:0;" border=0 width=0 height=0  src="<%= @submission.image %>">
