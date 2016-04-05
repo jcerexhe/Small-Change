@@ -8,10 +8,13 @@
   <div class=''>
     <hr>
     <p class='submission-description'><%= @submission.description %><br>
-    <%= link_to "Read more <i class='fa fa-chevron-down'></i>".html_safe, @submission.url %> </p>
   </div>
   <div class="">
-    <%= link_to "Take Action Through Small Change", '', class: 'btn btn-black-show btn-block' %>
-  </div>
+    <%= link_to "Read more <i class='fa fa-chevron-down'></i>".html_safe, @submission.url, class: 'btn btn-black-show btn-block' %>
+  </div> 
+  <div class="stat-box">
+    <p class="top-line"> <%= @submission.link_clicks %> Actions </p>
+    <p class="bot-line"> taken through <%= strip_url(@submission.url) %> </p>
+  </div>   
 </div>
 

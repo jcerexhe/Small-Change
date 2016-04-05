@@ -28,11 +28,6 @@ class SubmissionsController < ApplicationController
         @name = User.find(Submission.friendly.find(params[:id]).user_id).first_name + " " + User.find(Submission.friendly.find(params[:id]).user_id).last_name
       end
     end
-
-
-
-
-
   end
 
   def counter
