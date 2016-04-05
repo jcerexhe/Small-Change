@@ -1,34 +1,38 @@
 <p id="notice"><%= notice %></p>
-<center>
-  <h1>Listing Charities</h1>
-</center>
-<div class='col-md-8 col-md-offset-2'>
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>BSB</th>
-        <th>Contact name</th>
-        <th>Contact email</th>
-      </tr>
-    </thead>
+<div class="containter">
+  <div id="charity-index">
+    <center>
+      <h1>Listing Charities</h1>
+    </center>
+    <div class='col-md-8 col-md-offset-2'>
+      <table class="table table-hover table-responsive">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>BSB</th>
+            <th>Contact name</th>
+            <th>Contact email</th>
+          </tr>
+        </thead>
 
-    <tbody>
-      <% @charities.each do |charity| %>
-        <tr>
-          <td><%= charity.name %></td>       
-          <td><%= charity.bsb %></td>
-          <td><%= charity.contact_name %></td>
-          <td><%= charity.contact_email %></td>
-          <td><%= link_to 'Show', charity %></td>
-          <td><%= link_to 'Edit', edit_charity_path(charity) %></td>
-          <td><%= link_to 'Destroy', charity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
+        <tbody>
+          <% @charities.each do |charity| %>
+            <tr>
+              <td><%= charity.name %></td>       
+              <td><%= charity.bsb %></td>
+              <td><%= charity.contact_name %></td>
+              <td><%= charity.contact_email %></td>
+              <td><%= link_to 'Show', charity %></td>
+              <td><%= link_to 'Edit', edit_charity_path(charity) %></td>
+              <td><%= link_to 'Destroy', charity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
 
-  </table>
-    <%= link_to 'New Charity', new_charity_path, class: 'btn btn-success' %>
+      </table>
+        <%= link_to 'New Charity', new_charity_path, class: 'btn btn-success' %>
+    </div>
+  </div>
 </div>
 
 

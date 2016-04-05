@@ -167,11 +167,11 @@ iframe.iframe-md {
 
 .submission-description {
   color: white;
-  font-weight: 300;
-  padding-bottom: 20px;
+  font-weight: 400;
+  padding-bottom: 50px;
   padding-top: 46px;
   letter-spacing: 1px;
-  font-size: 30px;
+  font-size: 41px;
   text-align: justify;
 }
 
@@ -214,3 +214,18 @@ iframe.iframe-md {
   color: black;
 }
 
+.stat-box {
+  color: white;
+  border: solid 3px white;
+  border-radius: 14px;
+  text-align: center;
+  margin-top: 8%;
+}
+
+.top-line {
+  font-size: 59px;
+}
+
+.bot-line {
+  font-size:16px;
+}
