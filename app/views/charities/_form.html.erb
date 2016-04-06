@@ -1,21 +1,25 @@
-<%= simple_form_for(@charity) do |f| %>
-  <%= f.error_notification %>
+<div class="container">
+  <div class="form-box">
+    <div class='col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1'>
+      <%= simple_form_for(@charity) do |f| %>
+        <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :name, :required => true %>
-    <%= f.input :logo, :required => true  %>
-    <%= f.association :cause, collection: @causes, :required => true %>
-    <%= f.input :url, :required => true  %>
-    <%= f.input :bsb %>
-    <%= f.input :account_number %>
-    <%= f.input :contact_name %>
-    <%= f.input :contact_email %>
-    <%= f.input :blurb, :required => true, :input_html => {:maxlength => 250} %>
+        <div class="form-inputs">
+          <%= f.input :name, :required => true %>
+          <%= f.input :logo, :required => true  %>
+          <%= f.input :url, :required => true  %>
+          <%= f.input :bsb %>
+          <%= f.input :account_number %>
+          <%= f.input :contact_name %>
+          <%= f.input :contact_email %>
+          <%= f.input :blurb, :required => true, :input_html => {:maxlength => 250} %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, class: "btn btn-lg btn-black" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
-
+</div>
 

@@ -1,31 +1,41 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Listing Charity Categories</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Charity</th>
-      <th>Category name</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <div class="form-box">
+    <center><h1>Listing Charity Categories</h1></center>
+    <div class='col-md-8 col-md-offset-2'>
+      <table class="table table-hover table-responsive">
+        <thead>
+          <tr>
+            <th>Charity</th>
+            <th>Category name</th>
+            <th>Description</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
 
-  <tbody>
-    <% @charity_categories.each do |charity_category| %>
-      <tr>
-        <td><%= charity_category.charity.name %></td>
-        <td><%= charity_category.category_name %></td>
-        <td><%= charity_category.description if charity_category.description%></td>
-        <td><%= link_to 'Show', charity_category %></td>
-        <td><%= link_to 'Edit', edit_charity_category_path(charity_category) %></td>
-        <td><%= link_to 'Destroy', charity_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <tbody>
+          <% @charity_categories.each do |charity_category| %>
+            <tr>
+              <td><%= charity_category.charity.name %></td>
+              <td><%= charity_category.category_name %></td>
+              <td><%= charity_category.description if charity_category.description%></td>
+              <td><%= link_to 'Show', charity_category %></td>
+              <td><%= link_to 'Edit', edit_charity_category_path(charity_category) %></td>
+              <td><%= link_to 'Destroy', charity_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
 
-<br>
+      <br>
 
-<%= link_to 'New Charity category', new_charity_category_path %>
+      <%= link_to 'New Charity category', new_charity_category_path, class: "btn btn-lg btn-black" %>
+    </div>
+  </div>
+</div>
+
+
+
+

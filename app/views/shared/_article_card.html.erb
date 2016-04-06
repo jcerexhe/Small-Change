@@ -12,7 +12,7 @@
               </div>
             </div>
             <% if submission.submission_type == "petition" %>
-              <h5 id="card-clicks"><span class="badge"><%= submission.link_clicks %></span> Signatures</h5> 
+              <h5 id="card-clicks"><span class="badge"><%= submission.link_clicks %></span> Actions Taken</h5> 
               <% else %>
               <h5 id="card-clicks"><span class="badge">$<%= @donations.where(submission_id: submission.id).sum(:amount).to_i %></span> Raised</h5> 
             <% end %>
