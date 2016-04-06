@@ -1,53 +1,52 @@
-<div class='col-md-8 col-md-offset-2'>
+<div class="container">
+  <div class="form-box">
+    <div class='col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1'>
 
-<p>
-  <strong>Name:</strong>
-  <%= @charity.name %>
-</p>
+    <p>
+      <strong>Name:</strong>
+      <%= @charity.name %>
+    </p>
 
-<p>
-  <strong>Blurb:</strong>
-  <%= @charity.blurb %>
-</p>
+    <p>
+      <strong>Blurb:</strong>
+      <%= @charity.blurb %>
+    </p>
 
-<p>
-  <strong>URL:</strong>
-  <%= @charity.url %>
-</p>
-<p>
-  <strong>BSB:</strong>
-  <%= @charity.bsb %>
-</p>
+    <p>
+      <strong>URL:</strong>
+      <%= @charity.url %>
+    </p>
+    <p>
+      <strong>BSB:</strong>
+      <%= @charity.bsb %>
+    </p>
 
-<p>
-  <strong>Logo:</strong>
-  <%= image_tag @charity.logo, width: '200px', class: 'img-responsive' %>
-</p>
-
-
-<p>
-  <strong>Account number:</strong>
-  <%= @charity.account_number %>
-</p>
-
-<p>
-  <strong>Contact name:</strong>
-  <%= @charity.contact_name %>
-</p>
-
-<p>
-  <strong>Contact email:</strong>
-  <%= @charity.contact_email %>
-</p>
+    <p>
+      <strong>Logo:</strong>
+      <%= image_tag @charity.logo, width: '200px', class: 'img-responsive' %>
+    </p>
 
 
+    <p>
+      <strong>Account number:</strong>
+      <%= @charity.account_number %>
+    </p>
 
+    <p>
+      <strong>Contact name:</strong>
+      <%= @charity.contact_name %>
+    </p>
 
+    <p>
+      <strong>Contact email:</strong>
+      <%= @charity.contact_email %>
+    </p>
 
-<%= link_to 'Edit', edit_charity_path(@charity) %> |
-<%= link_to 'Back', charities_path %>
+    <%= link_to 'Edit', edit_charity_path(@charity) %> |
+    <%= link_to 'Back', charities_path %>
 
+    </div>
+  </div>
 </div>
-
 
 
