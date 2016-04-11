@@ -14,4 +14,8 @@ class User < ActiveRecord::Base
   def send_welcome_email
     UserMailer.signup(self.id).deliver
   end
+
+  def add_existing_donations
+    # Add existing donations from an email to a new user if the email matches the new user
+  end
 end
