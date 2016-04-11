@@ -19,6 +19,10 @@
   <%= render 'existing_submission_warning' %>
 <% end %>
 
+<% if @submission.impressionist_count < 2 && @submission.submission_type == "donation" %>
+  <%= render 'ball_rolling' %>
+<% end %>
+
 <%= render 'banner' %>
 
 <% if @submission.youtube %>
