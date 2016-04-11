@@ -9,13 +9,15 @@ class User < ActiveRecord::Base
   has_many :submissions
   has_many :donations
 
-  after_create :send_welcome_email
+  after_create :send_welcome_email, :add_existing_donations
 
   def send_welcome_email
     UserMailer.signup(self.id).deliver
   end
 
   def add_existing_donations
-    # Add existing donations from an email to a new user if the email matches the new user
+    Donation.where(email: self.email).each do |donation|
+      donation.update_attributes(user_id: self.id)
+    end
   end
 end
