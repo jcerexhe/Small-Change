@@ -8,6 +8,7 @@ class DonationsController < ApplicationController
       @donation = current_user.donations.last
 
       if current_user != @donation.user
+        # Do some redirect
         puts "*" * 80
         puts "Logged in user not same as passed user_id"
         puts "*" * 80

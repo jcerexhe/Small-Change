@@ -1,0 +1,10 @@
+<p>Hi,</p>
+
+<p>Thanks for your donation!</p>
+
+<p>Amount: <%= number_to_currency(@donation.amount / 100) %></p>
+<p>Date: <%= @donation.created_at.strftime("%d %B, %Y | %l:%M %P") %></p>
+
+<p>Sincerely,</p>
+
+<p>The Small Change Team</p>
