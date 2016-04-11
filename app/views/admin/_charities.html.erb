@@ -15,7 +15,7 @@
     <% @charities.each do |charity| %>
       <tr>
         <td><%= charity.name %></td>
-        <td><%= number_to_currency(charity.donations.sum(:amount).to_i) %></td>
+        <td><%= number_to_currency(charity.donations.sum(:amount).to_i / 100) %></td>
         <td><%= charity.contact_name %></td>
         <td><%= charity.contact_email %></td>
         <td><%= charity.account_number%>
