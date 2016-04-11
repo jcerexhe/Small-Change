@@ -18,7 +18,7 @@
       <tr>
         <td><%= user.email %></td>
         <td><%= user.first_name %> <%= user.last_name %> </td>
-        <td><%= number_to_currency(user.donations.sum(:amount).to_i) %></td>
+        <td><%= number_to_currency(user.donations.sum(:amount).to_i / 100) %></td>
         <td><%= user.mobile %> </td>
         <td><%= user.actions_taken %> </td>
         <td><%= user.sign_in_count %></td>

@@ -13,7 +13,7 @@
   <tbody>
     <% @donations.each do |donation| %>
       <tr>
-        <td><%= number_to_currency(donation.amount) %></td>
+        <td><%= number_to_currency(donation.amount / 100) %></td>
         <td><%= donation.charity.try(:name) %></td>
         <td><%= @users.find(donation.user_id).email %></td>
         <td><%= truncate(donation.submission.try(:title), length: 30) %></td>

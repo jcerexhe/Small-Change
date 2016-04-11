@@ -20,7 +20,7 @@ class SubmissionsController < ApplicationController
 
   def show
     impressionist(@submission)
-    @amount = Donation.where(submission_id: @submission.id).sum(:amount).to_i
+    @amount = Donation.where(submission_id: @submission.id).sum(:amount).to_i / 100
     @charity_category = CharityCategory.find(@submission.charity_category_id) if @submission.charity_category_id
     @charity = Charity.find(@charity_category.charity_id) if @submission.charity_category_id
     if Submission.friendly.find(params[:id]).user_id.present?

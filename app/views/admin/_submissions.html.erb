@@ -26,7 +26,7 @@
         <td><%= strip_url(submission.url) %></td>
         <td><%= submission.submission_type %></td>
         <td><%= submission.created_at.to_formatted_s(:short) %></td>
-        <td><%= number_to_currency(submission.donations.sum(:amount).to_i) %></td>
+        <td><%= number_to_currency(submission.donations.sum(:amount).to_i / 100) %></td>
         <td><%= link_to 'Show', submission %></td>
         <td><%= link_to 'Charity', edit_submission_path(submission) if submission.submission_type=="donation" %></td>
         <td><%= link_to 'Destroy', submission, method: :delete, data: { confirm: 'You are about to delete this entry.Sure you want to do this?' } %></td>

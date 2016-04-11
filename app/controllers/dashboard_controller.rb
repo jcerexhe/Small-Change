@@ -8,7 +8,7 @@ class DashboardController < ApplicationController
     @users = User.all
 
     # Amount user has donated to charity
-    @donation_total = current_user.donations.sum(:amount).to_i
+    @donation_total = current_user.donations.sum(:amount).to_i / 100
     @donation_count = current_user.donations.count
 
     @featured_submissions = Submission.last(3)
@@ -21,7 +21,8 @@ class DashboardController < ApplicationController
     @views = count
 
     # Amount user has raised through all their submissions
-    @amount_raised = Donation.where(user_id: current_user.id).sum(:amount).to_i
+    # Should be decimal not integer [FIX]
+    @amount_raised = Donation.where(user_id: current_user.id).sum(:amount).to_i / 100
 
     # Rank
     user_donations = Hash.new
