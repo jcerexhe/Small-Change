@@ -7,13 +7,6 @@ class DonationsController < ApplicationController
     if user_signed_in?
       @donation = current_user.donations.last
 
-      if current_user != @donation.user
-        # Do some redirect
-        puts "*" * 80
-        puts "Logged in user not same as passed user_id"
-        puts "*" * 80
-      end
-
     else
       @donation = Donation.where(email: params[:email]).last
       @email = @donation.email
