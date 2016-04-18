@@ -43,7 +43,7 @@ Rails.application.configure do
   port:                 587,
   domain:               'smallchangegiving.co',
   user_name:            'postmaster@smallchangegiving.co',
-  password:             '5b65a06f2af0054c26308bc05c039eb5',
+  password:             '6f1f3b7ce711faefb3dd5a0bc3dad425',
   authentication:       'plain',
   enable_starttls_auto: true  }
 end
