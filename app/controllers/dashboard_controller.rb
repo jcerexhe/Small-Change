@@ -6,6 +6,7 @@ class DashboardController < ApplicationController
     @donations = Donation.all
     @link_clicks = current_user.submissions.sum(:link_clicks).to_i
     @users = User.all
+    @charity= Charity.find(current_user.charity_id) if current_user.charity_id.present?
 
     # Amount user has donated to charity
     @donation_total = current_user.donations.sum(:amount).to_i / 100
