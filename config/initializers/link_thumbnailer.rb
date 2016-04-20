@@ -43,10 +43,17 @@ LinkThumbnailer.configure do |config|
   #   ->(description) { ::LinkThumbnailer::Graders::Position.new(description, weight: 3) },
   #   ->(description) { ::LinkThumbnailer::Graders::LinkDensity.new(description) }
   # ]
+  config.graders = [
+    ->(description) { ::LinkThumbnailer::Graders::Length.new(description, ideal_description_length: 1000) },
+    ->(description) { ::LinkThumbnailer::Graders::HtmlAttribute.new(description, :class) },
+    ->(description) { ::LinkThumbnailer::Graders::HtmlAttribute.new(description, :id) },
+    ->(description) { ::LinkThumbnailer::Graders::Position.new(description, weight: 3) },
+    ->(description) { ::LinkThumbnailer::Graders::LinkDensity.new(description) },
+  ]
 
   # Minimum description length for a website.
   #
-  config.description_min_length = 1500
+  config.description_min_length = 1000
 
   # Regex of words considered positive to rate website description.
   #
