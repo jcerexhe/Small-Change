@@ -38,12 +38,15 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
   config.action_mailer.smtp_settings = {
   address:              'smtp.mailgun.org',
   port:                 587,
   domain:               'smallchangegiving.co',
   user_name:            'postmaster@smallchangegiving.co',
-  password:             '6f1f3b7ce711faefb3dd5a0bc3dad425',
+  password:             'F7PeiPCBcMsp9mPuTMbVGUAqJHUreEg',
   authentication:       'plain',
   enable_starttls_auto: true  }
 end
