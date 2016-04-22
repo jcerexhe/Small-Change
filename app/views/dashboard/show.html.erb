@@ -3,6 +3,7 @@
     <div class="col-xs-12 col-sm-10 col-sm-offset-1">
       <div class="row">
         <div class="col-md-4">
+          <!-- charity name if charity, user's name if normal user -->
           <% if current_user.first_name.present? && current_user.charity_id.present? %>
             <h3 class="dashboard-header"><%= @charity.name.last == "s" ? @charity.name + "'" : @charity.name + "'s"  %> Dashboard</h3>
           <% elsif current_user.first_name.present? %>
@@ -17,7 +18,7 @@
               <%= simple_form_for(@submission) do |f| %>
                 <%= f.error_notification %>
                 <div class="form-inline">
-                  <%= f.input_field :url, placeholder: "Enter a link to an article", class: 'form-control input-lg main-input', size: '40', autofocus: true %>
+                  <%= f.input_field :url, placeholder: "Enter a link to an article or video", class: 'form-control input-lg main-input', size: '40', autofocus: true %>
                   <button class="btn btn-black btn-lg" type="submit">CREATE NEW CAMPAIGN</button>
                 </div>
               <% end %>
@@ -41,43 +42,78 @@
 <div id="donations">
   <div class="container">
     <div class="panel-donation-margin">
-      <div class="col-xs-12 col-sm-10 col-sm-offset-1 panel-donation">
+      <div class="col-xs-12 col-sm-10 col-sm-offset-1">
         <div class="row">
-          <div class="col-sm-8">
-            <h4 class="dash-subheading" style="padding-bottom: 20px;">Campaign Stats</h4>
-            <div class="row">
-              <div class="col-xs-6">
-                <p class="dashboard-stat"><span class="integer" data-from="0" data-to="<%= @views %>" data-speed="1000" data-refresh-interval="50"></span></p>
-                <p class="dashboard-category">Views <span type="button" data-toggle="tooltip" data-placement="right" title="The total number of views your campaigns have collected."><i style="font-size:18px;" class="fa fa-question-circle"></i></span></p>
-              </div>
-              <div class="col-xs-6">
-                <p class="dashboard-stat"><span class="integer" data-from="0" data-to="<%= @link_clicks %>" data-speed="1000" data-refresh-interval="50"></span></p>
-                <p class="dashboard-category">Actions Raised <span type="button" data-toggle="tooltip" data-placement="right" title="The total number of actions that have been taken on your campaigns."><i style="font-size:18px;" class="fa fa-question-circle"></i></span></p>
-              </div>
+          <% if current_user.charity_id.present? %>
+            <div class='dashboard-buttons pull-right'>         
+            <%= link_to ('  <i class="fa fa-users" aria-hidden="true"></i> Donor Information').html_safe, '#', class: 'btn btn-default disabled' %>
+            <%= link_to ('  <i class="fa fa-wrench" aria-hidden="true"></i> Edit Categories').html_safe, charity_categories_path, class: 'btn btn-default' %><br>
             </div>
-            <div class="row" style="padding-top: 10px;">
-              <div class="col-xs-6">
-                <p class="dashboard-stat"><span>$</span><span class="currency" data-from="0" data-to="<%= @amount_raised %>" data-speed="1000" data-refresh-interval="50"></span></p>
-                <p class="dashboard-category">Raised <span type="button" data-toggle="tooltip" data-placement="bottom" title="The total amount of money your campaigns have raised."><i style="font-size:18px;" class="fa fa-question-circle"></i></span></p>
-              </div>
-              <div class="col-xs-6">
-                <p class="dashboard-stat"><span>$</span><span class="currency" data-from="0" data-to="<%= @donation_total %>" data-speed="1000" data-refresh-interval="50"></span></p>
-                <p class="dashboard-category">Donated <span type="button" data-toggle="tooltip" data-placement="bottom" title="The total amount you have donated yourself."><i style="font-size:18px;" class="fa fa-question-circle"></i></span></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <h4 class="dash-subheading" style="padding-bottom: 10px;">Small Changer Community Rank  <span type="button" data-toggle="tooltip" data-placement="right" title="How the amount you've raised through your campaigns compares to other Small Changers."> <i style="font-size:18px;" class="fa fa-question-circle"></i></span></h4>
-            <div class="text-center" style="padding-top: -30px;">
-              <!-- <h1><%#= @rank.ordinalize %></h1> -->
-              <%= render 'rank_graphic' %>
-            </div>
-          </div>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<div id="donations">
+  <div class="container">
+    <div class="panel-donation-margin">
+      <div class="col-xs-12 col-sm-10 col-sm-offset-1 panel-donation">
+        <div class="row">
+          <h4 class="dash-subheading" style="padding-bottom: 20px;"> Campaign Stats <i class="fa fa-bar-chart" aria-hidden="true"></i></h4>
+          <div class="col-xs-4">
+            <p class="dashboard-stat"><span class="integer" data-from="0" data-to="<%= @views %>" data-speed="1000" data-refresh-interval="50"></span></p>
+            <p class="dashboard-category">
+              Views 
+              <span type="button" data-toggle="tooltip" data-placement="right" 
+                title='<%= @views_title %>'>
+                <i style="font-size:18px;" class="fa fa-question-circle"></i>
+              </span>
+            </p>
+          </div>
+          <!-- if charity, number of donations you've copped. if normal user, actions taken -->
+          <% if current_user.charity_id.present? %>
+            <div class="col-xs-4">
+              <p class="dashboard-stat"><span class="integer" data-from="0" data-to="<%= 
+              @donation_count %>" data-speed="1000" data-refresh-interval="50"></span></p>
+              <p class="dashboard-category">Donations made <span type="button" data-toggle="tooltip" data-placement="right" title='The total number of donations that have been made to <%= @charity.name %>.'><i style="font-size:18px;" class="fa fa-question-circle"></i></span></p>
+            </div>
+          <% else %>
+            <div class="col-xs-4">
+              <p class="dashboard-stat"><span class="integer" data-from="0" data-to="<%= 
+              @link_clicks %>" data-speed="1000" data-refresh-interval="50"></span></p>
+              <p class="dashboard-category">Actions Raised <span type="button" data-toggle="tooltip" data-placement="right" title="The total number of actions that have been taken on your campaigns."><i style="font-size:18px;" class="fa fa-question-circle"></i></span></p>
+            </div>
+          <% end %>
+          <div class="col-xs-4">
+            <p class="dashboard-stat"><span>$</span><span class="currency" data-from="0" data-to="<%= @amount_raised %>" data-speed="1000" data-refresh-interval="50"></span></p>
+            <p class="dashboard-category">Raised <span type="button" data-toggle="tooltip" data-placement="bottom" title='<%= @amount_raised_title %>'><i style="font-size:18px;" class="fa fa-question-circle"></i></span></p>
+          </div>
+        </div>
+        <div class='row'>
+            <!-- submissions linked to you if charity, how much youve donated if normal user -->
+            <% if current_user.charity_id.present? %>
+            <% else %>
+              <div class="col-xs-4">
+                <p class="dashboard-stat"><span>$</span><span class="currency" data-from="0" data-to="<%= @donation_total %>" data-speed="1000" data-refresh-interval="50"></span></p>
+                <p class="dashboard-category">Donated <span type="button" data-toggle="tooltip" data-placement="bottom" title="The total amount you have donated yourself."><i style="font-size:18px;" class="fa fa-question-circle"></i></span></p>
+              </div>
+              <div class="col-xs-4">
+                <p class="dashboard-stat"><span class="integer" data-from="0" data-to="<%= @submission_count %>" data-speed="1000" data-refresh-interval="50"></span></p>
+                <p class="dashboard-category">Submissions <span type="button" data-toggle="tooltip" data-placement="bottom" title="How many submissions you have made."><i style="font-size:18px;" class="fa fa-question-circle"></i></span></p>
+              </div>
+              <div class="col-xs-4">
+                <p class="dashboard-stat"><span class="integer" data-from="0" data-to="<%= @rank %>" data-speed="1000" data-refresh-interval="50"></span></p>
+                <p class="dashboard-category">Your Rank (out of <%= @users.count %>) <span type="button" data-toggle="tooltip" data-placement="bottom" title="This ranks all of our users according to how much money their submissions have raised in total."><i style="font-size:18px;" class="fa fa-question-circle"></i></span></p>
+              </div>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <div class="container">
   <div class="col-sm-10 col-sm-offset-1">
@@ -88,7 +124,7 @@
 <div class="container">
   <div class="col-xs-12 col-sm-10 col-sm-offset-1">
     <% if @submissions.any? %>
-      <h2 class="page-heading">Your Campaigns</h2>
+      <h2 class="page-heading"><%= @linked_submission_title %></h2>
       <div class="row featured-cards">
         <% @submissions.each do |submission| %>
           <div class="col-xs-12 col-sm-6 col-md-4">
@@ -118,18 +154,25 @@
         <% end %>
       </div>
     <% else %>
-      <div class="text-center">
-        <h2 class="dash-subheading" style="padding: 70px 0 10px 0;">You haven't started a campaign yet!</h2>
-        <%= render 'shared/get_started_form' %>
-      </div>
-      <h3 class="dash-subheading text-center" style="padding-top:80px;">Some campaigns other Small Changers have started.</h3>
-      <%= render 'shared/featured' %>
-      <div class="hidden-xs text-center">
-        <%= link_to 'View all', submissions_path, class: 'btn btn-black btn-lg' %>
-      </div>
-      <div class="hidden-sm hidden-md hidden-lg text-center">
-        <%= link_to 'View all', submissions_path, class: 'btn btn-black btn-lg btn-block' %>
-      </div>
+      <% if current_user.charity_id.present? %>
+        <center>
+          <h2 class="dash-subheading" style="padding: 70px 0 10px 0;">No submissions have been linked to <%= @charity.name %></h2>
+          <%= render 'shared/get_started_form' %>
+        </center>
+      <% else %>
+        <div class="text-center">
+          <h2 class="dash-subheading" style="padding: 70px 0 10px 0;">You haven't started a campaign yet!</h2>
+          <%= render 'shared/get_started_form' %>
+        </div>
+        <h3 class="dash-subheading text-center" style="padding-top:80px;">Some campaigns other Small Changers have started.</h3>
+        <%= render 'shared/featured' %>
+        <div class="hidden-xs text-center">
+          <%= link_to 'View all', submissions_path, class: 'btn btn-black btn-lg' %>
+        </div>
+        <div class="hidden-sm hidden-md hidden-lg text-center">
+          <%= link_to 'View all', submissions_path, class: 'btn btn-black btn-lg btn-block' %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
