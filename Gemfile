@@ -16,6 +16,7 @@ gem 'video_info'
 gem 'bootstrap_form'
 gem 'rack-mini-profiler'
 gem 'sass-rails', '~> 5.0'
+gem 'seed_dump'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
@@ -29,7 +30,7 @@ gem 'pg'
 gem 'sucker_punch'
 
 group :production do
-	gem 'rails_12factor'
+  gem 'rails_12factor'
   gem 'passenger'
 end
 
