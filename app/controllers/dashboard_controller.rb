@@ -27,11 +27,18 @@ class DashboardController < ApplicationController
             @views = count
             @views_title = "The total number of views that all the submissions linked to " + @charity.name + " have received"
             @amount_raised_title = "The amount in donations that " + @charity.name + " has accrued through Small Change"
+            @linked_submission_title = (@charity.name.last == "s" ? @charity.name + "'" : @charity.name + "'s") +  " Submissions " + "(" + (@submission_count.to_s) + ")"
+
+
+
+
+
         # if the user is not a charity account
         else
             @users = User.all
             @views_title = "The total number of views your submissions have received."
             @amount_raised_title = "The amount that all your submissions have accrued in total."
+            @linked_submission_title = "Your Submissions"
             @submissions = current_user.submissions if current_user.submissions
             @submission_count = current_user.submissions.count
             @donations = Donation.all

@@ -7,7 +7,7 @@
           <%= simple_form_for(@submission) do |f| %>
             <%= f.error_notification %>
             <div class="form-inline">
-              <%= f.input_field :url, placeholder: "Enter a link to an article", class: 'form-control input-lg main-input', size: '40', autofocus: true %>
+              <%= f.input_field :url, placeholder: "Enter a link to an article or video", class: 'form-control input-lg main-input', size: '40', autofocus: true %>
               <button class="btn btn-black btn-lg" type="submit">GET STARTED</button>
             </div>
           <% end %>
@@ -16,7 +16,7 @@
           <%= simple_form_for(@submission) do |f| %>
             <%= f.error_notification %>
             <div class="form-inline">
-              <%= f.input_field :url, placeholder: "Enter a link to an article", class: 'form-control input-lg main-input mobile-input', autofocus: true, size: '52' %>
+              <%= f.input_field :url, placeholder: "Enter a link to an article or video", class: 'form-control input-lg main-input mobile-input', autofocus: true, size: '52' %>
               <button class="btn btn-black btn-lg btn-block btn-mobile" type="submit">GET STARTED</button>
             </div>
           <% end %>

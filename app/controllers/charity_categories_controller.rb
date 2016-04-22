@@ -5,7 +5,14 @@ class CharityCategoriesController < ApplicationController
   # GET /charity_categories
   # GET /charity_categories.json
   def index
-    @charity_categories = CharityCategory.all
+    if current_user.charity_id.present?
+      @charity = Charity.find(current_user.charity_id)
+      @index_title = (@charity.name.last == "s" ? @charity.name + "'" : @charity.name + "'s") + " Categories"
+      @charity_categories = CharityCategory.where(charity_id: @charity.id)
+    else
+      @charity_categories = CharityCategory.all
+      @index_title = "Charity Categories"
+    end
   end
 
   # GET /charity_categories/1
@@ -15,6 +22,7 @@ class CharityCategoriesController < ApplicationController
 
   # GET /charity_categories/new
   def new
+    @charity = Charity.find(current_user.charity_id)
     @charity_category = CharityCategory.new
   end
 
@@ -69,7 +77,7 @@ class CharityCategoriesController < ApplicationController
     end
 
     def authenticate_admin
-      unless current_user.admin == true
+      unless current_user.admin || current_user.charity_id.present? == true
         redirect_to root_url
       end
     end

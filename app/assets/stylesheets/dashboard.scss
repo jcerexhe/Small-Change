@@ -19,7 +19,7 @@
   padding-left: 22px;
   padding-right: 15px;
   margin-bottom: 30px;
-  margin-bottom: 30px;
+  margin-top: 17px;
   color: white;
 }
 
@@ -29,6 +29,7 @@
 
 .dash-subheading {
   color: white;
+  padding-left: 5px;
 }
 
 .action-amounts {
@@ -98,13 +99,24 @@
 }
 
 .dashboard-buttons a {
-  color: white;
-  text-transform: uppercase;
-  font-size: 14px;
+  color: black;
+  font-size: 11px;
   letter-spacing: 1px;
-  padding-top:5px;
+  padding-top: 5px;
+  margin-bottom: 6px;
+  margin-top: 0px;
+  width: 143px;
+  text-align: left;
 }
 
-.first_link {
-  margin-right:10px;
+.fa-users {
+  color:black;
+}
+
+.fa-wrench {
+  color:black;
+}
+
+.fa-bar-chart {
+  padding-left:10px;
 }
