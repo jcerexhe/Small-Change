@@ -1,11 +1,23 @@
-<p>Welcome <%= @email %>!</p>
-<p>We're chuffed that you made your own <a href="http://smallchangegiving.co/">Small Change account</a>.</p>
-<p> We are trying to solve “slacktivism” or “Facebook Activism”. The humble like, share or retweet won’t fix the world’s problems. But Small Change can.</p>
-<p>We put our Action Bar over any online content you want to share on social media. This gives your friends a simple means of taking action on the content you share, whether that be by donating small change to a related charity, or by signing a related petition.</p>
+<p>Hello, small changer.</p>
 
-<p>You can confirm your account email through the link below:</p>
-
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token), :style => "    color: #fff;
+    background-color: #293241;
+    border-color: #1b1515;
+    border: none;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 16px;
+    display: inline-block;
+    margin-bottom: 10px;
+    text-align: center;
+    vertical-align: middle;
+    background-image: none;
+    white-space: nowrap;
+    font-size: 11px;
+    line-height: 1.42857143;
+    text-decoration: none;
+    font-family: Helvetica;" %></p>
 
 <p>Feel free to email me with any questions you have.</p>
 <p>Much love</p>
