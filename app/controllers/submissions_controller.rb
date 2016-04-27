@@ -31,7 +31,9 @@ class SubmissionsController < ApplicationController
   end
 
   def counter
-    @submission.increment! :link_clicks, 1
+    unless current_user.admin && current_user
+     @submission.increment! :link_clicks, 1
+    end    
     current_user.increment! :actions_taken, 1 if current_user
     redirect_to new_user_registration_path(action_taker: true)
   end
