@@ -16,6 +16,6 @@
 
 		<%= yield %>
 
-		<%= render 'layouts/footer' unless current_page?(controller: 'submissions', action: 'index') %>
+		<%= render 'layouts/footer' unless current_page?('/submissions') %>
 	</body>
 </html>
