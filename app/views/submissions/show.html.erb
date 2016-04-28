@@ -1,7 +1,7 @@
 <% provide(:title, @submission.title) %>
 
 <% content_for :head do %>
-  <meta property="og:title" content="<%= @source + ' | '  %><%= @submission.title %>" />
+  <meta property="og:title" content="<%= @source  %><%= @submission.title %>" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="<%= submission_url(@submission) %>" />
   <meta property="og:image" content="<%= @submission.image %>" />

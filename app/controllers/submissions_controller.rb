@@ -37,7 +37,7 @@ class SubmissionsController < ApplicationController
     if @submission.url.include?("youtube")
       @source=""
     else
-      @source = strip_url(@submission.url)
+      @source = strip_url(@submission.url) + " | "
     end
   end
 
