@@ -18,6 +18,12 @@ class SubmissionsController < ApplicationController
     end
   end
 
+  def strip_url(uri)
+    url = URI(uri).host
+    url.sub!(/www./, '') if url.include? "www."
+    return url
+  end
+
   def show
     impressionist(@submission)
     @amount = Donation.where(submission_id: @submission.id).sum(:amount).to_i / 100
@@ -28,6 +34,7 @@ class SubmissionsController < ApplicationController
         @name = User.find(Submission.friendly.find(params[:id]).user_id).first_name + " " + User.find(Submission.friendly.find(params[:id]).user_id).last_name
       end
     end
+    @source = strip_url(@submission.url) unless @submission.url.include?("youtube")
   end
 
   def counter
