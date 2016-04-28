@@ -34,7 +34,11 @@ class SubmissionsController < ApplicationController
         @name = User.find(Submission.friendly.find(params[:id]).user_id).first_name + " " + User.find(Submission.friendly.find(params[:id]).user_id).last_name
       end
     end
-    @source = strip_url(@submission.url) unless @submission.url.include?("youtube")
+    if @submission.url.include?("youtube")
+      @source=""
+    else
+      @source = strip_url(@submission.url)
+    end
   end
 
   def counter
