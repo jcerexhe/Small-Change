@@ -25,7 +25,7 @@
             <% elsif @submission.link_clicks.to_i > 1 %>
               <p class="banner-tagline"><span type="button" data-toggle="popover" data-placement="bottom" data-title="Join the movement." data-content="Our Take Action button leads to <%= strip_url(@submission.petition_link) %> where you can make a meaningful impact on the issue below." data-trigger="hover"><%= @submission.link_clicks %> people have taken action already.</span></p>
             <% else %>
-              <p class="banner-tagline">Feel strongly?</p>
+              <p class="banner-tagline-strongly">Feel strongly?</p>
             <% end %>
           </div>
           <div class="col-md-3">
