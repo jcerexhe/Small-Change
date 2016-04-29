@@ -5,7 +5,7 @@
         <div class="row">
           <div class="col-md-2 banner-headers">
             <a href="<%= root_path %>" target="_blank" class="">
-              <span type="button" data-toggle="popover" data-placement="bottom" data-container="body" title="Small Change" data-content="We are trying to solve “slacktivism” or “Facebook Activism”. The humble like, share or retweet won’t fix the world’s problems. We're making social media meaningful." data-trigger="hover">
+              <span type="button" data-toggle="popover" data-placement="bottom" data-container="body" title="Small Change" data-content="The humble like, share or retweet won’t fix the world’s problems. We're making social media meaningful." data-trigger="hover">
                 <p class="banner-header-word">SMALL </p>
                 <p class="banner-header-word">CHANGE</p>  
               </span>
@@ -17,15 +17,15 @@
           <div class="col-md-3 text-align">
             <% if @submission.submission_type=="donation" %>
               <p class="banner-tagline-donation-top">
-                <span type="button" data-toggle="popover" data-placement="bottom" title="What <%= @charity.name if @charity %> does." data-content="<%= @charity_category.description %> You can help them out through this Action Bar." data-trigger="hover">
+                <span type="button" data-toggle="popover" data-placement="bottom" title="What <%= @charity.name if @charity %> does." data-content="<%= @charity_category.description %> You can help them out through this ActionBar." data-trigger="hover">
                   <i style="font-size:18px;" class="fa fa-question-circle"></i><%= @charity.name if @charity %>
                 </span>
               </p>
-              <p class="banner-tagline-donation">$<%= @amount %> small changed already</p>
+              <p class="banner-tagline-donation"><%= @donation_amount_title %></p>
             <% elsif @submission.link_clicks.to_i > 1 %>
               <p class="banner-tagline"><span type="button" data-toggle="popover" data-placement="bottom" data-title="Join the movement." data-content="Our Take Action button leads to <%= strip_url(@submission.petition_link) %> where you can make a meaningful impact on the issue below." data-trigger="hover"><%= @submission.link_clicks %> people have taken action already.</span></p>
             <% else %>
-              <p class="banner-tagline">Feel strongly about this article?</p>
+              <p class="banner-tagline">Feel strongly?</p>
             <% end %>
           </div>
           <div class="col-md-3">
@@ -44,7 +44,7 @@
             <% end %>
           </div>
           <div class="col-md-2 banner-headers">
-            <span type="button" data-toggle="popover" data-placement="bottom" title="The Action Bar." data-content="The Action Bar provides your Facebook friends with a way to take meaningful action on the content you share." data-trigger="hover">
+            <span type="button" data-toggle="popover" data-placement="bottom" title="ActionBar" data-content="Through the ActionBar your firends can make a donation or sign a petition with a couple of clicks." data-trigger="hover">
               <p class="banner-header-word">WHAT</p>
               <p class="banner-header-word">IS THIS?</p>
             </span>
