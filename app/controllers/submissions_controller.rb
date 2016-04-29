@@ -27,6 +27,15 @@ class SubmissionsController < ApplicationController
   def show
     impressionist(@submission)
     @amount = Donation.where(submission_id: @submission.id).sum(:amount).to_i / 100
+
+    if @amount < 2
+      @donation_amount_title = "Toss em' a coin"
+    else
+      @donation_amount_title = "$" + @amount.to_s + "small changed already"
+    end
+
+
+
     @charity_category = CharityCategory.find(@submission.charity_category_id) if @submission.charity_category_id
     @charity = Charity.find(@charity_category.charity_id) if @submission.charity_category_id
     if Submission.friendly.find(params[:id]).user_id.present?
@@ -42,8 +51,10 @@ class SubmissionsController < ApplicationController
   end
 
   def counter
-    unless current_user.admin && current_user
-     @submission.increment! :link_clicks, 1
+    if !user_signed_in?
+      @submission.increment! :link_clicks, 1
+    elsif user_signed_in? && !current_user.admin
+        @submission.increment! :link_clicks, 1
     end    
     current_user.increment! :actions_taken, 1 if current_user
     redirect_to new_user_registration_path(action_taker: true)
