@@ -106,6 +106,22 @@
   font-weight: 100;
 }
 
+.btn-banner-other {
+  @include button-variant($btn-primary-color, $light-black, $dark-black);
+  border: none;
+  border-radius: 3px;
+  text-transform: lowercase;
+  font-size: 15px;
+  padding: 16px 15px;
+  letter-spacing: 1px;
+  margin: 23px 10px;
+  font-weight: 100;
+}
+
+.other {
+  margin-bottom:0px;
+}
+
 .btn-banner-mobile {
     color: #fff;
     background-color: #293241;

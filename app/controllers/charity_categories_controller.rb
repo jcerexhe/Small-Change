@@ -22,7 +22,7 @@ class CharityCategoriesController < ApplicationController
 
   # GET /charity_categories/new
   def new
-    @charity = Charity.find(current_user.charity_id)
+    @charity = Charity.find(current_user.charity_id) if current_user.charity_id
     @charity_category = CharityCategory.new
   end
 

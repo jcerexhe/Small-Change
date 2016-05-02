@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get 'terms' => 'static_pages#terms'
   get 'dashboard' => 'dashboard#show'
   get 'thanks' => 'donations#thanks'
+  get 'donations' => 'donations#index'
+
 
   resources :demo_day_contacts, only: :create
 

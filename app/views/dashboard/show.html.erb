@@ -46,7 +46,7 @@
         <div class="row">
           <% if current_user.charity_id.present? %>
             <div class='dashboard-buttons pull-right'>         
-            <%= link_to ('  <i class="fa fa-users" aria-hidden="true"></i> Donor Information').html_safe, '#', class: 'btn btn-default disabled' %>
+            <%= link_to ('  <i class="fa fa-users" aria-hidden="true"></i> Donor Information').html_safe, donations_path, class: 'btn btn-default' %>
             <%= link_to ('  <i class="fa fa-wrench" aria-hidden="true"></i> Edit Categories').html_safe, charity_categories_path, class: 'btn btn-default' %><br>
             </div>
           <% end %>
