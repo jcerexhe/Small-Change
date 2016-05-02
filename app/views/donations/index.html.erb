@@ -34,7 +34,7 @@
                     <td></td>
                   <% end %>
                   <td><%= donation.created_at.to_formatted_s(:short) %>
-                  <td><a href="donation.submission.url"><%= donation.submission.title %></a></td>
+                  <td><a target="_blank" href="<%= Submission.find(donation.submission_id).url %>"><%= donation.submission.title %></a></td>
                 </tr>
               <% end %>
             </tbody>
