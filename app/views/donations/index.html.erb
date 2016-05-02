@@ -1,33 +1,51 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <% if user_signed_in? %>
+    <% if current_user.charity_id %>
+      <p id="notice"><%= notice %></p>
+      <div class="form-box">
+        <div class='col-xs-12 col-md-10 col-md-offset-1'>
+          <h1 class="donation-header"><%=@charity.name %> Donor List </h1>
+          <%= link_to '<i class="fa fa-clock-o" aria-hidden="true"></i> Most Recent'.html_safe, donations_path(most_recent: true), class: "btn btn-black btn-md" %>
+          <%= link_to '<i class="fa fa-money" aria-hidden="true"></i> Amount'.html_safe, donations_path(amount: true), class: "btn btn-black btn-md" %>
+          <%= link_to '<i class="fa fa-download" aria-hidden="true"></i> Export'.html_safe, '/donations.csv', class: "btn btn-black btn-md pull-right" %>
+        </div>
+        <div class='col-xs-12 col-md-10 col-md-offset-1' style="margin-top:20px">
+          <table class="table table-hover">
+            <thead>
+              <tr class='charity-cat-first-row'>
+                <th>Amount</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Date</th>
+                <th>Submission</th>
+              </tr>
+            </thead>
 
-<h1>Listing Donations</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Amount</th>
-      <th>Charity</th>
-      <th>User</th>
-      <th>Submission</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @donations.each do |donation| %>
-      <tr>
-        <td><%= donation.amount %></td>
-        <td><%= donation.charity %></td>
-        <td><%= donation.user %></td>
-        <td><%= donation.submission %></td>
-        <td><%= link_to 'Show', donation %></td>
-        <td><%= link_to 'Edit', edit_donation_path(donation) %></td>
-        <td><%= link_to 'Destroy', donation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+            <tbody>
+              <% @donations.each do |donation| %>
+                <tr class='charity-cat-row'>
+                  <td>$<%= donation.amount/100 %>0</td>
+                  <td><%= donation.user.first_name + " " + donation.user.last_name if donation.user_id.present? %></td>
+                  <td><%= donation.user_id.present? ? @users.find(donation.user_id).email : donation.email %></td>
+                  <% if donation.user_id %>
+                    <td><%= @users.find(donation.user_id).mobile if @users.find(donation.user_id).mobile %></td>
+                    <% else %>
+                    <td></td>
+                  <% end %>
+                  <td><%= donation.created_at.to_formatted_s(:short) %>
+                  <td><a target="_blank" href="<%= Submission.find(donation.submission_id).url %>"><%= donation.submission.title %></a></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    <% else %>
+    <h1 class="donation-header"> Hmmm it seems like you are not a charity. </h1>
+    <center><%= link_to "Sign Out And Log In With Your Charity Account", destroy_user_session_path, class: "btn btn-black btn-lg", method: :delete %></center>
     <% end %>
-  </tbody>
-</table>
+  <% end %>
+</div>
 
-<br>
 
-<%= link_to 'New Donation', new_donation_path %>

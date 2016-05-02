@@ -43,6 +43,15 @@
   font-weight: 100;
 }
 
+.banner-tagline-strongly {
+  text-transform: none;
+  letter-spacing: 1px;
+  color: white;
+  padding: 34px 0px 0px 35px;
+  font-size: 16px;
+  font-weight: 100;
+}
+
 .banner-tagline-donation-top {
   text-transform: none;
   letter-spacing: 1px;
@@ -95,6 +104,22 @@
   letter-spacing: 1px;
   margin: 23px 10px;
   font-weight: 100;
+}
+
+.btn-banner-other {
+  @include button-variant($btn-primary-color, $light-black, $dark-black);
+  border: none;
+  border-radius: 3px;
+  text-transform: lowercase;
+  font-size: 15px;
+  padding: 16px 15px;
+  letter-spacing: 1px;
+  margin: 23px 10px;
+  font-weight: 100;
+}
+
+.other {
+  margin-bottom:0px;
 }
 
 .btn-banner-mobile {

@@ -25,7 +25,7 @@
             <% elsif @submission.link_clicks.to_i > 1 %>
               <p class="banner-tagline"><span type="button" data-toggle="popover" data-placement="bottom" data-title="Join the movement." data-content="Our Take Action button leads to <%= strip_url(@submission.petition_link) %> where you can make a meaningful impact on the issue below." data-trigger="hover"><%= @submission.link_clicks %> people have taken action already.</span></p>
             <% else %>
-              <p class="banner-tagline">Feel strongly?</p>
+              <p class="banner-tagline-strongly">Feel strongly?</p>
             <% end %>
           </div>
           <div class="col-md-3">
@@ -37,14 +37,14 @@
                 <%= link_to '$3', counter_submission_path(submission_id: @submission.id), class: 'btn btn-banner btn-lg', onclick: 'openCharity300()' %>
               </span>
               <span>
-                <%= link_to '$5', counter_submission_path(submission_id: @submission.id), class: 'btn btn-banner btn-lg', onclick: 'openCharity500()' %>
+                <%= link_to '$ other', counter_submission_path(submission_id: @submission.id), class: 'btn btn-banner-other btn-lg', onclick: 'openCharityOther()' %>
               </span>
             <% else %>
               <span><%= link_to 'Take Action', counter_submission_path(submission_id: @submission.id), class: 'btn btn-banner btn-lg btn-block', onclick: 'openPetition()' %></span>
             <% end %>
           </div>
           <div class="col-md-2 banner-headers">
-            <span type="button" data-toggle="popover" data-placement="bottom" title="ActionBar" data-content="Through the ActionBar your firends can make a donation or sign a petition with a couple of clicks." data-trigger="hover">
+            <span type="button" data-toggle="popover" data-placement="bottom" title="ActionBar" data-content="Through the ActionBar your friends can make a donation or sign a petition with a couple of clicks." data-trigger="hover">
               <p class="banner-header-word">WHAT</p>
               <p class="banner-header-word">IS THIS?</p>
             </span>
@@ -84,8 +84,8 @@ function openCharity200() {
 function openCharity300() {
   window.open("https://donate.smallchangegiving.co/donations/new/?<%= "user_id=" + current_user.id.to_s if user_signed_in? %>&charity_name=<%= @charity.name %>&amount=300&charity_id=<%= @charity.id.to_s %>&submission_id=<%= @submission.id.to_s %>");
 }
-function openCharity500() {
-  window.open("https://donate.smallchangegiving.co/donations/new/?<%= "user_id=" + current_user.id.to_s if user_signed_in? %>&charity_name=<%= @charity.name %>&amount=500&charity_id=<%= @charity.id.to_s %>&submission_id=<%= @submission.id.to_s %>");
+function openCharityOther() {
+  window.open("https://donate.smallchangegiving.co/donations/new/?<%= "user_id=" + current_user.id.to_s if user_signed_in? %>&charity_name=<%= @charity.name %>&charity_id=<%= @charity.id.to_s %>&submission_id=<%= @submission.id.to_s %>");
 }
 </script>
 <% end %>
