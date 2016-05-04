@@ -35,7 +35,7 @@
                   <% end %>
                   <td><%= donation.created_at.to_formatted_s(:short) %>
                   <td><a target="_blank" href="<%= Submission.find(donation.submission_id).url %>"><%= donation.submission.title %></a></td>
-                  <td> <%= @charity_categories.find(donation.charity_category_id).category_name if donation.charity_category_id.present? %>
+                  <td> <%= @charity_categories.find(donation.charity_category_id).category_name if donation.charity_category_id.present?%>
                 </tr>
               <% end %>
             </tbody>
