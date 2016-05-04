@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   validates :terms_of_service, acceptance: { accept: true }
+  validates :mobile, presence: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
 
   has_many :submissions
   has_many :donations
