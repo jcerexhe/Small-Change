@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :submissions do
     member do
       get 'counter'
+      get 'ball_rolling_payment'
     end
   end
 
