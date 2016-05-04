@@ -5,6 +5,7 @@ class DonationsController < ApplicationController
 
   def index
     @users = User.all
+    @charity_categories = CharityCategory.all
     if user_signed_in?
       if current_user.charity_id
         @charity = Charity.find(current_user.charity_id)
@@ -39,7 +40,6 @@ class DonationsController < ApplicationController
   def thanks
     if user_signed_in?
       @donation = current_user.donations.last
-
     else
       @donation = Donation.where(email: params[:email]).last
       @email = @donation.email
@@ -72,6 +72,6 @@ class DonationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def donation_params
-      params.require(:donation).permit(:amount, :charity_id, :user_id, :submission_id, :email, :first_name, :last_name, :phone, :submission_url)
+      params.require(:donation).permit(:amount, :charity_id, :user_id, :submission_id, :email, :first_name, :last_name, :phone, :submission_url, :charity_category_id)
     end
 end

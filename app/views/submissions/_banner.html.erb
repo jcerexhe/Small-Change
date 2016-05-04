@@ -79,13 +79,13 @@
 <% if @submission.charity_category_id.present? %>
 <script>
 function openCharity200() {
-  window.open("https://donate.smallchangegiving.co/donations/new/?<%= "user_id=" + current_user.id.to_s if user_signed_in? %>&charity_name=<%= @charity.name %>&amount=200&charity_id=<%= @charity.id.to_s %>&submission_id=<%= @submission.id.to_s%>");
+  window.open("https://donate.smallchangegiving.co/donations/new/?<%= "user_id=" + current_user.id.to_s if user_signed_in? %>&charity_name=<%= @charity.name %>&amount=200&charity_id=<%= @charity.id.to_s %>&submission_id=<%= @submission.id.to_s%>&charity_category_id=<%= @submission.charity_category_id %>");
 }
 function openCharity300() {
-  window.open("https://donate.smallchangegiving.co/donations/new/?<%= "user_id=" + current_user.id.to_s if user_signed_in? %>&charity_name=<%= @charity.name %>&amount=300&charity_id=<%= @charity.id.to_s %>&submission_id=<%= @submission.id.to_s %>");
+  window.open("https://donate.smallchangegiving.co/donations/new/?<%= "user_id=" + current_user.id.to_s if user_signed_in? %>&charity_name=<%= @charity.name %>&amount=300&charity_id=<%= @charity.id.to_s %>&submission_id=<%= @submission.id.to_s %>&charity_category_id=<%= @submission.charity_category_id %>");
 }
 function openCharityOther() {
-  window.open("https://donate.smallchangegiving.co/donations/new/?<%= "user_id=" + current_user.id.to_s if user_signed_in? %>&charity_name=<%= @charity.name %>&charity_id=<%= @charity.id.to_s %>&submission_id=<%= @submission.id.to_s %>");
+  window.open("https://donate.smallchangegiving.co/donations/new/?<%= "user_id=" + current_user.id.to_s if user_signed_in? %>&charity_name=<%= @charity.name %>&charity_id=<%= @charity.id.to_s %>&submission_id=<%= @submission.id.to_s %>&charity_category_id=<%= @submission.charity_category_id %>");
 }
 </script>
 <% end %>

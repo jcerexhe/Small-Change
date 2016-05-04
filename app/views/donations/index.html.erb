@@ -1,7 +1,6 @@
 <div class="container">
   <% if user_signed_in? %>
     <% if current_user.charity_id %>
-      <p id="notice"><%= notice %></p>
       <div class="form-box">
         <div class='col-xs-12 col-md-10 col-md-offset-1'>
           <h1 class="donation-header"><%=@charity.name %> Donor List </h1>
@@ -19,6 +18,7 @@
                 <th>Phone</th>
                 <th>Date</th>
                 <th>Submission</th>
+                <th>Category</th>
               </tr>
             </thead>
 
@@ -35,6 +35,7 @@
                   <% end %>
                   <td><%= donation.created_at.to_formatted_s(:short) %>
                   <td><a target="_blank" href="<%= Submission.find(donation.submission_id).url %>"><%= donation.submission.title %></a></td>
+                  <td> <%= @charity_categories.find(donation.charity_category_id).category_name if donation.charity_category_id.present? %>
                 </tr>
               <% end %>
             </tbody>
