@@ -6,7 +6,9 @@
         <div class="card-block">
           <div class="row">
             <div class="col-xs-12">
-              <a href="<%= submission_path(submission) %>"><h4 id="card-title"><%= truncate(submission.title, length: 55) %></h4></a>
+              <div class="title-box">
+                <a href="<%= submission_path(submission) %>"><h4 id="card-title"><%= truncate(submission.title, length: 55) %></h4></a>
+              </div>
               <p id="card-text"><%= strip_url(submission.url) %>
                 <button class="btn btn-default btn-description pull-right" type="button" data-toggle="collapse" data-target="#collapseId<%= submission.id %>" aria-expanded="false" aria-controls="collapseExample">
                   <i class="fa fa-chevron-down" aria-hidden="true"></i>
