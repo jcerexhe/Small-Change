@@ -6,9 +6,10 @@ class SubmissionsController < ApplicationController
   impressionist :actions => [:show]
 
   def index
-    @most_actioned = Submission.link_clicks_desc
+    @completed_submissions = Submission.complete
+    @most_actioned = @completed_submissions.link_clicks_desc
     # @most_viewed = Submission.most_viewed
-    @most_recent = Submission.most_recent
+    @most_recent = @completed_submissions.most_recent
     @charities = Charity.all
     @donations = Donation.all
     if params[:most_recent]
@@ -51,7 +52,7 @@ class SubmissionsController < ApplicationController
       @submission.increment! :link_clicks, 1
     elsif user_signed_in? && !current_user.admin
         @submission.increment! :link_clicks, 1
-    end    
+    end
     current_user.increment! :actions_taken, 1 if current_user
     redirect_to new_user_registration_path(action_taker: true)
   end

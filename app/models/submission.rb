@@ -12,6 +12,10 @@ class Submission < ActiveRecord::Base
   # scope :most_viewed, -> { order(:impressionist_count => :desc) }
   scope :most_recent, -> { order(:created_at => :desc) }
 
+  def self.complete
+    where(submission_type: "petition") || where(submission_type: "donation")
+  end
+
   # def self.most_viewed
     # self.impressionist_count.order(:desc)
   # end

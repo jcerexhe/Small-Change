@@ -192,10 +192,10 @@ ActiveRecord::Schema.define(version: 20160504014143) do
     t.string   "last_name"
     t.string   "mobile"
     t.boolean  "terms_of_service"
-    t.integer  "charity_id"
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.integer  "charity_id"
     t.string   "unconfirmed_email"
   end
 
