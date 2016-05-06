@@ -30,7 +30,7 @@ class SubmissionsController < ApplicationController
     if @amount < 2
       @donation_amount_title = "Toss em' a coin"
     else
-      @donation_amount_title = "$" + @amount.to_s + "small changed already"
+      @donation_amount_title = "$" + @amount.to_s + " small changed already"
     end
     @charity_category = CharityCategory.find(@submission.charity_category_id) if @submission.charity_category_id
     @charity = Charity.find(@charity_category.charity_id) if @submission.charity_category_id
