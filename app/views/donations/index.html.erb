@@ -19,7 +19,9 @@
                 <th>Date</th>
                 <th>Submission</th>
                 <th>Category</th>
-                <th>Contact</th>
+                <th>
+                  <center><span type="button" data-toggle="popover" data-placement="top" data-html="true"  data-content="<div> Only donors with the <i class='fa fa-toggle-on'></i> icon have consented to be contacted by <%= @charity.name%>. </div>" data-trigger="hover"><i style="font-size:18px;" class="fa fa-question-circle contact-icon"></i>Contact</span></center>
+                </th>
               </tr>
             </thead>
 
@@ -51,4 +53,8 @@
   <% end %>
 </div>
 
-
+<script>
+  $(function () {
+    $('[data-toggle="popover"]').popover()
+  })
+</script>

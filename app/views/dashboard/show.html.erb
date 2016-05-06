@@ -126,9 +126,7 @@
     <% if @submissions.any? %>
       <h2 class="page-heading"><%= @linked_submission_title %></h2>
       <div class="row featured-cards">
-        <% @submissions.each do |submission| %>
           <%= render 'shared/article_card' %>
-        <% end %>
       </div>
     <% else %>
       <% if current_user.charity_id.present? %>
