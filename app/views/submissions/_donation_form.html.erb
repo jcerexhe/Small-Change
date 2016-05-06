@@ -6,44 +6,49 @@
   <h2 class="petition-tagline">Select a Related Charity.</h2>
 <% end %>
 
-
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="col-xs-offset-1">
-        <div class="col-xs-2">
-          <img src="https://www.cufa.org.au/wp-content/uploads/2015/05/cufa-logo.jpg" class="charity-image-vid">
-        </div>
-        <div class="col-xs-2">
-          <img src="http://nnimgt-a.akamaihd.net/transform/v1/crop/frm/storypad-Q6Mu39cZKqCdkfBiLBBArJ/00377f3e-62aa-4052-9f09-7220df18d36e.jpg/r0_12_600_424_w1200_h678_fmax.jpg" class="charity-image-vid">
-        </div>
-        <div class="col-xs-2">
-          <img src="https://yt3.ggpht.com/-G-iMITTyRaI/AAAAAAAAAAI/AAAAAAAAAAA/9aMIvtHEAaA/s88-c-k-no-rj-c0xffffff/photo.jpg" class="charity-image-vid">
-        </div>
-        <div class="col-xs-2">
-          <img src="http://vegan-magazine.com/wp-content/uploads/2013/01/World-Wildlife-Fund-logo.jpg" class="charity-image-vid">
-        </div>
-        <div class="col-xs-2">
-          <img src="https://notafishblog.files.wordpress.com/2014/12/greenpeace-logo1.jpg
-    " class="charity-image-vid">
-        </div>
+<%= simple_form_for(@submission) do |f| %>
+  <%= f.hidden_field :submission_type, :value => "donation"%>
+  <% if params[:charity_id] %>
+    <div class="hidden-xs hidden-sm">
+      <div class="col-md-4 col-md-offset-2">
+        <% @charities.each do |charity| %>
+          <% if charity.charity_categories.count < 2 %>
+            <button class="btn btn-black-default btn-block btn-lg" type="submit" name="submission[charity_category_id]" id="submission_charity_category_<%= charity.charity_categories.first.id %>" value="<%= charity.charity_categories.first.id %>">
+              <%= charity.name %>
+            </button>
+          <% else %>
+            <%= link_to charity.name, edit_submission_path(@submission.id, charity_id: charity.id), class: (params[:charity_id] == charity.id.to_s ? "btn btn-block btn-lg btn-black" : "btn btn-block btn-lg btn-black-default") %>
+          <% end %>
+        <% end %>
       </div>
     </div>
-  </div>
-
-
-
-
+ 
+    <div class="col-md-4"> 
+      <% @charity_categories.each do |charity_category| %>
+        <div class='hidden-xs'>
+          <button type="submit" class="btn btn-black-in-div btn-block btn-lg" name="submission[charity_category_id]" id="submission_charity_category_<%= charity_category.id %>" value="<%= charity_category.id %>" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="right" data-title="<%= charity_category.category_name %>" data-content="<%= charity_category.description %>">
+              <%= charity_category.category_name %>
+          </button>
+        </div>
+        <div class='visible-xs'>
+          <button type="submit" class="btn btn-black-in-div btn-block btn-lg" name="submission[charity_category_id]" id="submission_charity_category_<%= charity_category.id %>" value="<%= charity_category.id %>">
+              <%= charity_category.category_name %>
+          </button>
+        </div>
+      <% end %>
+    </div>
     
-        
+  <% else %>
+    <div class="col-md-4 col-md-offset-2">
+      <% @charities.each do |charity| %>
+        <%= link_to charity.name, edit_submission_path(@submission.id, charity_id: charity.id), class: (params[:charity_id] == charity.id.to_s ? "btn btn-block btn-lg btn-black" : "btn btn-block btn-lg btn-black-default") %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
 
-
-
-
-
-
-
-
-
-
-
-
+<script type="text/javascript">
+  $(function () {
+    $('[data-toggle="popover"]').popover()
+  })
+</script>
