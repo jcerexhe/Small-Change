@@ -19,6 +19,7 @@
                 <th>Date</th>
                 <th>Submission</th>
                 <th>Category</th>
+                <th>Contact</th>
               </tr>
             </thead>
 
@@ -35,7 +36,8 @@
                   <% end %>
                   <td><%= donation.created_at.to_formatted_s(:short) %>
                   <td><a target="_blank" href="<%= Submission.find(donation.submission_id).url %>"><%= donation.submission.title %></a></td>
-                  <td> <%= @charity_categories.find(donation.charity_category_id).category_name if donation.charity_category_id.present?%>
+                  <td> <%= @charity_categories.find(donation.charity_category_id).category_name if donation.charity_category_id.present?%></td>
+                  <td><center><i class="fa fa-toggle-<%= donation.contact_me ? "on" : "off"%>" aria-hidden="true"></i></center></td>
                 </tr>
               <% end %>
             </tbody>
