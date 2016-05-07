@@ -295,3 +295,49 @@ iframe.iframe-md {
   color:black;
 }
 
+.scraped-image {
+  width:100%;
+  border-radius:5px;
+}
+
+.scraped-heading {
+  color: black;
+  text-align: center;
+  font-weight: 100;
+  padding-bottom: 10px;
+  padding-top: 22px;
+  letter-spacing: 1px;
+  font-size: 37px;
+}
+
+.scraped-panel {
+  background: rgba(255, 255, 255, 0.28);
+  border-radius: 5px;
+  padding-bottom: 11px;
+  padding-left: 22px;
+  padding-right: 15px;
+  margin-bottom: 20px;
+  color: black;
+}
+
+.scraped-text {
+  font-weight: 200;
+  font-size: 16px;
+  color: black;
+  letter-spacing:0.1px;
+  text-align: justify;
+}
+
+.article-bg {
+  background-color: #eeeeee;
+}
+
+.source-url {
+  text-transform: uppercase;
+  color:gray;
+  font-size:14px;
+  letter-spacing:1px;
+  text-align:center ;
+  margin-bottom:20px;
+  margin-top:20px;
+}

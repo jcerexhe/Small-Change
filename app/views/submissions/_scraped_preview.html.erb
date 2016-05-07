@@ -1,0 +1,21 @@
+<div class="article-bg">
+  <div class="container">
+    <div class="col-xs-12">
+      <h2 class="scraped-heading"><%= @submission.title %></h2>
+      <p class="source-url"><%= strip_url(@submission.url) %></p>
+    </div>
+    <div class="col-xs-12 col-md-7">
+      <img src="<%= @submission.image %>" class="scraped-image">
+    </div>
+    <div class="col-xs-12 col-md-5">
+      <div class="scraped-panel">
+        <% (@p_array.first(8) - @p_array.first(3)).each do |para| %>
+          <p class="scraped-text"><%= para %></p>
+        <% end %>
+        <%= link_to 'Read More', @submission.url %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
