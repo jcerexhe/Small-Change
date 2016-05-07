@@ -2,12 +2,16 @@ class SubmissionsController < ApplicationController
   before_action :set_submission, only: [:show, :edit, :update, :destroy, :counter, :ball_rolling_payment]
   skip_before_action :authenticate_user!
   layout 'sub_show', :only => [:show]
-
   impressionist :actions => [:show]
 
   def index
+    # Delete all submissions that are not connected to a charity or petition (and are more than 10 mins old)
+    Submission.all.each do |submission|
+      if !submission.petition_link.present? && !submission.charity_category_id.present? && Time.now - submission.created_at > 600
+        submission.destroy
+      end
+    end
     @most_actioned = Submission.link_clicks_desc
-    # @most_viewed = Submission.most_viewed
     @most_recent = Submission.most_recent
     @charities = Charity.all
     @donations = Donation.all
