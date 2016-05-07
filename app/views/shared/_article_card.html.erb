@@ -9,7 +9,7 @@
               <div class="title-box">
                 <a href="<%= submission_path(submission) %>"><h4 id="card-title"><%= truncate(submission.title, length: 55) %></h4></a>
               </div>
-              <p id="card-text"><%= strip_url(submission.url) %>
+              <p id="card-text"><%= strip_url(submission.url).first(26) %>
                 <button class="btn btn-default btn-description pull-right" type="button" data-toggle="collapse" data-target="#collapseId<%= submission.id %>" aria-expanded="false" aria-controls="collapseExample">
                 <i class="black fa fa-chevron-down" aria-hidden="true"></i>
                 </button>
