@@ -30,9 +30,9 @@ class SubmissionsController < ApplicationController
 
   def show
     require 'httparty'
-    require 'Nokogiri'
-    require 'JSON'
-    require 'Pry'
+    require 'nokogiri'
+    require 'json'
+    require 'pry'
     require 'csv'
 
     # Providers that won't be iframed
