@@ -29,14 +29,14 @@ class SubmissionsController < ApplicationController
   end
 
   def show
-    require 'HTTParty'
+    require 'httparty'
     require 'Nokogiri'
     require 'JSON'
     require 'Pry'
     require 'csv'
 
     # Providers that won't be iframed
-    iframe_deniers = ["theguardian.", "ted.com", "vimeo.com"]
+    iframe_deniers = ["theguardian.", "ted.com", "vimeo.com"  ]
 
     iframe_deniers.each do |text|
       if @submission.url.include?(text)
