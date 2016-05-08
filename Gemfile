@@ -6,6 +6,7 @@ gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'devise'
 gem 'friendly_id', '~> 5.1.0'
+gem 'httparty'
 gem 'hirb'
 gem 'carrierwave'
 gem 'cloudinary'
@@ -27,6 +28,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'impressionist'
 gem 'puma'
 gem 'pg'
+gem 'pry'
 gem 'sucker_punch'
 
 group :production do

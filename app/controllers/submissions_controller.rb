@@ -29,6 +29,44 @@ class SubmissionsController < ApplicationController
   end
 
   def show
+    require 'HTTParty'
+    require 'Nokogiri'
+    require 'JSON'
+    require 'Pry'
+    require 'csv'
+
+    # Providers that won't be iframed
+    iframe_deniers = ["theguardian.", "ted.com", "vimeo.com"]
+
+    iframe_deniers.each do |text|
+      if @submission.url.include?(text)
+        puts "@iframe_denied = true" * 5
+        @iframe_denied = true
+        page = HTTParty.get(@submission.url)
+        parse_page = Nokogiri::HTML(page)
+        @p_array = []
+        parse_page.css('p').map do |a|
+          paragraph = a.text
+          @p_array.push(paragraph)
+        end
+        # end scraping
+        # Remove unwanted words from scrape
+        blacklisted_words = ["Advertisement", "Ad", "Comment", "Sign in"]
+        removed_paragraphs = []
+
+        @p_array.each do |paragraph|
+          blacklisted_words.each do |word|
+            if paragraph.include?(word)
+              removed_paragraphs << paragraph
+            end
+          end
+        end
+        @p_array = @p_array - removed_paragraphs
+        break
+      else
+        @iframe_denied = false
+      end
+    end
     impressionist(@submission)
     @amount = Donation.where(submission_id: @submission.id).sum(:amount).to_i / 100
     if @amount < 2
