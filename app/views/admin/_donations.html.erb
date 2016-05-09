@@ -5,8 +5,10 @@
     <tr>
       <th>Amount</th>
       <th>Charity</th>
-      <th>Donor Email</th>
+      <th>Contactable</th>
+      <th>Name</th>
       <th>Submission Title</th>
+      <th>Date</th>
     </tr>
   </thead>
 
@@ -15,8 +17,10 @@
       <tr>
         <td><%= number_to_currency(donation.amount / 100) %></td>
         <td><%= donation.charity.try(:name) %></td>
-        <td><%= @users.find(donation.user_id).email %></td>
-        <td><%= truncate(donation.submission.try(:title), length: 30) %></td>
+        <td><center><i class="fa fa-toggle-<%= donation.contact_me ? "on" : "off"%>" aria-hidden="true"></i></center></td>
+        <td><%= donation.first_name + ' ' + donation.last_name if donation.first_name.present? && donation.last_name.present? %></td>
+        <td><%= link_to truncate(donation.submission.try(:title), length: 30), donation.submission.url %></td>
+        <td><%= donation.created_at.to_formatted_s(:short) %>
       </tr>
     <% end %>
   </tbody>
