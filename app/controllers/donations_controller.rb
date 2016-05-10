@@ -40,6 +40,7 @@ class DonationsController < ApplicationController
 
   def create
     @donation = Donation.new(donation_params)
+      @donation.save
       if @donation.user_id.present?
         donation.email = User.find(donation.user_id).email
         donation.first_name = User.find(donation.user_id).first_name
