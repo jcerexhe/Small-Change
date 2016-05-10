@@ -40,15 +40,7 @@ class DonationsController < ApplicationController
 
   def create
     @donation = Donation.new(donation_params)
-      if @donation.user_id.present?
-        @donation.email = User.find(@donation.user_id).email
-        @donation.first_name = User.find(@donation.user_id).first_name
-        @donation.last_name = User.find(@donation.user_id).last_name
-        @donation.phone = User.find(@donation.user_id).mobile if User.find(@donation.user_id).mobile.present?
-      end
-    @donation.submission_url = Submission.find(@donation.submission_id).url
     @donation.save!
-    render json: @donation
   end
 
   def destroy

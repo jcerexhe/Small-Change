@@ -6,7 +6,20 @@ class Donation < ActiveRecord::Base
   scope :most_recent, -> { order(:created_at => :desc) }
   scope :amount_size, -> { order(:amount => :desc) }
 
+  after_create :autofill_donation_record
+
+  def autofill_donation_record
+    if self.user_id.present?
+      self.update_attributes(email: User.find(self.user_id).email)
+      self.update_attributes(first_name: User.find(self.user_id).first_name)
+      self.update_attributes(last_name: User.find(self.user_id).last_name)
+      self.update_attributes(phone: User.find(self.user_id).mobile) if User.find(self.user_id).mobile.present?
+    end
+    self.update_attributes(submission_url: Submission.find(self.submission_id).url)
+  end
+
   after_create :send_confirmation
+
 
   def send_confirmation
     DonationsMailerJob.perform_async(self.id)
