@@ -6,6 +6,15 @@ class DonationsController < ApplicationController
   def index
     @users = User.all
     @charity_categories = CharityCategory.all
+
+    special_charities = ["Cancer Council", "Greenpeace"]
+    special_charities.each do |special_charity|
+      if special_charity == Charity.find(current_user.charity_id).name
+        @special_charity = true
+        break
+      end
+    end
+
     if user_signed_in?
       if current_user.charity_id
         @charity = Charity.find(current_user.charity_id)
@@ -18,12 +27,15 @@ class DonationsController < ApplicationController
       end 
         respond_to do |format|
           format.html
-          format.csv { send_data @donations.to_csv }
+          if @special_charity
+            format.csv { send_data @donations.to_csv_special }
+          else
+            format.csv { send_data @donations.to_csv_normal}
+          end
         end
       end
     end
   end
-
 
   def thanks
     if user_signed_in?
