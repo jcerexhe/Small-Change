@@ -25,14 +25,24 @@ class Donation < ActiveRecord::Base
     DonationsMailerJob.perform_async(self.id)
   end
 
-  def self.to_csv
-    attributes = %w{amount first_name last_name submission_url created_at email phone contact_me}
+
+  def self.to_csv_normal
+    normal_attributes = %w{amount first_name last_name submission_url created_at contact_me}
     CSV.generate do |csv|
-      csv << attributes
+      csv << normal_attributes
       all.each do |donation|
-        csv << donation.attributes.values_at(*attributes)
+        csv << donation.attributes.values_at(*normal_attributes)
       end
     end
   end
 
+  def self.to_csv_special
+    special_attributes = %w{amount first_name last_name submission_url created_at email phone contact_me}
+    CSV.generate do |csv|
+      csv << special_attributes
+      all.each do |donation|
+        csv << donation.attributes.values_at(*special_attributes)
+      end
+    end
+  end
 end
