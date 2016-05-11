@@ -36,7 +36,7 @@ class SubmissionsController < ApplicationController
     require 'csv'
 
     # Providers that won't be iframed
-    iframe_deniers = ["theguardian.", "ted.com", "vimeo.com", "nytimes.com", "theconversation.com"  ]
+    iframe_deniers = ["theguardian.", "ted.com", "vimeo.com", "nytimes.com", "theconversation.com", "facebook.com"  ]
 
     iframe_deniers.each do |text|
       if @submission.url.include?(text)

@@ -15,7 +15,7 @@ class DonationsController < ApplicationController
           @donations=Donation.where(charity_id: current_user.charity_id).amount_size
         else
           @donations = Donation.where(charity_id: current_user.charity_id)
-      end
+      end 
         respond_to do |format|
           format.html
           format.csv { send_data @donations.to_csv }
