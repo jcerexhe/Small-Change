@@ -11,7 +11,7 @@
 <% end -%>
 
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
-  <p class="text-center"><%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name), class: 'btn-clear' %></p>
+  <p class=""><%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name), class: 'btn-clear' %></p>
 <% end -%>
 
 <%- if devise_mapping.omniauthable? %>
