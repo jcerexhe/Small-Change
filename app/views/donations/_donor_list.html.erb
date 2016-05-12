@@ -1,0 +1,63 @@
+<% @donations.each do |donation| %>
+  <tr class='charity-cat-row'>
+    <td>$<%= donation.amount/100 %>0</td>
+    <td><%= donation.user.first_name + " " + donation.user.last_name if donation.user_id.present? %></td>
+    <td><%= donation.created_at.to_formatted_s(:short) %>
+    <td><a target="_blank" href="<%= Submission.find(donation.submission_id).url %>"><%= donation.submission.title %></a></td>
+    <td> <%= @charity_categories.find(donation.charity_category_id).category_name if donation.charity_category_id.present?%></td>
+
+<!-- if special charity, show mobile and email even if contact is set to 'no'
+ -->    
+    <% if @special_charity %>
+      <td class="available-on-purchase"><%= donation.user_id.present? ? @users.find(donation.user_id).email : donation.email %></td>
+        <% if donation.user_id %>
+          <td class="available-on-purchase"><%= @users.find(donation.user_id).mobile if @users.find(donation.user_id).mobile %></td>
+          <% else %>
+          <td></td>
+        <% end %>
+      </td>
+
+<!-- if normal charity, show mob and email if donor has consented and charity has paid
+ -->
+    <% elsif donation.contact_me && donation.paid && !@special_charity %>
+      <td class="available-on-purchase"><%= donation.user_id.present? ? @users.find(donation.user_id).email : donation.email %></td>
+        <% if donation.user_id %>
+          <td class="available-on-purchase"><%= @users.find(donation.user_id).mobile if @users.find(donation.user_id).mobile %></td>
+          <% else %>
+          <td></td>
+        <% end %>
+      </td>
+<!-- if normal charity and donor has consented but the charity hasn't paid, show 'available on purchase'
+ -->    
+    <% elsif donation.contact_me && !donation.paid && !@special_charity %>
+      <td><p class="available-on-purchase">Available on purchase</p></td>
+      <td><p class="available-on-purchase">Available on purchase</p></td>
+<!-- if donor hasn't given consent then hide email and phone (unless charity is special)
+ -->    
+    <% else %>
+      <td></td>
+      <td></td>
+    <% end %>
+    <td>
+      <% if donation.contact_me %>
+        <center><i class="fa fa-check" aria-hidden="true"></i></center>
+      <% else %>
+        <center><i class="fa fa-times" aria-hidden="true"></i></center>
+      <% end %>
+    </td>
+    <td>
+      <% if donation.paid %>
+        <center><i class="fa fa-check" aria-hidden="true"></i></center>
+      <% else %>
+        <center><i class="fa fa-times" aria-hidden="true"></i></center>
+      <% end %>
+    </td>
+    <td>
+      <% if donation.paid && donation.contact_me %>
+        <center><i class="fa fa-unlock" aria-hidden="true"></i></center>
+      <% else %>
+        <center><i class="fa fa-lock" aria-hidden="true"></i></center>
+      <% end %>
+    </td>
+  </tr>
+<% end %>

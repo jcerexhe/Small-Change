@@ -14,34 +14,24 @@
               <tr class='charity-cat-first-row'>
                 <th>Amount</th>
                 <th>Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Date</th>
+                <th>Created at</th>
                 <th>Submission</th>
                 <th>Category</th>
+                <th>Email</th>
+                <th>Mobile</th>
                 <th>
-                  <center><span type="button" data-toggle="popover" data-placement="top" data-html="true"  data-content="<div> Only donors with the <i class='fa fa-toggle-on'></i> icon have consented to be contacted by <%= @charity.name%>. </div>" data-trigger="hover"><i style="font-size:18px;" class="fa fa-question-circle contact-icon"></i>Contact</span></center>
+                <center><span type="button" data-toggle="popover" data-placement="top" data-html="true"  data-content="<div> Only donors with the <i class='fa fa-check'></i> icon have consented to be contacted by <%= @charity.name%>. </div>" data-trigger="hover"><i style="font-size:18px;" class="fa fa-question-circle contact-icon"></i>Contact</span></center>
+                </th>
+                <th>
+                  <center><span type="button" data-toggle="popover" data-placement="top" data-html="true"  data-content="<div><%= @charity.name%> has bought the contact information of donors with the <i class='fa fa-check'></i> icon. </div>" data-trigger="hover"><i style="font-size:18px;" class="fa fa-question-circle contact-icon"></i>Paid</span></center>
+                </th>
+                <th>
+                  <center><span type="button" data-toggle="popover" data-placement="top" data-html="true"  data-content="<div> Only donors with the  <i class='fa fa-unlock'></i> icon can be contacted by <%= @charity.name%>. </div>" data-trigger="hover"><i style="font-size:18px;" class="fa fa-question-circle contact-icon"></i>Available</span></center>
                 </th>
               </tr>
             </thead>
-
             <tbody>
-              <% @donations.each do |donation| %>
-                <tr class='charity-cat-row'>
-                  <td>$<%= donation.amount/100 %>0</td>
-                  <td><%= donation.user.first_name + " " + donation.user.last_name if donation.user_id.present? %></td>
-                  <td><%= donation.user_id.present? ? @users.find(donation.user_id).email : donation.email %></td>
-                  <% if donation.user_id %>
-                    <td><%= @users.find(donation.user_id).mobile if @users.find(donation.user_id).mobile %></td>
-                    <% else %>
-                    <td></td>
-                  <% end %>
-                  <td><%= donation.created_at.to_formatted_s(:short) %>
-                  <td><a target="_blank" href="<%= Submission.find(donation.submission_id).url %>"><%= donation.submission.title %></a></td>
-                  <td> <%= @charity_categories.find(donation.charity_category_id).category_name if donation.charity_category_id.present?%></td>
-                  <td><center><i class="fa fa-toggle-<%= donation.contact_me ? "on" : "off"%>" aria-hidden="true"></i></center></td>
-                </tr>
-              <% end %>
+              <%= render 'donor_list' %>
             </tbody>
           </table>
         </div>

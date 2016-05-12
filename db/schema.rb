@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160504071718) do
+ActiveRecord::Schema.define(version: 20160512015907) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 20160504071718) do
     t.string   "submission_url"
     t.integer  "charity_category_id"
     t.boolean  "contact_me"
+    t.boolean  "paid"
   end
 
   add_index "donations", ["charity_id"], name: "index_donations_on_charity_id", using: :btree
