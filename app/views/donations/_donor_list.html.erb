@@ -8,7 +8,7 @@
 
 <!-- if special charity, show mobile and email even if contact is set to 'no'
  -->    
-    <% if @special_charity %>
+    <% if @special_charity || current_user.admin %>
       <td class="available-on-purchase"><%= donation.user_id.present? ? @users.find(donation.user_id).email : donation.email %></td>
         <% if donation.user_id %>
           <td class="available-on-purchase"><%= @users.find(donation.user_id).mobile if @users.find(donation.user_id).mobile %></td>

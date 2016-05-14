@@ -2,31 +2,41 @@ class CharitiesController < ApplicationController
   before_action :set_charity, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_admin
 
-  # GET /charities
-  # GET /charities.json
   def index
     @charities = Charity.all
   end
 
-  # GET /charities/1
-  # GET /charities/1.json
   def show
+    @users = User.all
     @charities = Charity.all
+    @charity = Charity.find(params[:id])
+    @charity_categories = CharityCategory.all
     @submission = Submission.new
     @submissions = Submission.all
+    @donations_with_double_ups = Donation.where(charity_id: @charity.id, contact_me: true, paid: nil)
+    @unique_sellable_users = []
+    email_list = []
+
+    @donations_with_double_ups.each do |d|
+      unless email_list.include?(d.email)
+        @unique_sellable_users << d
+      end
+      email_list << d.email
+    end
+    @donations = @unique_sellable_users
+    respond_to do |format|
+      format.html
+      format.csv { send_data @donations.to_csv}
+    end
   end
 
-  # GET /charities/new
   def new
     @charity = Charity.new
   end
 
-  # GET /charities/1/edit
   def edit
   end
 
-  # POST /charities
-  # POST /charities.json
   def create
     @charity = Charity.new(charity_params)
 
@@ -41,8 +51,6 @@ class CharitiesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /charities/1
-  # PATCH/PUT /charities/1.json
   def update
     respond_to do |format|
       if @charity.update(charity_params)
@@ -55,8 +63,6 @@ class CharitiesController < ApplicationController
     end
   end
 
-  # DELETE /charities/1
-  # DELETE /charities/1.json
   def destroy
     @charity.destroy
     respond_to do |format|

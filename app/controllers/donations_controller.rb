@@ -25,15 +25,6 @@ class DonationsController < ApplicationController
         else
           @donations = Donation.where(charity_id: current_user.charity_id)
       end 
-        respond_to do |format|
-          format.html
-          if @special_charity
-            format.csv { send_data @donations.to_csv_special }
-          else
-            format.csv { send_data @donations.to_csv_normal}
-          end
-        end
-      end
     end
   end
 
