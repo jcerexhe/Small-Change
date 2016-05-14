@@ -19,12 +19,13 @@ class DonationsController < ApplicationController
       if current_user.charity_id
         @charity = Charity.find(current_user.charity_id)
         if params[:most_recent]
-          @donations= Donation.where(charity_id: current_user.charity_id).most_recent
+          @donations = Donation.where(charity_id: current_user.charity_id).most_recent
         elsif params[:amount]
-          @donations=Donation.where(charity_id: current_user.charity_id).amount_size
+          @donations = Donation.where(charity_id: current_user.charity_id).amount_size
         else
           @donations = Donation.where(charity_id: current_user.charity_id)
-      end 
+        end
+
         respond_to do |format|
           format.html
           if @special_charity
@@ -35,6 +36,19 @@ class DonationsController < ApplicationController
         end
       end
     end
+
+    @unique_sellable_users = []
+    email_list = []
+    @donations.where("contact_me = ? AND paid = ?", true, false).each do |d|
+      # need to make paid default to false for query to work
+      unless email_list.include?(d.email)
+        @unique_sellable_users << d
+      end
+      email_list << d.email
+      puts email_list
+    end
+    puts "8" * 80
+    puts @unique_sellable_users.count
   end
 
   def thanks
