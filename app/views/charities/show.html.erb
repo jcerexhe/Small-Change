@@ -5,7 +5,7 @@
   <%= link_to '<i class="fa fa-pencil" aria-hidden="true"></i> Edit
   '.html_safe + @charity.name, edit_charity_path(@charity), class: 'btn edit-charity pull-right' %>
   <h1 class="sc-header"><%= @charity.name %> (<%= @donations.count %> unpaid donors)</h1>
-  <h2 class="charity-heading"> Available for purchase. Some of these donors may have donated for <%= @charity.name %> more than once.</h2>
+  <h2 class="charity-heading"> Some of these donors may have donated to <%= @charity.name %> more than once (since we last got paid by <%= @charity.name %>). However, if we've already been paid by <%= @charity.name %> for a specific donor's details in the past, then their details won't be shown below. </h2>
 </div>
 
   <% if user_signed_in? %>

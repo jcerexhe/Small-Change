@@ -13,21 +13,19 @@ class CharitiesController < ApplicationController
     @charity_categories = CharityCategory.all
     @submission = Submission.new
     @submissions = Submission.all
-    @donations_with_double_ups = Donation.where(charity_id: @charity.id, contact_me: true, paid: nil)
     @unique_sellable_users = []
     email_list = []
+    @donations_time_ordered = Donation.all.most_recent
 
-    @donations_with_double_ups.each do |d|
-      unless email_list.include?(d.email)
+    @donations_time_ordered.reverse.each do |d|
+      if d.charity_id == @charity.id && d.contact_me == true && d.paid == nil && !email_list.include?(d.email)
         @unique_sellable_users << d
+        email_list << d.email
+      elsif d.charity_id == @charity.id && d.contact_me && d.paid == true
+        email_list << d.email
       end
-      email_list << d.email
     end
     @donations = @unique_sellable_users
-    respond_to do |format|
-      format.html
-      format.csv { send_data @donations.to_csv}
-    end
   end
 
   def new
