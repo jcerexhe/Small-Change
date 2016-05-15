@@ -13,13 +13,14 @@ class DonationsController < ApplicationController
     @donations_time_ordered = Donation.all.most_recent
 
     @donations_time_ordered.reverse.each do |d|
-      if d.charity_id == 2 && d.contact_me == true && d.paid == nil && !email_list.include?(d.email)
+      if d.charity_id == @charity.id && d.contact_me == true && d.paid == nil && !email_list.include?(d.email)
         @unique_sellable_users << d
         email_list << d.email
-      elsif d.charity_id == 2 && d.contact_me && d.paid == true
+      elsif d.charity_id == @charity.id && d.contact_me && d.paid == true
         email_list << d.email
       end
     end
+
 
     special_charities = ["Cancer Council", "Greenpeace"]
     special_charities.each do |special_charity|
