@@ -3,11 +3,13 @@
     <% if current_user.charity_id %>
       <div class="form-box">
         <div class='col-xs-12 col-md-10 col-md-offset-1'>
-          <h1 class="donation-header"><%=@charity.name %> Donor List </h1>
+          <h1 class="donation-header"> 
+            <p class="unique_user_counter_text"><%= @unique_sellable_users.count %> new donors available for purchase </p><%= mail_to "henry@smallchangegiving.co" , '<i class="fa fa-envelope" aria-hidden="true"></i> Email Henry'.html_safe, class: "email-henry", subject: @charity.name+" would like to purchase donor contact information." %></h1>
           <%= link_to '<i class="fa fa-clock-o" aria-hidden="true"></i> Most Recent'.html_safe, donations_path(most_recent: true), class: "btn btn-black btn-md" %>
           <%= link_to '<i class="fa fa-money" aria-hidden="true"></i> Amount'.html_safe, donations_path(amount: true), class: "btn btn-black btn-md" %>
           <%= link_to '<i class="fa fa-download" aria-hidden="true"></i> Export'.html_safe, '/donations.csv', class: "btn btn-black btn-md pull-right" %>
         </div>
+      </div>
         <div class='col-xs-12 col-md-10 col-md-offset-1' style="margin-top:20px">
           <table class="table table-hover">
             <thead>
