@@ -65,6 +65,7 @@
   padding-bottom: 50px;
   padding-top: 40px;
   letter-spacing: 1px;
+  font-size: 17px;
 }
 
 .charity-logo-donation {
@@ -108,4 +109,25 @@
 .available-on-purchase {
   font-weight: 100;
   
+}
+
+.unique_user_counter_text {
+  color: white;
+  font-weight: 100;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  text-align: center;
+  text-decoration: italic;
+  font-size: 30px;
+}
+
+.email-henry {
+  color: white;
+}
+
+.email-henry:hover {
+  text-decoration: underline;
+  color: white;
 }

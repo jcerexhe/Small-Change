@@ -1,52 +1,50 @@
 <div class="container">
-  <div class="form-box">
-    <div class='col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1'>
-
-    <p>
-      <strong>Name:</strong>
-      <%= @charity.name %>
-    </p>
-
-    <p>
-      <strong>Blurb:</strong>
-      <%= @charity.blurb %>
-    </p>
-
-    <p>
-      <strong>URL:</strong>
-      <%= @charity.url %>
-    </p>
-    <p>
-      <strong>BSB:</strong>
-      <%= @charity.bsb %>
-    </p>
-
-    <p>
-      <strong>Logo:</strong>
-      <%= image_tag @charity.logo, width: '200px', class: 'img-responsive' %>
-    </p>
 
 
-    <p>
-      <strong>Account number:</strong>
-      <%= @charity.account_number %>
-    </p>
-
-    <p>
-      <strong>Contact name:</strong>
-      <%= @charity.contact_name %>
-    </p>
-
-    <p>
-      <strong>Contact email:</strong>
-      <%= @charity.contact_email %>
-    </p>
-
-    <%= link_to 'Edit', edit_charity_path(@charity) %> |
-    <%= link_to 'Back', charities_path %>
-
-    </div>
-  </div>
+<div class='col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1'>
+  <%= link_to '<i class="fa fa-pencil" aria-hidden="true"></i> Edit
+  '.html_safe + @charity.name, edit_charity_path(@charity), class: 'btn edit-charity pull-right' %>
+  <h1 class="sc-header"><%= @charity.name %> (<%= @donations.count %> unpaid donors)</h1>
+  <h2 class="charity-heading"> Some of these donors may have donated to <%= @charity.name %> more than once (since we last got paid by <%= @charity.name %>). However, if we've already been paid by <%= @charity.name %> for a specific donor's details in the past, then their details won't be shown below. </h2>
 </div>
+
+  <% if user_signed_in? %>
+    <div class="form-box">
+      <div class='col-xs-12 col-md-10 col-md-offset-1' style="margin-top:20px">
+        <table class="table table-hover">
+          <thead>
+            <tr class='charity-cat-first-row'>
+              <th>Amount</th>
+              <th>Name</th>
+              <th>Created at</th>
+              <th>Submission</th>
+              <th>Category</th>
+              <th>Email</th>
+              <th>Mobile</th>
+              <th>
+              <center><span type="button" data-toggle="popover" data-placement="top" data-html="true"  data-content="<div> Only donors with the <i class='fa fa-check'></i> icon have consented to be contacted by <%= @charity.name%>. </div>" data-trigger="hover"><i style="font-size:18px;" class="fa fa-question-circle contact-icon"></i>Contact</span></center>
+              </th>
+              <th>
+                <center><span type="button" data-toggle="popover" data-placement="top" data-html="true"  data-content="<div><%= @charity.name%> has bought the contact information of donors with the <i class='fa fa-check'></i> icon. </div>" data-trigger="hover"><i style="font-size:18px;" class="fa fa-question-circle contact-icon"></i>Paid</span></center>
+              </th>
+              <th>
+                <center><span type="button" data-toggle="popover" data-placement="top" data-html="true"  data-content="<div> Only donors with the  <i class='fa fa-unlock'></i> icon can be contacted by <%= @charity.name%>. </div>" data-trigger="hover"><i style="font-size:18px;" class="fa fa-question-circle contact-icon"></i>Available</span></center>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render 'donations/donor_list' %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<script>
+  $(function () {
+    $('[data-toggle="popover"]').popover()
+  })
+</script>
 
 

@@ -6,6 +6,21 @@ class DonationsController < ApplicationController
   def index
     @users = User.all
     @charity_categories = CharityCategory.all
+    @charity = Charity.find(current_user.charity_id)
+
+    @unique_sellable_users = []
+    email_list = []
+    @donations_time_ordered = Donation.all.most_recent
+
+    @donations_time_ordered.reverse.each do |d|
+      if d.charity_id == @charity.id && d.contact_me == true && d.paid == nil && !email_list.include?(d.email)
+        @unique_sellable_users << d
+        email_list << d.email
+      elsif d.charity_id == @charity.id && d.contact_me && d.paid == true
+        email_list << d.email
+      end
+    end
+
 
     special_charities = ["Cancer Council", "Greenpeace"]
     special_charities.each do |special_charity|
