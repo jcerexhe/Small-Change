@@ -14,12 +14,9 @@
             <p id="card-text-thanks"><%= @submission.present? ? strip_url(@submission.url) : example.com %></p>
           </div>
           <div class='col-xs-offset-2 col-xs-2'>
-            <a href="https://www.facebook.com/smallchangegiving/?fref=ts">
+            <a href="http://www.facebook.com/sharer.php?u=<%= submission_url(@submission.slug) %>/&t=Small Change Giving" class="btn btn-share">
               <i class="fa fa-facebook-square facebook-icon"></i>
             </a>
-          </div>
-          <div class='col-xs-2'>
-            <i class="fa fa-twitter-square twitter-icon"></i>
           </div>
         </div>
       </div>
@@ -27,3 +24,20 @@
   </div>
 </div>
 
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1532051933754077',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
