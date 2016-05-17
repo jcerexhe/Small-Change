@@ -39,7 +39,7 @@ class DonationsController < ApplicationController
           @donations=Donation.where(charity_id: current_user.charity_id).amount_size
         else
           @donations = Donation.where(charity_id: current_user.charity_id)
-      end 
+      end
         respond_to do |format|
           format.html
           if @special_charity
@@ -67,6 +67,7 @@ class DonationsController < ApplicationController
   def create
     @donation = Donation.new(donation_params)
     @donation.save!
+    redirect_to thanks_path
   end
 
   def destroy
