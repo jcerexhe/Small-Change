@@ -57,7 +57,7 @@ class DonationsController < ApplicationController
       @donation = current_user.donations.last
     else
       @donation = Donation.where(email: params[:email]).last
-      @email = @donation.email
+      @email = @donation.email if @donation.email
     end
     @charity = Charity.find(@donation.charity_id)
     @amount = @donation.amount / 100

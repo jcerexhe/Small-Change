@@ -6,7 +6,9 @@
           <div class="envelope-icon">
             <i class="fa fa-envelope-o fa-4x"></i>
           </div>
-          <p class="confirmation-email"> We sent a confirmation email to <%= user_signed_in? ? current_user.email : @email %></p>
+          <% if user_signed_in? && @donation.email %>
+            <p class="confirmation-email"> We sent a confirmation email to <%= current_user.email %></p>
+          <% end %>
           <div class='row'>
             <div class="col-sm-offset-4 col-sm-4">
               <%= render 'donation_card' %>
@@ -14,7 +16,7 @@
           </div>
           <div class="col-sm-offset-3 col-sm-6">
           </div>
-        <% unless current_user %>
+        <% unless user_signed_in? %>
           <div class="col-xs-12 col-sm-10 col-sm-offset-1">
             <p class="couldnt-help"></p>
             <div class='row'>
