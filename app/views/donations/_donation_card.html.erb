@@ -5,17 +5,18 @@
       <div class="row">
         <div class="col-xs-12">
           <h4 id="card-title"><%= @submission ? @submission.title : "Title" %></h4>
-          <p class="donation-brag"> <%= current_user ? current_user.first_name : "I" %> small changed <%= number_to_currency(@amount) %> to <%= @charity.name %> after reading this article. </p>
+          <p class="donation-brag"> <%= @submission.description %></p>
         </div>
       </div>
       <div class="card-bottom">
         <div class='row'>
           <div class='col-xs-5 col-offset-1'>
-            <p id="card-text-thanks"><%= @submission.present? ? strip_url(@submission.url) : example.com %></p>
+            <p id="card-text-thanks"><%= @submission.present? ? truncate(strip_url(@submission.url), length:20) : example.com %></p>
           </div>
           <div class='col-xs-offset-2 col-xs-2'>
-            <a href="http://www.facebook.com/sharer.php?u=<%= submission_url(@submission.slug) %>/&t=Small Change Giving" class="btn btn-share">
-              <i class="fa fa-facebook-square facebook-icon"></i>
+            <a href="http://www.facebook.com/sharer.php?u=<%= submission_url(@submission.slug) %>/&t=Small Change Giving" class="btn btn-thanks-share">
+              <i class="fa fa-facebook-square facebook-icon"></i><p class="share-text"> Share</p>
+
             </a>
           </div>
         </div>
